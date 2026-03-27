@@ -107,6 +107,7 @@ jobs:
           SOURCE_REPO: ${{ github.repository }}
           SOURCE_COMMIT: ${{ steps.meta.outputs.source_commit }}
           RELEASES_COMMIT: ${{ steps.meta.outputs.releases_commit }}
+          PR_REVIEWER: ${{ vars.PR_REVIEWER }}
         run: |
           if [[ ! -f README.md ]]; then
             echo "::error::README.md not found on the releases branch - has the Publish Plugins workflow run yet?"
@@ -185,11 +186,14 @@ jobs:
           else
             PR_BODY=$(printf 'Automated update of the plugin releases listings generated from [`%s`](https://github.com/%s).\n\n%s' \
               "$SOURCE_REPO" "$SOURCE_REPO" "$(build_summary)")
+            REVIEWER_ARGS=()
+            [[ -n "${PR_REVIEWER:-}" ]] && REVIEWER_ARGS+=(--reviewer "${PR_REVIEWER#@}")
             gh pr create \
               --repo "$TARGET_REPO" \
               --head "$BRANCH" \
               --base "$DEFAULT_BRANCH" \
               --title "chore: update plugin releases listings" \
-              --body "$PR_BODY"
+              --body "$PR_BODY" \
+              "${REVIEWER_ARGS[@]}"
             echo "Created new PR"
           fi
