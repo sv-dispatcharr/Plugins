@@ -85,8 +85,9 @@ jobs:
           # Remove the intro paragraph and Quick Access section that are only
           # relevant on the releases branch itself, keeping everything from
           # "## Available Plugins" onward (preserving the "# Plugin Releases" title).
-          awk '
-            /^# Plugin Releases/ { print; next }
+          CONTRIB_URL="https://github.com/${SOURCE_REPO}/blob/main/CONTRIBUTING.md"
+          awk -v contrib="$CONTRIB_URL" '
+            /^# Plugin Releases/ { print; print ""; print "Want to get your plugin added to this list? Check out the [plugin repository](" contrib ") to learn how to contribute."; next }
             /^## Available Plugins/ { found=1 }
             found { print }
           ' README.md > README.stripped.md
