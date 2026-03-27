@@ -29,14 +29,16 @@ jobs:
 
       - name: Load and validate configuration
         id: config
+        env:
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           if [[ ! -f .github/scripts/config.env ]]; then
             echo "::error::.github/scripts/config.env not found."
             exit 1
           fi
           source .github/scripts/config.env
-          if [[ -z "$EXTERNAL_README_REPO" || -z "$EXTERNAL_README_PATH" || -z "$GH_APP_ID" ]]; then
-            echo "::notice::EXTERNAL_README_REPO, EXTERNAL_README_PATH, or GH_APP_ID not set in config.env — skipping."
+          if [[ -z "$EXTERNAL_README_REPO" || -z "$EXTERNAL_README_PATH" || -z "$GH_APP_ID" || -z "${GH_APP_PRIVATE_KEY:-}" ]]; then
+            echo "::notice::EXTERNAL_README_REPO, EXTERNAL_README_PATH, GH_APP_ID, or GH_APP_PRIVATE_KEY not configured — skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false"         >> "$GITHUB_OUTPUT"

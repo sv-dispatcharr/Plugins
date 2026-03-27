@@ -36,11 +36,13 @@ jobs:
 
       - name: Load app ID from config
         id: config
+        env:
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           if [[ -f .github/scripts/config.env ]]; then
             source .github/scripts/config.env
           fi
-          if [[ -n "${GH_APP_ID:-}" ]]; then
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
           else
@@ -58,7 +60,7 @@ jobs:
       - name: Log fallback to actions token
         if: steps.config.outputs.use_app != 'true'
         run: |
-          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Post draft notice
         env:
@@ -129,11 +131,13 @@ jobs:
 
       - name: Load app ID from config
         id: config
+        env:
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           if [[ -f .github/scripts/config.env ]]; then
             source .github/scripts/config.env
           fi
-          if [[ -n "${GH_APP_ID:-}" ]]; then
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
           else
@@ -151,7 +155,7 @@ jobs:
       - name: Log fallback to actions token
         if: steps.config.outputs.use_app != 'true'
         run: |
-          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Detect changed plugins
         id: detect
@@ -183,11 +187,13 @@ jobs:
 
       - name: Load app ID from config
         id: config
+        env:
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           if [[ -f .github/scripts/config.env ]]; then
             source .github/scripts/config.env
           fi
-          if [[ -n "${GH_APP_ID:-}" ]]; then
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
           else
@@ -205,7 +211,7 @@ jobs:
       - name: Log fallback to actions token
         if: steps.config.outputs.use_app != 'true'
         run: |
-          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Apply labels
         env:
@@ -503,11 +509,13 @@ jobs:
 
       - name: Load app ID from config
         id: config
+        env:
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           if [[ -f .github/scripts/config.env ]]; then
             source .github/scripts/config.env
           fi
-          if [[ -n "${GH_APP_ID:-}" ]]; then
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
           else
@@ -525,7 +533,7 @@ jobs:
       - name: Log fallback to actions token
         if: steps.config.outputs.use_app != 'true'
         run: |
-          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Validate ${{ matrix.plugin }}
         id: validate
@@ -571,11 +579,13 @@ jobs:
 
       - name: Load app ID from config
         id: config
+        env:
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           if [[ -f .github/scripts/config.env ]]; then
             source .github/scripts/config.env
           fi
-          if [[ -n "${GH_APP_ID:-}" ]]; then
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
           else
@@ -593,7 +603,7 @@ jobs:
       - name: Log fallback to actions token
         if: steps.config.outputs.use_app != 'true'
         run: |
-          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Download all report fragments
         uses: actions/download-artifact@v4
@@ -663,11 +673,13 @@ jobs:
 
       - name: Load app ID from config
         id: config
+        env:
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           if [[ -f .github/scripts/config.env ]]; then
             source .github/scripts/config.env
           fi
-          if [[ -n "${GH_APP_ID:-}" ]]; then
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
           else
@@ -685,7 +697,7 @@ jobs:
       - name: Log fallback to actions token
         if: steps.config.outputs.use_app != 'true'
         run: |
-          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Post close comment and close PR
         env:
