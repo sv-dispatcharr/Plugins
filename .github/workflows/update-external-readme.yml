@@ -157,7 +157,7 @@ jobs:
           # Upload file (base64-encoded content is required by the GitHub Contents API)
           PUT_ARGS=(
             -X PUT
-            -f message="chore: update plugin releases README"
+            -f message="chore: update plugin releases listing (source commit $SOURCE_COMMIT)"
             -f content="$(base64 -w 0 README.md)"
             -f branch="$BRANCH"
           )
@@ -179,13 +179,13 @@ jobs:
             gh pr comment "$EXISTING_PR" --repo "$TARGET_REPO" --body "$COMMENT"
             echo "Added update comment to existing PR #$EXISTING_PR"
           else
-            PR_BODY=$(printf 'Automated update of the plugin releases README generated from [`%s`](https://github.com/%s).\n\n%s' \
+            PR_BODY=$(printf 'Automated update of the plugin releases listings generated from [`%s`](https://github.com/%s).\n\n%s' \
               "$SOURCE_REPO" "$SOURCE_REPO" "$(build_summary)")
             gh pr create \
               --repo "$TARGET_REPO" \
               --head "$BRANCH" \
               --base "$DEFAULT_BRANCH" \
-              --title "chore: update plugin releases README" \
+              --title "chore: update plugin releases listings" \
               --body "$PR_BODY"
             echo "Created new PR"
           fi
