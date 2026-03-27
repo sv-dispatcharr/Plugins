@@ -213,13 +213,46 @@ has_permission="false"
   fi
 
   # Version bump
+  # These fields may be updated without a version bump - they are metadata only
+  # and do not affect the packaged ZIP artifact.
+  METADATA_ONLY_FIELDS=("description" "repo_url" "discord_thread"
+    "min_dispatcharr_version" "max_dispatcharr_version" "deprecated" "unlisted" "maintainers")
+
   if git show "origin/${BASE_REF}:${PLUGIN_JSON}" > /dev/null 2>&1; then
     OLD_VERSION=$(git show "origin/${BASE_REF}:${PLUGIN_JSON}" | jq -r '.version')
     if version_greater_than "$VERSION" "$OLD_VERSION"; then
       TABLE_ROWS+=("| Version bump | ✅ | \`$OLD_VERSION\` → \`$VERSION\` |")
     else
-      TABLE_ROWS+=("| Version bump | ❌ | \`$VERSION\` must be greater than current \`$OLD_VERSION\` |")
-      failed=1
+      # Version unchanged - check if every changed field is in the metadata-only allowlist
+      OLD_JSON=$(git show "origin/${BASE_REF}:${PLUGIN_JSON}")
+      NEW_JSON=$(cat "$PLUGIN_JSON")
+
+      # Produce a newline-separated list of field names that differ (raw strings, no quotes)
+      changed_fields=$(jq -rn \
+        --argjson old "$OLD_JSON" \
+        --argjson new "$NEW_JSON" \
+        '[$new | keys[]] | map(select($old[.] != $new[.])) | .[]' 2>/dev/null || true)
+
+      metadata_only_change=true
+      while IFS= read -r field; do
+        [[ -z "$field" ]] && continue
+        allowed=false
+        for mf in "${METADATA_ONLY_FIELDS[@]}"; do
+          [[ "$field" == "$mf" ]] && allowed=true && break
+        done
+        $allowed || { metadata_only_change=false; break; }
+      done <<< "$changed_fields"
+
+      if $metadata_only_change && [[ -n "$changed_fields" ]]; then
+        TABLE_ROWS+=("| Version bump | ✅ | \`$OLD_VERSION\` (unchanged - metadata-only update) |")
+      elif $metadata_only_change && [[ -z "$changed_fields" ]]; then
+        # Nothing changed at all - still require a bump so PRs aren't no-ops
+        TABLE_ROWS+=("| Version bump | ❌ | No changes detected - nothing to publish |")
+        failed=1
+      else
+        TABLE_ROWS+=("| Version bump | ❌ | \`$VERSION\` must be greater than current \`$OLD_VERSION\` |")
+        failed=1
+      fi
     fi
   else
     TABLE_ROWS+=("| Version bump | ✅ | New plugin |")

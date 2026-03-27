@@ -34,7 +34,7 @@ Plugin folder names must be **lowercase-kebab-case** (e.g. `my-plugin-name`).
 4. Optionally add a `README.md` and `logo.png`
 5. Submit a pull request to `main`
 
-For **updates**, increment the version in `plugin.json` - the validation workflow enforces this.
+For **updates**, increment the version in `plugin.json` - the validation workflow enforces this. Exception: some metadata-only fields (`description`, `repo_url`, `discord_thread`, `maintainers`, `min_dispatcharr_version`, `max_dispatcharr_version`, `deprecated`, `unlisted`) can be updated without a version bump.
 
 ## `plugin.json` Spec
 
@@ -99,7 +99,7 @@ Automated validation runs on every PR and posts a comment with results. The foll
 | JSON syntax | Must be valid JSON |
 | Required fields | `name`, `version`, `description`, `author` or `maintainers`, `license` |
 | Version format | Must be `MAJOR.MINOR.PATCH` (semver) |
-| Version bump | Must be greater than the current published version |
+| Version bump | Must be greater than the current published version (see [metadata-only exceptions](#versioning)) |
 | Permission | PR author must be listed in `author` or `maintainers` |
 | License | Must be a valid OSI-approved SPDX identifier |
 | `min_dispatcharr_version` | Must be semver if provided |
@@ -132,6 +132,19 @@ Plugins use [semantic versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`):
 - **MAJOR** - breaking changes
 
 Version increments are enforced by the validation workflow. You cannot submit a PR with the same or lower version than the currently published plugin.
+
+**Metadata-only updates** are an exception - the following fields can be changed without bumping the version:
+
+- `description`
+- `repo_url`
+- `discord_thread`
+- `maintainers`
+- `min_dispatcharr_version`
+- `max_dispatcharr_version`
+- `deprecated`
+- `unlisted`
+
+All other fields - including `name`, `author`, `license`, and any code changes - require a version bump.
 
 ## Licensing
 
