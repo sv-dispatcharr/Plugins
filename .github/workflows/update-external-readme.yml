@@ -150,9 +150,21 @@ jobs:
             echo "Created branch $BRANCH"
           fi
 
-          # Get the existing file SHA from the branch (required by the API to update; absent means create)
-          FILE_SHA=$(gh api "repos/$TARGET_REPO/contents/$TARGET_PATH?ref=$BRANCH" \
-            --jq '.sha' 2>/dev/null || true)
+          # Get the existing file SHA and content from the branch
+          EXISTING_RESPONSE=$(gh api "repos/$TARGET_REPO/contents/$TARGET_PATH?ref=$BRANCH" 2>/dev/null || true)
+          FILE_SHA=$(echo "$EXISTING_RESPONSE" | jq -r '.sha // empty')
+
+          # Skip if the only change is the timestamp line at the bottom of the README
+          if [[ -n "$FILE_SHA" ]]; then
+            EXISTING_CONTENT=$(echo "$EXISTING_RESPONSE" | jq -r '.content' | base64 -d 2>/dev/null || true)
+            NEW_STRIPPED=$(grep -v '^\*Last updated:' README.md || true)
+            EXISTING_STRIPPED=$(echo "$EXISTING_CONTENT" | grep -v '^\*Last updated:' || true)
+            if [[ "$NEW_STRIPPED" == "$EXISTING_STRIPPED" ]]; then
+              echo "README content unchanged (only timestamp differs) — skipping."
+              echo "::notice::External README not updated: only the timestamp line changed."
+              exit 0
+            fi
+          fi
 
           # Upload file (base64-encoded content is required by the GitHub Contents API)
           PUT_ARGS=(
