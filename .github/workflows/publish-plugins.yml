@@ -23,7 +23,7 @@ on:
   workflow_dispatch:
     inputs:
       force_rebuild:
-        description: 'Wipe and recreate the releases branch from scratch. WARNING: purges all version history — only the latest version of each plugin will be retained.'
+        description: 'Wipe and recreate the releases branch from scratch. WARNING: purges all version history - only the latest version of each plugin will be retained.'
         type: boolean
         default: false
         required: false

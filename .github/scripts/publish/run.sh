@@ -36,9 +36,9 @@ echo "Cloning repository..."
 git clone --no-checkout "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$WORK_DIR/repo"
 cd "$WORK_DIR/repo"
 
-# Configure git — use GitHub App bot identity when available, otherwise fall back
+# Configure git - use GitHub App bot identity when available, otherwise fall back
 # to the generic github-actions[bot] identity.
-# NOTE: the email uses the bot *user* ID (not the App ID) — GitHub resolves commit
+# NOTE: the email uses the bot *user* ID (not the App ID) - GitHub resolves commit
 # authorship by matching this ID+slug[bot]@users.noreply.github.com to the bot account.
 if [[ -n "${APP_SLUG:-}" ]]; then
   BOT_USER_ID=$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq '.id' 2>/dev/null || echo "")
@@ -46,7 +46,7 @@ if [[ -n "${APP_SLUG:-}" ]]; then
   if [[ -n "$BOT_USER_ID" ]]; then
     git config user.email "${BOT_USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
   else
-    # Fallback if the API call fails — avatar may not resolve but commits still work
+    # Fallback if the API call fails - avatar may not resolve but commits still work
     git config user.email "${APP_SLUG}[bot]@users.noreply.github.com"
   fi
 else

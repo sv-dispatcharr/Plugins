@@ -38,7 +38,7 @@ jobs:
           fi
           source .github/scripts/config.env
           if [[ -z "$EXTERNAL_README_REPO" || -z "$EXTERNAL_README_PATH" || -z "$GH_APP_ID" || -z "${GH_APP_PRIVATE_KEY:-}" ]]; then
-            echo "::notice::EXTERNAL_README_REPO, EXTERNAL_README_PATH, GH_APP_ID, or GH_APP_PRIVATE_KEY not configured — skipping."
+            echo "::notice::EXTERNAL_README_REPO, EXTERNAL_README_PATH, GH_APP_ID, or GH_APP_PRIVATE_KEY not configured - skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false"         >> "$GITHUB_OUTPUT"
@@ -76,7 +76,7 @@ jobs:
           # Extract source commit SHA from "Source commit: <sha>" line
           SOURCE_COMMIT=$(echo "$COMMIT_MSG" | grep -oP '(?<=Source commit: )[0-9a-f]+' || true)
 
-          # Extract plugin list — lines starting with "- " after the source commit line
+          # Extract plugin list - lines starting with "- " after the source commit line
           PLUGIN_LIST=$(echo "$COMMIT_MSG" | grep -E '^\- [a-z0-9].*@' || true)
 
           RELEASES_COMMIT=$(git rev-parse --short HEAD)
@@ -119,7 +119,7 @@ jobs:
           RELEASES_COMMIT: ${{ steps.meta.outputs.releases_commit }}
         run: |
           if [[ ! -f README.md ]]; then
-            echo "::error::README.md not found on the releases branch — has the Publish Plugins workflow run yet?"
+            echo "::error::README.md not found on the releases branch - has the Publish Plugins workflow run yet?"
             exit 1
           fi
 
@@ -162,7 +162,7 @@ jobs:
             NEW_STRIPPED=$(grep -v '^\*Last updated:' README.md || true)
             EXISTING_STRIPPED=$(echo "$EXISTING_CONTENT" | grep -v '^\*Last updated:' || true)
             if [[ "$NEW_STRIPPED" == "$EXISTING_STRIPPED" ]]; then
-              echo "README content unchanged (only timestamp differs) — skipping."
+              echo "README content unchanged (only timestamp differs) - skipping."
               echo "::notice::External README not updated: only the timestamp line changed."
               exit 0
             fi
