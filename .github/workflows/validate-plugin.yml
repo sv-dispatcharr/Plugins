@@ -26,16 +26,51 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Checkout config
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 1
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+
+      - name: Load app ID from config
+        id: config
+        run: |
+          if [[ -f .github/scripts/config.env ]]; then
+            source .github/scripts/config.env
+          fi
+          if [[ -n "${GH_APP_ID:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Log fallback to actions token
+        if: steps.config.outputs.use_app != 'true'
+        run: |
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Post draft notice
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
+          BOT_LOGIN: ${{ steps.config.outputs.use_app == 'true' && format('{0}[bot]', steps.app-token.outputs.app-slug) || 'github-actions[bot]' }}
           GH_REPO: ${{ github.repository }}
         run: |
           MARKER="<!--PLUGIN_VALIDATION_DRAFT_NOTICE-->"
           COMMENT="$MARKER"$'\n'"This PR is currently a draft. Plugin validation will run once the PR is marked ready for review."
           EXISTING=$(gh pr view $PR_NUMBER --json comments \
-            | jq -r --arg marker "$MARKER" '.comments[] | select(.author.login=="github-actions[bot]") | select(.body | contains($marker)) | .id')
+            | jq -r --arg marker "$MARKER" --arg login "$BOT_LOGIN" '.comments[] | select(.author.login==$login) | select(.body | contains($marker)) | .id')
           if [ -n "$EXISTING" ]; then
             gh api "repos/${{ github.repository }}/issues/comments/$EXISTING" -X PATCH -f body="$COMMENT"
           else
@@ -92,10 +127,36 @@ jobs:
       - name: Re-fetch base branch refs
         run: git fetch https://github.com/${{ github.repository }} +${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
 
+      - name: Load app ID from config
+        id: config
+        run: |
+          if [[ -f .github/scripts/config.env ]]; then
+            source .github/scripts/config.env
+          fi
+          if [[ -n "${GH_APP_ID:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Log fallback to actions token
+        if: steps.config.outputs.use_app != 'true'
+        run: |
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Detect changed plugins
         id: detect
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           chmod +x .github/scripts/validate/*.sh
@@ -112,9 +173,43 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
+      - name: Checkout config
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 1
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+
+      - name: Load app ID from config
+        id: config
+        run: |
+          if [[ -f .github/scripts/config.env ]]; then
+            source .github/scripts/config.env
+          fi
+          if [[ -n "${GH_APP_ID:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Log fallback to actions token
+        if: steps.config.outputs.use_app != 'true'
+        run: |
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Apply labels
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
           GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HAS_NEW_PLUGIN: ${{ needs.detect-changes.outputs.has_new_plugin }}
@@ -406,10 +501,36 @@ jobs:
       - name: Re-fetch base branch refs
         run: git fetch https://github.com/${{ github.repository }} +${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
 
+      - name: Load app ID from config
+        id: config
+        run: |
+          if [[ -f .github/scripts/config.env ]]; then
+            source .github/scripts/config.env
+          fi
+          if [[ -n "${GH_APP_ID:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Log fallback to actions token
+        if: steps.config.outputs.use_app != 'true'
+        run: |
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Validate ${{ matrix.plugin }}
         id: validate
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           chmod +x .github/scripts/validate/*.sh
@@ -448,6 +569,32 @@ jobs:
           sparse-checkout: .github/scripts
           sparse-checkout-cone-mode: false
 
+      - name: Load app ID from config
+        id: config
+        run: |
+          if [[ -f .github/scripts/config.env ]]; then
+            source .github/scripts/config.env
+          fi
+          if [[ -n "${GH_APP_ID:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Log fallback to actions token
+        if: steps.config.outputs.use_app != 'true'
+        run: |
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Download all report fragments
         uses: actions/download-artifact@v4
         with:
@@ -473,7 +620,7 @@ jobs:
       - name: Aggregate and post comment
         id: report
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DISCORD_URL: ${{ vars.DISCORD_URL }}
           CODEQL_RESULT: ${{ needs.codeql-analyze.outputs.codeql_status }}
@@ -514,9 +661,35 @@ jobs:
           sparse-checkout: .github/scripts
           sparse-checkout-cone-mode: false
 
+      - name: Load app ID from config
+        id: config
+        run: |
+          if [[ -f .github/scripts/config.env ]]; then
+            source .github/scripts/config.env
+          fi
+          if [[ -n "${GH_APP_ID:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Log fallback to actions token
+        if: steps.config.outputs.use_app != 'true'
+        run: |
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID not set in `.github/scripts/config.env`. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Post close comment and close PR
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DISCORD_URL: ${{ vars.DISCORD_URL }}
           CLOSE_REASON: ${{ needs.detect-changes.outputs.close_reason }}

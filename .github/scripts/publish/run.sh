@@ -36,9 +36,15 @@ echo "Cloning repository..."
 git clone --no-checkout "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$WORK_DIR/repo"
 cd "$WORK_DIR/repo"
 
-# Configure git
-git config user.name "github-actions[bot]"
-git config user.email "github-actions[bot]@users.noreply.github.com"
+# Configure git — use GitHub App bot identity when available, otherwise fall back
+# to the generic github-actions[bot] identity.
+if [[ -n "${APP_SLUG:-}" && -n "${APP_ID:-}" ]]; then
+  git config user.name "${APP_SLUG}[bot]"
+  git config user.email "${APP_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+else
+  git config user.name "github-actions[bot]"
+  git config user.email "github-actions[bot]@users.noreply.github.com"
+fi
 
 # Checkout or create releases branch
 echo "Setting up $RELEASES_BRANCH branch..."

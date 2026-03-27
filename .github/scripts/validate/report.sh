@@ -197,6 +197,38 @@ done
   fi
 } > pr_comment.txt
 
+# Minimize all previous validation comments as outdated before posting the new one
+OWNER="${GITHUB_REPOSITORY%%/*}"
+REPO="${GITHUB_REPOSITORY##*/}"
+
+PREV_NODE_IDS=$(gh api graphql -f query='
+  query($owner: String!, $repo: String!, $number: Int!) {
+    repository(owner: $owner, name: $repo) {
+      pullRequest(number: $number) {
+        comments(first: 100) {
+          nodes { id body }
+        }
+      }
+    }
+  }
+' -f owner="$OWNER" -f repo="$REPO" -F number="$PR_NUMBER" \
+  --jq '.data.repository.pullRequest.comments.nodes[]
+        | select(.body | contains("<!--PLUGIN_VALIDATION_COMMENT-->"))
+        | .id' 2>/dev/null || true)
+
+if [[ -n "$PREV_NODE_IDS" ]]; then
+  while IFS= read -r node_id; do
+    gh api graphql -f query='
+      mutation($id: ID!) {
+        minimizeComment(input: {subjectId: $id, classifier: OUTDATED}) {
+          minimizedComment { isMinimized }
+        }
+      }
+    ' -f id="$node_id" > /dev/null 2>&1 || true
+  done <<< "$PREV_NODE_IDS"
+  echo "Minimized $(echo "$PREV_NODE_IDS" | wc -l | tr -d ' ') previous validation comment(s) as outdated"
+fi
+
 # Post PR comment - script succeeds/fails based on whether the comment posted
 gh pr comment "$PR_NUMBER" --body "$(cat pr_comment.txt)"
 COMMENT_EXIT=$?
