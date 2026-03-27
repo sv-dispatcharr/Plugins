@@ -38,12 +38,20 @@ cd "$WORK_DIR/repo"
 
 # Configure git — use GitHub App bot identity when available, otherwise fall back
 # to the generic github-actions[bot] identity.
-if [[ -n "${APP_SLUG:-}" && -n "${APP_ID:-}" ]]; then
+# NOTE: the email uses the bot *user* ID (not the App ID) — GitHub resolves commit
+# authorship by matching this ID+slug[bot]@users.noreply.github.com to the bot account.
+if [[ -n "${APP_SLUG:-}" ]]; then
+  BOT_USER_ID=$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq '.id' 2>/dev/null || echo "")
   git config user.name "${APP_SLUG}[bot]"
-  git config user.email "${APP_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+  if [[ -n "$BOT_USER_ID" ]]; then
+    git config user.email "${BOT_USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+  else
+    # Fallback if the API call fails — avatar may not resolve but commits still work
+    git config user.email "${APP_SLUG}[bot]@users.noreply.github.com"
+  fi
 else
   git config user.name "github-actions[bot]"
-  git config user.email "github-actions[bot]@users.noreply.github.com"
+  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 fi
 
 # Checkout or create releases branch

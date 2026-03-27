@@ -83,7 +83,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-          APP_ID: ${{ steps.config.outputs.app_id }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
