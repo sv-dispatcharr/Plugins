@@ -114,8 +114,8 @@ if git diff --cached --quiet; then
   echo "No changes to commit."
 else
   # Check whether the staged diff is purely timestamp noise:
-  #   README.md  — "*Last updated: ..." footer
-  #   manifest.json — "generated_at" field
+  #   README.md  - "*Last updated: ..." footer
+  #   manifest.json - "generated_at" field
   # Any other changed file (e.g. a ZIP) counts as a real change.
   only_timestamps=true
   while IFS= read -r changed_file; do

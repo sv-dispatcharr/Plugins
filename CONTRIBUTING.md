@@ -16,9 +16,13 @@
 plugins/
   your-plugin-name/
     plugin.json       # required
+    main.py           # your plugin's entry point
+    ...               # any other Python files, assets, or subdirectories
     README.md         # optional but recommended
     logo.png          # optional; displayed in the plugin browser
 ```
+
+All files inside your plugin folder - `main.py`, helper modules, assets, subdirectories - are automatically packaged into a ZIP on merge. There is no separate build step.
 
 Plugin folder names must be **lowercase-kebab-case** (e.g. `my-plugin-name`).
 

@@ -14,7 +14,7 @@ A repository for publishing and distributing Dispatcharr Python plugins with aut
 
 ## How It Works
 
-Each plugin lives in `plugins/<plugin-name>/` and must contain a valid `plugin.json`. When a PR is merged to `main`, plugins are automatically packaged and published to the [`releases` branch](https://github.com/Dispatcharr/Plugins/tree/releases).
+Each plugin lives in `plugins/<plugin-name>/` and must contain a valid `plugin.json` alongside `main.py` and any other code or assets. When a PR is merged to `main`, everything in the plugin folder is automatically packaged into a ZIP and published to the [`releases` branch](https://github.com/Dispatcharr/Plugins/tree/releases) - no separate build step required.
 
 ### PR Validation
 

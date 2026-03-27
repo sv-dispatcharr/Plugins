@@ -50,7 +50,7 @@ render_plugin() {
     echo ""
   fi
   echo "**Downloads:**"
-  echo "- [Latest Release (\`$version\`)]($zip_url)"
+  echo " [Latest Release (\`$version\`)]($zip_url)"
   echo "- [All Versions ($version_count available)]($releases_dir)"
   echo ""
 
