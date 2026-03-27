@@ -574,6 +574,8 @@ jobs:
       - name: Checkout scripts
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 1
           sparse-checkout: .github/scripts
           sparse-checkout-cone-mode: false
 
@@ -668,6 +670,8 @@ jobs:
       - name: Checkout scripts
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 1
           sparse-checkout: .github/scripts
           sparse-checkout-cone-mode: false
 
