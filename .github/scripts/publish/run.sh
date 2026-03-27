@@ -134,14 +134,21 @@ TREE_ENTRIES="[]"
 
 add_blob() {
   local path="$1"
-  local content_b64
-  content_b64=$(base64 -w 0 "$path")
+  local tmp_body
+  tmp_body=$(mktemp)
+  # Build the JSON body by writing directly to a file — avoids ARG_MAX limits
+  # from large ZIPs being passed as shell arguments.
+  {
+    printf '{"encoding":"base64","content":"'
+    base64 -w 0 "$path"
+    printf '"}'
+  } > "$tmp_body"
   local blob_sha
   blob_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/blobs" \
     -X POST \
-    -f encoding="base64" \
-    -f content="$content_b64" \
+    --input "$tmp_body" \
     --jq '.sha')
+  rm -f "$tmp_body"
   TREE_ENTRIES=$(echo "$TREE_ENTRIES" | jq \
     --arg p "$path" --arg s "$blob_sha" \
     '. + [{"path": $p, "mode": "100644", "type": "blob", "sha": $s}]')
@@ -157,12 +164,18 @@ for entry in "${PUBLISH_FILES[@]}"; do
   fi
 done
 
-# Create the new tree, rooted on the current base tree
+# Create the new tree, rooted on the current base tree.
+# Write the body to a temp file for the same reason (many/large tree entries).
+TREE_BODY_FILE=$(mktemp)
+jq -n \
+  --arg base "$BASE_TREE_SHA" \
+  --argjson tree "$TREE_ENTRIES" \
+  '{"base_tree": $base, "tree": $tree}' > "$TREE_BODY_FILE"
 NEW_TREE_SHA=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees" \
   -X POST \
-  -f "base_tree=${BASE_TREE_SHA}" \
-  --field "tree=$(echo "$TREE_ENTRIES")" \
+  --input "$TREE_BODY_FILE" \
   --jq '.sha')
+rm -f "$TREE_BODY_FILE"
 
 # Bail out early if nothing changed
 if [[ "$NEW_TREE_SHA" == "$BASE_TREE_SHA" ]]; then
