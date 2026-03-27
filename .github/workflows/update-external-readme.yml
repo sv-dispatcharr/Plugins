@@ -87,6 +87,8 @@ jobs:
 
       - name: Strip releases-branch preamble from README
         if: steps.config.outputs.skip != 'true'
+        env:
+          SOURCE_REPO: ${{ github.repository }}
         run: |
           # Remove the intro paragraph and Quick Access section that are only
           # relevant on the releases branch itself, keeping everything from
@@ -97,6 +99,12 @@ jobs:
             found { print }
           ' README.md > README.stripped.md
           mv README.stripped.md README.md
+
+          # Rewrite relative links (./zips/...) to absolute GitHub URLs pointing
+          # at the releases branch. Anchor links (#...) are unaffected because
+          # they never start with "./".
+          BASE_URL="https://github.com/${SOURCE_REPO}/tree/releases"
+          sed -i "s|](\./|](${BASE_URL}/|g" README.md
 
       - name: Create or update PR in target repo
         if: steps.config.outputs.skip != 'true'
