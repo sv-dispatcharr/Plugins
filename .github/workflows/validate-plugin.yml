@@ -37,11 +37,9 @@ jobs:
       - name: Load app ID from config
         id: config
         env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
-          if [[ -f .github/scripts/config.env ]]; then
-            source .github/scripts/config.env
-          fi
           if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
@@ -132,11 +130,9 @@ jobs:
       - name: Load app ID from config
         id: config
         env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
-          if [[ -f .github/scripts/config.env ]]; then
-            source .github/scripts/config.env
-          fi
           if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
@@ -188,11 +184,9 @@ jobs:
       - name: Load app ID from config
         id: config
         env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
-          if [[ -f .github/scripts/config.env ]]; then
-            source .github/scripts/config.env
-          fi
           if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
@@ -510,11 +504,9 @@ jobs:
       - name: Load app ID from config
         id: config
         env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
-          if [[ -f .github/scripts/config.env ]]; then
-            source .github/scripts/config.env
-          fi
           if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
@@ -582,11 +574,9 @@ jobs:
       - name: Load app ID from config
         id: config
         env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
-          if [[ -f .github/scripts/config.env ]]; then
-            source .github/scripts/config.env
-          fi
           if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"
@@ -678,11 +668,9 @@ jobs:
       - name: Load app ID from config
         id: config
         env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
-          if [[ -f .github/scripts/config.env ]]; then
-            source .github/scripts/config.env
-          fi
           if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
             echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
             echo "use_app=true" >> "$GITHUB_OUTPUT"

@@ -113,18 +113,46 @@ git add zips manifest.json README.md
 if git diff --cached --quiet; then
   echo "No changes to commit."
 else
-  source_commit=$(git rev-parse --short origin/$SOURCE_BRANCH)
-  plugin_list=""
-  if [[ -s changed_plugins.txt ]]; then
-    plugin_list="$(printf '\n\n')$(sed 's/^/- /' changed_plugins.txt)"
-  fi
+  # Check whether the staged diff is purely timestamp noise:
+  #   README.md  — "*Last updated: ..." footer
+  #   manifest.json — "generated_at" field
+  # Any other changed file (e.g. a ZIP) counts as a real change.
+  only_timestamps=true
+  while IFS= read -r changed_file; do
+    case "$changed_file" in
+      README.md)
+        new_content=$(git show :README.md | grep -v '^\*Last updated:')
+        old_content=$(git show HEAD:README.md 2>/dev/null | grep -v '^\*Last updated:' || true)
+        [[ "$new_content" == "$old_content" ]] || only_timestamps=false
+        ;;
+      manifest.json)
+        new_content=$(git show :manifest.json | grep -v '"generated_at"')
+        old_content=$(git show HEAD:manifest.json 2>/dev/null | grep -v '"generated_at"' || true)
+        [[ "$new_content" == "$old_content" ]] || only_timestamps=false
+        ;;
+      *)
+        only_timestamps=false
+        ;;
+    esac
+    $only_timestamps || break
+  done < <(git diff --cached --name-only)
 
-  git commit -m "Publish plugin updates from $SOURCE_BRANCH
+  if $only_timestamps; then
+    echo "No meaningful changes (only timestamps updated) - skipping commit."
+  else
+    source_commit=$(git rev-parse --short origin/$SOURCE_BRANCH)
+    plugin_list=""
+    if [[ -s changed_plugins.txt ]]; then
+      plugin_list="$(printf '\n\n')$(sed 's/^/- /' changed_plugins.txt)"
+    fi
+
+    git commit -m "Publish plugin updates from $SOURCE_BRANCH
 
 Source commit: $source_commit${plugin_list}
 
 [skip ci]"
 
-  git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $RELEASES_BRANCH
-  echo "Successfully published to ${RELEASES_BRANCH}"
+    git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $RELEASES_BRANCH
+    echo "Successfully published to ${RELEASES_BRANCH}"
+  fi  # end only_timestamps check
 fi

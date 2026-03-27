@@ -19,30 +19,20 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Checkout config
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 1
-          sparse-checkout: .github/scripts/config.env
-          sparse-checkout-cone-mode: false
-
       - name: Load and validate configuration
         id: config
         env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          EXTERNAL_README_REPO: ${{ vars.EXTERNAL_README_REPO }}
+          EXTERNAL_README_PATH: ${{ vars.EXTERNAL_README_PATH }}
         run: |
-          if [[ ! -f .github/scripts/config.env ]]; then
-            echo "::error::.github/scripts/config.env not found."
-            exit 1
-          fi
-          source .github/scripts/config.env
-          if [[ -z "$EXTERNAL_README_REPO" || -z "$EXTERNAL_README_PATH" || -z "$GH_APP_ID" || -z "${GH_APP_PRIVATE_KEY:-}" ]]; then
-            echo "::notice::EXTERNAL_README_REPO, EXTERNAL_README_PATH, GH_APP_ID, or GH_APP_PRIVATE_KEY not configured - skipping."
+          if [[ -z "${GH_APP_ID:-}" || -z "${GH_APP_PRIVATE_KEY:-}" || -z "${EXTERNAL_README_REPO:-}" || -z "${EXTERNAL_README_PATH:-}" ]]; then
+            echo "::notice::GH_APP_ID, GH_APP_PRIVATE_KEY, EXTERNAL_README_REPO, or EXTERNAL_README_PATH not configured - skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
-            echo "skip=false"         >> "$GITHUB_OUTPUT"
-            echo "app_id=$GH_APP_ID"  >> "$GITHUB_OUTPUT"
+            echo "skip=false"                       >> "$GITHUB_OUTPUT"
+            echo "app_id=$GH_APP_ID"                >> "$GITHUB_OUTPUT"
             echo "target_repo=$EXTERNAL_README_REPO" >> "$GITHUB_OUTPUT"
             echo "target_path=$EXTERNAL_README_PATH" >> "$GITHUB_OUTPUT"
           fi
