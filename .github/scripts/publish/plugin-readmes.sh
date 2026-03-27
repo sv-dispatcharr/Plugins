@@ -24,6 +24,8 @@ for plugin_dir in plugins/*/; do
   repo_url=$(jq -r '.repo_url // empty' "$plugin_file")
   discord_thread=$(jq -r '.discord_thread // empty' "$plugin_file")
   license=$(jq -r '.license // ""' "$plugin_file")
+  min_dispatcharr=$(jq -r '.min_dispatcharr_version // empty' "$plugin_file")
+  max_dispatcharr=$(jq -r '.max_dispatcharr_version // empty' "$plugin_file")
   has_readme=false
   [[ -f "$plugin_dir/README.md" ]] && has_readme=true
 
@@ -46,6 +48,18 @@ for plugin_dir in plugins/*/; do
     fi
     if [[ -n "$license" ]]; then
       echo "**License:** [$license](https://spdx.org/licenses/${license}.html)"
+      echo ""
+    fi
+    if [[ -n "$min_dispatcharr" || -n "$max_dispatcharr" ]]; then
+      compat=""
+      if [[ -n "$min_dispatcharr" && -n "$max_dispatcharr" ]]; then
+        compat="$min_dispatcharr – $max_dispatcharr"
+      elif [[ -n "$min_dispatcharr" ]]; then
+        compat="$min_dispatcharr+"
+      else
+        compat="up to $max_dispatcharr"
+      fi
+      echo "**Dispatcharr Compatibility:** $compat"
       echo ""
     fi
     echo "## Downloads"

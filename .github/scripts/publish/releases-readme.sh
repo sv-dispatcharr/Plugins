@@ -26,6 +26,8 @@ render_plugin() {
   local commit_sha_short=${10}
   local version_count=${11}
   local license=${12}
+  local min_dispatcharr=${13}
+  local max_dispatcharr=${14}
 
   local zip_url="https://github.com/${GITHUB_REPOSITORY}/raw/$RELEASES_BRANCH/zips/${plugin_name}/${plugin_name}-latest.zip"
   local source_url="https://github.com/${GITHUB_REPOSITORY}/tree/$SOURCE_BRANCH/plugins/${plugin_name}"
@@ -47,6 +49,18 @@ render_plugin() {
   echo ""
   if [[ -n "$license" ]]; then
     echo "**License:** [$license](https://spdx.org/licenses/${license}.html)"
+    echo ""
+  fi
+  if [[ -n "$min_dispatcharr" || -n "$max_dispatcharr" ]]; then
+    compat=""
+    if [[ -n "$min_dispatcharr" && -n "$max_dispatcharr" ]]; then
+      compat="$min_dispatcharr – $max_dispatcharr"
+    elif [[ -n "$min_dispatcharr" ]]; then
+      compat="$min_dispatcharr+"
+    else
+      compat="up to $max_dispatcharr"
+    fi
+    echo "**Dispatcharr Compatibility:** $compat"
     echo ""
   fi
   echo "**Downloads:**"
@@ -132,9 +146,12 @@ render_plugin() {
     version_count=$(ls -1 "zips/$plugin_name/${plugin_name}"-*.zip 2>/dev/null \
       | grep -v latest | wc -l | tr -d ' ')
     plugin_license=$(jq -r '.license // ""' "$plugin_file")
+    min_dispatcharr=$(jq -r '.min_dispatcharr_version // empty' "$plugin_file")
+    max_dispatcharr=$(jq -r '.max_dispatcharr_version // empty' "$plugin_file")
 
     render_plugin "false" "$plugin_name" "$name" "$version" "$author" "$description" \
-      "$maintainers" "$last_updated" "$commit_sha" "$commit_sha_short" "$version_count" "$plugin_license"
+      "$maintainers" "$last_updated" "$commit_sha" "$commit_sha_short" "$version_count" "$plugin_license" \
+      "$min_dispatcharr" "$max_dispatcharr"
   done
 
   # Deprecated section (only if any exist)
@@ -176,9 +193,12 @@ render_plugin() {
       version_count=$(ls -1 "zips/$plugin_name/${plugin_name}"-*.zip 2>/dev/null \
         | grep -v latest | wc -l | tr -d ' ')
       plugin_license=$(jq -r '.license // ""' "$plugin_file")
+      min_dispatcharr=$(jq -r '.min_dispatcharr_version // empty' "$plugin_file")
+      max_dispatcharr=$(jq -r '.max_dispatcharr_version // empty' "$plugin_file")
 
       render_plugin "true" "$plugin_name" "$name" "$version" "$author" "$description" \
-        "$maintainers" "$last_updated" "$commit_sha" "$commit_sha_short" "$version_count" "$plugin_license"
+        "$maintainers" "$last_updated" "$commit_sha" "$commit_sha_short" "$version_count" "$plugin_license" \
+        "$min_dispatcharr" "$max_dispatcharr"
     done
   fi
 
