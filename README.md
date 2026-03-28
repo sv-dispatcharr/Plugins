@@ -59,10 +59,10 @@ The root `manifest.json` uses a `root_url` plus relative paths to save space. Al
 ```json
 {
   "generated_at": "...",
-  "repo_url": "...",
-  "repo_name": "owner/repo",
   "signature": "-----BEGIN PGP SIGNATURE-----\n...",
   "manifest": {
+    "repo_url": "https://github.com/Dispatcharr/Plugins",
+    "repo_name": "Dispatcharr/Plugins",
     "root_url": "https://raw.githubusercontent.com/Dispatcharr/Plugins/releases",
     "plugins": [
       {

@@ -49,10 +49,8 @@ write_manifest_if_changed() {
   fi
   jq -n \
     --arg generated_at "$generated_at" \
-    --arg repo_url "$repo_url" \
-    --arg repo_name "$repo_name" \
     --argjson manifest "$new_compact" \
-    '{generated_at: $generated_at, repo_url: $repo_url, repo_name: $repo_name, manifest: $manifest}' \
+    '{generated_at: $generated_at, manifest: $manifest}' \
     > "$dest"
   return 0
 }
@@ -220,6 +218,8 @@ done
 inner_root=$(
   {
     echo '{'
+    echo '  "repo_url": '"$(jq -n --arg u "$repo_url" '$u')"','
+    echo '  "repo_name": '"$(jq -n --arg u "$repo_name" '$u')"','
     echo '  "root_url": '"$(jq -n --arg u "$root_url" '$u')"','
     echo '  "plugins": ['
     first=true
