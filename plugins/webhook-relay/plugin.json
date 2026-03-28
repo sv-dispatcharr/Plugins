@@ -1,0 +1,12 @@
+{
+  "name": "Webhook Relay",
+  "version": "1.0.0",
+  "description": "Generic webhook relay that forwards Dispatcharr events to configurable HTTP endpoints",
+  "license": "MIT",
+  "author": "testuser12",
+  "help_url": "https://github.com/testuser12/webhook-relay",
+  "min_dispatcharr_version": "v0.17.0",
+  "repo_url": "https://github.com/testuser12/webhook-relay",
+  "default_port": 9400,
+  "auto_start_default": true
+}

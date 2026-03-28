@@ -1,0 +1,12 @@
+{
+  "name": "Stream Health Monitor",
+  "version": "1.3.2",
+  "description": "Monitors stream health metrics and sends alerts on degradation or failures",
+  "license": "Apache-2.0",
+  "author": "testuser3",
+  "help_url": "https://github.com/testuser3/stream-health-monitor",
+  "min_dispatcharr_version": "v0.19.0",
+  "repo_url": "https://github.com/testuser3/stream-health-monitor",
+  "default_port": 8800,
+  "auto_start_default": false
+}

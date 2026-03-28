@@ -1,0 +1,12 @@
+{
+  "name": "Backup Manager",
+  "version": "3.0.0",
+  "description": "Automated backup and restore of Dispatcharr configuration, channels, and profiles",
+  "license": "GPL-3.0",
+  "author": "testuser4",
+  "maintainers": ["testuser4", "testuser5"],
+  "help_url": "https://github.com/testuser4/backup-manager",
+  "min_dispatcharr_version": "v0.16.0",
+  "repo_url": "https://github.com/testuser4/backup-manager",
+  "auto_start_default": false
+}

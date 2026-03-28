@@ -1,0 +1,11 @@
+{
+  "name": "Bandwidth Limiter",
+  "version": "1.4.0",
+  "description": "Limits total bandwidth usage per profile or globally with configurable thresholds and actions",
+  "license": "Apache-2.0",
+  "author": "testuser11",
+  "help_url": "https://github.com/testuser11/bandwidth-limiter",
+  "min_dispatcharr_version": "v0.18.0",
+  "repo_url": "https://github.com/testuser11/bandwidth-limiter",
+  "auto_start_default": false
+}

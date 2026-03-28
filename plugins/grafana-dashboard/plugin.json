@@ -1,0 +1,13 @@
+{
+  "name": "Grafana Dashboard",
+  "version": "1.1.0",
+  "description": "Provides pre-built Grafana dashboard JSON and a data-source proxy for visualizing Dispatcharr metrics",
+  "license": "MIT",
+  "author": "testuser8",
+  "help_url": "https://github.com/testuser8/grafana-dashboard",
+  "min_dispatcharr_version": "v0.19.0",
+  "repo_url": "https://github.com/testuser8/grafana-dashboard",
+  "default_port": 9300,
+  "default_host": "0.0.0.0",
+  "auto_start_default": false
+}

@@ -1,0 +1,11 @@
+{
+  "name": "M3U Validator",
+  "version": "1.2.0",
+  "description": "Validates M3U playlists and reports broken or duplicate entries with detailed diagnostics",
+  "license": "MIT",
+  "author": "testuser7",
+  "help_url": "https://github.com/testuser7/m3u-validator",
+  "min_dispatcharr_version": "v0.17.0",
+  "repo_url": "https://github.com/testuser7/m3u-validator",
+  "auto_start_default": false
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Channel Logger",
+  "version": "1.0.0",
+  "description": "Logs channel activity and stream changes to a database for historical analysis",
+  "license": "MIT",
+  "author": "testuser1",
+  "help_url": "https://github.com/testuser1/channel-logger",
+  "min_dispatcharr_version": "v0.18.0",
+  "repo_url": "https://github.com/testuser1/channel-logger",
+  "auto_start_default": true
+}

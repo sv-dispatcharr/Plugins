@@ -1,0 +1,12 @@
+{
+  "name": "Usage Stats",
+  "version": "4.0.0",
+  "description": "Tracks and displays detailed usage statistics including viewer counts, peak hours, and popular channels",
+  "license": "GPL-3.0",
+  "author": "testuser15",
+  "discord_thread": "https://discord.com/channels/1340492560220684331/9876543210987654321",
+  "help_url": "https://github.com/testuser15/usage-stats",
+  "min_dispatcharr_version": "v0.16.0",
+  "repo_url": "https://github.com/testuser15/usage-stats",
+  "auto_start_default": true
+}

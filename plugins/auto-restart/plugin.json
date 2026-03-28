@@ -1,0 +1,11 @@
+{
+  "name": "Auto Restart",
+  "version": "0.9.1",
+  "description": "Automatically restarts failed streams and connections with configurable retry logic",
+  "license": "MIT",
+  "author": "testuser6",
+  "help_url": "https://github.com/testuser6/auto-restart",
+  "min_dispatcharr_version": "v0.19.0",
+  "repo_url": "https://github.com/testuser6/auto-restart",
+  "auto_start_default": true
+}

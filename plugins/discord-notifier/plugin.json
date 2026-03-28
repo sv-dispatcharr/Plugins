@@ -1,0 +1,12 @@
+{
+  "name": "Discord Notifier",
+  "version": "1.0.5",
+  "description": "Sends Discord webhook notifications for stream events, errors, and status changes",
+  "license": "MIT",
+  "author": "testuser5",
+  "discord_thread": "https://discord.com/channels/1340492560220684331/1234567890123456789",
+  "help_url": "https://github.com/testuser5/discord-notifier",
+  "min_dispatcharr_version": "v0.18.0",
+  "repo_url": "https://github.com/testuser5/discord-notifier",
+  "auto_start_default": true
+}

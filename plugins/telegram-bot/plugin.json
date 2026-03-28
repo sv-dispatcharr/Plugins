@@ -1,0 +1,11 @@
+{
+  "name": "Telegram Bot",
+  "version": "0.5.0",
+  "description": "Telegram bot interface for controlling Dispatcharr remotely and receiving status updates",
+  "license": "MIT",
+  "author": "testuser9",
+  "help_url": "https://github.com/testuser9/telegram-bot",
+  "min_dispatcharr_version": "v0.18.0",
+  "repo_url": "https://github.com/testuser9/telegram-bot",
+  "auto_start_default": false
+}

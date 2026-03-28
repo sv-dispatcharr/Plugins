@@ -1,0 +1,14 @@
+{
+  "name": "API Gateway",
+  "version": "1.5.3",
+  "description": "Exposes a REST API gateway for third-party integrations and remote management",
+  "license": "MIT",
+  "author": "testuser14",
+  "maintainers": ["testuser14", "testuser2"],
+  "help_url": "https://github.com/testuser14/api-gateway",
+  "min_dispatcharr_version": "v0.19.0",
+  "repo_url": "https://github.com/testuser14/api-gateway",
+  "default_port": 9500,
+  "default_host": "0.0.0.0",
+  "auto_start_default": true
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Channel Sorter",
+  "version": "0.2.0",
+  "description": "Automatically sorts and organizes channels by category, name, or custom rules",
+  "license": "MIT",
+  "author": "testuser13",
+  "help_url": "https://github.com/testuser13/channel-sorter",
+  "min_dispatcharr_version": "v0.16.0",
+  "repo_url": "https://github.com/testuser13/channel-sorter",
+  "auto_start_default": false
+}

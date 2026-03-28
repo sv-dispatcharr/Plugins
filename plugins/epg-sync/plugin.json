@@ -1,0 +1,11 @@
+{
+  "name": "EPG Sync",
+  "version": "2.1.0",
+  "description": "Synchronizes EPG data from multiple sources and merges guide information",
+  "license": "MIT",
+  "author": "testuser2",
+  "help_url": "https://github.com/testuser2/epg-sync",
+  "min_dispatcharr_version": "v0.17.0",
+  "repo_url": "https://github.com/testuser2/epg-sync",
+  "auto_start_default": true
+}
