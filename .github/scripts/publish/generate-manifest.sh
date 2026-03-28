@@ -10,8 +10,8 @@ set -e
 : "${SOURCE_BRANCH:?}" "${RELEASES_BRANCH:?}" "${GITHUB_REPOSITORY:?}"
 
 generated_at="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-repo_url="https://github.com/${GITHUB_REPOSITORY}"
-repo_name="${GITHUB_REPOSITORY}"
+registry_url="https://github.com/${GITHUB_REPOSITORY}"
+registry_name="${GITHUB_REPOSITORY}"
 root_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${RELEASES_BRANCH}"
 
 # GPG signing setup - optional; set GPG_PRIVATE_KEY (armored) and optionally GPG_PASSPHRASE
@@ -33,7 +33,7 @@ fi
 
 # Writes a manifest wrapper to $1 with $2 as the signed payload (.manifest),
 # only when .manifest content differs from what is on disk.
-# Wrapper structure: {generated_at, repo_url, repo_name, manifest: <payload>}
+# Wrapper structure: {generated_at, manifest: <payload>}
 # The .signature field is added separately by sign_manifest.
 # Returns 0 if written, 1 if skipped (content unchanged).
 write_manifest_if_changed() {
@@ -153,6 +153,8 @@ for plugin_dir in plugins/*/; do
   plugin_entry=$(jq \
     --arg plugin_name "$plugin_name" \
     --arg latest_url "$latest_url" \
+    --arg registry_url "$registry_url" \
+    --arg registry_name "$registry_name" \
     --argjson versioned_zips "$versioned_zips" \
     --argjson latest_metadata "$latest_metadata" \
     'with_entries(select(.key | IN(
@@ -160,6 +162,8 @@ for plugin_dir in plugins/*/; do
       "deprecated","repo_url","discord_thread","license"
     ))) + {
       slug: $plugin_name,
+      registry_url: $registry_url,
+      registry_name: $registry_name,
       versions: $versioned_zips
     } + (
       if ($latest_metadata | length > 0) then {
@@ -218,8 +222,8 @@ done
 inner_root=$(
   {
     echo '{'
-    echo '  "repo_url": '"$(jq -n --arg u "$repo_url" '$u')"','
-    echo '  "repo_name": '"$(jq -n --arg u "$repo_name" '$u')"','
+    echo '  "registry_url": '"$(jq -n --arg u "$registry_url" '$u')"','
+    echo '  "registry_name": '"$(jq -n --arg u "$registry_name" '$u')"','
     echo '  "root_url": '"$(jq -n --arg u "$root_url" '$u')"','
     echo '  "plugins": ['
     first=true
