@@ -1,6 +1,6 @@
 {
   "name": "API Gateway",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Exposes a REST API gateway for third-party integrations and remote management",
   "license": "MIT",
   "author": "testuser14",

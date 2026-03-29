@@ -1,4 +1,4 @@
-"""API Gateway Plugin - Dummy for manifest testing"""
+"""API Gateway Plugin - Dummy for manifest testing TEST"""
 import logging
 
 logger = logging.getLogger(__name__)
