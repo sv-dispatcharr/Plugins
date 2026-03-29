@@ -193,20 +193,26 @@ for plugin_dir in plugins/*/; do
 
   plugin_manifest_url="zips/${plugin_name}/manifest.json"
 
+  # Compute icon_url (absolute) for the root manifest entry
+  icon_url=""
+  if [[ -f "plugins/$plugin_name/logo.png" ]]; then
+    icon_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SOURCE_BRANCH}/plugins/${plugin_name}/logo.png"
+  fi
+
   root_entry=$(jq -n \
     --argjson latest_metadata "$latest_metadata" \
     --argjson versioned_zips "$versioned_zips" \
     --arg slug "$plugin_name" \
     --arg name "$(jq -r '.name // ""' "$plugin_file")" \
     --arg description "$desc_trimmed" \
-    --arg manifest_url "$plugin_manifest_url" \
+    --arg icon_url "$icon_url" \
     --arg author "$(jq -r '.author // ""' "$plugin_file")" \
     --arg license "$(jq -r '.license // ""' "$plugin_file")" \
     '{
       slug: $slug,
       name: $name,
       description: $description,
-      manifest_url: $manifest_url,
+      icon_url: (if $icon_url != "" then $icon_url else null end),
       author: $author,
       license: (if $license != "" then $license else null end),
       last_updated: ($latest_metadata.last_updated // null),
