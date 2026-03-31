@@ -23,10 +23,10 @@ for plugin_dir in plugins/*/; do
   plugin_key=${plugin_name//-/_}
   version=$(jq -r '.version' "$plugin_dir/plugin.json")
 
-  mkdir -p "zips/$plugin_key"
+  mkdir -p "zips/$plugin_name"
 
-  zip_path="zips/$plugin_key/${plugin_key}-${version}.zip"
-  existing_manifest="zips/$plugin_key/manifest.json"
+  zip_path="zips/$plugin_name/${plugin_name}-${version}.zip"
+  existing_manifest="zips/$plugin_name/manifest.json"
 
   # Skip if ZIP exists and the version is already in the existing manifest
   if [[ -f "$zip_path" ]]; then
@@ -83,7 +83,7 @@ for plugin_dir in plugins/*/; do
       + (if $max_da_version != "" then {max_dispatcharr_version: $max_da_version} else {} end)' \
     > "$BUILD_META_DIR/$plugin_key/${plugin_key}-${version}.json"
 
-  cp "$zip_path" "zips/$plugin_key/${plugin_key}-latest.zip"
+  cp "$zip_path" "zips/$plugin_name/${plugin_name}-latest.zip"
 done
 
 changed=$(wc -l < changed_plugins.txt | tr -d ' ')
