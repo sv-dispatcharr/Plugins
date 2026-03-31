@@ -45,7 +45,7 @@ for plugin_dir in plugins/*/; do
   last_updated=$(git log -1 --format=%cI origin/$SOURCE_BRANCH -- "$plugin_dir" 2>/dev/null \
     || date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-  zip -r "$zip_path" "$plugin_dir" -q
+  (cd plugins && zip -r "../zips/$plugin_name/${plugin_name}-${version}.zip" "$plugin_name" -q)
 
   checksum_md5=$(md5sum "$zip_path" | awk '{print $1}')
   checksum_sha256=$(shasum -a 256 "$zip_path" | awk '{print $1}')
