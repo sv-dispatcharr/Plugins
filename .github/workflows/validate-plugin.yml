@@ -282,7 +282,7 @@ jobs:
           TITLE_SUGGESTION=""
 
           # Build a context-appropriate suggestion for this PR
-          if [[ "$SKIP" == "true" || "$COUNT" == "0" ]]; then
+          if [[ "$COUNT" == "0" ]]; then
             CONTEXT_SUGGESTION="[repo]: Brief description of changes"
           elif [[ "$COUNT" == "1" ]]; then
             SLUG=$(printf '%s' "$MATRIX_JSON" | jq -r '.[0] // "plugin-slug"' || echo "plugin-slug")
@@ -298,7 +298,7 @@ jobs:
             PREFIX=$(printf '%s' "$TITLE" | sed -E 's/^\[([^\]]+)\].*/\1/')
 
             # Validate prefix matches expected context
-            if [[ "$SKIP" == "true" || "$COUNT" == "0" ]]; then
+            if [[ "$COUNT" == "0" ]]; then
               if [[ "$PREFIX" != "repo" ]]; then
                 TITLE_VALID=false
                 TITLE_FEEDBACK="For repo-level or non-plugin changes, the prefix should be \`[repo]\`."
@@ -320,7 +320,7 @@ jobs:
             fi
           else
             TITLE_VALID=false
-            TITLE_FEEDBACK="PR title does not match the required format. Expected: \`[prefix] description\` (colon after \`]\` is optional)."
+            TITLE_FEEDBACK="PR title does not match the required format. Expected: \`[prefix] description\`."
             TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
           fi
 
@@ -657,7 +657,7 @@ jobs:
   # --------------------------------------------------------------------------
   report:
     needs: [detect-changes, validate-plugin, codeql-analyze, validate-title]
-    if: always() && needs.detect-changes.result == 'success' && needs.detect-changes.outputs.close_pr == 'false' && (needs.detect-changes.outputs.skip_validation != 'true' || needs.detect-changes.outputs.pub_key_changed == 'true')
+    if: always() && needs.detect-changes.result == 'success' && needs.detect-changes.outputs.close_pr == 'false' && (needs.detect-changes.outputs.skip_validation != 'true' || needs.detect-changes.outputs.pub_key_changed == 'true' || needs.validate-title.outputs.title_valid == 'false')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
