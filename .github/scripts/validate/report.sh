@@ -143,7 +143,15 @@ done
       echo ""
     fi
 
-    CODEQL_SCAN_URL="https://github.com/${GITHUB_REPOSITORY}/security/code-scanning?query=is%3Aopen+pr%3A${PR_NUMBER}"
+    # insert --- if there are ANY codeql findings, medium, or low/informationsl
+    if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]] || \
+       [[ -n "${CODEQL_MEDIUMS:-}" && "${CODEQL_MEDIUMS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
+       [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
+      echo ""
+      echo "---"
+      echo ""
+    fi
+
     if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]]; then
       # echo ""
       # echo "## Code Quality"
