@@ -9,6 +9,10 @@
     If modifying more than one plugin, use your github username:
       [author]: BRIEF description of changes
       [sethwv]: Update my plugins to new manifest formatting
+
+    If you are a maintainer modifying the scripts or repo structure, use [repo] as the prefix:
+      [repo]: BRIEF description of changes
+      [repo]: Add new validation rules for PRs
 -->
 
 ## About this submission

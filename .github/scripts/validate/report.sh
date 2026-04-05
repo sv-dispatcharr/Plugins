@@ -162,6 +162,22 @@ done
       fi
     fi
 
+    # PR title format check (informational, non-blocking)
+    if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
+      echo ""
+      echo "---"
+      echo ""
+      echo "### ⚠️ PR Title Format"
+      echo ""
+      echo "${TITLE_FEEDBACK}"
+      if [[ -n "${TITLE_SUGGESTION:-}" ]]; then
+        echo ""
+        echo "**Suggested format:** \`${TITLE_SUGGESTION}\`"
+      fi
+      echo ""
+      echo "> Renaming the PR triggers an automatic re-run of this check."
+    fi
+
     echo ""
     echo "---"
     echo ""

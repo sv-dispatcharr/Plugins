@@ -244,6 +244,95 @@ jobs:
           apply_label "Invalid" "$IS_INVALID"
 
   # --------------------------------------------------------------------------
+  # Validate PR title format
+  #   Runs on every non-draft, non-closing PR event (including 'edited', which
+  #   fires when the title is renamed). Results are informational only and do
+  #   not block the Plugin PR Check status.
+  # --------------------------------------------------------------------------
+  validate-title:
+    needs: [detect-changes]
+    if: github.event.pull_request.draft == false && needs.detect-changes.result == 'success' && needs.detect-changes.outputs.close_pr == 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      title_valid: ${{ steps.check.outputs.title_valid }}
+      title_feedback: ${{ steps.check.outputs.title_feedback }}
+      title_suggestion: ${{ steps.check.outputs.title_suggestion }}
+    steps:
+      - name: Validate PR title format
+        id: check
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PLUGIN_COUNT: ${{ needs.detect-changes.outputs.plugin_count }}
+          MATRIX: ${{ needs.detect-changes.outputs.matrix }}
+          SKIP_VALIDATION: ${{ needs.detect-changes.outputs.skip_validation }}
+        run: |
+          TITLE="$PR_TITLE"
+          AUTHOR="$PR_AUTHOR"
+          COUNT="${PLUGIN_COUNT:-0}"
+          SKIP="${SKIP_VALIDATION:-false}"
+          MATRIX_JSON="${MATRIX:-[]}"
+          TITLE_VALID=true
+          TITLE_FEEDBACK=""
+          TITLE_SUGGESTION=""
+
+          # Build a context-appropriate suggestion for this PR
+          if [[ "$SKIP" == "true" || "$COUNT" == "0" ]]; then
+            CONTEXT_SUGGESTION="[repo]: Brief description of changes"
+          elif [[ "$COUNT" == "1" ]]; then
+            SLUG=$(printf '%s' "$MATRIX_JSON" | jq -r '.[0] // "plugin-slug"' || echo "plugin-slug")
+            CONTEXT_SUGGESTION="[$SLUG]: Brief description of changes"
+          else
+            CONTEXT_SUGGESTION="[$AUTHOR]: Brief description of changes"
+          fi
+
+          # Check basic format: [prefix] optional-colon space description
+          # The colon after ] is optional; at least one space and one char of description required.
+          if printf '%s' "$TITLE" | grep -qE '^\[[^\]]+\]:? +.+'; then
+            # Extract prefix (content inside the first [...])
+            PREFIX=$(printf '%s' "$TITLE" | sed -E 's/^\[([^\]]+)\].*/\1/')
+
+            # Validate prefix matches expected context
+            if [[ "$SKIP" == "true" || "$COUNT" == "0" ]]; then
+              if [[ "$PREFIX" != "repo" ]]; then
+                TITLE_VALID=false
+                TITLE_FEEDBACK="For repo-level or non-plugin changes, the prefix should be \`[repo]\`."
+                TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+              fi
+            elif [[ "$COUNT" == "1" ]]; then
+              EXPECTED=$(printf '%s' "$MATRIX_JSON" | jq -r '.[0] // ""' || echo "")
+              if [[ -n "$EXPECTED" && "$PREFIX" != "$EXPECTED" ]]; then
+                TITLE_VALID=false
+                TITLE_FEEDBACK="For a single plugin change, the prefix should match the plugin folder name: \`[$EXPECTED]\`."
+                TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+              fi
+            else
+              if [[ "$PREFIX" != "$AUTHOR" ]]; then
+                TITLE_VALID=false
+                TITLE_FEEDBACK="For changes to multiple plugins, the prefix should be your GitHub username: \`[$AUTHOR]\`."
+                TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+              fi
+            fi
+          else
+            TITLE_VALID=false
+            TITLE_FEEDBACK="PR title does not match the required format. Expected: \`[prefix] description\` (colon after \`]\` is optional)."
+            TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+          fi
+
+          echo "title_valid=$TITLE_VALID" >> "$GITHUB_OUTPUT"
+          {
+            echo "title_feedback<<ENDOFVALUE"
+            echo "$TITLE_FEEDBACK"
+            echo "ENDOFVALUE"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "title_suggestion<<ENDOFVALUE"
+            echo "$TITLE_SUGGESTION"
+            echo "ENDOFVALUE"
+          } >> "$GITHUB_OUTPUT"
+
+  # --------------------------------------------------------------------------
   # Job 4: CodeQL security and quality analysis (runs after validate-plugin)
   #   Skipped automatically if any validation shard fails, saving ~15 min.
   #   Analysis is explicitly scoped to only the changed plugin directories.
@@ -558,7 +647,7 @@ jobs:
   # Job 6: Aggregate all fragments, post PR comment, set final status
   # --------------------------------------------------------------------------
   report:
-    needs: [detect-changes, validate-plugin, codeql-analyze]
+    needs: [detect-changes, validate-plugin, codeql-analyze, validate-title]
     if: always() && needs.detect-changes.result == 'success' && needs.detect-changes.outputs.close_pr == 'false' && (needs.detect-changes.outputs.skip_validation != 'true' || needs.detect-changes.outputs.pub_key_changed == 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -632,6 +721,9 @@ jobs:
           OUTSIDE_FILES: ${{ needs.detect-changes.outputs.outside_files }}
           OUTSIDE_VIOLATION: ${{ needs.detect-changes.outputs.outside_violation }}
           PUB_KEY_CHANGED: ${{ needs.detect-changes.outputs.pub_key_changed }}
+          TITLE_VALID: ${{ needs.validate-title.outputs.title_valid }}
+          TITLE_FEEDBACK: ${{ needs.validate-title.outputs.title_feedback }}
+          TITLE_SUGGESTION: ${{ needs.validate-title.outputs.title_suggestion }}
         run: |
           chmod +x .github/scripts/validate/*.sh
           set +e
