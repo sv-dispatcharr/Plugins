@@ -506,7 +506,7 @@ jobs:
                   select((($secmap[$rid] // "0") | tonumber) >= 7.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\["; "\\[") | gsub("\\]"; "\\]") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
                   "| `\($rid)` | [\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line)) | \($msg) |"'
               done
             } > codeql-findings.md
@@ -541,7 +541,7 @@ jobs:
                   select($sev >= 6.0 and $sev < 7.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\["; "\\[") | gsub("\\]"; "\\]") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
                   "| `\($rid)` | [\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line)) | \($msg) |"'
               done
             } > codeql-medium-findings.md
@@ -576,7 +576,7 @@ jobs:
                   select($sev < 6.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\["; "\\[") | gsub("\\]"; "\\]") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
                   "| `\($rid)` | [\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line)) | \($msg) |"'
               done
             } > codeql-low-findings.md
