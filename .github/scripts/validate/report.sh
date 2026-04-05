@@ -193,7 +193,6 @@ done
         echo "**Suggested format:** \`${TITLE_SUGGESTION}\`"
       fi
       echo ""
-      echo "> Renaming the PR triggers an automatic re-run of this check."
     fi
 
     echo ""
