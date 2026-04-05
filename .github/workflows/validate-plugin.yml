@@ -355,6 +355,7 @@ jobs:
       codeql_errors: ${{ steps.status.outputs.codeql_errors }}
       codeql_warnings: ${{ steps.status.outputs.codeql_warnings }}
       codeql_mediums: ${{ steps.status.outputs.codeql_mediums }}
+      codeql_lows: ${{ steps.status.outputs.codeql_lows }}
     steps:
       - name: Checkout PR merge commit for analysis
         uses: actions/checkout@v4
@@ -425,8 +426,22 @@ jobs:
               (($secmap[$rid] // "0") | tonumber) as $sev |
               select($sev >= 6.0 and $sev < 7.0)
             ] | length'
+          JQ_LOW='
+            [ .runs[] |
+              . as $run |
+              (
+                [ (($run.tool.driver.rules // [])[]          | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}),
+                  ((($run.tool.extensions // [])[].rules // [])[] | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}) ]
+                | from_entries
+              ) as $secmap |
+              ($run.results // [])[] |
+              ((.ruleId // .rule.id // "") | tostring) as $rid |
+              (($secmap[$rid] // "0") | tonumber) as $sev |
+              select($sev < 6.0)
+            ] | length'
           RESULT_COUNT=0
           MEDIUM_COUNT=0
+          LOW_COUNT=0
           TOTAL_COUNT=0
           if [[ -d "sarif-results" ]]; then
             for f in sarif-results/*.sarif sarif-results/*.sarif.gz; do
@@ -438,8 +453,9 @@ jobs:
               fi
               COUNT=$(echo "$CONTENT" | jq "$JQ_BLOCKING")
               MED=$(echo "$CONTENT" | jq "$JQ_MEDIUM")
+              LOW=$(echo "$CONTENT" | jq "$JQ_LOW")
               TOT=$(echo "$CONTENT" | jq '[.runs[] | (.results // [])[]] | length')
-              echo "File $f: ${COUNT:-0} blocking, ${MED:-0} medium, $TOT total"
+              echo "File $f: ${COUNT:-0} blocking, ${MED:-0} medium, ${LOW:-0} low, $TOT total"
               echo "$CONTENT" | jq -r \
                 '[ .runs[] | . as $run |
                    ([ (($run.tool.driver.rules // [])[] | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}),
@@ -450,14 +466,16 @@ jobs:
                    "  [blocking] \($rid) sec-sev=\($secmap[$rid] // "n/a")" ] | .[]' || true
               RESULT_COUNT=$((RESULT_COUNT + ${COUNT:-0}))
               MEDIUM_COUNT=$((MEDIUM_COUNT + ${MED:-0}))
+              LOW_COUNT=$((LOW_COUNT + ${LOW:-0}))
               TOTAL_COUNT=$((TOTAL_COUNT + ${TOT:-0}))
             done
           fi
           WARN_COUNT=$(( TOTAL_COUNT > RESULT_COUNT ? TOTAL_COUNT - RESULT_COUNT : 0 ))
-          echo "Found $RESULT_COUNT high/critical, $MEDIUM_COUNT medium, and $WARN_COUNT other CodeQL result(s)"
+          echo "Found $RESULT_COUNT high/critical, $MEDIUM_COUNT medium, $LOW_COUNT low, and $WARN_COUNT other CodeQL result(s)"
           echo "codeql_errors=$RESULT_COUNT" >> "$GITHUB_OUTPUT"
           echo "codeql_warnings=$WARN_COUNT" >> "$GITHUB_OUTPUT"
           echo "codeql_mediums=$MEDIUM_COUNT" >> "$GITHUB_OUTPUT"
+          echo "codeql_lows=$LOW_COUNT" >> "$GITHUB_OUTPUT"
 
           # Generate a findings detail file for inclusion in the PR comment
           if [[ "$RESULT_COUNT" -gt 0 ]]; then
@@ -528,6 +546,41 @@ jobs:
               done
             } > codeql-medium-findings.md
           fi
+          # Generate low findings detail file for informational display in the PR comment (collapsed)
+          if [[ "$LOW_COUNT" -gt 0 ]]; then
+            MERGE_SHA=${MERGE_SHA:-$(git rev-parse HEAD)}
+            {
+              echo "| Rule | Location | Description |"
+              echo "|------|----------|-------------|"
+              for f in sarif-results/*.sarif sarif-results/*.sarif.gz; do
+                [[ -f "$f" ]] || continue
+                if [[ "$f" == *.gz ]]; then
+                  FC=$(gunzip -c "$f")
+                else
+                  FC=$(cat "$f")
+                fi
+                echo "$FC" | jq -r \
+                  --arg repo "$GITHUB_REPOSITORY" \
+                  --arg sha "$MERGE_SHA" \
+                  '.runs[] |
+                  . as $run |
+                  (
+                    [ (($run.tool.driver.rules // [])[]         | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}),
+                      ((($run.tool.extensions // [])[].rules // [])[] | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}) ]
+                    | from_entries
+                  ) as $secmap |
+                  ($run.results // [])[] |
+                  . as $result |
+                  (($result.ruleId // $result.rule.id // "") | tostring) as $rid |
+                  (($secmap[$rid] // "0") | tonumber) as $sev |
+                  select($sev < 6.0) |
+                  (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
+                  ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
+                  (.message.text // "no description" | gsub("\n"; " ") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  "| `\($rid)` | [\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line)) | \($msg) |"'
+              done
+            } > codeql-low-findings.md
+          fi
           if [[ "$RESULT_COUNT" -gt 0 || "${{ steps.analyze.outcome }}" != "success" ]]; then
             echo "codeql_status=failure" >> "$GITHUB_OUTPUT"
           else
@@ -548,6 +601,14 @@ jobs:
         with:
           name: codeql-medium-findings
           path: codeql-medium-findings.md
+          if-no-files-found: ignore
+
+      - name: Upload low findings detail for PR comment
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codeql-low-findings
+          path: codeql-low-findings.md
           if-no-files-found: ignore
 
       - name: Fail job if CodeQL found high/error/critical issues
@@ -716,6 +777,13 @@ jobs:
           path: codeql-medium-findings
         continue-on-error: true
 
+      - name: Download CodeQL low findings detail
+        uses: actions/download-artifact@v4
+        with:
+          name: codeql-low-findings
+          path: codeql-low-findings
+        continue-on-error: true
+
       - name: Aggregate and post comment
         id: report
         env:
@@ -726,6 +794,7 @@ jobs:
           CODEQL_ERRORS: ${{ needs.codeql-analyze.outputs.codeql_errors }}
           CODEQL_WARNINGS: ${{ needs.codeql-analyze.outputs.codeql_warnings }}
           CODEQL_MEDIUMS: ${{ needs.codeql-analyze.outputs.codeql_mediums }}
+          CODEQL_LOWS: ${{ needs.codeql-analyze.outputs.codeql_lows }}
           OUTSIDE_FILES: ${{ needs.detect-changes.outputs.outside_files }}
           OUTSIDE_VIOLATION: ${{ needs.detect-changes.outputs.outside_violation }}
           PUB_KEY_CHANGED: ${{ needs.detect-changes.outputs.pub_key_changed }}

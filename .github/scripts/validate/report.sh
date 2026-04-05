@@ -166,6 +166,18 @@ done
       fi
     fi
 
+    if [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS:-}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
+      echo ""
+      echo "<details>"
+      echo "<summary>CodeQL: ${CODEQL_LOWS} low severity / informational result(s)</summary>"
+      echo ""
+      if [[ -f "codeql-low-findings/codeql-low-findings.md" ]]; then
+        cat "codeql-low-findings/codeql-low-findings.md"
+      fi
+      echo ""
+      echo "</details>"
+    fi
+
     # PR title format check (informational, non-blocking)
     if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
       echo ""
