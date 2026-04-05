@@ -159,7 +159,7 @@ done
 
     if [[ -n "${CODEQL_MEDIUMS:-}" && "${CODEQL_MEDIUMS:-}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
       echo ""
-      echo "**CodeQL found ${CODEQL_MEDIUMS} medium severity issue(s)** - these are not blocking but are worth a look."
+      echo "**CodeQL found ${CODEQL_MEDIUMS} medium severity issue(s)** - these are not blocking but are included for visibility."
       echo ""
       if [[ -f "codeql-medium-findings/codeql-medium-findings.md" ]]; then
         cat "codeql-medium-findings/codeql-medium-findings.md"
@@ -169,7 +169,8 @@ done
     if [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS:-}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
       echo ""
       echo "<details>"
-      echo "<summary>CodeQL: ${CODEQL_LOWS} low severity / informational result(s)</summary>"
+      echo "<summary>CodeQL found ${CODEQL_LOWS} low severity or informational result(s)</summary>"
+      echo "These are not blocking, but are included for visibility."
       echo ""
       if [[ -f "codeql-low-findings/codeql-low-findings.md" ]]; then
         cat "codeql-low-findings/codeql-low-findings.md"
