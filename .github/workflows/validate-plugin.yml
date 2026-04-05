@@ -332,14 +332,19 @@ jobs:
             echo "ENDOFVALUE"
           } >> "$GITHUB_OUTPUT"
 
+          if [[ "$TITLE_VALID" != "true" ]]; then
+            echo "::error::PR title does not match the required format. See CONTRIBUTING.md for details."
+            exit 1
+          fi
+
   # --------------------------------------------------------------------------
   # Job 4: CodeQL security and quality analysis (runs after validate-plugin)
   #   Skipped automatically if any validation shard fails, saving ~15 min.
   #   Analysis is explicitly scoped to only the changed plugin directories.
   # --------------------------------------------------------------------------
   codeql-analyze:
-    needs: [detect-changes, validate-plugin]
-    if: needs.validate-plugin.result == 'success' && needs.detect-changes.outputs.skip_validation != 'true'
+    needs: [detect-changes, validate-plugin, validate-title]
+    if: needs.validate-plugin.result == 'success' && needs.detect-changes.outputs.skip_validation != 'true' && needs.validate-title.outputs.title_valid == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:
@@ -807,7 +812,7 @@ jobs:
   # --------------------------------------------------------------------------
   plugin-pr-check:
     name: Plugin PR Check
-    needs: [detect-changes, codeql-analyze, validate-plugin, report]
+    needs: [detect-changes, codeql-analyze, validate-plugin, validate-title, report]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 2
@@ -818,6 +823,7 @@ jobs:
           CLOSE_PR: ${{ needs.detect-changes.outputs.close_pr }}
           SKIP_VALIDATION: ${{ needs.detect-changes.outputs.skip_validation }}
           OUTSIDE_VIOLATION: ${{ needs.detect-changes.outputs.outside_violation }}
+          TITLE_RESULT: ${{ needs.validate-title.result }}
           CODEQL_RESULT: ${{ needs.codeql-analyze.result }}
           CODEQL_STATUS: ${{ needs.codeql-analyze.outputs.codeql_status }}
           VALIDATE_RESULT: ${{ needs.validate-plugin.result }}
@@ -830,6 +836,10 @@ jobs:
           if [[ "$SKIP_VALIDATION" == "true" ]]; then
             echo "No plugin changes detected and author has write access - passing."
             exit 0
+          fi
+          if [[ "$TITLE_RESULT" == "failure" ]]; then
+            echo "::error::PR title does not match the required format. Rename the PR and re-run."
+            exit 1
           fi
           if [[ "$OUTSIDE_VIOLATION" == "true" ]]; then
             echo "::error::PR contains unauthorized changes outside the plugins/ directory."

@@ -31,6 +31,10 @@ fi
 
 OVERALL_FAILED=0
 
+if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
+  OVERALL_FAILED=1
+fi
+
 # Parse per-plugin report files
 COMBINED_BODY=""
 TABLE_HEADER="| name | version | description | author | maintainers |"
@@ -167,7 +171,7 @@ done
       echo ""
       echo "---"
       echo ""
-      echo "### ⚠️ PR Title Format"
+      echo "### ❌ PR Title Format"
       echo ""
       echo "${TITLE_FEEDBACK}"
       if [[ -n "${TITLE_SUGGESTION:-}" ]]; then
