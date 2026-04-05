@@ -506,7 +506,7 @@ jobs:
                   select((($secmap[$rid] // "0") | tonumber) >= 7.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\][(][0-9]+[)]"; "]") | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\[(?<c>[^\\]]+)\\][(][0-9]+[)]"; .c) | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
                   (if $uri != "?" and $line != "?" then "[\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line))" else "\($uri):\($line)" end) as $loc |
                   "| `\($rid)` | \($loc) | \($msg) |"'
               done
@@ -542,7 +542,7 @@ jobs:
                   select($sev >= 6.0 and $sev < 7.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\][(][0-9]+[)]"; "]") | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\[(?<c>[^\\]]+)\\][(][0-9]+[)]"; .c) | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
                   (if $uri != "?" and $line != "?" then "[\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line))" else "\($uri):\($line)" end) as $loc |
                   "| `\($rid)` | \($loc) | \($msg) |"'
               done
@@ -578,7 +578,7 @@ jobs:
                   select($sev < 6.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\][(][0-9]+[)]"; "]") | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\[(?<c>[^\\]]+)\\][(][0-9]+[)]"; .c) | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
                   (if $uri != "?" and $line != "?" then "[\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line))" else "\($uri):\($line)" end) as $loc |
                   "| `\($rid)` | \($loc) | \($msg) |"'
               done
