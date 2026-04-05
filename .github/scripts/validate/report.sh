@@ -170,7 +170,7 @@ done
     if [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS:-}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
       echo ""
       echo "<details>"
-      echo "<summary>**CodeQL found ${CODEQL_LOWS} low severity or informational result(s)**</summary>"
+      echo "<summary>CodeQL found ${CODEQL_LOWS} low severity or informational result(s)</summary>"
       echo "These are not blocking, but are included for visibility."
       echo ""
       if [[ -f "codeql-low-findings/codeql-low-findings.md" ]]; then
