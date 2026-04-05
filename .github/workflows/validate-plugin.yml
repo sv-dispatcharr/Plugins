@@ -291,11 +291,10 @@ jobs:
             CONTEXT_SUGGESTION="[$AUTHOR]: Brief description of changes"
           fi
 
-          # Check basic format: [prefix] optional-colon space description
-          # The colon after ] is optional; at least one space and one char of description required.
-          if printf '%s' "$TITLE" | grep -qE '^\[[^\]]+\]:? +.+'; then
-            # Extract prefix (content inside the first [...])
-            PREFIX=$(printf '%s' "$TITLE" | sed -E 's/^\[([^\]]+)\].*/\1/')
+          # Check format and extract prefix using bash =~ to avoid grep/sed ERE inconsistencies.
+          # [^]] inside bash =~ means "not ]" (] is literal when first after [^).
+          if [[ "$TITLE" =~ ^\[([^]]+)\]:?[[:space:]]+.+ ]]; then
+            PREFIX="${BASH_REMATCH[1]}"
 
             # Validate prefix matches expected context
             if [[ "$COUNT" == "0" ]]; then
