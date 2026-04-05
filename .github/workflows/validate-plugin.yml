@@ -17,6 +17,10 @@ on:
       - synchronize
       - ready_for_review
 
+concurrency:
+  group: validate-plugin-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   # --------------------------------------------------------------------------
   # Job 1: Post a notice on draft PRs - no validation runs yet
