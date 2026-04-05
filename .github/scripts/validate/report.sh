@@ -31,6 +31,10 @@ fi
 
 OVERALL_FAILED=0
 
+if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
+  OVERALL_FAILED=1
+fi
+
 # Parse per-plugin report files
 COMBINED_BODY=""
 TABLE_HEADER="| name | version | description | author | maintainers |"
@@ -139,7 +143,15 @@ done
       echo ""
     fi
 
-    CODEQL_SCAN_URL="https://github.com/${GITHUB_REPOSITORY}/security/code-scanning?query=is%3Aopen+pr%3A${PR_NUMBER}"
+    # insert --- if there are ANY codeql findings, medium, or low/informationsl
+    if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]] || \
+       [[ -n "${CODEQL_MEDIUMS:-}" && "${CODEQL_MEDIUMS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
+       [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
+      echo ""
+      echo "---"
+      echo ""
+    fi
+
     if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]]; then
       # echo ""
       # echo "## Code Quality"
@@ -155,11 +167,40 @@ done
 
     if [[ -n "${CODEQL_MEDIUMS:-}" && "${CODEQL_MEDIUMS:-}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
       echo ""
-      echo "**CodeQL found ${CODEQL_MEDIUMS} medium severity issue(s)** - these are not blocking but are worth a look."
+      echo "**CodeQL found ${CODEQL_MEDIUMS} medium severity issue(s)**"
+      echo "These are not blocking, but are included for visibility."
       echo ""
       if [[ -f "codeql-medium-findings/codeql-medium-findings.md" ]]; then
         cat "codeql-medium-findings/codeql-medium-findings.md"
       fi
+    fi
+
+    if [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS:-}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
+      echo ""
+      echo "<details>"
+      echo "<summary>CodeQL found ${CODEQL_LOWS} low severity or informational result(s)</summary>"
+      echo "These are not blocking, but are included for visibility."
+      echo ""
+      if [[ -f "codeql-low-findings/codeql-low-findings.md" ]]; then
+        cat "codeql-low-findings/codeql-low-findings.md"
+      fi
+      echo ""
+      echo "</details>"
+    fi
+
+    # PR title format check (informational, non-blocking)
+    if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
+      echo ""
+      echo "---"
+      echo ""
+      echo "### ❌ PR Title Format"
+      echo ""
+      echo "${TITLE_FEEDBACK}"
+      if [[ -n "${TITLE_SUGGESTION:-}" ]]; then
+        echo ""
+        echo "**Suggested format:** \`${TITLE_SUGGESTION}\`"
+      fi
+      echo ""
     fi
 
     echo ""

@@ -34,6 +34,18 @@ Plugin folder names must be **lowercase-kebab-case** (e.g. `my-plugin-name`).
 4. Optionally add a `README.md` and `logo.png`
 5. Submit a pull request to `main`
 
+### PR Title Format
+
+PR titles must follow this format (the colon after `]` is optional):
+
+| Scenario | Format | Example |
+|----------|--------|---------|
+| Single plugin changed | `[plugin-slug] description` | `[my-plugin] Bump version to 1.2.0` |
+| Multiple plugins changed | `[your-github-username] description` | `[sethwv] Update my plugins to new manifest formatting` |
+| Repo/script changes (maintainers only) | `[repo] description` | `[repo] Add new validation rules for PRs` |
+
+The plugin slug is the folder name under `plugins/` (e.g. `my-plugin-name`). Validation checks the title automatically; renaming the PR triggers a re-run.
+
 For **updates**, increment the version in `plugin.json` - the validation workflow enforces this. Exception: some metadata-only fields (`description`, `repo_url`, `discord_thread`, `maintainers`, `min_dispatcharr_version`, `max_dispatcharr_version`, `deprecated`, `unlisted`) can be updated without a version bump.
 
 ## `plugin.json` Spec

@@ -17,6 +17,10 @@ on:
       - synchronize
       - ready_for_review
 
+concurrency:
+  group: validate-plugin-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   # --------------------------------------------------------------------------
   # Job 1: Post a notice on draft PRs - no validation runs yet
@@ -244,13 +248,105 @@ jobs:
           apply_label "Invalid" "$IS_INVALID"
 
   # --------------------------------------------------------------------------
+  # Validate PR title format
+  #   Runs on every non-draft, non-closing PR event (including 'edited', which
+  #   fires when the title is renamed).
+  # --------------------------------------------------------------------------
+  validate-title:
+    needs: [detect-changes]
+    if: github.event.pull_request.draft == false && needs.detect-changes.result == 'success' && needs.detect-changes.outputs.close_pr == 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      title_valid: ${{ steps.check.outputs.title_valid }}
+      title_feedback: ${{ steps.check.outputs.title_feedback }}
+      title_suggestion: ${{ steps.check.outputs.title_suggestion }}
+    steps:
+      - name: Validate PR title format
+        id: check
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PLUGIN_COUNT: ${{ needs.detect-changes.outputs.plugin_count }}
+          MATRIX: ${{ needs.detect-changes.outputs.matrix }}
+          SKIP_VALIDATION: ${{ needs.detect-changes.outputs.skip_validation }}
+        run: |
+          TITLE="$PR_TITLE"
+          AUTHOR="$PR_AUTHOR"
+          COUNT="${PLUGIN_COUNT:-0}"
+          SKIP="${SKIP_VALIDATION:-false}"
+          MATRIX_JSON="${MATRIX:-[]}"
+          TITLE_VALID=true
+          TITLE_FEEDBACK=""
+          TITLE_SUGGESTION=""
+
+          # Build a context-appropriate suggestion for this PR
+          if [[ "$COUNT" == "0" ]]; then
+            CONTEXT_SUGGESTION="[repo]: Brief description of changes"
+          elif [[ "$COUNT" == "1" ]]; then
+            SLUG=$(printf '%s' "$MATRIX_JSON" | jq -r '.[0] // "plugin-slug"' || echo "plugin-slug")
+            CONTEXT_SUGGESTION="[$SLUG]: Brief description of changes"
+          else
+            CONTEXT_SUGGESTION="[$AUTHOR]: Brief description of changes"
+          fi
+
+          # Check format and extract prefix using bash =~ to avoid grep/sed ERE inconsistencies.
+          # [^]] inside bash =~ means "not ]" (] is literal when first after [^).
+          if [[ "$TITLE" =~ ^\[([^]]+)\]:?[[:space:]]+.+ ]]; then
+            PREFIX="${BASH_REMATCH[1]}"
+
+            # Validate prefix matches expected context
+            if [[ "$COUNT" == "0" ]]; then
+              if [[ "$PREFIX" != "repo" ]]; then
+                TITLE_VALID=false
+                TITLE_FEEDBACK="For repo-level or non-plugin changes, the prefix should be \`[repo]\`."
+                TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+              fi
+            elif [[ "$COUNT" == "1" ]]; then
+              EXPECTED=$(printf '%s' "$MATRIX_JSON" | jq -r '.[0] // ""' || echo "")
+              if [[ -n "$EXPECTED" && "$PREFIX" != "$EXPECTED" ]]; then
+                TITLE_VALID=false
+                TITLE_FEEDBACK="For a single plugin change, the prefix should match the plugin folder name: \`[$EXPECTED]\`."
+                TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+              fi
+            else
+              if [[ "$PREFIX" != "$AUTHOR" ]]; then
+                TITLE_VALID=false
+                TITLE_FEEDBACK="For changes to multiple plugins, the prefix should be your GitHub username: \`[$AUTHOR]\`."
+                TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+              fi
+            fi
+          else
+            TITLE_VALID=false
+            TITLE_FEEDBACK="PR title does not match the required format. Expected: \`[prefix] description\`."
+            TITLE_SUGGESTION="$CONTEXT_SUGGESTION"
+          fi
+
+          echo "title_valid=$TITLE_VALID" >> "$GITHUB_OUTPUT"
+          {
+            echo "title_feedback<<ENDOFVALUE"
+            echo "$TITLE_FEEDBACK"
+            echo "ENDOFVALUE"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "title_suggestion<<ENDOFVALUE"
+            echo "$TITLE_SUGGESTION"
+            echo "ENDOFVALUE"
+          } >> "$GITHUB_OUTPUT"
+
+          if [[ "$TITLE_VALID" != "true" ]]; then
+            echo "::error::PR title does not match the required format. See CONTRIBUTING.md for details."
+            exit 1
+          fi
+
+  # --------------------------------------------------------------------------
   # Job 4: CodeQL security and quality analysis (runs after validate-plugin)
   #   Skipped automatically if any validation shard fails, saving ~15 min.
   #   Analysis is explicitly scoped to only the changed plugin directories.
   # --------------------------------------------------------------------------
   codeql-analyze:
-    needs: [detect-changes, validate-plugin]
-    if: needs.validate-plugin.result == 'success' && needs.detect-changes.outputs.skip_validation != 'true'
+    needs: [detect-changes, validate-plugin, validate-title]
+    if: needs.validate-plugin.result == 'success' && needs.detect-changes.outputs.skip_validation != 'true' && needs.validate-title.outputs.title_valid == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:
@@ -258,6 +354,7 @@ jobs:
       codeql_errors: ${{ steps.status.outputs.codeql_errors }}
       codeql_warnings: ${{ steps.status.outputs.codeql_warnings }}
       codeql_mediums: ${{ steps.status.outputs.codeql_mediums }}
+      codeql_lows: ${{ steps.status.outputs.codeql_lows }}
     steps:
       - name: Checkout PR merge commit for analysis
         uses: actions/checkout@v4
@@ -328,8 +425,22 @@ jobs:
               (($secmap[$rid] // "0") | tonumber) as $sev |
               select($sev >= 6.0 and $sev < 7.0)
             ] | length'
+          JQ_LOW='
+            [ .runs[] |
+              . as $run |
+              (
+                [ (($run.tool.driver.rules // [])[]          | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}),
+                  ((($run.tool.extensions // [])[].rules // [])[] | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}) ]
+                | from_entries
+              ) as $secmap |
+              ($run.results // [])[] |
+              ((.ruleId // .rule.id // "") | tostring) as $rid |
+              (($secmap[$rid] // "0") | tonumber) as $sev |
+              select($sev < 6.0)
+            ] | length'
           RESULT_COUNT=0
           MEDIUM_COUNT=0
+          LOW_COUNT=0
           TOTAL_COUNT=0
           if [[ -d "sarif-results" ]]; then
             for f in sarif-results/*.sarif sarif-results/*.sarif.gz; do
@@ -341,8 +452,9 @@ jobs:
               fi
               COUNT=$(echo "$CONTENT" | jq "$JQ_BLOCKING")
               MED=$(echo "$CONTENT" | jq "$JQ_MEDIUM")
+              LOW=$(echo "$CONTENT" | jq "$JQ_LOW")
               TOT=$(echo "$CONTENT" | jq '[.runs[] | (.results // [])[]] | length')
-              echo "File $f: ${COUNT:-0} blocking, ${MED:-0} medium, $TOT total"
+              echo "File $f: ${COUNT:-0} blocking, ${MED:-0} medium, ${LOW:-0} low, $TOT total"
               echo "$CONTENT" | jq -r \
                 '[ .runs[] | . as $run |
                    ([ (($run.tool.driver.rules // [])[] | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}),
@@ -353,14 +465,16 @@ jobs:
                    "  [blocking] \($rid) sec-sev=\($secmap[$rid] // "n/a")" ] | .[]' || true
               RESULT_COUNT=$((RESULT_COUNT + ${COUNT:-0}))
               MEDIUM_COUNT=$((MEDIUM_COUNT + ${MED:-0}))
+              LOW_COUNT=$((LOW_COUNT + ${LOW:-0}))
               TOTAL_COUNT=$((TOTAL_COUNT + ${TOT:-0}))
             done
           fi
           WARN_COUNT=$(( TOTAL_COUNT > RESULT_COUNT ? TOTAL_COUNT - RESULT_COUNT : 0 ))
-          echo "Found $RESULT_COUNT high/critical, $MEDIUM_COUNT medium, and $WARN_COUNT other CodeQL result(s)"
+          echo "Found $RESULT_COUNT high/critical, $MEDIUM_COUNT medium, $LOW_COUNT low, and $WARN_COUNT other CodeQL result(s)"
           echo "codeql_errors=$RESULT_COUNT" >> "$GITHUB_OUTPUT"
           echo "codeql_warnings=$WARN_COUNT" >> "$GITHUB_OUTPUT"
           echo "codeql_mediums=$MEDIUM_COUNT" >> "$GITHUB_OUTPUT"
+          echo "codeql_lows=$LOW_COUNT" >> "$GITHUB_OUTPUT"
 
           # Generate a findings detail file for inclusion in the PR comment
           if [[ "$RESULT_COUNT" -gt 0 ]]; then
@@ -391,8 +505,9 @@ jobs:
                   select((($secmap[$rid] // "0") | tonumber) >= 7.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
-                  "| `\($rid)` | [\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line)) | \($msg) |"'
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\[(?<c>[^\\]]+)\\][(][0-9]+[)]"; .c) | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (if $uri != "?" and $line != "?" then "[\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line))" else "\($uri):\($line)" end) as $loc |
+                  "| `\($rid)` | \($loc) | \($msg) |"'
               done
             } > codeql-findings.md
           fi
@@ -426,10 +541,47 @@ jobs:
                   select($sev >= 6.0 and $sev < 7.0) |
                   (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
                   ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
-                  (.message.text // "no description" | gsub("\n"; " ") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
-                  "| `\($rid)` | [\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line)) | \($msg) |"'
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\[(?<c>[^\\]]+)\\][(][0-9]+[)]"; .c) | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (if $uri != "?" and $line != "?" then "[\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line))" else "\($uri):\($line)" end) as $loc |
+                  "| `\($rid)` | \($loc) | \($msg) |"'
               done
             } > codeql-medium-findings.md
+          fi
+          # Generate low findings detail file for informational display in the PR comment (collapsed)
+          if [[ "$LOW_COUNT" -gt 0 ]]; then
+            MERGE_SHA=${MERGE_SHA:-$(git rev-parse HEAD)}
+            {
+              echo "| Rule | Location | Description |"
+              echo "|------|----------|-------------|"
+              for f in sarif-results/*.sarif sarif-results/*.sarif.gz; do
+                [[ -f "$f" ]] || continue
+                if [[ "$f" == *.gz ]]; then
+                  FC=$(gunzip -c "$f")
+                else
+                  FC=$(cat "$f")
+                fi
+                echo "$FC" | jq -r \
+                  --arg repo "$GITHUB_REPOSITORY" \
+                  --arg sha "$MERGE_SHA" \
+                  '.runs[] |
+                  . as $run |
+                  (
+                    [ (($run.tool.driver.rules // [])[]         | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}),
+                      ((($run.tool.extensions // [])[].rules // [])[] | {key: (.id // ""), value: ((.properties["security-severity"] // "0") | tostring)}) ]
+                    | from_entries
+                  ) as $secmap |
+                  ($run.results // [])[] |
+                  . as $result |
+                  (($result.ruleId // $result.rule.id // "") | tostring) as $rid |
+                  (($secmap[$rid] // "0") | tonumber) as $sev |
+                  select($sev < 6.0) |
+                  (.locations[0].physicalLocation.artifactLocation.uri // "?") as $uri |
+                  ((.locations[0].physicalLocation.region.startLine // "?") | tostring) as $line |
+                  (.message.text // "no description" | gsub("\n"; " ") | gsub("://"; "\u200b://") | gsub("www\\."; "www\u200b.") | gsub("#(?=[0-9])"; "#\u200b") | gsub("\\[(?<c>[^\\]]+)\\][(][0-9]+[)]"; .c) | gsub("\\["; "&#91;") | gsub("\\]"; "&#93;") | if length > 150 then .[0:150] + "\u2026" else . end) as $msg |
+                  (if $uri != "?" and $line != "?" then "[\($uri):\($line)](https://github.com/\($repo)/blob/\($sha)/\($uri)#L\($line))" else "\($uri):\($line)" end) as $loc |
+                  "| `\($rid)` | \($loc) | \($msg) |"'
+              done
+            } > codeql-low-findings.md
           fi
           if [[ "$RESULT_COUNT" -gt 0 || "${{ steps.analyze.outcome }}" != "success" ]]; then
             echo "codeql_status=failure" >> "$GITHUB_OUTPUT"
@@ -451,6 +603,14 @@ jobs:
         with:
           name: codeql-medium-findings
           path: codeql-medium-findings.md
+          if-no-files-found: ignore
+
+      - name: Upload low findings detail for PR comment
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codeql-low-findings
+          path: codeql-low-findings.md
           if-no-files-found: ignore
 
       - name: Fail job if CodeQL found high/error/critical issues
@@ -558,8 +718,8 @@ jobs:
   # Job 6: Aggregate all fragments, post PR comment, set final status
   # --------------------------------------------------------------------------
   report:
-    needs: [detect-changes, validate-plugin, codeql-analyze]
-    if: always() && needs.detect-changes.result == 'success' && needs.detect-changes.outputs.close_pr == 'false' && (needs.detect-changes.outputs.skip_validation != 'true' || needs.detect-changes.outputs.pub_key_changed == 'true')
+    needs: [detect-changes, validate-plugin, codeql-analyze, validate-title]
+    if: always() && needs.detect-changes.result == 'success' && needs.detect-changes.outputs.close_pr == 'false' && (needs.detect-changes.outputs.skip_validation != 'true' || needs.detect-changes.outputs.pub_key_changed == 'true' || needs.validate-title.outputs.title_valid == 'false')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -619,6 +779,13 @@ jobs:
           path: codeql-medium-findings
         continue-on-error: true
 
+      - name: Download CodeQL low findings detail
+        uses: actions/download-artifact@v4
+        with:
+          name: codeql-low-findings
+          path: codeql-low-findings
+        continue-on-error: true
+
       - name: Aggregate and post comment
         id: report
         env:
@@ -629,9 +796,13 @@ jobs:
           CODEQL_ERRORS: ${{ needs.codeql-analyze.outputs.codeql_errors }}
           CODEQL_WARNINGS: ${{ needs.codeql-analyze.outputs.codeql_warnings }}
           CODEQL_MEDIUMS: ${{ needs.codeql-analyze.outputs.codeql_mediums }}
+          CODEQL_LOWS: ${{ needs.codeql-analyze.outputs.codeql_lows }}
           OUTSIDE_FILES: ${{ needs.detect-changes.outputs.outside_files }}
           OUTSIDE_VIOLATION: ${{ needs.detect-changes.outputs.outside_violation }}
           PUB_KEY_CHANGED: ${{ needs.detect-changes.outputs.pub_key_changed }}
+          TITLE_VALID: ${{ needs.validate-title.outputs.title_valid }}
+          TITLE_FEEDBACK: ${{ needs.validate-title.outputs.title_feedback }}
+          TITLE_SUGGESTION: ${{ needs.validate-title.outputs.title_suggestion }}
         run: |
           chmod +x .github/scripts/validate/*.sh
           set +e
@@ -715,7 +886,7 @@ jobs:
   # --------------------------------------------------------------------------
   plugin-pr-check:
     name: Plugin PR Check
-    needs: [detect-changes, codeql-analyze, validate-plugin, report]
+    needs: [detect-changes, codeql-analyze, validate-plugin, validate-title, report]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 2
@@ -726,6 +897,7 @@ jobs:
           CLOSE_PR: ${{ needs.detect-changes.outputs.close_pr }}
           SKIP_VALIDATION: ${{ needs.detect-changes.outputs.skip_validation }}
           OUTSIDE_VIOLATION: ${{ needs.detect-changes.outputs.outside_violation }}
+          TITLE_RESULT: ${{ needs.validate-title.result }}
           CODEQL_RESULT: ${{ needs.codeql-analyze.result }}
           CODEQL_STATUS: ${{ needs.codeql-analyze.outputs.codeql_status }}
           VALIDATE_RESULT: ${{ needs.validate-plugin.result }}
@@ -738,6 +910,10 @@ jobs:
           if [[ "$SKIP_VALIDATION" == "true" ]]; then
             echo "No plugin changes detected and author has write access - passing."
             exit 0
+          fi
+          if [[ "$TITLE_RESULT" == "failure" ]]; then
+            echo "::error::PR title does not match the required format. Rename the PR and re-run."
+            exit 1
           fi
           if [[ "$OUTSIDE_VIOLATION" == "true" ]]; then
             echo "::error::PR contains unauthorized changes outside the plugins/ directory."
