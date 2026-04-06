@@ -1,0 +1,19 @@
+{
+  "name": "Version Gated Plugin",
+  "version": "1.0.0",
+  "description": "Only compatible with a specific Dispatcharr version range. Used to test version gating in the plugin hub.",
+  "author": "cosmicreed",
+  "license": "MPL-2.0",
+  "min_dispatcharr_version": "v0.20.0",
+  "max_dispatcharr_version": "v0.21.99",
+  "actions": [
+    {
+      "id": "run",
+      "label": "Run",
+      "description": "Logs a hello message confirming the version gate was passed.",
+      "button_label": "Run",
+      "button_variant": "filled",
+      "button_color": "lime"
+    }
+  ]
+}

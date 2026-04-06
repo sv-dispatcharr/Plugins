@@ -1,0 +1,19 @@
+{
+  "name": "Well Linked Plugin",
+  "version": "1.0.0",
+  "description": "A demo plugin with a full set of metadata links — repo URL, Discord thread, and license.",
+  "author": "jasperveld",
+  "license": "EUPL-1.2",
+  "repo_url": "https://github.com/dispatcharr-test/well-linked-plugin",
+  "discord_thread": "https://discord.com/channels/123456789012345678/987654321098765432",
+  "actions": [
+    {
+      "id": "run",
+      "label": "Run",
+      "description": "Logs a hello message.",
+      "button_label": "Run",
+      "button_variant": "filled",
+      "button_color": "blue"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Channel Counter",
+  "version": "1.0.0",
+  "description": "Counts channels in the database and logs the total.",
+  "author": "prixdevs",
+  "license": "Apache-2.0",
+  "actions": [
+    {
+      "id": "count_channels",
+      "label": "Count Channels",
+      "description": "Queries the DB for the total channel count and logs it.",
+      "button_label": "Count",
+      "button_variant": "filled",
+      "button_color": "teal"
+    }
+  ]
+}

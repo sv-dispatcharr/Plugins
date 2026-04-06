@@ -1,0 +1,17 @@
+{
+  "name": "WebSocket Pinger",
+  "version": "1.0.0",
+  "description": "Sends a test WebSocket update to the UI and logs confirmation.",
+  "author": "radarlabs",
+  "license": "BSD-3-Clause",
+  "actions": [
+    {
+      "id": "ping",
+      "label": "Ping UI",
+      "description": "Sends a test WebSocket message and logs the result.",
+      "button_label": "Ping",
+      "button_variant": "filled",
+      "button_color": "indigo"
+    }
+  ]
+}

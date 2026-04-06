@@ -1,0 +1,44 @@
+{
+  "name": "Info Field Demo",
+  "version": "1.0.0",
+  "description": "Demonstrates the info (display-only) field type for headings and notes.",
+  "author": "maddoxwren",
+  "license": "Apache-2.0",
+  "fields": [
+    {
+      "id": "section_header",
+      "label": "Connection Settings",
+      "type": "info",
+      "description": "Configure the connection parameters below."
+    },
+    {
+      "id": "host",
+      "label": "Host",
+      "type": "string",
+      "default": "localhost",
+      "help_text": "The remote host to connect to."
+    },
+    {
+      "id": "port",
+      "label": "Port",
+      "type": "number",
+      "default": 8080
+    },
+    {
+      "id": "note",
+      "label": "",
+      "type": "info",
+      "description": "Changes are saved automatically when you click Save Settings."
+    }
+  ],
+  "actions": [
+    {
+      "id": "log_config",
+      "label": "Log Config",
+      "description": "Logs the current host and port settings.",
+      "button_label": "Log Config",
+      "button_variant": "subtle",
+      "button_color": "blue"
+    }
+  ]
+}

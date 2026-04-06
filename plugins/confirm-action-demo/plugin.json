@@ -1,0 +1,30 @@
+{
+  "name": "Confirm Action Demo",
+  "version": "1.0.0",
+  "description": "Demonstrates the confirm modal on a destructive-looking action.",
+  "author": "irinakorb",
+  "license": "MIT",
+  "actions": [
+    {
+      "id": "safe_run",
+      "label": "Safe Run",
+      "description": "Runs without a confirmation prompt.",
+      "button_label": "Run",
+      "button_variant": "filled",
+      "button_color": "green"
+    },
+    {
+      "id": "risky_run",
+      "label": "Risky Run",
+      "description": "Requires confirmation before running.",
+      "button_label": "Run (Confirm)",
+      "button_variant": "filled",
+      "button_color": "red",
+      "confirm": {
+        "required": true,
+        "title": "Are you sure?",
+        "message": "This action is just a demo, but pretend it's destructive."
+      }
+    }
+  ]
+}

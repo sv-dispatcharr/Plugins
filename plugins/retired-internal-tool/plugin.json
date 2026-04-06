@@ -1,0 +1,19 @@
+{
+  "name": "Retired Internal Tool",
+  "version": "2.0.0",
+  "description": "A retired internal plugin that is both deprecated and unlisted. Its per-plugin manifest still exists but it does not appear in the root manifest.",
+  "author": "pelikandev",
+  "license": "GPL-3.0-only",
+  "deprecated": true,
+  "unlisted": true,
+  "actions": [
+    {
+      "id": "run",
+      "label": "Run",
+      "description": "Logs a retirement notice at WARNING and INFO level.",
+      "button_label": "Run",
+      "button_variant": "outline",
+      "button_color": "gray"
+    }
+  ]
+}

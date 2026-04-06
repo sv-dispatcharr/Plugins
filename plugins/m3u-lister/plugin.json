@@ -1,0 +1,17 @@
+{
+  "name": "M3U Lister",
+  "version": "1.0.0",
+  "description": "Logs the names of all M3U accounts configured in Dispatcharr.",
+  "author": "tobiasfendt",
+  "license": "MPL-2.0",
+  "actions": [
+    {
+      "id": "list_m3u",
+      "label": "List M3U Accounts",
+      "description": "Logs all M3U account names at INFO level.",
+      "button_label": "List",
+      "button_variant": "outline",
+      "button_color": "cyan"
+    }
+  ]
+}

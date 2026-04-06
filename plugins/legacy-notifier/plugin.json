@@ -1,0 +1,18 @@
+{
+  "name": "Legacy Notifier",
+  "version": "1.2.0",
+  "description": "An older notification plugin superseded by a newer approach. Kept for reference only.",
+  "author": "hartleydev",
+  "license": "BSD-3-Clause",
+  "deprecated": true,
+  "actions": [
+    {
+      "id": "notify",
+      "label": "Notify",
+      "description": "Logs a deprecation warning and a hello-world message.",
+      "button_label": "Notify",
+      "button_variant": "outline",
+      "button_color": "gray"
+    }
+  ]
+}

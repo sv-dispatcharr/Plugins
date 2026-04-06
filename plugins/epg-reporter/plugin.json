@@ -1,0 +1,17 @@
+{
+  "name": "EPG Reporter",
+  "version": "1.0.0",
+  "description": "Logs the number of EPG sources configured in Dispatcharr.",
+  "author": "solarflux42",
+  "license": "GPL-3.0-only",
+  "actions": [
+    {
+      "id": "report",
+      "label": "Report EPG Sources",
+      "description": "Logs the total count of EPG sources at INFO level.",
+      "button_label": "Report",
+      "button_variant": "filled",
+      "button_color": "orange"
+    }
+  ]
+}

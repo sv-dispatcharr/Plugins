@@ -1,0 +1,26 @@
+{
+  "name": "Uptime Greeter",
+  "version": "1.0.0",
+  "description": "Logs a configurable greeting with the current server timestamp.",
+  "author": "wrenwick",
+  "license": "ISC",
+  "fields": [
+    {
+      "id": "greeting",
+      "label": "Greeting",
+      "type": "string",
+      "default": "Dispatcharr is alive",
+      "help_text": "The message to log when the action is triggered."
+    }
+  ],
+  "actions": [
+    {
+      "id": "greet",
+      "label": "Greet",
+      "description": "Logs the greeting with the current timestamp.",
+      "button_label": "Greet",
+      "button_variant": "filled",
+      "button_color": "green"
+    }
+  ]
+}
