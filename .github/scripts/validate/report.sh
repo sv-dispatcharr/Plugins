@@ -68,6 +68,57 @@ for fragment in "$FRAGMENTS_DIR"/*.fragment.md; do
   COMBINED_BODY+="$VISIBLE"$'\n\n'
 done
 
+# Build "other plugins by this contributor" section by expanding sparse-checkout
+OTHER_PLUGINS_SECTION=""
+if git sparse-checkout add plugins 2>/dev/null && git checkout 2>/dev/null; then
+  PR_PLUGIN_NAMES=()
+  for _frag in "$FRAGMENTS_DIR"/*.fragment.md; do
+    [[ -f "$_frag" ]] || continue
+    _bn=$(basename "$_frag" .fragment.md)
+    PR_PLUGIN_NAMES+=("$_bn")
+  done
+
+  OTHER_PLUGIN_ENTRIES=()
+  for _pjson in plugins/*/plugin.json; do
+    [[ -f "$_pjson" ]] || continue
+    _pname=$(basename "$(dirname "$_pjson")")
+
+    # Skip plugins that are part of this PR
+    _skip=false
+    for _pr_p in "${PR_PLUGIN_NAMES[@]}"; do
+      [[ "$_pr_p" == "$_pname" ]] && _skip=true && break
+    done
+    $_skip && continue
+
+    _p_author=$(jq -r '.author // ""' "$_pjson" 2>/dev/null || true)
+    _p_maintainers=$(jq -r '[.maintainers[]?] | join(" ")' "$_pjson" 2>/dev/null || true)
+
+    if [[ "$_p_author" == "$PR_AUTHOR" ]] || [[ " $_p_maintainers " =~ " $PR_AUTHOR " ]]; then
+      _p_display_name=$(jq -r '.name // ""' "$_pjson" 2>/dev/null || echo "$_pname")
+      _p_version=$(jq -r '.version // ""' "$_pjson" 2>/dev/null || true)
+      _p_repo_url=$(jq -r '.repo_url // ""' "$_pjson" 2>/dev/null || true)
+      if [[ -n "$_p_repo_url" ]]; then
+        _p_link="$_p_repo_url"
+      else
+        _p_link="https://github.com/${GITHUB_REPOSITORY}/tree/${BASE_REF:-main}/plugins/${_pname}"
+      fi
+      _version_suffix=""
+      [[ -n "$_p_version" ]] && _version_suffix=" · v${_p_version}"
+      OTHER_PLUGIN_ENTRIES+=("- [**${_p_display_name}**](${_p_link}) (\`${_pname}\`${_version_suffix})")
+    fi
+  done
+
+  if [[ ${#OTHER_PLUGIN_ENTRIES[@]} -gt 0 ]]; then
+    OTHER_PLUGINS_SECTION=$'<details>\n'
+    OTHER_PLUGINS_SECTION+="<summary>Other plugins by \`${PR_AUTHOR}\` in this repository</summary>"
+    OTHER_PLUGINS_SECTION+=$'\n\n'
+    for _entry in "${OTHER_PLUGIN_ENTRIES[@]}"; do
+      OTHER_PLUGINS_SECTION+="${_entry}"$'\n'
+    done
+    OTHER_PLUGINS_SECTION+=$'\n</details>'
+  fi
+fi
+
 # Build comment
 {
   echo "<!--PLUGIN_VALIDATION_COMMENT-->"
@@ -109,6 +160,13 @@ done
     fi
   else
     echo "$COMBINED_BODY"
+
+    if [[ -n "$OTHER_PLUGINS_SECTION" ]]; then
+      echo ""
+      echo "---"
+      echo ""
+      echo "$OTHER_PLUGINS_SECTION"
+    fi
 
   if [[ -n "${OUTSIDE_FILES:-}" && "${OUTSIDE_VIOLATION:-}" == "true" ]]; then
       OVERALL_FAILED=1

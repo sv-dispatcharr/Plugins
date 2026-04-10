@@ -78,6 +78,14 @@ has_permission="false"
 {
   echo "### Plugin: \`$PLUGIN_NAME\`"
   echo ""
+  # Show description as italicized subtext if plugin.json is readable
+  if [[ -f "$PLUGIN_JSON" ]]; then
+    _desc=$(jq -r '.description // ""' "$PLUGIN_JSON" 2>/dev/null || true)
+    if [[ -n "$_desc" ]]; then
+      echo "_${_desc}_"
+      echo ""
+    fi
+  fi
 
   TABLE_ROWS=()
 

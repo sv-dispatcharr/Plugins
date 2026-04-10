@@ -803,6 +803,7 @@ jobs:
           TITLE_VALID: ${{ needs.validate-title.outputs.title_valid }}
           TITLE_FEEDBACK: ${{ needs.validate-title.outputs.title_feedback }}
           TITLE_SUGGESTION: ${{ needs.validate-title.outputs.title_suggestion }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
         run: |
           chmod +x .github/scripts/validate/*.sh
           set +e
