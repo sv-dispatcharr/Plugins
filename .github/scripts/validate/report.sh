@@ -103,19 +103,22 @@ if git sparse-checkout add plugins 2>/dev/null && git checkout 2>/dev/null; then
         _p_link="https://github.com/${GITHUB_REPOSITORY}/tree/${BASE_REF:-main}/plugins/${_pname}"
       fi
       _version_suffix=""
-      [[ -n "$_p_version" ]] && _version_suffix=" · v${_p_version}"
-      OTHER_PLUGIN_ENTRIES+=("- [**${_p_display_name}**](${_p_link}) (\`${_pname}\`${_version_suffix})")
+      [[ -n "$_p_version" ]] && _version_suffix="$_p_version"
+      _display_link="[**${_p_display_name}**](${_p_link})"
+      OTHER_PLUGIN_ENTRIES+=("| ${_display_link} | \`${_pname}\` | ${_version_suffix} |")
     fi
   done
 
   if [[ ${#OTHER_PLUGIN_ENTRIES[@]} -gt 0 ]]; then
-    OTHER_PLUGINS_SECTION=$'<details>\n'
-    OTHER_PLUGINS_SECTION+="<summary>Other plugins by \`${PR_AUTHOR}\` in this repository</summary>"
+    OTHER_PLUGINS_SECTION="### Other plugins by ${PR_AUTHOR} in this repository"
     OTHER_PLUGINS_SECTION+=$'\n\n'
+    OTHER_PLUGINS_SECTION+="| Plugin | Folder | Version |"
+    OTHER_PLUGINS_SECTION+=$'\n'
+    OTHER_PLUGINS_SECTION+="|--------|--------|---------|" 
+    OTHER_PLUGINS_SECTION+=$'\n'
     for _entry in "${OTHER_PLUGIN_ENTRIES[@]}"; do
       OTHER_PLUGINS_SECTION+="${_entry}"$'\n'
     done
-    OTHER_PLUGINS_SECTION+=$'\n</details>'
   fi
 fi
 
@@ -160,13 +163,6 @@ fi
     fi
   else
     echo "$COMBINED_BODY"
-
-    if [[ -n "$OTHER_PLUGINS_SECTION" ]]; then
-      echo ""
-      echo "---"
-      echo ""
-      echo "$OTHER_PLUGINS_SECTION"
-    fi
 
   if [[ -n "${OUTSIDE_FILES:-}" && "${OUTSIDE_VIOLATION:-}" == "true" ]]; then
       OVERALL_FAILED=1
@@ -272,6 +268,13 @@ fi
       echo "## ❌ Validation failed"
       echo ""
       echo "Some checks failed. Please review the errors above and update your PR."
+    fi
+
+    if [[ -n "$OTHER_PLUGINS_SECTION" ]]; then
+      echo ""
+      echo "---"
+      echo ""
+      echo "$OTHER_PLUGINS_SECTION"
     fi
 
     # if [[ -n "$PLUGIN_LINKS" ]]; then
