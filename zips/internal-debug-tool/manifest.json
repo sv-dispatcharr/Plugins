@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-04-10T18:53:44Z",
+  "manifest": {
+    "name": "Internal Debug Tool",
+    "description": "An internal diagnostics plugin not intended for general distribution. Unlisted from the root manifest.",
+    "author": "nnvoss",
+    "license": "ISC",
+    "slug": "internal-debug-tool",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+        "commit_sha_short": "bb73553",
+        "build_timestamp": "2026-04-10T18:53:43Z",
+        "last_updated": "2026-04-06T09:40:01-04:00",
+        "checksum_md5": "6ca06a65ee06b6dd790d446d98aa0647",
+        "checksum_sha256": "c9eb14b4bb70ec703291f0a79882f28be5ff7ce1a630fd798e69f5ab95a2a03a",
+        "url": "zips/internal-debug-tool/internal-debug-tool-1.0.0.zip"
+      }
+    ],
+    "last_updated": "2026-04-06T09:40:01-04:00",
+    "latest": {
+      "version": "1.0.0",
+      "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+      "commit_sha_short": "bb73553",
+      "build_timestamp": "2026-04-10T18:53:43Z",
+      "last_updated": "2026-04-06T09:40:01-04:00",
+      "checksum_md5": "6ca06a65ee06b6dd790d446d98aa0647",
+      "checksum_sha256": "c9eb14b4bb70ec703291f0a79882f28be5ff7ce1a630fd798e69f5ab95a2a03a",
+      "latest_url": "zips/internal-debug-tool/internal-debug-tool-latest.zip",
+      "url": "zips/internal-debug-tool/internal-debug-tool-1.0.0.zip"
+    }
+  }
+}

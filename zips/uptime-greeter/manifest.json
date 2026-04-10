@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-04-10T18:53:44Z",
+  "manifest": {
+    "name": "Uptime Greeter",
+    "description": "Logs a configurable greeting with the current server timestamp.",
+    "author": "wrenwick",
+    "license": "ISC",
+    "slug": "uptime-greeter",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+        "commit_sha_short": "bb73553",
+        "build_timestamp": "2026-04-10T18:53:43Z",
+        "last_updated": "2026-04-06T09:40:01-04:00",
+        "checksum_md5": "26dfea6091fdece00c0a2a0a4aefa5bb",
+        "checksum_sha256": "cbf3d31e1f1e71ba16703e057a7e5862a99cdc8cf1ebb852fae33f8dae6df408",
+        "url": "zips/uptime-greeter/uptime-greeter-1.0.0.zip"
+      }
+    ],
+    "last_updated": "2026-04-06T09:40:01-04:00",
+    "latest": {
+      "version": "1.0.0",
+      "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+      "commit_sha_short": "bb73553",
+      "build_timestamp": "2026-04-10T18:53:43Z",
+      "last_updated": "2026-04-06T09:40:01-04:00",
+      "checksum_md5": "26dfea6091fdece00c0a2a0a4aefa5bb",
+      "checksum_sha256": "cbf3d31e1f1e71ba16703e057a7e5862a99cdc8cf1ebb852fae33f8dae6df408",
+      "latest_url": "zips/uptime-greeter/uptime-greeter-latest.zip",
+      "url": "zips/uptime-greeter/uptime-greeter-1.0.0.zip"
+    }
+  }
+}

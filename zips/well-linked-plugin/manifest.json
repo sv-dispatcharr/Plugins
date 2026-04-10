@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-04-10T18:53:44Z",
+  "manifest": {
+    "name": "Well Linked Plugin",
+    "description": "A demo plugin with a full set of metadata links — repo URL, Discord thread, and license.",
+    "author": "jasperveld",
+    "license": "EUPL-1.2",
+    "repo_url": "https://github.com/dispatcharr-test/well-linked-plugin",
+    "discord_thread": "https://discord.com/channels/123456789012345678/987654321098765432",
+    "slug": "well-linked-plugin",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+        "commit_sha_short": "bb73553",
+        "build_timestamp": "2026-04-10T18:53:44Z",
+        "last_updated": "2026-04-06T09:40:01-04:00",
+        "checksum_md5": "97068f12f46f72dd277861f003901041",
+        "checksum_sha256": "ac3c1709ced9a30c32e3cdf2fc07b6eed8858d8ad40a7c208b514084d4cf8a00",
+        "url": "zips/well-linked-plugin/well-linked-plugin-1.0.0.zip"
+      }
+    ],
+    "last_updated": "2026-04-06T09:40:01-04:00",
+    "latest": {
+      "version": "1.0.0",
+      "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+      "commit_sha_short": "bb73553",
+      "build_timestamp": "2026-04-10T18:53:44Z",
+      "last_updated": "2026-04-06T09:40:01-04:00",
+      "checksum_md5": "97068f12f46f72dd277861f003901041",
+      "checksum_sha256": "ac3c1709ced9a30c32e3cdf2fc07b6eed8858d8ad40a7c208b514084d4cf8a00",
+      "latest_url": "zips/well-linked-plugin/well-linked-plugin-latest.zip",
+      "url": "zips/well-linked-plugin/well-linked-plugin-1.0.0.zip"
+    }
+  }
+}

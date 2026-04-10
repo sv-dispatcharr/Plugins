@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-04-10T18:53:44Z",
+  "manifest": {
+    "name": "Password Field Demo",
+    "description": "Demonstrates the password input_type on a string field.",
+    "author": "quentinash",
+    "license": "LGPL-2.1-only",
+    "slug": "password-field-demo",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+        "commit_sha_short": "bb73553",
+        "build_timestamp": "2026-04-10T18:53:43Z",
+        "last_updated": "2026-04-06T09:40:01-04:00",
+        "checksum_md5": "d900ea541f7610ea33a4c63d7a460cc7",
+        "checksum_sha256": "53d00a2da04d6c60f13fd48f660e3c663d1cf751c9bcdec6435b5d630c76cdb3",
+        "url": "zips/password-field-demo/password-field-demo-1.0.0.zip"
+      }
+    ],
+    "last_updated": "2026-04-06T09:40:01-04:00",
+    "latest": {
+      "version": "1.0.0",
+      "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+      "commit_sha_short": "bb73553",
+      "build_timestamp": "2026-04-10T18:53:43Z",
+      "last_updated": "2026-04-06T09:40:01-04:00",
+      "checksum_md5": "d900ea541f7610ea33a4c63d7a460cc7",
+      "checksum_sha256": "53d00a2da04d6c60f13fd48f660e3c663d1cf751c9bcdec6435b5d630c76cdb3",
+      "latest_url": "zips/password-field-demo/password-field-demo-latest.zip",
+      "url": "zips/password-field-demo/password-field-demo-1.0.0.zip"
+    }
+  }
+}

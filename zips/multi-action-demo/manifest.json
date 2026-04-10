@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-04-10T18:53:44Z",
+  "manifest": {
+    "name": "Multi Action Demo",
+    "description": "Demonstrates multiple actions on a single plugin card.",
+    "author": "devklara",
+    "license": "Unlicense",
+    "slug": "multi-action-demo",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+        "commit_sha_short": "bb73553",
+        "build_timestamp": "2026-04-10T18:53:43Z",
+        "last_updated": "2026-04-06T09:40:01-04:00",
+        "checksum_md5": "a6c303ad55a9266a663df309a8d449e0",
+        "checksum_sha256": "8913863371ce50faf8933159c570209f35bbffaf7f93baaf77adaab88ffa2fc8",
+        "url": "zips/multi-action-demo/multi-action-demo-1.0.0.zip"
+      }
+    ],
+    "last_updated": "2026-04-06T09:40:01-04:00",
+    "latest": {
+      "version": "1.0.0",
+      "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+      "commit_sha_short": "bb73553",
+      "build_timestamp": "2026-04-10T18:53:43Z",
+      "last_updated": "2026-04-06T09:40:01-04:00",
+      "checksum_md5": "a6c303ad55a9266a663df309a8d449e0",
+      "checksum_sha256": "8913863371ce50faf8933159c570209f35bbffaf7f93baaf77adaab88ffa2fc8",
+      "latest_url": "zips/multi-action-demo/multi-action-demo-latest.zip",
+      "url": "zips/multi-action-demo/multi-action-demo-1.0.0.zip"
+    }
+  }
+}

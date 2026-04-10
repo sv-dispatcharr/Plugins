@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-04-10T18:53:44Z",
+  "manifest": {
+    "name": "EPG Reporter",
+    "description": "Logs the number of EPG sources configured in Dispatcharr.",
+    "author": "solarflux42",
+    "license": "GPL-3.0-only",
+    "slug": "epg-reporter",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+        "commit_sha_short": "bb73553",
+        "build_timestamp": "2026-04-10T18:53:43Z",
+        "last_updated": "2026-04-06T09:40:01-04:00",
+        "checksum_md5": "bcc3ffa21f1f251db6f52b2f84d9ada1",
+        "checksum_sha256": "be84210601cb8f2e718e946bcaafd022ce1c667c2e91b7dbe3539733874e834b",
+        "url": "zips/epg-reporter/epg-reporter-1.0.0.zip"
+      }
+    ],
+    "last_updated": "2026-04-06T09:40:01-04:00",
+    "latest": {
+      "version": "1.0.0",
+      "commit_sha": "bb7355332741290cf0a788fbf2390914ddad6ee5",
+      "commit_sha_short": "bb73553",
+      "build_timestamp": "2026-04-10T18:53:43Z",
+      "last_updated": "2026-04-06T09:40:01-04:00",
+      "checksum_md5": "bcc3ffa21f1f251db6f52b2f84d9ada1",
+      "checksum_sha256": "be84210601cb8f2e718e946bcaafd022ce1c667c2e91b7dbe3539733874e834b",
+      "latest_url": "zips/epg-reporter/epg-reporter-latest.zip",
+      "url": "zips/epg-reporter/epg-reporter-1.0.0.zip"
+    }
+  }
+}
