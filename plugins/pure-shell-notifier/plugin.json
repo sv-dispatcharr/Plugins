@@ -1,0 +1,8 @@
+{
+  "name": "Pure Shell Notifier",
+  "version": "0.1.0",
+  "description": "Test fixture: shell-only plugin with no Python/JS/Go. Exercises the CodeQL-skipped + unscanned-shell callout path.",
+  "author": "codeql-test-bot",
+  "maintainers": ["sethwv"],
+  "license": "MIT"
+}
