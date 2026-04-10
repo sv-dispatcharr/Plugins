@@ -1,0 +1,8 @@
+{
+  "name": "Pure Lua Scheduler",
+  "version": "0.1.0",
+  "description": "Test fixture: Lua-only plugin with no Python/JS/Go. Exercises the CodeQL-skipped + unscanned-lua callout path.",
+  "author": "codeql-test-bot",
+  "maintainers": ["sethwv"],
+  "license": "MIT"
+}
