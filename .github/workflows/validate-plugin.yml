@@ -355,6 +355,7 @@ jobs:
       codeql_warnings: ${{ steps.status.outputs.codeql_warnings }}
       codeql_mediums: ${{ steps.status.outputs.codeql_mediums }}
       codeql_lows: ${{ steps.status.outputs.codeql_lows }}
+      codeql_unscanned_langs: ${{ steps.status.outputs.codeql_unscanned_langs }}
     steps:
       - name: Checkout PR merge commit for analysis
         uses: actions/checkout@v4
@@ -372,14 +373,64 @@ jobs:
             | git sparse-checkout set --stdin
           git checkout
 
-      - name: Check for Python files
-        id: has-python
+      - name: Detect supported languages
+        id: detect-langs
         run: |
+          LANGS=()
+          UNSCANNED=()
+
+          # --- CodeQL-supported languages ---
           if find plugins -name '*.py' -print -quit | grep -q .; then
+            LANGS+=(python)
+          fi
+          if find plugins \( -name '*.js' -o -name '*.ts' -o -name '*.jsx' -o -name '*.tsx' \) -print -quit | grep -q .; then
+            LANGS+=(javascript)
+          fi
+          if find plugins -name '*.go' -print -quit | grep -q .; then
+            LANGS+=(go)
+          fi
+          if find plugins -name '*.rb' -print -quit | grep -q .; then
+            LANGS+=(ruby)
+          fi
+          if find plugins \( -name '*.java' -o -name '*.kt' -o -name '*.kts' \) -print -quit | grep -q .; then
+            LANGS+=("java-kotlin")
+          fi
+          if find plugins \( -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' -o -name '*.hpp' \) -print -quit | grep -q .; then
+            LANGS+=("c-cpp")
+          fi
+
+          # --- Files present but not supported by CodeQL ---
+          if find plugins \( -name '*.sh' -o -name '*.bash' \) -print -quit | grep -q .; then
+            UNSCANNED+=(shell)
+          fi
+          if find plugins -name '*.php' -print -quit | grep -q .; then
+            UNSCANNED+=(php)
+          fi
+          if find plugins -name '*.lua' -print -quit | grep -q .; then
+            UNSCANNED+=(lua)
+          fi
+          if find plugins \( -name '*.pl' -o -name '*.pm' \) -print -quit | grep -q .; then
+            UNSCANNED+=(perl)
+          fi
+          if find plugins -name '*.rs' -print -quit | grep -q .; then
+            UNSCANNED+=(rust)
+          fi
+
+          UNSCANNED_CSV=""
+          [[ ${#UNSCANNED[@]} -gt 0 ]] && UNSCANNED_CSV=$(IFS=,; echo "${UNSCANNED[*]}")
+          echo "unscanned_langs=$UNSCANNED_CSV" >> "$GITHUB_OUTPUT"
+
+          if [[ ${#LANGS[@]} -gt 0 ]]; then
+            LANG_CSV=$(IFS=,; echo "${LANGS[*]}")
             echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "languages=$LANG_CSV" >> "$GITHUB_OUTPUT"
+            echo "Detected languages for CodeQL: $LANG_CSV"
+            [[ -n "$UNSCANNED_CSV" ]] && echo "Unscanned (no CodeQL support): $UNSCANNED_CSV"
           else
             echo "found=false" >> "$GITHUB_OUTPUT"
-            echo "No Python files found in changed plugins - skipping CodeQL."
+            echo "languages=" >> "$GITHUB_OUTPUT"
+            echo "No supported language files found in changed plugins - skipping CodeQL."
+            [[ -n "$UNSCANNED_CSV" ]] && echo "Unscanned file types detected (no CodeQL support): $UNSCANNED_CSV"
           fi
 
       - name: Get merge commit SHA
@@ -387,22 +438,22 @@ jobs:
         run: echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Initialize CodeQL
-        if: steps.has-python.outputs.found == 'true'
+        if: steps.detect-langs.outputs.found == 'true'
         uses: github/codeql-action/init@v4
         with:
-          languages: python
+          languages: ${{ steps.detect-langs.outputs.languages }}
           queries: security-and-quality
 
       - name: Autobuild
-        if: steps.has-python.outputs.found == 'true'
+        if: steps.detect-langs.outputs.found == 'true'
         uses: github/codeql-action/autobuild@v4
 
       - name: Perform CodeQL Analysis
-        if: steps.has-python.outputs.found == 'true'
+        if: steps.detect-langs.outputs.found == 'true'
         id: analyze
         uses: github/codeql-action/analyze@v4
         with:
-          category: /language:python/pr-${{ github.event.pull_request.number }}
+          category: pr-${{ github.event.pull_request.number }}
           output: sarif-results
           upload: false
         continue-on-error: true
@@ -596,11 +647,14 @@ jobs:
               done
             } > codeql-low-findings.md
           fi
-          if [[ "$RESULT_COUNT" -gt 0 || ( "${{ steps.has-python.outputs.found }}" == 'true' && "${{ steps.analyze.outcome }}" != "success" && "${{ steps.analyze.outcome }}" != "" ) ]]; then
+          if [[ "$RESULT_COUNT" -gt 0 || ( "${{ steps.detect-langs.outputs.found }}" == 'true' && "${{ steps.analyze.outcome }}" != "success" && "${{ steps.analyze.outcome }}" != "" ) ]]; then
             echo "codeql_status=failure" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ steps.detect-langs.outputs.found }}" == 'false' ]]; then
+            echo "codeql_status=skipped" >> "$GITHUB_OUTPUT"
           else
             echo "codeql_status=success" >> "$GITHUB_OUTPUT"
           fi
+          echo "codeql_unscanned_langs=${{ steps.detect-langs.outputs.unscanned_langs }}" >> "$GITHUB_OUTPUT"
 
       - name: Upload findings detail for PR comment
         if: always() && steps.status.outputs.codeql_status == 'failure'
@@ -810,6 +864,7 @@ jobs:
           CODEQL_WARNINGS: ${{ needs.codeql-analyze.outputs.codeql_warnings }}
           CODEQL_MEDIUMS: ${{ needs.codeql-analyze.outputs.codeql_mediums }}
           CODEQL_LOWS: ${{ needs.codeql-analyze.outputs.codeql_lows }}
+          CODEQL_UNSCANNED_LANGS: ${{ needs.codeql-analyze.outputs.codeql_unscanned_langs }}
           OUTSIDE_FILES: ${{ needs.detect-changes.outputs.outside_files }}
           OUTSIDE_VIOLATION: ${{ needs.detect-changes.outputs.outside_violation }}
           PUB_KEY_CHANGED: ${{ needs.detect-changes.outputs.pub_key_changed }}
