@@ -201,10 +201,12 @@ fi
       echo ""
     fi
 
-    # insert --- if there are ANY codeql findings, medium, or low/informationsl
+    # insert --- if there are ANY codeql findings, medium, low, or skip/unscanned notice
     if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]] || \
        [[ -n "${CODEQL_MEDIUMS:-}" && "${CODEQL_MEDIUMS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
-       [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]]; then
+       [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
+       [[ "${CODEQL_RESULT:-}" == "skipped" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]] || \
+       [[ "${CODEQL_RESULT:-}" != "skipped" && -n "${CODEQL_RESULT:-}" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]]; then
       echo ""
       echo "---"
       echo ""
@@ -246,7 +248,18 @@ fi
       echo "</details>"
     fi
 
-    # PR title format check (informational, non-blocking)
+    # CodeQL skipped notice (when no scannable files exist but unscannable types were found)
+    if [[ "${CODEQL_RESULT:-}" == "skipped" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]]; then
+      UNSCANNED_DISPLAY=$(echo "${CODEQL_UNSCANNED_LANGS}" | tr ',' ' ')
+      echo ""
+      echo "**CodeQL analysis was skipped** - no supported source files were found. The following bundled file type(s) are not covered by CodeQL: \`${UNSCANNED_DISPLAY}\`."
+      echo ""
+    elif [[ -n "${CODEQL_UNSCANNED_LANGS:-}" && "${CODEQL_RESULT:-}" != "skipped" && -n "${CODEQL_RESULT:-}" ]]; then
+      UNSCANNED_DISPLAY=$(echo "${CODEQL_UNSCANNED_LANGS}" | tr ',' ' ')
+      echo ""
+      echo "**Note:** The following bundled file type(s) were not scanned by CodeQL (unsupported language): \`${UNSCANNED_DISPLAY}\`."
+      echo ""
+    fi
     if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
       echo ""
       echo "---"
