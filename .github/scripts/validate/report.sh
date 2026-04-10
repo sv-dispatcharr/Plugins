@@ -105,7 +105,8 @@ if git sparse-checkout add plugins 2>/dev/null && git checkout 2>/dev/null; then
       _version_suffix=""
       [[ -n "$_p_version" ]] && _version_suffix="$_p_version"
       _display_link="[**${_p_display_name}**](${_p_link})"
-      OTHER_PLUGIN_ENTRIES+=("| ${_display_link} | \`${_pname}\` | ${_version_suffix} |")
+      _slug_link="[\`${_pname}\`](https://github.com/${GITHUB_REPOSITORY}/tree/${BASE_REF:-main}/plugins/${_pname})"
+      OTHER_PLUGIN_ENTRIES+=("| ${_display_link} | ${_slug_link} | ${_version_suffix} |")
     fi
   done
 
@@ -114,9 +115,9 @@ if git sparse-checkout add plugins 2>/dev/null && git checkout 2>/dev/null; then
     OTHER_PLUGINS_SECTION+=$'\n'
     OTHER_PLUGINS_SECTION+="<summary>Other plugins by <code>${PR_AUTHOR}</code> in this repository (${#OTHER_PLUGIN_ENTRIES[@]})</summary>"
     OTHER_PLUGINS_SECTION+=$'\n\n'
-    OTHER_PLUGINS_SECTION+="| Plugin | Folder | Version |"
+    OTHER_PLUGINS_SECTION+="| Plugin | Slug | Version |"
     OTHER_PLUGINS_SECTION+=$'\n'
-    OTHER_PLUGINS_SECTION+="|--------|--------|---------|"
+    OTHER_PLUGINS_SECTION+="|--------|------|---------|"
     OTHER_PLUGINS_SECTION+=$'\n'
     for _entry in "${OTHER_PLUGIN_ENTRIES[@]}"; do
       OTHER_PLUGINS_SECTION+="${_entry}"$'\n'
