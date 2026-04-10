@@ -1,0 +1,8 @@
+{
+  "name": "Lua Filter Engine",
+  "version": "0.1.0",
+  "description": "Evaluates a user-defined Lua script to filter and rank M3U streams before they are served.",
+  "author": "codeql-test-bot",
+  "maintainers": ["sethwv"],
+  "license": "BSD-3-Clause"
+}

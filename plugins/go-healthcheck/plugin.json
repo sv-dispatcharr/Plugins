@@ -1,0 +1,8 @@
+{
+  "name": "Go Healthcheck",
+  "version": "0.1.0",
+  "description": "Runs a fast Go-based TCP/HTTP health probe against configured stream endpoints and reports results.",
+  "author": "codeql-test-bot",
+  "maintainers": ["sethwv"],
+  "license": "ISC"
+}
