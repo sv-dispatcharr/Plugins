@@ -1,8 +1,0 @@
-{
-  "name": "Shell Backup Helper",
-  "version": "0.1.0",
-  "description": "Triggers a configurable shell script to back up Dispatcharr data to a local path or mounted volume.",
-  "author": "codeql-test-bot",
-  "maintainers": ["sethwv"],
-  "license": "Apache-2.0"
-}

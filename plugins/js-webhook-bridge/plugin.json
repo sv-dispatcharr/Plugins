@@ -1,8 +1,0 @@
-{
-  "name": "JS Webhook Bridge",
-  "version": "0.1.0",
-  "description": "Forwards Dispatcharr events to an external webhook endpoint using a bundled Node.js handler script.",
-  "author": "codeql-test-bot",
-  "maintainers": ["sethwv"],
-  "license": "MIT"
-}

@@ -1,8 +1,0 @@
-{
-  "name": "Mixed Lang Bundle",
-  "version": "0.1.0",
-  "description": "Demo plugin bundling Python, TypeScript, shell, and Lua together to test full multi-language CodeQL detection coverage.",
-  "author": "codeql-test-bot",
-  "maintainers": ["sethwv"],
-  "license": "MIT"
-}
