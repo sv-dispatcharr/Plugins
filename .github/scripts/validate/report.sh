@@ -110,15 +110,18 @@ if git sparse-checkout add plugins 2>/dev/null && git checkout 2>/dev/null; then
   done
 
   if [[ ${#OTHER_PLUGIN_ENTRIES[@]} -gt 0 ]]; then
-    OTHER_PLUGINS_SECTION="### Other plugins by ${PR_AUTHOR} in this repository"
+    OTHER_PLUGINS_SECTION="<details>"
+    OTHER_PLUGINS_SECTION+=$'\n'
+    OTHER_PLUGINS_SECTION+="<summary>Other plugins by <code>${PR_AUTHOR}</code> in this repository (${#OTHER_PLUGIN_ENTRIES[@]})</summary>"
     OTHER_PLUGINS_SECTION+=$'\n\n'
     OTHER_PLUGINS_SECTION+="| Plugin | Folder | Version |"
     OTHER_PLUGINS_SECTION+=$'\n'
-    OTHER_PLUGINS_SECTION+="|--------|--------|---------|" 
+    OTHER_PLUGINS_SECTION+="|--------|--------|---------|"
     OTHER_PLUGINS_SECTION+=$'\n'
     for _entry in "${OTHER_PLUGIN_ENTRIES[@]}"; do
       OTHER_PLUGINS_SECTION+="${_entry}"$'\n'
     done
+    OTHER_PLUGINS_SECTION+=$'\n</details>'
   fi
 fi
 
@@ -271,8 +274,6 @@ fi
     fi
 
     if [[ -n "$OTHER_PLUGINS_SECTION" ]]; then
-      echo ""
-      echo "---"
       echo ""
       echo "$OTHER_PLUGINS_SECTION"
     fi
