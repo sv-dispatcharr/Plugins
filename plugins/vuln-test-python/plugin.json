@@ -1,0 +1,8 @@
+{
+  "name": "Vuln Test Python",
+  "version": "0.1.0",
+  "description": "Test fixture: intentionally vulnerable Python plugin for CodeQL high/critical detection testing. DO NOT USE IN PRODUCTION.",
+  "author": "codeql-test-bot",
+  "maintainers": ["sethwv"],
+  "license": "MIT"
+}
