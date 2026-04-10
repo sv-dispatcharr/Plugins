@@ -1,0 +1,17 @@
+{
+  "name": "Hello Logger",
+  "version": "1.0.0",
+  "description": "A minimal hello-world plugin that logs a greeting message.",
+  "author": "sethwv",
+  "license": "MIT",
+  "actions": [
+    {
+      "id": "say_hello",
+      "label": "Say Hello",
+      "description": "Logs a hello-world message at INFO level.",
+      "button_label": "Say Hello",
+      "button_variant": "filled",
+      "button_color": "blue"
+    }
+  ]
+}
