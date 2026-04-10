@@ -372,20 +372,33 @@ jobs:
             | git sparse-checkout set --stdin
           git checkout
 
+      - name: Check for Python files
+        id: has-python
+        run: |
+          if find plugins -name '*.py' -print -quit | grep -q .; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "No Python files found in changed plugins - skipping CodeQL."
+          fi
+
       - name: Get merge commit SHA
         id: merge
         run: echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Initialize CodeQL
+        if: steps.has-python.outputs.found == 'true'
         uses: github/codeql-action/init@v4
         with:
           languages: python
           queries: security-and-quality
 
       - name: Autobuild
+        if: steps.has-python.outputs.found == 'true'
         uses: github/codeql-action/autobuild@v4
 
       - name: Perform CodeQL Analysis
+        if: steps.has-python.outputs.found == 'true'
         id: analyze
         uses: github/codeql-action/analyze@v4
         with:
@@ -583,7 +596,7 @@ jobs:
               done
             } > codeql-low-findings.md
           fi
-          if [[ "$RESULT_COUNT" -gt 0 || "${{ steps.analyze.outcome }}" != "success" ]]; then
+          if [[ "$RESULT_COUNT" -gt 0 || ( "${{ steps.has-python.outputs.found }}" == 'true' && "${{ steps.analyze.outcome }}" != "success" && "${{ steps.analyze.outcome }}" != "" ) ]]; then
             echo "codeql_status=failure" >> "$GITHUB_OUTPUT"
           else
             echo "codeql_status=success" >> "$GITHUB_OUTPUT"
