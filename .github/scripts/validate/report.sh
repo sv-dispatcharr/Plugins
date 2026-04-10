@@ -275,6 +275,8 @@ fi
 
     if [[ -n "$OTHER_PLUGINS_SECTION" ]]; then
       echo ""
+      echo "---"
+      echo ""
       echo "$OTHER_PLUGINS_SECTION"
     fi
 
