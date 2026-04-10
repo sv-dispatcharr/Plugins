@@ -1,79 +1,85 @@
 #!/usr/bin/env node
 /**
- * handler.js — intentionally vulnerable JS handler for vuln-test-javascript.
+ * handler.js — intentionally vulnerable JS HTTP handler for vuln-test-javascript.
  *
  * !! TEST FIXTURE ONLY — intentionally vulnerable code !!
  *
+ * Starts a minimal HTTP server so CodeQL can model HTTP request parameters
+ * as taint sources and trace them to dangerous sinks.
+ *
  * Violations present:
- *   - js/sql-injection        (CVSS 9.8) — user input concatenated into SQL string
- *   - js/command-injection    (CVSS 9.8) — user input passed to child_process.exec
- *   - js/path-traversal       (CVSS 7.5) — user-controlled path passed to fs.readFile
- *   - js/code-injection       (CVSS 9.8) — eval() on user-controlled string
- *   - js/prototype-pollution  (CVSS 9.8) — unsanitised recursive merge of user object
+ *   - js/sql-injection        (CVSS 9.8) — req query param concatenated into SQL
+ *   - js/command-injection    (CVSS 9.8) — req query param passed to exec()
+ *   - js/path-traversal       (CVSS 7.5) — req query param used in fs.readFile
+ *   - js/code-injection       (CVSS 9.8) — eval() on req query param
+ *   - js/prototype-pollution  (CVSS 9.8) — unsanitised recursive merge of parsed body
  */
 
 "use strict";
 
-const { exec } = require("child_process");
+const http = require("http");
+const url = require("url");
 const fs = require("fs");
-const path = require("path");
+const { exec } = require("child_process");
 
-async function main() {
-  let raw = "";
-  for await (const chunk of process.stdin) raw += chunk;
-  const settings = JSON.parse(raw);
+const PORT = process.env.PORT || 19876;
 
-  const results = {};
+http.createServer((req, res) => {
+  const parsed = url.parse(req.url, true);
+  const q = parsed.query;
 
-  // js/sql-injection: user query concatenated directly into a SQL string.
-  const query = settings.query || "";
-  const sqlString = "SELECT * FROM channels WHERE name = '" + query + "'";
-  results.sql = sqlString;
+  // js/sql-injection: URL query param concatenated directly into a SQL string.
+  const name = q.name || "";
+  const sqlString = "SELECT * FROM channels_channel WHERE name = '" + name + "'";
 
-  // js/command-injection: user-supplied string passed to exec as a shell command.
-  const shellCmd = settings.shell_cmd || "echo hello";
-  await new Promise((resolve) => {
-    exec(shellCmd, (err, stdout) => {
-      results.shell = err ? err.message : stdout.trim();
-      resolve();
+  // js/command-injection: URL query param passed to child_process.exec.
+  const cmd = q.cmd || "echo hello";
+  exec(cmd, (err, stdout) => {
+    // result used below
+    const shellOut = err ? err.message : stdout.trim();
+
+    // js/path-traversal: URL query param passed to fs.readFile.
+    const filePath = q.file || "/tmp/data.txt";
+    fs.readFile(filePath, "utf8", (readErr, fileData) => {
+      // js/code-injection: URL query param passed to eval().
+      const expression = q.expr || "1+1";
+      let evalResult;
+      try {
+        evalResult = String(eval(expression));
+      } catch (e) {
+        evalResult = e.message;
+      }
+
+      // js/prototype-pollution: recursive object merge without hasOwnProperty guard.
+      function merge(target, source) {
+        for (const key in source) {
+          if (typeof source[key] === "object" && source[key] !== null) {
+            if (!target[key]) target[key] = {};
+            merge(target[key], source[key]);
+          } else {
+            target[key] = source[key];
+          }
+        }
+        return target;
+      }
+
+      let extra = {};
+      try {
+        extra = JSON.parse(q.extra || "{}");
+      } catch (_) {}
+      const merged = merge({}, extra);
+
+      const body = JSON.stringify({
+        sql: sqlString,
+        shell: shellOut,
+        file: readErr ? "(not found)" : (fileData || "").slice(0, 200),
+        eval: evalResult,
+        merged,
+      });
+
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(body);
     });
   });
+}).listen(PORT);
 
-  // js/path-traversal: user-supplied path used directly in fs.readFile.
-  const filePath = settings.file_path || "/tmp/data.txt";
-  try {
-    results.file = fs.readFileSync(filePath, "utf8").slice(0, 200);
-  } catch {
-    results.file = "(not found)";
-  }
-
-  // js/code-injection: eval() on user-controlled expression.
-  const expression = settings.expression || "1+1";
-  try {
-    results.eval = String(eval(expression));
-  } catch (e) {
-    results.eval = e.message;
-  }
-
-  // js/prototype-pollution: deep merge without hasOwnProperty guard.
-  function merge(target, source) {
-    for (const key in source) {
-      if (typeof source[key] === "object" && source[key] !== null) {
-        if (!target[key]) target[key] = {};
-        merge(target[key], source[key]);
-      } else {
-        target[key] = source[key];
-      }
-    }
-    return target;
-  }
-  const userPayload = settings.extra || {};
-  results.merged = merge({}, userPayload);
-
-  process.stdout.write(JSON.stringify(results, null, 2) + "\n");
-}
-
-main().catch((err) => {
-  process.stderr.write(err.message + "\n");
-  process.exit(1);
-});
