@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-04-10T16:07:59Z",
+  "manifest": {
+    "name": "Channel Mapparr",
+    "description": "Standardizes broadcast (OTA) and premium/cable channel names using network data and channel lists. Supports M3U stream import, category organization, and fuzzy matching across 42K+ channels in 11 countries.",
+    "author": "PiratesIRC",
+    "license": "MIT",
+    "repo_url": "https://github.com/PiratesIRC/Dispatcharr-Channel-Maparr-Plugin",
+    "discord_thread": "https://discord.com/channels/1340492560220684331/1422963882548265110",
+    "slug": "channel-mapparr",
+    "registry_url": "https://github.com/Dispatcharr/Plugins",
+    "registry_name": "Dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.26.1001200",
+        "commit_sha": "11388be99c171d1cf47cbbbea99cfc2b27565081",
+        "commit_sha_short": "11388be",
+        "build_timestamp": "2026-04-10T16:07:58Z",
+        "last_updated": "2026-04-10T12:07:46-04:00",
+        "checksum_md5": "10f435ba7aeb6cd57a19ed25a2a19a2a",
+        "checksum_sha256": "90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/channel-mapparr/channel-mapparr-1.26.1001200.zip"
+      }
+    ],
+    "last_updated": "2026-04-10T12:07:46-04:00",
+    "latest": {
+      "version": "1.26.1001200",
+      "commit_sha": "11388be99c171d1cf47cbbbea99cfc2b27565081",
+      "commit_sha_short": "11388be",
+      "build_timestamp": "2026-04-10T16:07:58Z",
+      "last_updated": "2026-04-10T12:07:46-04:00",
+      "checksum_md5": "10f435ba7aeb6cd57a19ed25a2a19a2a",
+      "checksum_sha256": "90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/channel-mapparr/channel-mapparr-latest.zip",
+      "url": "zips/channel-mapparr/channel-mapparr-1.26.1001200.zip"
+    }
+  },
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCadkgXwAKCRB+wDprTCI0\nznSaAP9MCX+eLr4gI9/ziU+h72Vi3cAGOwmoSg3NARHy9j9QdgD8Dz5VaAoI1mYH\nyDv74nR4oiUPIbQR4VEYsMOe4kiBRg4=\n=N0a4\n-----END PGP SIGNATURE-----"
+}
