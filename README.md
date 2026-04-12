@@ -11,251 +11,175 @@ This branch contains all published plugin releases.
 
 | Plugin | Version | Author | License | Description |
 |--------|---------|-------|---------|-------------|
-| [`Channel Counter`](#channel-counter) | `1.0.0` | prixdevs | Apache-2.0 | Counts channels in the database and logs the total. |
-| [`Confirm Action Demo`](#confirm-action-demo) | `1.0.0` | irinakorb | MIT | Demonstrates the confirm modal on a destructive-looking action. |
-| [`EPG Reporter`](#epg-reporter) | `1.0.0` | solarflux42 | GPL-3.0-only | Logs the number of EPG sources configured in Dispatcharr. |
-| [`Hello Logger`](#hello-logger) | `1.0.0` | nachtfalter | MIT | A minimal hello-world plugin that logs a greeting message. |
-| [`Info Field Demo`](#info-field-demo) | `1.0.0` | maddoxwren | Apache-2.0 | Demonstrates the info (display-only) field type for headings and notes. |
-| [`M3U Lister`](#m3u-lister) | `1.0.0` | tobiasfendt | MPL-2.0 | Logs the names of all M3U accounts configured in Dispatcharr. |
-| [`Multi Action Demo`](#multi-action-demo) | `1.0.0` | devklara | Unlicense | Demonstrates multiple actions on a single plugin card. |
-| [`Password Field Demo`](#password-field-demo) | `1.0.0` | quentinash | LGPL-2.1-only | Demonstrates the password input_type on a string field. |
-| [`Settings Tester`](#settings-tester) | `1.0.0` | kelvinmoss | BSD-2-Clause | Exercises every field type and logs the current settings values. |
-| [`Uptime Greeter`](#uptime-greeter) | `1.0.0` | wrenwick | ISC | Logs a configurable greeting with the current server timestamp. |
-| [`Version Gated Plugin`](#version-gated-plugin) | `1.0.0` | cosmicreed | MPL-2.0 | Only compatible with a specific Dispatcharr version range. Used to test version gating in the plugin hub. |
-| [`WebSocket Pinger`](#websocket-pinger) | `1.0.0` | radarlabs | BSD-3-Clause | Sends a test WebSocket update to the UI and logs confirmation. |
-| [`Well Linked Plugin`](#well-linked-plugin) | `1.0.0` | jasperveld | EUPL-1.2 | A demo plugin with a full set of metadata links — repo URL, Discord thread, and license. |
-| [`Legacy Notifier`](#legacy-notifier) (deprecated) | `1.2.0` | hartleydev | BSD-3-Clause | An older notification plugin superseded by a newer approach. Kept for reference only. |
+| [`Channel Mapparr`](#channel-mapparr) | `1.26.1001200` | PiratesIRC | MIT | Standardizes broadcast (OTA) and premium/cable channel names using network data and channel lists. Supports M3U stream import, category organization, and fuzzy matching across 42K+ channels in 11 countries. |
+| [`Dispatcharr Exporter`](#dispatcharr-exporter) | `2.4.2` | sethwv | MIT | Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring |
+| [`Dispatchwrapparr`](#dispatchwrapparr) | `1.6.0` | jordandalley | MIT | An intelligent DRM/Clearkey capable stream profile for Dispatcharr |
+| [`EPG Janitor`](#epg-janitor) | `1.26.1021352` | PiratesIRC | MIT | Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments. |
+| [`Event Channel Managarr`](#event-channel-managarr) | `0.7.0` | PiratesIRC | MIT | Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. |
+| [`IPTV Checker`](#iptv-checker) | `0.8.0` | PiratesIRC | MIT | A Dispatcharr Plugin that goes through a playlist to check IPTV channels |
+| [`Lineuparr`](#lineuparr) | `1.26.9520` | PiratesIRC | MIT | Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them. |
+| [`Stream Dripper`](#stream-dripper) | `1.0.0` | Megamannen | Artistic-2.0 | Automatically drops all active streams once per day at a configured time, with a manual drop-now button. |
+| [`Stream-Mapparr`](#stream-mapparr) | `0.9.0` | PiratesIRC | MIT | Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup. |
 
 ---
 
-### [Channel Counter](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/channel-counter/README.md)
+### [Channel Mapparr](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/channel-mapparr/README.md)
 
-**Version:** `1.0.0` | **Author:** prixdevs | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `1.26.1001200` | **Author:** PiratesIRC | **Last Updated:** Apr 10 2026, 16:07 UTC
 
-Counts channels in the database and logs the total.
+Standardizes broadcast (OTA) and premium/cable channel names using network data and channel lists. Supports M3U stream import, category organization, and fuzzy matching across 42K+ channels in 11 countries.
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue?style=flat-square)](https://spdx.org/licenses/Apache-2.0.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1422963882548265110) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/PiratesIRC/Dispatcharr-Channel-Maparr-Plugin)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/channel-counter/channel-counter-latest.zip)
-- [All Versions (1 available)](./zips/channel-counter)
+ [Latest Release (`1.26.1001200`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/channel-mapparr/channel-mapparr-latest.zip)
+- [All Versions (1 available)](./zips/channel-mapparr)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/channel-counter) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/channel-mapparr) | **Last Change:** [`11388be`](https://github.com/sv-dispatcharr/Plugins/commit/11388be99c171d1cf47cbbbea99cfc2b27565081)
 
 ---
 
-### [Confirm Action Demo](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/confirm-action-demo/README.md)
+### [Dispatcharr Exporter](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/dispatcharr-exporter/README.md)
 
-**Version:** `1.0.0` | **Author:** irinakorb | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `2.4.2` | **Author:** sethwv | **Last Updated:** Mar 30 2026, 19:09 UTC
 
-Demonstrates the confirm modal on a destructive-looking action.
+Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1451260201775923421) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/sethwv/dispatcharr-exporter)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.19.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/confirm-action-demo/confirm-action-demo-latest.zip)
-- [All Versions (1 available)](./zips/confirm-action-demo)
+ [Latest Release (`2.4.2`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip)
+- [All Versions (1 available)](./zips/dispatcharr-exporter)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/confirm-action-demo) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/dispatcharr-exporter) | **Last Change:** [`38c7af8`](https://github.com/sv-dispatcharr/Plugins/commit/38c7af86f91d7c642ceeab658d2a4689aed0fad8)
 
 ---
 
-### [EPG Reporter](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/epg-reporter/README.md)
+### [Dispatchwrapparr](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/dispatchwrapparr/README.md)
 
-**Version:** `1.0.0` | **Author:** solarflux42 | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `1.6.0` | **Author:** jordandalley | **Last Updated:** Apr 02 2026, 13:11 UTC
 
-Logs the number of EPG sources configured in Dispatcharr.
+An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
-[![License: GPL-3.0-only](https://img.shields.io/badge/License-GPL--3.0--only-blue?style=flat-square)](https://spdx.org/licenses/GPL-3.0-only.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1422776847703212132) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jordandalley/dispatchwrapparr)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.21.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/epg-reporter/epg-reporter-latest.zip)
-- [All Versions (1 available)](./zips/epg-reporter)
+ [Latest Release (`1.6.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-latest.zip)
+- [All Versions (1 available)](./zips/dispatchwrapparr)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/epg-reporter) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Maintainers:** michaelmurfy | **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/dispatchwrapparr) | [README](https://github.com/sv-dispatcharr/Plugins/blob/main/plugins/dispatchwrapparr/README.md) | **Last Change:** [`2d4aba3`](https://github.com/sv-dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638)
 
 ---
 
-### [Hello Logger](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/hello-logger/README.md)
+### [EPG Janitor](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/epg-janitor/README.md)
 
-**Version:** `1.0.0` | **Author:** nachtfalter | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `1.26.1021352` | **Author:** PiratesIRC | **Last Updated:** Apr 12 2026, 19:22 UTC
 
-A minimal hello-world plugin that logs a greeting message.
+Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1420051973994053848) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/PiratesIRC/Dispatcharr-EPG-Janitor-Plugin)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/hello-logger/hello-logger-latest.zip)
-- [All Versions (1 available)](./zips/hello-logger)
+ [Latest Release (`1.26.1021352`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/epg-janitor/epg-janitor-latest.zip)
+- [All Versions (1 available)](./zips/epg-janitor)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/hello-logger) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Maintainers:** PiratesIRC | **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/epg-janitor) | [README](https://github.com/sv-dispatcharr/Plugins/blob/main/plugins/epg-janitor/README.md) | **Last Change:** [`2cf371a`](https://github.com/sv-dispatcharr/Plugins/commit/2cf371ad80c2219d832938067564d40b038ccd26)
 
 ---
 
-### [Info Field Demo](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/info-field-demo/README.md)
+### [Event Channel Managarr](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/event-channel-managarr/README.md)
 
-**Version:** `1.0.0` | **Author:** maddoxwren | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `0.7.0` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:33 UTC
 
-Demonstrates the info (display-only) field type for headings and notes.
+Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names.
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue?style=flat-square)](https://spdx.org/licenses/Apache-2.0.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/PiratesIRC/Dispatcharr-Event-Channel-Managarr-Plugin)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/info-field-demo/info-field-demo-latest.zip)
-- [All Versions (1 available)](./zips/info-field-demo)
+ [Latest Release (`0.7.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-latest.zip)
+- [All Versions (1 available)](./zips/event-channel-managarr)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/info-field-demo) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/event-channel-managarr) | **Last Change:** [`20da5ab`](https://github.com/sv-dispatcharr/Plugins/commit/20da5ab8199239ab728cf95c7c5c6305131999ff)
 
 ---
 
-### [M3U Lister](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/m3u-lister/README.md)
+### [IPTV Checker](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/iptv-checker/README.md)
 
-**Version:** `1.0.0` | **Author:** tobiasfendt | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `0.8.0` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:33 UTC
 
-Logs the names of all M3U accounts configured in Dispatcharr.
+A Dispatcharr Plugin that goes through a playlist to check IPTV channels
 
-[![License: MPL-2.0](https://img.shields.io/badge/License-MPL--2.0-blue?style=flat-square)](https://spdx.org/licenses/MPL-2.0.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/m3u-lister/m3u-lister-latest.zip)
-- [All Versions (1 available)](./zips/m3u-lister)
+ [Latest Release (`0.8.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/iptv-checker/iptv-checker-latest.zip)
+- [All Versions (1 available)](./zips/iptv-checker)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/m3u-lister) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/iptv-checker) | [README](https://github.com/sv-dispatcharr/Plugins/blob/main/plugins/iptv-checker/README.md) | **Last Change:** [`33d258c`](https://github.com/sv-dispatcharr/Plugins/commit/33d258cc0bbd193c1192f0c0a364b66e689a7350)
 
 ---
 
-### [Multi Action Demo](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/multi-action-demo/README.md)
+### [Lineuparr](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/lineuparr/README.md)
 
-**Version:** `1.0.0` | **Author:** devklara | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `1.26.9520` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:34 UTC
 
-Demonstrates multiple actions on a single plugin card.
+Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.
 
-[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue?style=flat-square)](https://spdx.org/licenses/Unlicense.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/PiratesIRC/Dispatcharr-Lineuparr-Plugin)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/multi-action-demo/multi-action-demo-latest.zip)
-- [All Versions (1 available)](./zips/multi-action-demo)
+ [Latest Release (`1.26.9520`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/lineuparr/lineuparr-latest.zip)
+- [All Versions (1 available)](./zips/lineuparr)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/multi-action-demo) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/lineuparr) | **Last Change:** [`ca8c5da`](https://github.com/sv-dispatcharr/Plugins/commit/ca8c5da95df980e153999b5436abcfedbe983f6a)
 
 ---
 
-### [Password Field Demo](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/password-field-demo/README.md)
+### [Stream Dripper](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/stream-dripper/README.md)
 
-**Version:** `1.0.0` | **Author:** quentinash | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `1.0.0` | **Author:** Megamannen | **Last Updated:** Mar 29 2026, 15:51 UTC
 
-Demonstrates the password input_type on a string field.
+Automatically drops all active streams once per day at a configured time, with a manual drop-now button.
 
-[![License: LGPL-2.1-only](https://img.shields.io/badge/License-LGPL--2.1--only-blue?style=flat-square)](https://spdx.org/licenses/LGPL-2.1-only.html)
+[![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic--2.0-blue?style=flat-square)](https://spdx.org/licenses/Artistic-2.0.html)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/password-field-demo/password-field-demo-latest.zip)
-- [All Versions (1 available)](./zips/password-field-demo)
+ [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/stream-dripper/stream-dripper-latest.zip)
+- [All Versions (1 available)](./zips/stream-dripper)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/password-field-demo) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/stream-dripper) | **Last Change:** [`4e8f1b1`](https://github.com/sv-dispatcharr/Plugins/commit/4e8f1b108c1e84f60520710d13e54eb2fb519648)
 
 ---
 
-### [Settings Tester](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/settings-tester/README.md)
+### [Stream-Mapparr](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/stream-mapparr/README.md)
 
-**Version:** `1.0.0` | **Author:** kelvinmoss | **Last Updated:** Apr 06 2026, 13:40 UTC
+**Version:** `0.9.0` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:34 UTC
 
-Exercises every field type and logs the current settings values.
+Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.
 
-[![License: BSD-2-Clause](https://img.shields.io/badge/License-BSD--2--Clause-blue?style=flat-square)](https://spdx.org/licenses/BSD-2-Clause.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/PiratesIRC/Stream-Mapparr)
 
-**Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/settings-tester/settings-tester-latest.zip)
-- [All Versions (1 available)](./zips/settings-tester)
-
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/settings-tester) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
-
----
-
-### [Uptime Greeter](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/uptime-greeter/README.md)
-
-**Version:** `1.0.0` | **Author:** wrenwick | **Last Updated:** Apr 06 2026, 13:40 UTC
-
-Logs a configurable greeting with the current server timestamp.
-
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue?style=flat-square)](https://spdx.org/licenses/ISC.html)
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/uptime-greeter/uptime-greeter-latest.zip)
-- [All Versions (1 available)](./zips/uptime-greeter)
+ [Latest Release (`0.9.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-latest.zip)
+- [All Versions (1 available)](./zips/stream-mapparr)
 
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/uptime-greeter) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
-
----
-
-### [Version Gated Plugin](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/version-gated-plugin/README.md)
-
-**Version:** `1.0.0` | **Author:** cosmicreed | **Last Updated:** Apr 06 2026, 13:40 UTC
-
-Only compatible with a specific Dispatcharr version range. Used to test version gating in the plugin hub.
-
-[![License: MPL-2.0](https://img.shields.io/badge/License-MPL--2.0-blue?style=flat-square)](https://spdx.org/licenses/MPL-2.0.html)
-
-![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square) ![Dispatcharr max](https://img.shields.io/badge/Dispatcharr_max-v0.21.99-orange?style=flat-square)
-
-**Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/version-gated-plugin/version-gated-plugin-latest.zip)
-- [All Versions (1 available)](./zips/version-gated-plugin)
-
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/version-gated-plugin) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
-
----
-
-### [WebSocket Pinger](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/websocket-pinger/README.md)
-
-**Version:** `1.0.0` | **Author:** radarlabs | **Last Updated:** Apr 06 2026, 13:40 UTC
-
-Sends a test WebSocket update to the UI and logs confirmation.
-
-[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-blue?style=flat-square)](https://spdx.org/licenses/BSD-3-Clause.html)
-
-**Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/websocket-pinger/websocket-pinger-latest.zip)
-- [All Versions (1 available)](./zips/websocket-pinger)
-
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/websocket-pinger) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
-
----
-
-### [Well Linked Plugin](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/well-linked-plugin/README.md)
-
-**Version:** `1.0.0` | **Author:** jasperveld | **Last Updated:** Apr 06 2026, 13:40 UTC
-
-A demo plugin with a full set of metadata links — repo URL, Discord thread, and license.
-
-[![License: EUPL-1.2](https://img.shields.io/badge/License-EUPL--1.2-blue?style=flat-square)](https://spdx.org/licenses/EUPL-1.2.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/123456789012345678/987654321098765432) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/dispatcharr-test/well-linked-plugin)
-
-**Downloads:**
- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/well-linked-plugin/well-linked-plugin-latest.zip)
-- [All Versions (1 available)](./zips/well-linked-plugin)
-
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/well-linked-plugin) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
-
----
-
-
-## Deprecated Plugins
-
-These plugins are deprecated and may be removed in the future.
-
-### [Legacy Notifier](https://github.com/sv-dispatcharr/Plugins/blob/releases/zips/legacy-notifier/README.md) (deprecated)
-
-**Version:** `1.2.0` | **Author:** hartleydev | **Last Updated:** Apr 06 2026, 13:40 UTC
-
-An older notification plugin superseded by a newer approach. Kept for reference only.
-
-[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-blue?style=flat-square)](https://spdx.org/licenses/BSD-3-Clause.html)
-
-**Downloads:**
- [Latest Release (`1.2.0`)](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/legacy-notifier/legacy-notifier-latest.zip)
-- [All Versions (1 available)](./zips/legacy-notifier)
-
-**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/dummy-plugins/plugins/legacy-notifier) | **Last Change:** [`bb73553`](https://github.com/sv-dispatcharr/Plugins/commit/bb7355332741290cf0a788fbf2390914ddad6ee5)
+**Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/stream-mapparr) | **Last Change:** [`f42e889`](https://github.com/sv-dispatcharr/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81)
 
 ---
 
@@ -269,4 +193,4 @@ curl https://raw.githubusercontent.com/sv-dispatcharr/Plugins/releases/manifest.
 
 ---
 
-*Last updated: Apr 10 2026, 18:53 UTC*
+*Last updated: Apr 12 2026, 20:17 UTC*

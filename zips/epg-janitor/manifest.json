@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-04-12T20:17:19Z",
+  "manifest": {
+    "name": "EPG Janitor",
+    "description": "Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments.",
+    "author": "PiratesIRC",
+    "maintainers": [
+      "PiratesIRC"
+    ],
+    "license": "MIT",
+    "repo_url": "https://github.com/PiratesIRC/Dispatcharr-EPG-Janitor-Plugin",
+    "discord_thread": "https://discord.com/channels/1340492560220684331/1420051973994053848",
+    "slug": "epg-janitor",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.26.1021352",
+        "commit_sha": "2cf371ad80c2219d832938067564d40b038ccd26",
+        "commit_sha_short": "2cf371a",
+        "build_timestamp": "2026-04-12T20:17:18Z",
+        "last_updated": "2026-04-12T15:22:44-04:00",
+        "checksum_md5": "27ba964b3c6fa8c7aacd900782bdaa45",
+        "checksum_sha256": "cc61e3582ffb0480b9524e4f14c10d5f60f617591e631a11892be17e6e7dec1c",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip"
+      }
+    ],
+    "last_updated": "2026-04-12T15:22:44-04:00",
+    "latest": {
+      "version": "1.26.1021352",
+      "commit_sha": "2cf371ad80c2219d832938067564d40b038ccd26",
+      "commit_sha_short": "2cf371a",
+      "build_timestamp": "2026-04-12T20:17:18Z",
+      "last_updated": "2026-04-12T15:22:44-04:00",
+      "checksum_md5": "27ba964b3c6fa8c7aacd900782bdaa45",
+      "checksum_sha256": "cc61e3582ffb0480b9524e4f14c10d5f60f617591e631a11892be17e6e7dec1c",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip",
+      "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip"
+    }
+  }
+}

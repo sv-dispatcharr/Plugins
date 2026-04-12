@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-04-12T20:17:19Z",
+  "manifest": {
+    "name": "Dispatchwrapparr",
+    "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
+    "author": "jordandalley",
+    "maintainers": [
+      "michaelmurfy"
+    ],
+    "license": "MIT",
+    "repo_url": "https://github.com/jordandalley/dispatchwrapparr",
+    "discord_thread": "https://discord.com/channels/1340492560220684331/1422776847703212132",
+    "slug": "dispatchwrapparr",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "1.6.0",
+        "commit_sha": "2d4aba36b3e8546bef2dfd8efbb105e9f1c51638",
+        "commit_sha_short": "2d4aba3",
+        "build_timestamp": "2026-04-12T20:17:18Z",
+        "last_updated": "2026-04-02T09:11:30-04:00",
+        "checksum_md5": "f3e0e8cd18ba9bca478fe9d225a7c812",
+        "checksum_sha256": "f6780abeb385f608faf85f9bd9190216182a1892bad111c004f5e8d88b669217",
+        "min_dispatcharr_version": "v0.21.0",
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip"
+      }
+    ],
+    "last_updated": "2026-04-02T09:11:30-04:00",
+    "latest": {
+      "version": "1.6.0",
+      "commit_sha": "2d4aba36b3e8546bef2dfd8efbb105e9f1c51638",
+      "commit_sha_short": "2d4aba3",
+      "build_timestamp": "2026-04-12T20:17:18Z",
+      "last_updated": "2026-04-02T09:11:30-04:00",
+      "checksum_md5": "f3e0e8cd18ba9bca478fe9d225a7c812",
+      "checksum_sha256": "f6780abeb385f608faf85f9bd9190216182a1892bad111c004f5e8d88b669217",
+      "min_dispatcharr_version": "v0.21.0",
+      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip"
+    }
+  }
+}
