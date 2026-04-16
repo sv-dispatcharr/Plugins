@@ -2,7 +2,7 @@
 
 # Dispatchwrapparr
 
-**Version:** `1.6.0` | **Author:** jordandalley | **Last Updated:** Apr 02 2026, 13:11 UTC
+**Version:** `1.6.1` | **Author:** jordandalley | **Last Updated:** Apr 16 2026, 11:17 UTC
 
 An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
@@ -15,19 +15,20 @@ An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 ### Latest Release
 
 - **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-latest.zip)
-- **Built:** Apr 02 2026, 13:11 UTC
-- **Source Commit:** [`2d4aba3`](https://github.com/Dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638)
+- **Built:** Apr 16 2026, 11:17 UTC
+- **Source Commit:** [`7ac9bb7`](https://github.com/Dispatcharr/Plugins/commit/7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b)
 
 **Checksums:**
 ```
-MD5:    aa6727ebe8ce16bd23aa9f7f54e783f9
-SHA256: 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5
+MD5:    2fe71caf70f35c68caae8760cab65034
+SHA256: 0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.6.1` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip) | Apr 16 2026, 11:17 UTC | [`7ac9bb7`](https://github.com/Dispatcharr/Plugins/commit/7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b) | 2fe71caf70f35c68caae8760cab65034 | 0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7 |
 | `1.6.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip) | Apr 02 2026, 13:11 UTC | [`2d4aba3`](https://github.com/Dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638) | aa6727ebe8ce16bd23aa9f7f54e783f9 | 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5 |
 
 ---
@@ -56,36 +57,22 @@ SHA256: 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5
 ✅ **Cookie Jar Support** — Supports loading of cookie jar txt files in Netscape/Mozilla format\
 ✅ **Extended Stream Type Detection** — Fallback option that checks MIME type of stream URL for streamlink plugin selection\
 ✅ **Streaming Radio Support with Song Information** — Play streaming radio to your TV with song information displayed on your screen for ICY and HLS stream types\
-✅ **Automated Stream Variant Detection** — Detects streams with no video or no audio and muxes in the missing components for compatibility with most players
+✅ **Automated Stream Variant Detection** — Detects streams with no video or no audio and muxes in the missing components for compatibility with most players\
 ✅ **Support for SSAI/DAI** — Supports streams using SCTE-35 type discontinuities for Server-Side or Dynamic Ad Injection
 
 ---
 
 ## 🚀 Installation
 
-For ease of installation, Dispatchwrapparr can be installed via the Dispatchwrapparr Plugin.
+For ease of installation, Dispatchwrapparr can be installed through the official Dispatcharr plugin repository. Alternatively, it can be downloaded here: [Dispatchwrapparr Releases](https://github.com/jordandalley/dispatchwrapparr/releases/latest)
 
-1. Download the latest [Dispatchwrapparr Plugin](https://github.com/jordandalley/dispatchwrapparr/releases/latest) zip file 
-2. In Dispatcharr, navigate to 'Settings' > 'Plugins'
-3. Click the 'Import Plugin' button and select the Dispatchwrapparr Plugin zip file you just downloaded
-3. Select 'Enable Now', and then 'Enable'
-4. Once the plugin is loaded, click 'Install' button to install Dispatchwrapparr
-<img width="1400" height="476" alt="image" src="https://github.com/user-attachments/assets/554f7311-a6d0-45ca-b96f-c523173e8bdf" />
-5. Click the 'Refresh' button. Once successfully installed
+Once the Dispatchwrapparr plugin is installed, configuring your first profile is easy!
 
-## ⬆️ Update Dispatchwrapparr
+Simply enter in a name for your stream profile, then click the 'Generate Stream Profile' button.
 
-If a new release of Dispatchwrapparr is available, the Dispatchwrapparr plugin should give you the option to upgrade.
+Note: For the new stream profile to appear, you will need to refresh Dispatcharr from your browser.
 
-<img width="1344" height="244" alt="image" src="https://github.com/user-attachments/assets/7c391af0-b21e-4ddb-938c-5141ff5d22a7" />
-
-Simply click the 'Update' button and follow the prompts.
-
-## ➡️ Create a Custom Dispatchwrapparr stream profile
-
-When using the Dispatchwrapparr plugin, the installation process will automatically create a 'Dispatchwrapparr' profile.
-
-Custom Dispatchwrapparr profiles can be created under 'Settings' > 'Stream Profiles' and by using the various CLI Arguments defined below.
+<img width="608" height="982" alt="image" src="https://github.com/user-attachments/assets/bcfe255f-6454-437f-8016-e8a52776f39b" />
 
 ---
 
@@ -168,7 +155,8 @@ For example, to select the '720p+a128k_48k' stream variant, then it would look l
 | -proxy                  | Optional | `http://proxy.server:8080`                                | Configure a proxy server. Supports HTTP and HTTPS proxies only.                                                                                                                              |
 | -proxybypass            | Optional | `.domain.com,192.168.0.100:80`                            | A comma delimited list of hostnames to bypass. Eg. '.local,192.168.0.44:90'. Do not use "*", this is unsupported. Whole domains match with '.'                                               |
 | -cookies                | Optional | `cookies.txt` or `/path/to/cookies.txt`                   | Supply a cookies txt file in Mozilla/Netscape format for use with streams                                                                                                                    |
-| -customheaders          | Optional | `'{"Authentication": "Bearer abc123", "Header": "Value"}'`| Supply a JSON string containing custom header values                                                                                                                                  |
+| -customheaders          | Optional | `'{"Authentication": "Bearer abc123", "Header": "Value"}'`| Supply a JSON string containing custom header values                                                                                                                                         |
+| -streamlink_plugins     | Optional | `/path/to/streamlink/plugins`                             | Specify a custom path for any Streamlink plugins that you wish to load                                                                                                                       |
 | -stream                 | Optional | `1080p_alt` or `worst`                                    | Override Dispatchwrapparr automatic stream selection with a manual selection for the stream URL                                                                                              |
 | -ffmpeg                 | Optional | `/path/to/ffmpeg`                                         | Specify the location of an ffmpeg binary for use in stream muxing instead of auto detecting ffmpeg binaries in PATH or in the same directory as dispatchwrapparr.py                          |
 | -ffmpeg_transcode_audio | Optional | `copy`, `eac3`, `aac`, `ac3`                              | Enables the ffmpeg option to transcode audio. By default, dispatchwrapparr just copies the audio.                                                                                            |
@@ -192,7 +180,15 @@ Below is an example of what Dispatchwrapparr expects in the json API response or
   "https://olsp.live.dash.c4assets.com/dash_iso_sp_tl/live/channel(c4)/manifest.mpd": "5ce85f1aa5771900b952f0ba58857d7a",
   "https://some.other.stream.com/somechannel/*.mpd": "7ff8541ab5771900c442f0ba5885745f"
 }
+```
 
+For streams where the video and audio use different clearkeys, place them in a comma separated list. Eg:
+
+```clearkeys.json
+{
+  "https://olsp.live.dash.c4assets.com/dash_iso_sp_tl/live/channel(c4)/manifest.mpd": "5ce85f1aa5771900b952f0ba58857d7a,7ff8541ab5771900c442f0ba5885745f",
+  "https://some.other.stream.com/somechannel/*.mpd": "7ff8541ab5771900c442f0ba5885745f"
+}
 ```
 
 - A json file can be specified by just the filename (Eg. `-clearkeys clearkeys.json`) where it will use the file 'clearkeys.json' within the same directory as dispatchwrapparr.py (Usually /data/dispatchwrapparr), or an absolute path to a json file (Eg. `-clearkeys /path/to/clearkeys.json`)
