@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T13:11:42Z",
+  "generated_at": "2026-04-17T13:00:09Z",
   "manifest": {
     "name": "Stream Dripper",
     "description": "Automatically drops all active streams once per day at a configured time, with a manual drop-now button.",
@@ -17,7 +17,8 @@
         "last_updated": "2026-03-29T11:51:09-04:00",
         "checksum_md5": "a83c3907d2221782c64feed3937d750c",
         "checksum_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
-        "url": "zips/stream-dripper/stream-dripper-1.0.0.zip"
+        "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
+        "size": 30
       }
     ],
     "last_updated": "2026-03-29T11:51:09-04:00",
@@ -30,8 +31,9 @@
       "checksum_md5": "a83c3907d2221782c64feed3937d750c",
       "checksum_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
       "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
-      "latest_url": "zips/stream-dripper/stream-dripper-latest.zip"
+      "latest_url": "zips/stream-dripper/stream-dripper-latest.zip",
+      "size": 30
     }
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCac5rDwAKCRB+wDprTCI0\nzjswAP96dVtvAJ5zgsLQ6bEh+H8ep3ge7hVPTM4CS2mROOGJ0wD/WoxiwPuCK26S\ngdnrc4lUkiScT73Xsa4Gmj7M2CQ9Egk=\n=9T3G\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeIu3AAKCRB+wDprTCI0\nzi8sAQDe5QuZKUL8JWPRcvei8Gq4Sa3mOhug50UtZ9QZs7mjGwD/dAn1OD2OJDzY\nOh2lYl3ulhzgbIocFpEvfSk0QPjlvgk=\n=CK1a\n-----END PGP SIGNATURE-----"
 }

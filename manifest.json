@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T11:17:56Z",
+  "generated_at": "2026-04-17T13:00:09Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -17,6 +17,7 @@
         "latest_md5": "10f435ba7aeb6cd57a19ed25a2a19a2a",
         "latest_sha256": "90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca",
         "latest_url": "zips/channel-mapparr/channel-mapparr-1.26.1001200.zip",
+        "latest_size": 511,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -31,6 +32,7 @@
         "latest_md5": "43bd4ec43fb699d7c114da3bc53834f2",
         "latest_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
         "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
+        "latest_size": 142,
         "min_dispatcharr_version": "v0.19.0"
       },
       {
@@ -45,6 +47,7 @@
         "latest_md5": "2fe71caf70f35c68caae8760cab65034",
         "latest_sha256": "0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7",
         "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
+        "latest_size": 42,
         "min_dispatcharr_version": "v0.21.0"
       },
       {
@@ -59,6 +62,7 @@
         "latest_md5": "25cf566d3e3c0fec1f99d78d7b09dd85",
         "latest_sha256": "9109e92484c73b24fad2c92b455f9a3bd8e2280b51b6eac7120c14de42314499",
         "latest_url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
+        "latest_size": 416,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -73,6 +77,7 @@
         "latest_md5": "b1b90ed696cd03a3a6abaed74aaaf8ce",
         "latest_sha256": "884766208172f9f1d6b042f8b10be8224c154365c6c1febaa692102bc5360708",
         "latest_url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
+        "latest_size": 28,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -87,6 +92,7 @@
         "latest_md5": "1a6cc492b8003baeac68ab16d21958d9",
         "latest_sha256": "094436b6389e35bfa80a29ae12e7917d21e816e21aef02a672a819963ea3f17a",
         "latest_url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
+        "latest_size": 38,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -101,6 +107,7 @@
         "latest_md5": "30d777605948a1fa6d1bad0c1064f7b5",
         "latest_sha256": "8217ce0ace8fc62202de9d74f4c1ac50d2d13ade9adff91879539ec9e6c1adbf",
         "latest_url": "zips/lineuparr/lineuparr-1.26.9520.zip",
+        "latest_size": 232,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -114,7 +121,8 @@
         "latest_version": "1.0.0",
         "latest_md5": "a83c3907d2221782c64feed3937d750c",
         "latest_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
-        "latest_url": "zips/stream-dripper/stream-dripper-1.0.0.zip"
+        "latest_url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
+        "latest_size": 30
       },
       {
         "slug": "stream-mapparr",
@@ -128,9 +136,10 @@
         "latest_md5": "c3b1a7d8db02ea9416f2cc97d8c05479",
         "latest_sha256": "be311ee92aacc4e45b680cdf08ab66bd0d0a62faf0af41465ef546dff98f63b2",
         "latest_url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
+        "latest_size": 319,
         "min_dispatcharr_version": "v0.20.0"
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeDFZgAKCRB+wDprTCI0\nzlOZAQCp3YPQ9l9+FQ84LkXbSsqWHelrhnqUPAb6e27X/TuaqgD/SFv/a8vqcwXs\nnxGGZa5vSaHIHgRNpVXzyXKsn5b83QM=\n=UxdO\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeIu3QAKCRB+wDprTCI0\nzjf0AQDe9xMkgK8D+e4+y43ro37KN+rixmJnuZz1yj0cj2ttqwEA0DYzPOIkAl08\nbJPQie4JVMTJ/P0VyczwKp7FwnCB+QQ=\n=+Fnf\n-----END PGP SIGNATURE-----"
 }

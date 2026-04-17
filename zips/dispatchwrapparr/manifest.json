@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T11:17:56Z",
+  "generated_at": "2026-04-17T13:00:09Z",
   "manifest": {
     "name": "Dispatchwrapparr",
     "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
@@ -23,7 +23,8 @@
         "checksum_md5": "2fe71caf70f35c68caae8760cab65034",
         "checksum_sha256": "0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7",
         "min_dispatcharr_version": "v0.21.0",
-        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip"
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
+        "size": 42
       },
       {
         "version": "1.6.0",
@@ -34,7 +35,8 @@
         "checksum_md5": "aa6727ebe8ce16bd23aa9f7f54e783f9",
         "checksum_sha256": "3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5",
         "min_dispatcharr_version": "v0.21.0",
-        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip"
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
+        "size": 42
       }
     ],
     "last_updated": "2026-04-16T07:17:42-04:00",
@@ -47,9 +49,10 @@
       "checksum_md5": "2fe71caf70f35c68caae8760cab65034",
       "checksum_sha256": "0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7",
       "min_dispatcharr_version": "v0.21.0",
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
       "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
-      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip"
+      "size": 42
     }
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeDFZAAKCRB+wDprTCI0\nzjhkAQDjfzkHMkgQaQJ/4loKbGg4dFAXs/6inio1Nk36SedEogEA7EQUMhh22Epj\nCmGH15B6OUGoNT4lNkR2lW6whFrxwwc=\n=tKM/\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeIu2wAKCRB+wDprTCI0\nzpRJAP0XX/m6lXQdN4ClUJSpoUeD3TCmph7CKP2AAfo7rBv8KAD9Gc0uzFNo36Qs\nSKdsam3nUi7TCKEqrGZkhnw/DVlvzAc=\n=llyK\n-----END PGP SIGNATURE-----"
 }

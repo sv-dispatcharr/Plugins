@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T11:17:56Z",
+  "generated_at": "2026-04-17T13:00:09Z",
   "manifest": {
     "name": "EPG Janitor",
     "description": "Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments.",
@@ -23,7 +23,8 @@
         "checksum_md5": "25cf566d3e3c0fec1f99d78d7b09dd85",
         "checksum_sha256": "9109e92484c73b24fad2c92b455f9a3bd8e2280b51b6eac7120c14de42314499",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip"
+        "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
+        "size": 416
       }
     ],
     "last_updated": "2026-04-12T15:22:44-04:00",
@@ -37,8 +38,9 @@
       "checksum_sha256": "9109e92484c73b24fad2c92b455f9a3bd8e2280b51b6eac7120c14de42314499",
       "min_dispatcharr_version": "v0.20.0",
       "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
-      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip"
+      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip",
+      "size": 416
     }
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeDFZQAKCRB+wDprTCI0\nzpTzAQCzHFh/3x4sa/mBU9nHeUlsDsN3kt1nQBOlLu1ms/KMYAD/ZhSOsc70cMik\n0BVGfs0CWVAljkf6OK3ELL8p+yP/qA4=\n=r41h\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeIu2wAKCRB+wDprTCI0\nzsUKAP4jVK7juSmJFpLmSuOEzXID2vWV/PFyga/rSNesSgQjDAD/eny8JgosQuD8\nTu9veAtQER3jjviZ/bNH3BLr+g8liwI=\n=g7WN\n-----END PGP SIGNATURE-----"
 }

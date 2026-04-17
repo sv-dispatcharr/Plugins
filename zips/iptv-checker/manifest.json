@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-05T21:34:29Z",
+  "generated_at": "2026-04-17T13:00:09Z",
   "manifest": {
     "name": "IPTV Checker",
     "description": "A Dispatcharr Plugin that goes through a playlist to check IPTV channels",
@@ -19,7 +19,8 @@
         "checksum_md5": "1a6cc492b8003baeac68ab16d21958d9",
         "checksum_sha256": "094436b6389e35bfa80a29ae12e7917d21e816e21aef02a672a819963ea3f17a",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/iptv-checker/iptv-checker-0.8.0.zip"
+        "url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
+        "size": 38
       }
     ],
     "last_updated": "2026-04-05T17:33:35-04:00",
@@ -33,8 +34,9 @@
       "checksum_sha256": "094436b6389e35bfa80a29ae12e7917d21e816e21aef02a672a819963ea3f17a",
       "min_dispatcharr_version": "v0.20.0",
       "url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
-      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip"
+      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip",
+      "size": 38
     }
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCadLVZQAKCRB+wDprTCI0\nzsbcAQDarr6piBoRBvP403FFzmKlo0nmKYKW6fkOJ0RxMnJjawEArmhwmcOWSNte\npK5POWCpuq0XyjI6JATHmDo2wegwIwA=\n=5b/A\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeIu3AAKCRB+wDprTCI0\nzjAMAP9snOcmRsrNwAhsdetVmxTA7FiFydvvgIVG6z4KaJ41QgEAkbCjVjrS2Uk+\nLc1dspMY3ZlGgg+Ut6LejZm8FZcyhwA=\n=eQUO\n-----END PGP SIGNATURE-----"
 }
