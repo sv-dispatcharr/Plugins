@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-12T20:17:19Z",
+  "generated_at": "2026-04-17T12:45:15Z",
   "manifest": {
     "name": "Dispatchwrapparr",
     "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
@@ -15,6 +15,17 @@
     "registry_name": "sv-dispatcharr/Plugins",
     "versions": [
       {
+        "version": "1.6.1",
+        "commit_sha": "7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b",
+        "commit_sha_short": "7ac9bb7",
+        "build_timestamp": "2026-04-17T12:45:15Z",
+        "last_updated": "2026-04-16T07:17:42-04:00",
+        "checksum_md5": "d055e7931cbbbfcc4d2a116ac04b5ec5",
+        "checksum_sha256": "b1980478b598ef23a8ae083917cbe258279cee1f2a2ae60699a61e0c41db91dd",
+        "min_dispatcharr_version": "v0.21.0",
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip"
+      },
+      {
         "version": "1.6.0",
         "commit_sha": "2d4aba36b3e8546bef2dfd8efbb105e9f1c51638",
         "commit_sha_short": "2d4aba3",
@@ -26,18 +37,18 @@
         "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip"
       }
     ],
-    "last_updated": "2026-04-02T09:11:30-04:00",
+    "last_updated": "2026-04-16T07:17:42-04:00",
     "latest": {
-      "version": "1.6.0",
-      "commit_sha": "2d4aba36b3e8546bef2dfd8efbb105e9f1c51638",
-      "commit_sha_short": "2d4aba3",
-      "build_timestamp": "2026-04-12T20:17:18Z",
-      "last_updated": "2026-04-02T09:11:30-04:00",
-      "checksum_md5": "f3e0e8cd18ba9bca478fe9d225a7c812",
-      "checksum_sha256": "f6780abeb385f608faf85f9bd9190216182a1892bad111c004f5e8d88b669217",
+      "version": "1.6.1",
+      "commit_sha": "7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b",
+      "commit_sha_short": "7ac9bb7",
+      "build_timestamp": "2026-04-17T12:45:15Z",
+      "last_updated": "2026-04-16T07:17:42-04:00",
+      "checksum_md5": "d055e7931cbbbfcc4d2a116ac04b5ec5",
+      "checksum_sha256": "b1980478b598ef23a8ae083917cbe258279cee1f2a2ae60699a61e0c41db91dd",
       "min_dispatcharr_version": "v0.21.0",
       "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
-      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip"
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip"
     }
   }
 }
