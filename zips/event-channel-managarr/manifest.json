@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T12:45:15Z",
+  "generated_at": "2026-04-17T12:49:33Z",
   "manifest": {
     "name": "Event Channel Managarr",
     "description": "Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names.",
@@ -19,7 +19,8 @@
         "checksum_md5": "80143a6e6e10682350325d04cf823f45",
         "checksum_sha256": "026e4d02da4590f197a1bd2f54847f12fb331a4b674db4fd77ca788c06836f96",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip"
+        "url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
+        "size": 28
       }
     ],
     "last_updated": "2026-04-05T17:33:12-04:00",
@@ -33,7 +34,8 @@
       "checksum_sha256": "026e4d02da4590f197a1bd2f54847f12fb331a4b674db4fd77ca788c06836f96",
       "min_dispatcharr_version": "v0.20.0",
       "url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
-      "latest_url": "zips/event-channel-managarr/event-channel-managarr-latest.zip"
+      "latest_url": "zips/event-channel-managarr/event-channel-managarr-latest.zip",
+      "size": 28
     }
   }
 }
