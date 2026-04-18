@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T12:49:33Z",
+  "generated_at": "2026-04-18T16:47:12Z",
   "manifest": {
     "name": "EPG Janitor",
     "description": "Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments.",
@@ -38,8 +38,8 @@
       "checksum_sha256": "cc61e3582ffb0480b9524e4f14c10d5f60f617591e631a11892be17e6e7dec1c",
       "min_dispatcharr_version": "v0.20.0",
       "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
-      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip",
-      "size": 416
+      "size": 416,
+      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip"
     }
   }
 }

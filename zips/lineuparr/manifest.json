@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T12:49:33Z",
+  "generated_at": "2026-04-18T16:47:12Z",
   "manifest": {
     "name": "Lineuparr",
     "description": "Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.",
@@ -34,8 +34,8 @@
       "checksum_sha256": "6990e3958e67139d6fbdb8b5a059953f62add6a18db798f3a223b1d1b7cbef22",
       "min_dispatcharr_version": "v0.20.0",
       "url": "zips/lineuparr/lineuparr-1.26.9520.zip",
-      "latest_url": "zips/lineuparr/lineuparr-latest.zip",
-      "size": 232
+      "size": 232,
+      "latest_url": "zips/lineuparr/lineuparr-latest.zip"
     }
   }
 }
