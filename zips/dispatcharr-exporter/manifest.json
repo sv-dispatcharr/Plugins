@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T16:37:34Z",
+  "generated_at": "2026-04-18T19:12:52Z",
   "manifest": {
     "name": "Dispatcharr Exporter",
     "description": "Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring",
@@ -11,6 +11,18 @@
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
     "versions": [
+      {
+        "version": "3.0.0",
+        "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
+        "commit_sha_short": "d7eefa5",
+        "build_timestamp": "2026-04-18T19:12:52Z",
+        "last_updated": "2026-04-18T15:12:37-04:00",
+        "checksum_md5": "5b01ef6c427ee5110562934ff852e95f",
+        "checksum_sha256": "9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005",
+        "min_dispatcharr_version": "v0.22.0",
+        "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+        "size": 139
+      },
       {
         "version": "2.4.2",
         "commit_sha": "38c7af86f91d7c642ceeab658d2a4689aed0fad8",
@@ -24,20 +36,20 @@
         "size": 142
       }
     ],
-    "last_updated": "2026-03-30T15:09:15-04:00",
+    "last_updated": "2026-04-18T15:12:37-04:00",
     "latest": {
-      "version": "2.4.2",
-      "commit_sha": "38c7af86f91d7c642ceeab658d2a4689aed0fad8",
-      "commit_sha_short": "38c7af8",
-      "build_timestamp": "2026-03-31T19:20:19Z",
-      "last_updated": "2026-03-30T15:09:15-04:00",
-      "checksum_md5": "43bd4ec43fb699d7c114da3bc53834f2",
-      "checksum_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
-      "min_dispatcharr_version": "v0.19.0",
-      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
-      "size": 142,
-      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip"
+      "version": "3.0.0",
+      "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
+      "commit_sha_short": "d7eefa5",
+      "build_timestamp": "2026-04-18T19:12:52Z",
+      "last_updated": "2026-04-18T15:12:37-04:00",
+      "checksum_md5": "5b01ef6c427ee5110562934ff852e95f",
+      "checksum_sha256": "9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005",
+      "min_dispatcharr_version": "v0.22.0",
+      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
+      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+      "size": 139
     }
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeOzTwAKCRB+wDprTCI0\nzhznAP0T66K7PveOYwo3Bwf5SlbQQbEimGA6NTGiBdE3P4yhywEAtiV7DGoS4kmP\nvh174VNRUcqxLaK3FITtlLALYgv3VAE=\n=EwX6\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaePXtAAKCRB+wDprTCI0\nzvdMAQDIr/wHJquXO8xNP1HMDviM/rLcxjhcRkuWYxD7WdakYwD+MqOxLwJrC/fW\n+8800f/NeyKVhawKKz73inQTIB6Vtw8=\n=91Nj\n-----END PGP SIGNATURE-----"
 }
