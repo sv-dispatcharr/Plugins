@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T13:00:09Z",
+  "generated_at": "2026-04-18T16:37:34Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -68,16 +68,16 @@
       {
         "slug": "event-channel-managarr",
         "name": "Event Channel Managarr",
-        "description": "Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names.",
+        "description": "Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. Optionally manages dummy EPG for channels without real EPG.",
         "manifest_url": "zips/event-channel-managarr/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-04-05T17:33:12-04:00",
-        "latest_version": "0.7.0",
-        "latest_md5": "b1b90ed696cd03a3a6abaed74aaaf8ce",
-        "latest_sha256": "884766208172f9f1d6b042f8b10be8224c154365c6c1febaa692102bc5360708",
-        "latest_url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
-        "latest_size": 28,
+        "last_updated": "2026-04-18T12:37:22-04:00",
+        "latest_version": "1.26.1081615",
+        "latest_md5": "c668ec0c368ed32e811f157d7e758a6e",
+        "latest_sha256": "7a82f15ec58038223586dca5ae00c99a88cfee6e17f186ed0d005e982df130ac",
+        "latest_url": "zips/event-channel-managarr/event-channel-managarr-1.26.1081615.zip",
+        "latest_size": 182,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -141,5 +141,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeIu3QAKCRB+wDprTCI0\nzjf0AQDe9xMkgK8D+e4+y43ro37KN+rixmJnuZz1yj0cj2ttqwEA0DYzPOIkAl08\nbJPQie4JVMTJ/P0VyczwKp7FwnCB+QQ=\n=+Fnf\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeOzUQAKCRB+wDprTCI0\nzj1xAP98yoRD3C8NG9sYIalEJDuXh/ottzqtUtbam2Reid2YbAEAxE6qbG2yHOmD\nDrK9/yzrz69gb6NLHvf/hFiPYerWvgE=\n=MxUK\n-----END PGP SIGNATURE-----"
 }

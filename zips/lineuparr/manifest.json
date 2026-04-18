@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T13:00:09Z",
+  "generated_at": "2026-04-18T16:37:34Z",
   "manifest": {
     "name": "Lineuparr",
     "description": "Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.",
@@ -34,9 +34,9 @@
       "checksum_sha256": "8217ce0ace8fc62202de9d74f4c1ac50d2d13ade9adff91879539ec9e6c1adbf",
       "min_dispatcharr_version": "v0.20.0",
       "url": "zips/lineuparr/lineuparr-1.26.9520.zip",
-      "latest_url": "zips/lineuparr/lineuparr-latest.zip",
-      "size": 232
+      "size": 232,
+      "latest_url": "zips/lineuparr/lineuparr-latest.zip"
     }
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeIu3AAKCRB+wDprTCI0\nzpNNAP9CuoJ/h7lwpExPaWxHZR+GuzEFx/1vSZNooGCrkfydCAD+MUZnU8MTJJeX\nyMK33Uq69n7Mo874HDqq97L2ATPXfgY=\n=CU+V\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeOzUAAKCRB+wDprTCI0\nzotmAP4z596wMHzlF09Ds7syKYBl76KUvGH57eY7JrSVyNbogQD/V/8l74e2GFoH\nZbf2F+Qy/WuzIWG/ihJ3A+FiBtXwDwY=\n=HBM/\n-----END PGP SIGNATURE-----"
 }
