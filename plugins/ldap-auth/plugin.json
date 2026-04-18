@@ -1,0 +1,10 @@
+{
+  "name": "LDAP Auth",
+  "version": "0.0.1",
+  "description": "LDAP/Active Directory authentication for UI login and XC endpoints",
+  "license": "MIT",
+  "author": "sethwv",
+  "help_url": "https://github.com/sethwv/dispatcharr-ldap",
+  "min_dispatcharr_version": "v0.22.0",
+  "repo_url": "https://github.com/sethwv/dispatcharr-ldap"
+}
