@@ -217,11 +217,21 @@ fi
       OVERALL_FAILED=1
       INFECTED_LABEL="${CLAMAV_INFECTED:-unknown}"
       echo ""
-      echo "❌ **ClamAV detected $INFECTED_LABEL infected file(s)** - these must be removed before merging."
+      echo "❌ **ClamAV detected $INFECTED_LABEL infected file(s)**."
       echo ""
       if [[ -f "clamav-findings/clamav-findings.md" ]]; then
         cat "clamav-findings/clamav-findings.md"
       fi
+    fi
+
+    if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]] || \
+       [[ -n "${CODEQL_MEDIUMS:-}" && "${CODEQL_MEDIUMS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
+       [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
+       [[ "${CODEQL_RESULT:-}" == "skipped" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]] || \
+       [[ "${CODEQL_RESULT:-}" != "skipped" && -n "${CODEQL_RESULT:-}" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]]; then
+      echo ""
+      echo "---"
+      echo ""
     fi
 
     if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]]; then
