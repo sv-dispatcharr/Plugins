@@ -790,9 +790,15 @@ jobs:
               echo "| File | Signature |"
               echo "|------|-----------|"
               grep ' FOUND$' clamav-output.txt | while IFS= read -r line; do
-                FILE=$(echo "$line" | sed 's/: .* FOUND$//')
+                FULL_PATH=$(echo "$line" | sed 's/: .* FOUND$//')
+                FILE=$(echo "$FULL_PATH" | sed "s|^${GITHUB_WORKSPACE}/||")
                 SIG=$(echo "$line" | sed 's/^[^:]*: //; s/ FOUND$//')
-                echo "| \`$FILE\` | \`$SIG\` |"
+                HASH=$(sha256sum "$FULL_PATH" 2>/dev/null | cut -d' ' -f1 || true)
+                if [[ -n "$HASH" ]]; then
+                  echo "| \`$FILE\` | [\`$SIG\`](https://www.virustotal.com/gui/file/${HASH}) |"
+                else
+                  echo "| \`$FILE\` | \`$SIG\` |"
+                fi
               done
             } > clamav-findings.md
             echo "clamav_status=failure" >> "$GITHUB_OUTPUT"
