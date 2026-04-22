@@ -2,7 +2,7 @@
 
 # Stream-Mapparr
 
-**Version:** `0.9.0` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:34 UTC
+**Version:** `1.26.1082140` | **Author:** PiratesIRC | **Last Updated:** Apr 18 2026, 22:09 UTC
 
 Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.
 
@@ -15,19 +15,20 @@ Automatically add matching streams to channels based on name similarity and qual
 ### Latest Release
 
 - **Download:** [`stream-mapparr-latest.zip`](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-latest.zip)
-- **Built:** Apr 12 2026, 20:17 UTC
-- **Source Commit:** [`f42e889`](https://github.com/sv-dispatcharr/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81)
+- **Built:** Apr 22 2026, 18:00 UTC
+- **Source Commit:** [`4812211`](https://github.com/sv-dispatcharr/Plugins/commit/4812211adaa1d7d67b5a2ae8154e857eab5d5b13)
 
 **Checksums:**
 ```
-MD5:    52176b90c6e3cb33d81c48c7daf4b527
-SHA256: c80d8b0a692ef88fbf604a02db8050e7968fcb94de32192cf50ff09c6bb1d0fa
+MD5:    86106eb84074561f7df08efa5be6d8a9
+SHA256: 219ce66fa44f9da15021861b42988f6a233abe864c910d309b5affc5f8ec64dc
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.26.1082140` | [Download](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-1.26.1082140.zip) | Apr 22 2026, 18:00 UTC | [`4812211`](https://github.com/sv-dispatcharr/Plugins/commit/4812211adaa1d7d67b5a2ae8154e857eab5d5b13) | 86106eb84074561f7df08efa5be6d8a9 | 219ce66fa44f9da15021861b42988f6a233abe864c910d309b5affc5f8ec64dc |
 | `0.9.0` | [Download](https://github.com/sv-dispatcharr/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-0.9.0.zip) | Apr 12 2026, 20:17 UTC | [`f42e889`](https://github.com/sv-dispatcharr/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81) | 52176b90c6e3cb33d81c48c7daf4b527 | c80d8b0a692ef88fbf604a02db8050e7968fcb94de32192cf50ff09c6bb1d0fa |
 
 ---

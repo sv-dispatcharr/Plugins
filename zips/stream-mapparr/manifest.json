@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T16:47:12Z",
+  "generated_at": "2026-04-22T18:00:15Z",
   "manifest": {
     "name": "Stream-Mapparr",
     "description": "Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.",
@@ -10,6 +10,18 @@
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
     "versions": [
+      {
+        "version": "1.26.1082140",
+        "commit_sha": "4812211adaa1d7d67b5a2ae8154e857eab5d5b13",
+        "commit_sha_short": "4812211",
+        "build_timestamp": "2026-04-22T18:00:15Z",
+        "last_updated": "2026-04-18T18:09:01-04:00",
+        "checksum_md5": "86106eb84074561f7df08efa5be6d8a9",
+        "checksum_sha256": "219ce66fa44f9da15021861b42988f6a233abe864c910d309b5affc5f8ec64dc",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
+        "size": 391
+      },
       {
         "version": "0.9.0",
         "commit_sha": "f42e889c2c1192cc5982cb2d98236a4130402d81",
@@ -23,19 +35,19 @@
         "size": 319
       }
     ],
-    "last_updated": "2026-04-05T17:34:17-04:00",
+    "last_updated": "2026-04-18T18:09:01-04:00",
     "latest": {
-      "version": "0.9.0",
-      "commit_sha": "f42e889c2c1192cc5982cb2d98236a4130402d81",
-      "commit_sha_short": "f42e889",
-      "build_timestamp": "2026-04-12T20:17:18Z",
-      "last_updated": "2026-04-05T17:34:17-04:00",
-      "checksum_md5": "52176b90c6e3cb33d81c48c7daf4b527",
-      "checksum_sha256": "c80d8b0a692ef88fbf604a02db8050e7968fcb94de32192cf50ff09c6bb1d0fa",
+      "version": "1.26.1082140",
+      "commit_sha": "4812211adaa1d7d67b5a2ae8154e857eab5d5b13",
+      "commit_sha_short": "4812211",
+      "build_timestamp": "2026-04-22T18:00:15Z",
+      "last_updated": "2026-04-18T18:09:01-04:00",
+      "checksum_md5": "86106eb84074561f7df08efa5be6d8a9",
+      "checksum_sha256": "219ce66fa44f9da15021861b42988f6a233abe864c910d309b5affc5f8ec64dc",
       "min_dispatcharr_version": "v0.20.0",
-      "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
-      "size": 319,
-      "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip"
+      "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip",
+      "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
+      "size": 391
     }
   }
 }

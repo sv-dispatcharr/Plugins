@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T16:47:12Z",
+  "generated_at": "2026-04-22T18:00:15Z",
   "manifest": {
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
@@ -27,13 +27,13 @@
         "manifest_url": "zips/dispatcharr-exporter/manifest.json",
         "author": "sethwv",
         "license": "MIT",
-        "last_updated": "2026-03-30T15:09:15-04:00",
-        "latest_version": "2.4.2",
-        "latest_md5": "61f61932715d6fa965319ab2f11ebe64",
-        "latest_sha256": "42faacb1f63395a94fee72029a8c63736e4a73d9cfc83695074991be97e13355",
-        "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
-        "latest_size": 142,
-        "min_dispatcharr_version": "v0.19.0"
+        "last_updated": "2026-04-18T15:12:37-04:00",
+        "latest_version": "3.0.0",
+        "latest_md5": "8d5ef10d71c2ef563095e22ccef18544",
+        "latest_sha256": "8634fc7a217d6326d779c33b06432055c0c1c31c8996069d9f649e6f6ce83f3d",
+        "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+        "latest_size": 139,
+        "min_dispatcharr_version": "v0.22.0"
       },
       {
         "slug": "dispatchwrapparr",
@@ -49,6 +49,21 @@
         "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
         "latest_size": 42,
         "min_dispatcharr_version": "v0.21.0"
+      },
+      {
+        "slug": "embyfin-stream-cleanup",
+        "name": "Embyfin Stream Cleanup",
+        "description": "Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections",
+        "manifest_url": "zips/embyfin-stream-cleanup/manifest.json",
+        "author": "sethwv",
+        "license": "MIT",
+        "last_updated": "2026-04-18T15:34:12-04:00",
+        "latest_version": "1.0.1",
+        "latest_md5": "52d45612de24c984608c905475b38454",
+        "latest_sha256": "c46ee16abb4506fb445dc2ed4232870e790cb1165ed5ba814f2f6e0ca3bb114e",
+        "latest_url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.0.1.zip",
+        "latest_size": 1565,
+        "min_dispatcharr_version": "v0.22.0"
       },
       {
         "slug": "epg-janitor",
@@ -87,12 +102,12 @@
         "manifest_url": "zips/iptv-checker/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-04-05T17:33:35-04:00",
-        "latest_version": "0.8.0",
-        "latest_md5": "e1e99238e431e6a6b1902c5e36609cd6",
-        "latest_sha256": "3ee7e950187e1f3835de06694fc566c028284ce22f7b6338b1cf5543db21c6b6",
-        "latest_url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
-        "latest_size": 38,
+        "last_updated": "2026-04-18T15:11:34-04:00",
+        "latest_version": "1.26.1081815",
+        "latest_md5": "10b1c0ac4c7d3272082a32cc88563bd4",
+        "latest_sha256": "66e1a076048920bed9ce66a4aee293be977101c3408f4104ceda22bfb0acdc52",
+        "latest_url": "zips/iptv-checker/iptv-checker-1.26.1081815.zip",
+        "latest_size": 343,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -102,12 +117,12 @@
         "manifest_url": "zips/lineuparr/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-04-05T17:34:34-04:00",
-        "latest_version": "1.26.9520",
-        "latest_md5": "e1c2e3735d5d95c0a06bd9f97acd6c80",
-        "latest_sha256": "6990e3958e67139d6fbdb8b5a059953f62add6a18db798f3a223b1d1b7cbef22",
-        "latest_url": "zips/lineuparr/lineuparr-1.26.9520.zip",
-        "latest_size": 232,
+        "last_updated": "2026-04-19T07:01:41-04:00",
+        "latest_version": "1.26.1091027",
+        "latest_md5": "c96c095b567f881612049fcc95d2f657",
+        "latest_sha256": "2b055ccfac899bc93eb6b1842f6af1d275f03ab4ebcb150bba117bc863918feb",
+        "latest_url": "zips/lineuparr/lineuparr-1.26.1091027.zip",
+        "latest_size": 238,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -131,12 +146,12 @@
         "manifest_url": "zips/stream-mapparr/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-04-05T17:34:17-04:00",
-        "latest_version": "0.9.0",
-        "latest_md5": "52176b90c6e3cb33d81c48c7daf4b527",
-        "latest_sha256": "c80d8b0a692ef88fbf604a02db8050e7968fcb94de32192cf50ff09c6bb1d0fa",
-        "latest_url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
-        "latest_size": 319,
+        "last_updated": "2026-04-18T18:09:01-04:00",
+        "latest_version": "1.26.1082140",
+        "latest_md5": "86106eb84074561f7df08efa5be6d8a9",
+        "latest_sha256": "219ce66fa44f9da15021861b42988f6a233abe864c910d309b5affc5f8ec64dc",
+        "latest_url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
+        "latest_size": 391,
         "min_dispatcharr_version": "v0.20.0"
       }
     ]
