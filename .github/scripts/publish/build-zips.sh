@@ -71,16 +71,16 @@ for plugin_dir in plugins/*/; do
     --arg checksum_sha256 "$checksum_sha256" \
     --arg min_da_version "$min_da_version" \
     --arg max_da_version "$max_da_version" \
-    '{
-      version: $version,
+    '{      version: $version,
       commit_sha: $commit_sha,
       commit_sha_short: $commit_sha_short,
       build_timestamp: $build_timestamp,
       last_updated: $last_updated,
       checksum_md5: $checksum_md5,
-      checksum_sha256: $checksum_sha256
-    } + (if $min_da_version != "" then {min_dispatcharr_version: $min_da_version} else {} end)
-      + (if $max_da_version != "" then {max_dispatcharr_version: $max_da_version} else {} end)' \
+      checksum_sha256: $checksum_sha256,
+      min_dispatcharr_version: (if $min_da_version != "" then $min_da_version else null end),
+      max_dispatcharr_version: (if $max_da_version != "" then $max_da_version else null end)
+    } | with_entries(select(.value != null))' \
     > "$BUILD_META_DIR/$plugin_key/${plugin_key}-${version}.json"
 
   cp "$zip_path" "zips/$plugin_name/${plugin_name}-latest.zip"

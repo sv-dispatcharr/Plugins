@@ -149,7 +149,19 @@ for plugin_dir in plugins/*/; do
 
     if [[ "$metadata" != "{}" ]]; then
       versioned_zips=$(jq --arg url "$zip_url" --argjson metadata "$metadata" --argjson size "$zip_size_kb" \
-        '. + [($metadata + {url: $url, size: $size})]' <<< "$versioned_zips")
+        '. + [{
+          version: $metadata.version,
+          commit_sha: $metadata.commit_sha,
+          commit_sha_short: $metadata.commit_sha_short,
+          build_timestamp: $metadata.build_timestamp,
+          last_updated: $metadata.last_updated,
+          checksum_md5: $metadata.checksum_md5,
+          checksum_sha256: $metadata.checksum_sha256,
+          min_dispatcharr_version: $metadata.min_dispatcharr_version,
+          max_dispatcharr_version: $metadata.max_dispatcharr_version,
+          url: $url,
+          size: $size
+        } | with_entries(select(.value != null))]' <<< "$versioned_zips")
       if [[ "$latest_metadata" == "{}" ]]; then
         latest_metadata="$metadata"
       fi
@@ -168,24 +180,35 @@ for plugin_dir in plugins/*/; do
     --argjson versioned_zips "$versioned_zips" \
     --argjson latest_metadata "$latest_metadata" \
     --argjson latest_size_kb "$latest_size_kb" \
-    'with_entries(select(.key | IN(
-      "name","description","author","maintainers",
-      "deprecated","repo_url","discord_thread","license"
-    ))) + {
+    '{
       slug: $plugin_name,
+      name: .name,
+      description: (.description // null),
+      author: (.author // null),
+      maintainers: (.maintainers // null),
+      license: (.license // null),
+      deprecated: (if .deprecated == true then true else null end),
+      repo_url: (.repo_url // null),
+      discord_thread: (.discord_thread // null),
       registry_url: $registry_url,
       registry_name: $registry_name,
-      versions: $versioned_zips
-    } + (
-      if ($latest_metadata | length > 0) then {
+      last_updated: ($latest_metadata.last_updated // null),
+      latest: (if ($latest_metadata | length > 0) then {
+        version: $latest_metadata.version,
+        commit_sha: $latest_metadata.commit_sha,
+        commit_sha_short: $latest_metadata.commit_sha_short,
+        build_timestamp: $latest_metadata.build_timestamp,
         last_updated: $latest_metadata.last_updated,
-        latest: ($latest_metadata + {
-          latest_url: $latest_url,
-          url: $versioned_zips[0].url,
-          size: $latest_size_kb
-        })
-      } else {} end
-    )' \
+        checksum_md5: $latest_metadata.checksum_md5,
+        checksum_sha256: $latest_metadata.checksum_sha256,
+        min_dispatcharr_version: $latest_metadata.min_dispatcharr_version,
+        max_dispatcharr_version: $latest_metadata.max_dispatcharr_version,
+        latest_url: $latest_url,
+        url: $versioned_zips[0].url,
+        size: $latest_size_kb
+      } | with_entries(select(.value != null)) else null end),
+      versions: $versioned_zips
+    } | with_entries(select(.value != null))' \
     "$plugin_file")
 
   if write_manifest_if_changed "zips/$plugin_name/manifest.json" "$plugin_entry"; then
