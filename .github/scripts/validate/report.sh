@@ -201,12 +201,13 @@ fi
       echo ""
     fi
 
-    # insert --- if there are ANY codeql findings, medium, low, or skip/unscanned notice
+    # insert --- if there are ANY codeql/clamav findings, medium, low, or skip/unscanned notice
     if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]] || \
        [[ -n "${CODEQL_MEDIUMS:-}" && "${CODEQL_MEDIUMS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
        [[ -n "${CODEQL_LOWS:-}" && "${CODEQL_LOWS}" != "0" && "${CODEQL_RESULT:-}" != "skipped" ]] || \
        [[ "${CODEQL_RESULT:-}" == "skipped" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]] || \
-       [[ "${CODEQL_RESULT:-}" != "skipped" && -n "${CODEQL_RESULT:-}" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]]; then
+       [[ "${CODEQL_RESULT:-}" != "skipped" && -n "${CODEQL_RESULT:-}" && -n "${CODEQL_UNSCANNED_LANGS:-}" ]] || \
+       [[ "${CLAMAV_RESULT:-}" == "failure" ]]; then
       echo ""
       echo "---"
       echo ""
@@ -260,6 +261,17 @@ fi
       echo "**Note:** The following bundled file type(s) were not scanned by CodeQL (unsupported language): \`${UNSCANNED_DISPLAY}\`."
       echo ""
     fi
+    if [[ "${CLAMAV_RESULT:-}" == "failure" ]]; then
+      OVERALL_FAILED=1
+      INFECTED_LABEL="${CLAMAV_INFECTED:-unknown}"
+      echo ""
+      echo "❌ **ClamAV detected $INFECTED_LABEL infected file(s)** - these must be removed before merging."
+      echo ""
+      if [[ -f "clamav-findings/clamav-findings.md" ]]; then
+        cat "clamav-findings/clamav-findings.md"
+      fi
+    fi
+
     if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
       echo ""
       echo "---"
