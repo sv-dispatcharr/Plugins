@@ -708,28 +708,49 @@ jobs:
             | git sparse-checkout set --stdin
           git checkout
 
-      - name: Get date for cache key
-        id: date
-        run: echo "date=$(date +%Y%m%d)" >> $GITHUB_OUTPUT
+      - name: Get cache keys
+        id: cache-keys
+        run: |
+          echo "week=$(date +%Y-W%V)" >> $GITHUB_OUTPUT
+          echo "date=$(date +%Y%m%d)" >> $GITHUB_OUTPUT
 
-      - name: Cache ClamAV virus definitions
-        id: cache-clamav
+      - name: Cache ClamAV installation (weekly)
+        id: cache-clamav-install
+        uses: actions/cache@v4
+        with:
+          path: /tmp/clamav-apt
+          key: clamav-install-${{ runner.os }}-${{ steps.cache-keys.outputs.week }}
+          restore-keys: clamav-install-${{ runner.os }}-
+
+      - name: Cache ClamAV virus definitions (daily)
+        id: cache-clamav-defs
         uses: actions/cache@v4
         with:
           path: /tmp/clamav-db
-          key: clamav-${{ runner.os }}-${{ steps.date.outputs.date }}
-          restore-keys: clamav-${{ runner.os }}-
+          key: clamav-defs-${{ runner.os }}-${{ steps.cache-keys.outputs.date }}
+          restore-keys: clamav-defs-${{ runner.os }}-
 
       - name: Install ClamAV
         run: |
           sudo apt-get update -qq
+          if [[ "${{ steps.cache-clamav-install.outputs.cache-hit }}" == 'true' ]]; then
+            echo "Installing ClamAV from cached packages..."
+            sudo cp /tmp/clamav-apt/*.deb /var/cache/apt/archives/ 2>/dev/null || true
+          fi
           sudo apt-get install -y --no-install-recommends clamav
+          if [[ "${{ steps.cache-clamav-install.outputs.cache-hit }}" != 'true' ]]; then
+            echo "Saving ClamAV packages to cache..."
+            mkdir -p /tmp/clamav-apt
+            find /var/cache/apt/archives/ \( -name 'clamav*.deb' -o -name 'libclamav*.deb' \) \
+              -exec cp {} /tmp/clamav-apt/ \; 2>/dev/null || true
+          fi
 
       - name: Update virus definitions
         run: |
           sudo systemctl stop clamav-freshclam 2>/dev/null || true
-          mkdir -p /tmp/clamav-db
-          if [[ "${{ steps.cache-clamav.outputs.cache-hit }}" != 'true' ]]; then
+          sudo mkdir -p /tmp/clamav-db
+          sudo chown -R clamav:clamav /tmp/clamav-db
+          if [[ "${{ steps.cache-clamav-defs.outputs.cache-hit }}" != 'true' ]]; then
             echo "Downloading fresh ClamAV definitions..."
             sudo freshclam --datadir=/tmp/clamav-db
           else
