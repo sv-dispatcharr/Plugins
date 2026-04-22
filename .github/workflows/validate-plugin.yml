@@ -816,6 +816,19 @@ jobs:
           path: clamav-findings.md
           if-no-files-found: ignore
 
+      - name: Apply quarantine label
+        if: always() && steps.status.outputs.clamav_status == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "QUARANTINE" \
+            --color "FFFF00" \
+            --description "ClamAV detected a potential threat in this PR" \
+            --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+          gh pr edit "${{ github.event.pull_request.number }}" \
+            --add-label "QUARANTINE" \
+            --repo "$GITHUB_REPOSITORY"
+
       - name: Fail job if ClamAV detected threats
         if: always() && steps.status.outputs.clamav_status == 'failure'
         run: exit 1
