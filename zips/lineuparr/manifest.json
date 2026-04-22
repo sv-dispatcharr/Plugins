@@ -1,14 +1,28 @@
 {
-  "generated_at": "2026-04-22T18:00:15Z",
+  "generated_at": "2026-04-22T20:54:25Z",
   "manifest": {
+    "slug": "lineuparr",
     "name": "Lineuparr",
     "description": "Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.",
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-Lineuparr-Plugin",
-    "slug": "lineuparr",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
+    "last_updated": "2026-04-19T07:01:41-04:00",
+    "latest": {
+      "version": "1.26.1091027",
+      "commit_sha": "9f1898eec05b56849cbd0500cbb3561aff756bae",
+      "commit_sha_short": "9f1898e",
+      "build_timestamp": "2026-04-22T18:00:14Z",
+      "last_updated": "2026-04-19T07:01:41-04:00",
+      "checksum_md5": "c96c095b567f881612049fcc95d2f657",
+      "checksum_sha256": "2b055ccfac899bc93eb6b1842f6af1d275f03ab4ebcb150bba117bc863918feb",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/lineuparr/lineuparr-latest.zip",
+      "url": "zips/lineuparr/lineuparr-1.26.1091027.zip",
+      "size": 238
+    },
     "versions": [
       {
         "version": "1.26.1091027",
@@ -34,20 +48,6 @@
         "url": "zips/lineuparr/lineuparr-1.26.9520.zip",
         "size": 232
       }
-    ],
-    "last_updated": "2026-04-19T07:01:41-04:00",
-    "latest": {
-      "version": "1.26.1091027",
-      "commit_sha": "9f1898eec05b56849cbd0500cbb3561aff756bae",
-      "commit_sha_short": "9f1898e",
-      "build_timestamp": "2026-04-22T18:00:14Z",
-      "last_updated": "2026-04-19T07:01:41-04:00",
-      "checksum_md5": "c96c095b567f881612049fcc95d2f657",
-      "checksum_sha256": "2b055ccfac899bc93eb6b1842f6af1d275f03ab4ebcb150bba117bc863918feb",
-      "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "zips/lineuparr/lineuparr-latest.zip",
-      "url": "zips/lineuparr/lineuparr-1.26.1091027.zip",
-      "size": 238
-    }
+    ]
   }
 }

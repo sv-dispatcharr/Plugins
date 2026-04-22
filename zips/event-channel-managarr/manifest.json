@@ -1,14 +1,28 @@
 {
-  "generated_at": "2026-04-22T18:00:15Z",
+  "generated_at": "2026-04-22T20:54:25Z",
   "manifest": {
+    "slug": "event-channel-managarr",
     "name": "Event Channel Managarr",
     "description": "Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. Optionally manages dummy EPG for channels without real EPG.",
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-Event-Channel-Managarr-Plugin",
-    "slug": "event-channel-managarr",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
+    "last_updated": "2026-04-18T12:37:22-04:00",
+    "latest": {
+      "version": "1.26.1081615",
+      "commit_sha": "4948b9c0fed99de2e55b11af1883b366e89dd6c3",
+      "commit_sha_short": "4948b9c",
+      "build_timestamp": "2026-04-18T16:47:12Z",
+      "last_updated": "2026-04-18T12:37:22-04:00",
+      "checksum_md5": "393664c8e52aed039f2da4bb9a0c5064",
+      "checksum_sha256": "d51b54d09f4784bf011e1be37ddb57863c92585c972d40d79f6d09d9e6d72bab",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/event-channel-managarr/event-channel-managarr-latest.zip",
+      "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1081615.zip",
+      "size": 182
+    },
     "versions": [
       {
         "version": "1.26.1081615",
@@ -34,20 +48,6 @@
         "url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
         "size": 28
       }
-    ],
-    "last_updated": "2026-04-18T12:37:22-04:00",
-    "latest": {
-      "version": "1.26.1081615",
-      "commit_sha": "4948b9c0fed99de2e55b11af1883b366e89dd6c3",
-      "commit_sha_short": "4948b9c",
-      "build_timestamp": "2026-04-18T16:47:12Z",
-      "last_updated": "2026-04-18T12:37:22-04:00",
-      "checksum_md5": "393664c8e52aed039f2da4bb9a0c5064",
-      "checksum_sha256": "d51b54d09f4784bf011e1be37ddb57863c92585c972d40d79f6d09d9e6d72bab",
-      "min_dispatcharr_version": "v0.20.0",
-      "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1081615.zip",
-      "size": 182,
-      "latest_url": "zips/event-channel-managarr/event-channel-managarr-latest.zip"
-    }
+    ]
   }
 }

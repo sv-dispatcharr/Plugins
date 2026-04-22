@@ -1,14 +1,28 @@
 {
-  "generated_at": "2026-04-22T18:00:15Z",
+  "generated_at": "2026-04-22T20:54:25Z",
   "manifest": {
+    "slug": "iptv-checker",
     "name": "IPTV Checker",
     "description": "A Dispatcharr Plugin that goes through a playlist to check IPTV channels",
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin",
-    "slug": "iptv-checker",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
+    "last_updated": "2026-04-18T15:11:34-04:00",
+    "latest": {
+      "version": "1.26.1081815",
+      "commit_sha": "f7bd8203fb613889601839954dc14bef2db1c7aa",
+      "commit_sha_short": "f7bd820",
+      "build_timestamp": "2026-04-22T18:00:14Z",
+      "last_updated": "2026-04-18T15:11:34-04:00",
+      "checksum_md5": "10b1c0ac4c7d3272082a32cc88563bd4",
+      "checksum_sha256": "66e1a076048920bed9ce66a4aee293be977101c3408f4104ceda22bfb0acdc52",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip",
+      "url": "zips/iptv-checker/iptv-checker-1.26.1081815.zip",
+      "size": 343
+    },
     "versions": [
       {
         "version": "1.26.1081815",
@@ -34,20 +48,6 @@
         "url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
         "size": 38
       }
-    ],
-    "last_updated": "2026-04-18T15:11:34-04:00",
-    "latest": {
-      "version": "1.26.1081815",
-      "commit_sha": "f7bd8203fb613889601839954dc14bef2db1c7aa",
-      "commit_sha_short": "f7bd820",
-      "build_timestamp": "2026-04-22T18:00:14Z",
-      "last_updated": "2026-04-18T15:11:34-04:00",
-      "checksum_md5": "10b1c0ac4c7d3272082a32cc88563bd4",
-      "checksum_sha256": "66e1a076048920bed9ce66a4aee293be977101c3408f4104ceda22bfb0acdc52",
-      "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip",
-      "url": "zips/iptv-checker/iptv-checker-1.26.1081815.zip",
-      "size": 343
-    }
+    ]
   }
 }

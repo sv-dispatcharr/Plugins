@@ -1,15 +1,29 @@
 {
-  "generated_at": "2026-04-22T18:00:15Z",
+  "generated_at": "2026-04-22T20:54:25Z",
   "manifest": {
+    "slug": "dispatcharr-exporter",
     "name": "Dispatcharr Exporter",
     "description": "Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring",
-    "license": "MIT",
-    "discord_thread": "https://discord.com/channels/1340492560220684331/1451260201775923421",
     "author": "sethwv",
+    "license": "MIT",
     "repo_url": "https://github.com/sethwv/dispatcharr-exporter",
-    "slug": "dispatcharr-exporter",
+    "discord_thread": "https://discord.com/channels/1340492560220684331/1451260201775923421",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
+    "last_updated": "2026-04-18T15:12:37-04:00",
+    "latest": {
+      "version": "3.0.0",
+      "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
+      "commit_sha_short": "d7eefa5",
+      "build_timestamp": "2026-04-22T18:00:14Z",
+      "last_updated": "2026-04-18T15:12:37-04:00",
+      "checksum_md5": "8d5ef10d71c2ef563095e22ccef18544",
+      "checksum_sha256": "8634fc7a217d6326d779c33b06432055c0c1c31c8996069d9f649e6f6ce83f3d",
+      "min_dispatcharr_version": "v0.22.0",
+      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
+      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+      "size": 139
+    },
     "versions": [
       {
         "version": "3.0.0",
@@ -35,20 +49,6 @@
         "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
         "size": 142
       }
-    ],
-    "last_updated": "2026-04-18T15:12:37-04:00",
-    "latest": {
-      "version": "3.0.0",
-      "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
-      "commit_sha_short": "d7eefa5",
-      "build_timestamp": "2026-04-22T18:00:14Z",
-      "last_updated": "2026-04-18T15:12:37-04:00",
-      "checksum_md5": "8d5ef10d71c2ef563095e22ccef18544",
-      "checksum_sha256": "8634fc7a217d6326d779c33b06432055c0c1c31c8996069d9f649e6f6ce83f3d",
-      "min_dispatcharr_version": "v0.22.0",
-      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
-      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
-      "size": 139
-    }
+    ]
   }
 }
