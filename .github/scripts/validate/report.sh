@@ -213,6 +213,17 @@ fi
       echo ""
     fi
 
+    if [[ "${CLAMAV_RESULT:-}" == "failure" ]]; then
+      OVERALL_FAILED=1
+      INFECTED_LABEL="${CLAMAV_INFECTED:-unknown}"
+      echo ""
+      echo "❌ **ClamAV detected $INFECTED_LABEL infected file(s)** - these must be removed before merging."
+      echo ""
+      if [[ -f "clamav-findings/clamav-findings.md" ]]; then
+        cat "clamav-findings/clamav-findings.md"
+      fi
+    fi
+
     if [[ -n "${CODEQL_RESULT:-}" && "${CODEQL_RESULT:-}" != "skipped" && "${CODEQL_RESULT:-}" != "success" ]]; then
       # echo ""
       # echo "## Code Quality"
@@ -260,16 +271,6 @@ fi
       echo ""
       echo "**Note:** The following bundled file type(s) were not scanned by CodeQL (unsupported language): \`${UNSCANNED_DISPLAY}\`."
       echo ""
-    fi
-    if [[ "${CLAMAV_RESULT:-}" == "failure" ]]; then
-      OVERALL_FAILED=1
-      INFECTED_LABEL="${CLAMAV_INFECTED:-unknown}"
-      echo ""
-      echo "❌ **ClamAV detected $INFECTED_LABEL infected file(s)** - these must be removed before merging."
-      echo ""
-      if [[ -f "clamav-findings/clamav-findings.md" ]]; then
-        cat "clamav-findings/clamav-findings.md"
-      fi
     fi
 
     if [[ -n "${TITLE_VALID:-}" && "${TITLE_VALID}" != "true" ]]; then
