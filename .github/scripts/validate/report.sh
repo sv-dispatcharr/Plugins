@@ -146,6 +146,24 @@ fi
       echo ""
       echo "For help: [Dispatcharr Discord]($DISCORD_URL)"
     fi
+  elif [[ "${CLOSE_REASON:-}" == "author-blacklisted" ]]; then
+    echo ""
+    echo "## PR Closed: Account Restricted"
+    echo ""
+    echo "Your GitHub account (\`$PR_AUTHOR\`) is not permitted to submit plugins to this repository. This PR has been automatically closed."
+    if [[ -n "${DISCORD_URL:-}" ]]; then
+      echo ""
+      echo "If you believe this is an error, please reach out via the [Dispatcharr Discord]($DISCORD_URL)."
+    fi
+  elif [[ "${CLOSE_REASON:-}" == "plugin-blacklisted" ]]; then
+    echo ""
+    echo "## PR Closed: Plugin Restricted"
+    echo ""
+    echo "One or more plugins in this PR are on the restricted list and cannot be submitted to this repository. This PR has been automatically closed."
+    if [[ -n "${DISCORD_URL:-}" ]]; then
+      echo ""
+      echo "If you believe this is an error, please reach out via the [Dispatcharr Discord]($DISCORD_URL)."
+    fi
   elif [[ "$CLOSE_PR" == "true" ]]; then
     echo ""
     echo "## PR Closed: Unauthorized"
@@ -376,7 +394,7 @@ gh pr comment "$PR_NUMBER" --body "$(cat pr_comment.txt)"
 COMMENT_EXIT=$?
 
 # Close PR for unauthorized plugin modifications
-if [[ "$CLOSE_PR" == "true" && "${CLOSE_REASON:-}" == "unauthorized" ]]; then
+if [[ "$CLOSE_PR" == "true" && ( "${CLOSE_REASON:-}" == "unauthorized" || "${CLOSE_REASON:-}" == "author-blacklisted" || "${CLOSE_REASON:-}" == "plugin-blacklisted" ) ]]; then
   gh pr close "$PR_NUMBER"
   echo "PR #$PR_NUMBER closed: unauthorized"
   exit $COMMENT_EXIT

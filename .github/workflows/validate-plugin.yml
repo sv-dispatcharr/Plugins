@@ -8,6 +8,10 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Comma-separated lists of blocked GitHub usernames and plugin slugs.
+  # Set these in repo Settings → Variables as AUTHOR_BLACKLIST and PLUGIN_BLACKLIST.
+  AUTHOR_BLACKLIST: ${{ vars.AUTHOR_BLACKLIST }}
+  PLUGIN_BLACKLIST: ${{ vars.PLUGIN_BLACKLIST }}
 
 on:
   pull_request_target:
@@ -91,8 +95,8 @@ jobs:
     outputs:
       matrix: ${{ steps.detect.outputs.matrix }}
       plugin_count: ${{ steps.detect.outputs.plugin_count }}
-      close_pr: ${{ steps.detect.outputs.close_pr }}
-      close_reason: ${{ steps.detect.outputs.close_reason }}
+      close_pr: ${{ steps.blacklist.outputs.close_pr || steps.detect.outputs.close_pr }}
+      close_reason: ${{ steps.blacklist.outputs.close_reason || steps.detect.outputs.close_reason }}
       outside_files: ${{ steps.detect.outputs.outside_files }}
       outside_violation: ${{ steps.detect.outputs.outside_violation }}
       skip_validation: ${{ steps.detect.outputs.skip_validation }}
@@ -167,6 +171,61 @@ jobs:
           .github/scripts/validate/detect-changes.sh \
             "${{ github.event.pull_request.user.login }}" \
             "${{ github.event.pull_request.base.ref }}"
+
+      - name: Check author and plugin blacklists
+        id: blacklist
+        # Only run if detect didn't already decide to close (avoids redundant output)
+        if: steps.detect.outputs.close_pr != 'true'
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          MATRIX: ${{ steps.detect.outputs.matrix }}
+        run: |
+          AUTHOR_BL="${AUTHOR_BLACKLIST:-}"
+          PLUGIN_BL="${PLUGIN_BLACKLIST:-}"
+
+          # No-op if neither list is configured
+          if [[ -z "$AUTHOR_BL" && -z "$PLUGIN_BL" ]]; then
+            exit 0
+          fi
+
+          MATCHED=false
+          REASON=""
+
+          # Check author blacklist (case-insensitive, strips whitespace around commas)
+          if [[ -n "$AUTHOR_BL" ]]; then
+            IFS=',' read -ra BLOCKED <<< "$AUTHOR_BL"
+            for entry in "${BLOCKED[@]}"; do
+              slug="${entry// /}"
+              if [[ "${PR_AUTHOR,,}" == "${slug,,}" ]]; then
+                MATCHED=true
+                REASON="author-blacklisted"
+                echo "::warning::PR author '$PR_AUTHOR' is on the author blacklist."
+                break
+              fi
+            done
+          fi
+
+          # Check plugin blacklist (case-insensitive)
+          if [[ "$MATCHED" != "true" && -n "$PLUGIN_BL" ]]; then
+            IFS=',' read -ra BLOCKED <<< "$PLUGIN_BL"
+            while IFS= read -r plugin; do
+              [[ -z "$plugin" ]] && continue
+              for entry in "${BLOCKED[@]}"; do
+                slug="${entry// /}"
+                if [[ "${plugin,,}" == "${slug,,}" ]]; then
+                  MATCHED=true
+                  REASON="plugin-blacklisted"
+                  echo "::warning::Plugin '$plugin' is on the plugin blacklist."
+                  break 2
+                fi
+              done
+            done < <(printf '%s' "$MATRIX" | jq -r '.[]' 2>/dev/null || true)
+          fi
+
+          if [[ "$MATCHED" == "true" ]]; then
+            echo "close_pr=true" >> "$GITHUB_OUTPUT"
+            echo "close_reason=$REASON" >> "$GITHUB_OUTPUT"
+          fi
 
   # --------------------------------------------------------------------------
   # Job 3: Apply PR labels based on change classification
