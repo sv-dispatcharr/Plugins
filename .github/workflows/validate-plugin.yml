@@ -816,10 +816,32 @@ jobs:
           path: clamav-findings.md
           if-no-files-found: ignore
 
+      - name: Load app ID from config
+        if: always() && steps.status.outputs.clamav_status == 'failure'
+        id: config
+        env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+        run: |
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: always() && steps.status.outputs.clamav_status == 'failure' && steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       - name: Apply quarantine label
         if: always() && steps.status.outputs.clamav_status == 'failure'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
         run: |
           gh label create "QUARANTINE" \
             --color "FFFF00" \
@@ -1118,6 +1140,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
+      - name: Check for quarantine label
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          LABELS=$(gh pr view "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" \
+            --json labels --jq '[.labels[].name] | join(",")' 2>/dev/null || true)
+          if echo "$LABELS" | grep -qF "QUARANTINE"; then
+            echo "::error::This PR has a QUARANTINE label applied. A maintainer must review and remove the label before merging is allowed."
+            exit 1
+          fi
+
       - name: Evaluate validation result
         env:
           DETECT_RESULT: ${{ needs.detect-changes.result }}
