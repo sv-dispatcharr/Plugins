@@ -1,14 +1,28 @@
 {
-  "generated_at": "2026-04-19T11:01:53Z",
+  "generated_at": "2026-04-29T19:55:52Z",
   "manifest": {
+    "slug": "stream-mapparr",
     "name": "Stream-Mapparr",
     "description": "Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.",
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Stream-Mapparr",
-    "slug": "stream-mapparr",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-04-18T18:09:01-04:00",
+    "latest": {
+      "version": "1.26.1082140",
+      "commit_sha": "4812211adaa1d7d67b5a2ae8154e857eab5d5b13",
+      "commit_sha_short": "4812211",
+      "build_timestamp": "2026-04-18T22:09:11Z",
+      "last_updated": "2026-04-18T18:09:01-04:00",
+      "checksum_md5": "f86b589e4c80bf08a75bed8987ce9a6c",
+      "checksum_sha256": "bf65e3f1051cdd25f219e4e42e5d890c805c8ea17f9787a79d7e6ef2a966738e",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip",
+      "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
+      "size": 391
+    },
     "versions": [
       {
         "version": "1.26.1082140",
@@ -34,21 +48,7 @@
         "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
         "size": 319
       }
-    ],
-    "last_updated": "2026-04-18T18:09:01-04:00",
-    "latest": {
-      "version": "1.26.1082140",
-      "commit_sha": "4812211adaa1d7d67b5a2ae8154e857eab5d5b13",
-      "commit_sha_short": "4812211",
-      "build_timestamp": "2026-04-18T22:09:11Z",
-      "last_updated": "2026-04-18T18:09:01-04:00",
-      "checksum_md5": "f86b589e4c80bf08a75bed8987ce9a6c",
-      "checksum_sha256": "bf65e3f1051cdd25f219e4e42e5d890c805c8ea17f9787a79d7e6ef2a966738e",
-      "min_dispatcharr_version": "v0.20.0",
-      "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
-      "size": 391,
-      "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip"
-    }
+    ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeS2IgAKCRB+wDprTCI0\nzl2ZAQCU5QehG+SNMv/Ke/yYlFu4XRI62gbs0GQOXy6riYGblwEAi+m9BUzfAxgi\nnKjCw8OeIuomZsMuWe1t3/3lk92MqAQ=\n=CWnq\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSwAKCRB+wDprTCI0\nzsQGAQCL/xm96j+ItxfGL8OyKr/EaG70hv1Q1NfTyINxuqEL2QEAvXq87AwTJQPp\nH/hrNLa/ophRXBPu7RornI3PdW/7jgU=\n=w9FO\n-----END PGP SIGNATURE-----"
 }

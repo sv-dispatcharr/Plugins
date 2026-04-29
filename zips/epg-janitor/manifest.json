@@ -1,6 +1,7 @@
 {
-  "generated_at": "2026-04-18T16:37:34Z",
+  "generated_at": "2026-04-29T19:55:52Z",
   "manifest": {
+    "slug": "epg-janitor",
     "name": "EPG Janitor",
     "description": "Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments.",
     "author": "PiratesIRC",
@@ -10,9 +11,22 @@
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-EPG-Janitor-Plugin",
     "discord_thread": "https://discord.com/channels/1340492560220684331/1420051973994053848",
-    "slug": "epg-janitor",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-04-12T15:22:44-04:00",
+    "latest": {
+      "version": "1.26.1021352",
+      "commit_sha": "2cf371ad80c2219d832938067564d40b038ccd26",
+      "commit_sha_short": "2cf371a",
+      "build_timestamp": "2026-04-12T19:22:54Z",
+      "last_updated": "2026-04-12T15:22:44-04:00",
+      "checksum_md5": "25cf566d3e3c0fec1f99d78d7b09dd85",
+      "checksum_sha256": "9109e92484c73b24fad2c92b455f9a3bd8e2280b51b6eac7120c14de42314499",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip",
+      "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
+      "size": 416
+    },
     "versions": [
       {
         "version": "1.26.1021352",
@@ -26,21 +40,7 @@
         "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
         "size": 416
       }
-    ],
-    "last_updated": "2026-04-12T15:22:44-04:00",
-    "latest": {
-      "version": "1.26.1021352",
-      "commit_sha": "2cf371ad80c2219d832938067564d40b038ccd26",
-      "commit_sha_short": "2cf371a",
-      "build_timestamp": "2026-04-12T19:22:54Z",
-      "last_updated": "2026-04-12T15:22:44-04:00",
-      "checksum_md5": "25cf566d3e3c0fec1f99d78d7b09dd85",
-      "checksum_sha256": "9109e92484c73b24fad2c92b455f9a3bd8e2280b51b6eac7120c14de42314499",
-      "min_dispatcharr_version": "v0.20.0",
-      "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
-      "size": 416,
-      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip"
-    }
+    ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeOzTwAKCRB+wDprTCI0\nzhHMAP4pddl2lQdLfiwkkYVdZnORl/1Kkh4rIxDpGfuUNE5lgwEAkR2MaaZJy2kI\nD8OjI/g5yYK4R9IOZHm7azK/M58opQ0=\n=4gvc\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSgAKCRB+wDprTCI0\nzkYfAQCSwDbD58+meHRb1bnZBTKO3igKoQZ5k0Nit0WVAo+krAEA3u7+o3DEJXWa\nJjB5dH3iXZYimyLaKcWlI7gKpyfeFwU=\n=1W2g\n-----END PGP SIGNATURE-----"
 }

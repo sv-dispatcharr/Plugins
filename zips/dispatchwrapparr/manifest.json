@@ -1,6 +1,7 @@
 {
-  "generated_at": "2026-04-28T18:33:25Z",
+  "generated_at": "2026-04-29T19:55:52Z",
   "manifest": {
+    "slug": "dispatchwrapparr",
     "name": "Dispatchwrapparr",
     "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
     "author": "jordandalley",
@@ -10,9 +11,22 @@
     "license": "MIT",
     "repo_url": "https://github.com/jordandalley/dispatchwrapparr",
     "discord_thread": "https://discord.com/channels/1340492560220684331/1422776847703212132",
-    "slug": "dispatchwrapparr",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-04-27T21:30:01-04:00",
+    "latest": {
+      "version": "1.6.2",
+      "commit_sha": "44fbc6b96eebd52ea29b27fc371af3c20f997702",
+      "commit_sha_short": "44fbc6b",
+      "build_timestamp": "2026-04-28T01:30:13Z",
+      "last_updated": "2026-04-27T21:30:01-04:00",
+      "checksum_md5": "f33c4a46e9012498858ac1770370888c",
+      "checksum_sha256": "49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b",
+      "min_dispatcharr_version": "v0.21.0",
+      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.2.zip",
+      "size": 42
+    },
     "versions": [
       {
         "version": "1.6.2",
@@ -50,21 +64,7 @@
         "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
         "size": 42
       }
-    ],
-    "last_updated": "2026-04-27T21:30:01-04:00",
-    "latest": {
-      "version": "1.6.2",
-      "commit_sha": "44fbc6b96eebd52ea29b27fc371af3c20f997702",
-      "commit_sha_short": "44fbc6b",
-      "build_timestamp": "2026-04-28T01:30:13Z",
-      "last_updated": "2026-04-27T21:30:01-04:00",
-      "checksum_md5": "f33c4a46e9012498858ac1770370888c",
-      "checksum_sha256": "49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b",
-      "min_dispatcharr_version": "v0.21.0",
-      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.2.zip",
-      "size": 42,
-      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip"
-    }
+    ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafD9dQAKCRB+wDprTCI0\nzv0JAP93Fsp4yZz4jXPx51wBODs7rBtcU7DcypsEgwZXlmz8IwD9GlqwGbpBZ4Pl\nzr5SeKv2dVtWLRUvY5NVYEStDPm7VQs=\n=8oIJ\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSQAKCRB+wDprTCI0\nzk4uAP0f1vVmx1n04d0uPBWfuuKhCLf2fpW8aecUOxQNckmTMwEAkWNOg9kb7QFH\nR2bRYMF+dUUCpJdsmsbonpMzR0VV8go=\n=2ocN\n-----END PGP SIGNATURE-----"
 }

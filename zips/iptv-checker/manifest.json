@@ -1,14 +1,28 @@
 {
-  "generated_at": "2026-04-27T15:41:09Z",
+  "generated_at": "2026-04-29T19:55:52Z",
   "manifest": {
+    "slug": "iptv-checker",
     "name": "IPTV Checker",
     "description": "A Dispatcharr Plugin that goes through a playlist to check IPTV channels",
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin",
-    "slug": "iptv-checker",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-04-26T09:39:45-05:00",
+    "latest": {
+      "version": "1.26.1161403",
+      "commit_sha": "740b4eefc51ff4296f36be336e06979bc1eb9970",
+      "commit_sha_short": "740b4ee",
+      "build_timestamp": "2026-04-26T14:39:58Z",
+      "last_updated": "2026-04-26T09:39:45-05:00",
+      "checksum_md5": "cc0be9f97a30b0e9d88119f59e726119",
+      "checksum_sha256": "731abcffedf0b4959982109c05649cd30d64aa119193666ba6b2465606f2b75f",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip",
+      "url": "zips/iptv-checker/iptv-checker-1.26.1161403.zip",
+      "size": 344
+    },
     "versions": [
       {
         "version": "1.26.1161403",
@@ -46,21 +60,7 @@
         "url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
         "size": 38
       }
-    ],
-    "last_updated": "2026-04-26T09:39:45-05:00",
-    "latest": {
-      "version": "1.26.1161403",
-      "commit_sha": "740b4eefc51ff4296f36be336e06979bc1eb9970",
-      "commit_sha_short": "740b4ee",
-      "build_timestamp": "2026-04-26T14:39:58Z",
-      "last_updated": "2026-04-26T09:39:45-05:00",
-      "checksum_md5": "cc0be9f97a30b0e9d88119f59e726119",
-      "checksum_sha256": "731abcffedf0b4959982109c05649cd30d64aa119193666ba6b2465606f2b75f",
-      "min_dispatcharr_version": "v0.20.0",
-      "url": "zips/iptv-checker/iptv-checker-1.26.1161403.zip",
-      "size": 344,
-      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip"
-    }
+    ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCae+DlwAKCRB+wDprTCI0\nznGpAQDblR7yEaNKosuunnEamAneln7i4Rpc34C6DjF6IzeFmgD/Y0hWI1PnPTz1\n1JU3KlZwNM6NfbYzjnlYMlTmmCXM8w4=\n=z3gn\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSgAKCRB+wDprTCI0\nzo9vAQCQCkDE9iXZIAhiNmAQOD9y9FgV2NMF66HO4wgyHOGN2QEAgoLy5w/KSFcw\n1Z9IrkpdjsjA9G5KdMLMs/WiN9RBOAY=\n=9V64\n-----END PGP SIGNATURE-----"
 }

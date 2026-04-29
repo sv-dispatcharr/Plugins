@@ -1,13 +1,26 @@
 {
-  "generated_at": "2026-04-18T16:37:34Z",
+  "generated_at": "2026-04-29T19:55:52Z",
   "manifest": {
+    "slug": "stream-dripper",
     "name": "Stream Dripper",
     "description": "Automatically drops all active streams once per day at a configured time, with a manual drop-now button.",
     "author": "Megamannen",
     "license": "Artistic-2.0",
-    "slug": "stream-dripper",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-03-29T11:51:09-04:00",
+    "latest": {
+      "version": "1.0.0",
+      "commit_sha": "4e8f1b108c1e84f60520710d13e54eb2fb519648",
+      "commit_sha_short": "4e8f1b1",
+      "build_timestamp": "2026-03-31T19:20:19Z",
+      "last_updated": "2026-03-29T11:51:09-04:00",
+      "checksum_md5": "a83c3907d2221782c64feed3937d750c",
+      "checksum_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
+      "latest_url": "zips/stream-dripper/stream-dripper-latest.zip",
+      "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
+      "size": 30
+    },
     "versions": [
       {
         "version": "1.0.0",
@@ -20,20 +33,7 @@
         "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
         "size": 30
       }
-    ],
-    "last_updated": "2026-03-29T11:51:09-04:00",
-    "latest": {
-      "version": "1.0.0",
-      "commit_sha": "4e8f1b108c1e84f60520710d13e54eb2fb519648",
-      "commit_sha_short": "4e8f1b1",
-      "build_timestamp": "2026-03-31T19:20:19Z",
-      "last_updated": "2026-03-29T11:51:09-04:00",
-      "checksum_md5": "a83c3907d2221782c64feed3937d750c",
-      "checksum_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
-      "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
-      "size": 30,
-      "latest_url": "zips/stream-dripper/stream-dripper-latest.zip"
-    }
+    ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaeOzUAAKCRB+wDprTCI0\nzuCiAPwIcWRP25JjGnnZ83/PGymrC3GG5qfQj2pucz+NgQY86wD9FZ6BeZKVFshk\nU3BfpSCqPiulTRlsD3mQVs3M2jnPuAg=\n=gJPy\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSwAKCRB+wDprTCI0\nzsuhAQDlJpNXEhWznlOMjIYTOrxbe6fr+T4MlMgcllqkFREs7QD/frqXkJrbHbUp\n3FE0t4hXvKFOqeylyfFL8uy5sHK8XAM=\n=EFfR\n-----END PGP SIGNATURE-----"
 }

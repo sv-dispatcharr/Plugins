@@ -1,15 +1,29 @@
 {
-  "generated_at": "2026-04-18T19:34:25Z",
+  "generated_at": "2026-04-29T19:55:52Z",
   "manifest": {
+    "slug": "dispatcharr-exporter",
     "name": "Dispatcharr Exporter",
     "description": "Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring",
-    "license": "MIT",
-    "discord_thread": "https://discord.com/channels/1340492560220684331/1451260201775923421",
     "author": "sethwv",
+    "license": "MIT",
     "repo_url": "https://github.com/sethwv/dispatcharr-exporter",
-    "slug": "dispatcharr-exporter",
+    "discord_thread": "https://discord.com/channels/1340492560220684331/1451260201775923421",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-04-18T15:12:37-04:00",
+    "latest": {
+      "version": "3.0.0",
+      "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
+      "commit_sha_short": "d7eefa5",
+      "build_timestamp": "2026-04-18T19:12:52Z",
+      "last_updated": "2026-04-18T15:12:37-04:00",
+      "checksum_md5": "5b01ef6c427ee5110562934ff852e95f",
+      "checksum_sha256": "9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005",
+      "min_dispatcharr_version": "v0.22.0",
+      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
+      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+      "size": 139
+    },
     "versions": [
       {
         "version": "3.0.0",
@@ -35,21 +49,7 @@
         "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
         "size": 142
       }
-    ],
-    "last_updated": "2026-04-18T15:12:37-04:00",
-    "latest": {
-      "version": "3.0.0",
-      "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
-      "commit_sha_short": "d7eefa5",
-      "build_timestamp": "2026-04-18T19:12:52Z",
-      "last_updated": "2026-04-18T15:12:37-04:00",
-      "checksum_md5": "5b01ef6c427ee5110562934ff852e95f",
-      "checksum_sha256": "9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005",
-      "min_dispatcharr_version": "v0.22.0",
-      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
-      "size": 139,
-      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip"
-    }
+    ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaePcwgAKCRB+wDprTCI0\nzq26AP99BhsUpXKCx8snnZxbz65mi7X4x0T4uRRpjFrzDni4ZgEA21m7O+/JvVHQ\nH5Gt1ery9rZhCWyvNkW7PVEF1PbPNgo=\n=vPXt\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSQAKCRB+wDprTCI0\nzhFxAP0ZyKAfPqviaAE0Jl/dFCwUnkDsoKDTtZ9FOmNVZ63KbgEA3XFNYpK+hZhm\nrXRIpOGzDKc554G5CtgEflk+7IQtWAg=\n=kgXV\n-----END PGP SIGNATURE-----"
 }
