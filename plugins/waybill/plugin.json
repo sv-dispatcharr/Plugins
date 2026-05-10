@@ -1,0 +1,11 @@
+{
+  "name": "Waybill",
+  "version": "1.1.2",
+  "description": "Manage channel configurations declaratively using YAML-based manifests. Define which streams to keep and how to name them, then plan and apply changes automatically.",
+  "author": "Matthew-Beckett",
+  "maintainers": ["sethwv"],
+  "license": "MIT",
+  "source_type": "external",
+  "source_url": "https://github.com/Matthew-Beckett/waybill/releases/download/v{version}/waybill-{version}-py3-none-any.zip",
+  "repo_url": "https://github.com/Matthew-Beckett/waybill"
+}
