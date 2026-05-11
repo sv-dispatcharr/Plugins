@@ -1,0 +1,14 @@
+{
+  "name": "Embyfin Stream Cleanup",
+  "version": "1.1.2",
+  "description": "Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections",
+  "license": "MIT",
+  "discord_thread": "https://discord.com/channels/1340492560220684331/1491487318832447668",
+  "author": "sethwv",
+  "min_dispatcharr_version": "v0.22.0",
+  "help_url": "https://github.com/swvn-dispatch/embyfin-stream-cleanup",
+  "repo_url": "https://github.com/swvn-dispatch/embyfin-stream-cleanup",
+
+  "source_type": "external",
+  "source_url": "https://github.com/swvn-dispatch/embyfin-stream-cleanup/releases/download/v{version}/embyfin-stream-cleanup-{version}.zip"
+}
