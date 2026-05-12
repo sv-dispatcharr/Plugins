@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T19:16:09Z",
+  "generated_at": "2026-05-12T19:36:13Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -157,7 +157,7 @@
       {
         "slug": "waybill",
         "name": "Waybill",
-        "description": "Waybill matches, renames, and organizes any streams—no matter the provider. Infinitely configurable pipelines for total control.",
+        "description": "Waybill matches, renames, and organizes any streams no matter the provider. Infinitely configurable pipelines for total control.",
         "manifest_url": "zips/waybill/manifest.json",
         "author": "Matthew-Beckett",
         "license": "MIT",
@@ -187,5 +187,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagN8egAKCRB+wDprTCI0\nzrodAQCkzTAkXR93zsUPXmxUhIaCG3qa1olF3guePQN4c2ja0wEA6MdyTFa01xC+\nQHV0nWbzIXQdEUBEBn4BMpzQLpZ6IQg=\n=twtR\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagOBLwAKCRB+wDprTCI0\nztyTAP0cge05nay/maxScBrao/E/oV7HR6HNFhsHocb4w9S7NgEAmryLkt84JQWw\nnNs9ERu5Sbns4+rXz5bcnnRgSPHaPwM=\n=5ajG\n-----END PGP SIGNATURE-----"
 }

@@ -2,13 +2,13 @@
 
 # Waybill
 
-**Version:** `1.3.0` | **Author:** Matthew-Beckett | **Last Updated:** May 12 2026, 18:47 UTC
+**Version:** `1.3.0` | **Author:** Matthew-Beckett | **Last Updated:** May 12 2026, 19:36 UTC
 
-Waybill matches, renames, and organizes any streams—no matter the provider. Infinitely configurable pipelines for total control.
+Waybill matches, renames, and organizes any streams no matter the provider. Infinitely configurable pipelines for total control.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Matthew-Beckett/waybill)
 
-![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-0.24.0-brightgreen?style=flat-square) ![Dispatcharr max](https://img.shields.io/badge/Dispatcharr_max-0.24.0-orange?style=flat-square)
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-0.23.0-brightgreen?style=flat-square) ![Dispatcharr max](https://img.shields.io/badge/Dispatcharr_max-0.24.0-orange?style=flat-square)
 
 ## Downloads
 

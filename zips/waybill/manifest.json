@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-12T18:47:19Z",
+  "generated_at": "2026-05-12T19:36:13Z",
   "manifest": {
     "slug": "waybill",
     "name": "Waybill",
-    "description": "Waybill matches, renames, and organizes any streams—no matter the provider. Infinitely configurable pipelines for total control.",
+    "description": "Waybill matches, renames, and organizes any streams no matter the provider. Infinitely configurable pipelines for total control.",
     "author": "Matthew-Beckett",
     "license": "MIT",
     "source_type": "external",
@@ -40,5 +40,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagN1uAAKCRB+wDprTCI0\nzo4qAQDJfMfZCQlYaDOtv/lW3Ura3JfzqooPU6t+tQBn9VHrbgEAtC2dulCFwVdH\nuNunYpGSFBF15Q/YB4S9XHdGG8JL8Aw=\n=729H\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagOBLgAKCRB+wDprTCI0\nzm3AAP91SB7rKfwaTKf/3wvm4dT+ZQxkwDJHs37WIEdqA0I0SgD+MunHD+hemBPs\nC5Z0bvb7OPChSXRmIozgX4qCgLK1XgE=\n=yBeU\n-----END PGP SIGNATURE-----"
 }
