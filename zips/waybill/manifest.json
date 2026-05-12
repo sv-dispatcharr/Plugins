@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-12T18:47:19Z",
+  "manifest": {
+    "slug": "waybill",
+    "name": "Waybill",
+    "description": "Waybill matches, renames, and organizes any streams—no matter the provider. Infinitely configurable pipelines for total control.",
+    "author": "Matthew-Beckett",
+    "license": "MIT",
+    "source_type": "external",
+    "source_url": "https://github.com/Matthew-Beckett/waybill/releases/download/v{version}/waybill-{version}-py3-none-any.zip",
+    "repo_url": "https://github.com/Matthew-Beckett/waybill",
+    "registry_url": "https://github.com/Dispatcharr/Plugins",
+    "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-05-12T18:47:18Z",
+    "latest": {
+      "version": "1.3.0",
+      "build_timestamp": "2026-05-12T18:47:18Z",
+      "last_updated": "2026-05-12T18:47:18Z",
+      "checksum_md5": "87beb9950ded642b504fc24a88c506da",
+      "checksum_sha256": "50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547",
+      "min_dispatcharr_version": "0.24.0",
+      "max_dispatcharr_version": "0.24.0",
+      "source_url": "https://github.com/Matthew-Beckett/waybill/releases/download/v1.3.0/waybill-1.3.0-py3-none-any.zip",
+      "latest_url": "zips/waybill/waybill-latest.zip",
+      "url": "zips/waybill/waybill-1.3.0.zip",
+      "size": 995
+    },
+    "versions": [
+      {
+        "version": "1.3.0",
+        "build_timestamp": "2026-05-12T18:47:18Z",
+        "last_updated": "2026-05-12T18:47:18Z",
+        "checksum_md5": "87beb9950ded642b504fc24a88c506da",
+        "checksum_sha256": "50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547",
+        "min_dispatcharr_version": "0.24.0",
+        "max_dispatcharr_version": "0.24.0",
+        "source_url": "https://github.com/Matthew-Beckett/waybill/releases/download/v1.3.0/waybill-1.3.0-py3-none-any.zip",
+        "url": "zips/waybill/waybill-1.3.0.zip",
+        "size": 995
+      }
+    ]
+  },
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagN1uAAKCRB+wDprTCI0\nzo4qAQDJfMfZCQlYaDOtv/lW3Ura3JfzqooPU6t+tQBn9VHrbgEAtC2dulCFwVdH\nuNunYpGSFBF15Q/YB4S9XHdGG8JL8Aw=\n=729H\n-----END PGP SIGNATURE-----"
+}
