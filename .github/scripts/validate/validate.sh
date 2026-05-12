@@ -78,11 +78,16 @@ has_permission="false"
 {
   echo "### Plugin: \`$PLUGIN_NAME\`"
   echo ""
-  # Show description as italicized subtext if plugin.json is readable
+  # Show description and repo link as header subtext if plugin.json is readable
   if [[ -f "$PLUGIN_JSON" ]]; then
     _desc=$(jq -r '.description // ""' "$PLUGIN_JSON" 2>/dev/null || true)
+    REPO_URL=$(jq -r '.repo_url // ""' "$PLUGIN_JSON" 2>/dev/null || true)
     if [[ -n "$_desc" ]]; then
       echo "_${_desc}_"
+      echo ""
+    fi
+    if [[ -n "$REPO_URL" ]]; then
+      echo "[Source Repository]($REPO_URL)"
       echo ""
     fi
   fi
@@ -148,8 +153,31 @@ has_permission="false"
   MAINTAINERS=$(jq -r '[.maintainers[]?] | join(" ")' "$PLUGIN_JSON")
   VERSION=$(jq -r '.version' "$PLUGIN_JSON")
 
+  # Pre-fetch base branch plugin.json once - reused for version bump check and compare link
+  _base_pjson=""
+  OLD_VERSION=""
+  OLD_SOURCE_URL_TMPL=""
+  if git show "origin/${BASE_REF}:${PLUGIN_JSON}" > /dev/null 2>&1; then
+    _base_pjson=$(git show "origin/${BASE_REF}:${PLUGIN_JSON}")
+    OLD_VERSION=$(echo "$_base_pjson" | jq -r '.version // ""')
+    OLD_SOURCE_URL_TMPL=$(echo "$_base_pjson" | jq -r '.source_url // ""')
+  fi
+
   # ── External source checks ────────────────────────────────────────────────────
   source_type=$(jq -r '.source_type // "local"' "$PLUGIN_JSON")
+  release_link=""
+  compare_link=""
+  _gh_tag=""
+  _old_gh_tag=""
+  if [[ "$source_type" != "external" ]]; then
+    _src_count=$(find "$PLUGIN_DIR" -type f \
+      ! -name 'plugin.json' ! -name 'README.md' ! -name 'logo.png' \
+      | wc -l | tr -d ' ')
+    if [[ "$_src_count" -eq 0 ]]; then
+      TABLE_ROWS+=("| Plugin files | ❌ | No source files found in \`plugins/$PLUGIN_NAME/\`. Add your plugin source (e.g. \`main.py\`) or set \`\"source_type\": \"external\"\` in \`plugin.json\` if your plugin is hosted elsewhere |")
+      failed=1
+    fi
+  fi
   if [[ "$source_type" == "external" ]]; then
     ext_source_url=$(jq -r '.source_url // ""' "$PLUGIN_JSON")
     ext_repo_url=$(jq -r '.repo_url // ""' "$PLUGIN_JSON")
@@ -170,6 +198,19 @@ has_permission="false"
         http_code=$(curl -o /dev/null -s -w "%{http_code}" --max-time 15 -L "$resolved_url" || echo "000")
         if [[ "$http_code" == "200" ]]; then
           TABLE_ROWS+=("| Release artifact | ✅ | Artifact reachable at resolved URL |")
+          if [[ "$resolved_url" =~ ^https://github\.com/([^/]+)/([^/]+)/releases/download/([^/]+)/ ]]; then
+            _gh_owner="${BASH_REMATCH[1]}"
+            _gh_repo="${BASH_REMATCH[2]}"
+            _gh_tag="${BASH_REMATCH[3]}"
+            release_link="https://github.com/${_gh_owner}/${_gh_repo}/releases/tag/${_gh_tag}"
+            if [[ -n "$OLD_VERSION" && -n "$OLD_SOURCE_URL_TMPL" ]]; then
+              _old_resolved="${OLD_SOURCE_URL_TMPL//\{version\}/$OLD_VERSION}"
+              if [[ "$_old_resolved" =~ ^https://github\.com/[^/]+/[^/]+/releases/download/([^/]+)/ ]]; then
+                _old_gh_tag="${BASH_REMATCH[1]}"
+                compare_link="https://github.com/${_gh_owner}/${_gh_repo}/compare/${_old_gh_tag}...${_gh_tag}"
+              fi
+            fi
+          fi
         else
           TABLE_ROWS+=("| Release artifact | ❌ | Could not reach \`$resolved_url\` (HTTP \`$http_code\`) — ensure the release exists |")
           failed=1
@@ -261,13 +302,12 @@ has_permission="false"
   METADATA_ONLY_FIELDS=("description" "repo_url" "discord_thread"
     "min_dispatcharr_version" "max_dispatcharr_version" "deprecated" "unlisted" "maintainers")
 
-  if git show "origin/${BASE_REF}:${PLUGIN_JSON}" > /dev/null 2>&1; then
-    OLD_VERSION=$(git show "origin/${BASE_REF}:${PLUGIN_JSON}" | jq -r '.version')
+  if [[ -n "$_base_pjson" ]]; then
     if version_greater_than "$VERSION" "$OLD_VERSION"; then
       TABLE_ROWS+=("| Version bump | ✅ | \`$OLD_VERSION\` → \`$VERSION\` |")
     else
       # Version unchanged - check if every changed field is in the metadata-only allowlist
-      OLD_JSON=$(git show "origin/${BASE_REF}:${PLUGIN_JSON}")
+      OLD_JSON="$_base_pjson"
       NEW_JSON=$(cat "$PLUGIN_JSON")
 
       # Produce a newline-separated list of field names that differ (raw strings, no quotes)
@@ -330,7 +370,6 @@ has_permission="false"
 
   # ── Optional link fields (hidden if pass) ────────────────────────────────────
 
-  REPO_URL=$(jq -r '.repo_url // ""' "$PLUGIN_JSON")
   DISCORD_THREAD=$(jq -r '.discord_thread // ""' "$PLUGIN_JSON")
 
   if [[ -n "$REPO_URL" ]] && [[ ! "$REPO_URL" =~ ^https?:// ]]; then
@@ -344,6 +383,13 @@ has_permission="false"
   fi
 
   print_table
+
+  if [[ -n "$release_link" ]]; then
+    _link_line="[View release ${_gh_tag} on GitHub](${release_link})"
+    [[ -n "$compare_link" ]] && _link_line+=" · [Compare ${_old_gh_tag}...${_gh_tag}](${compare_link})"
+    echo "$_link_line"
+    echo ""
+  fi
 
   # Metadata row (tab-delimited, consumed by aggregate-report.sh)
   echo "<!--META_ROW:$(jq -r '[
