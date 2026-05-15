@@ -1,30 +1,42 @@
 {
-  "generated_at": "2026-05-10T18:26:06Z",
+  "generated_at": "2026-05-15T17:13:29Z",
   "manifest": {
     "slug": "embyfin-stream-cleanup",
     "name": "Embyfin Stream Cleanup",
     "description": "Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections",
     "author": "sethwv",
     "license": "MIT",
-    "repo_url": "https://github.com/swvn-dispatch/emby-stream-cleanup",
+    "repo_url": "https://github.com/swvn-dispatch/embyfin-stream-cleanup",
     "discord_thread": "https://discord.com/channels/1340492560220684331/1491487318832447668",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-05-10T14:25:53-04:00",
+    "last_updated": "2026-05-15T13:13:11-04:00",
     "latest": {
-      "version": "1.1.2",
-      "commit_sha": "006432da42655d524601830db5aa888437551c84",
-      "commit_sha_short": "006432d",
-      "build_timestamp": "2026-05-10T18:26:06Z",
-      "last_updated": "2026-05-10T14:25:53-04:00",
-      "checksum_md5": "b5c83e690b790616134e9d954fbd81ef",
-      "checksum_sha256": "1af5193583bcb037c00012b157fb2c52c0c0462c9beca9da3f26c91033eec47a",
+      "version": "1.2.0",
+      "commit_sha": "315a967448ff4db469a66491ebc404bfb8e0bb42",
+      "commit_sha_short": "315a967",
+      "build_timestamp": "2026-05-15T17:13:29Z",
+      "last_updated": "2026-05-15T13:13:11-04:00",
+      "checksum_md5": "b898fd7cfbf60bb0807c659f1c26be5f",
+      "checksum_sha256": "f1f94d9a8cb6b311ac5e864b9e810a64017ee1bf85027e41a18144cf52292969",
       "min_dispatcharr_version": "v0.22.0",
       "latest_url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-latest.zip",
-      "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.1.2.zip",
+      "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.2.0.zip",
       "size": 1567
     },
     "versions": [
+      {
+        "version": "1.2.0",
+        "commit_sha": "315a967448ff4db469a66491ebc404bfb8e0bb42",
+        "commit_sha_short": "315a967",
+        "build_timestamp": "2026-05-15T17:13:29Z",
+        "last_updated": "2026-05-15T13:13:11-04:00",
+        "checksum_md5": "b898fd7cfbf60bb0807c659f1c26be5f",
+        "checksum_sha256": "f1f94d9a8cb6b311ac5e864b9e810a64017ee1bf85027e41a18144cf52292969",
+        "min_dispatcharr_version": "v0.22.0",
+        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.2.0.zip",
+        "size": 1567
+      },
       {
         "version": "1.1.2",
         "commit_sha": "006432da42655d524601830db5aa888437551c84",
@@ -87,5 +99,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagDNvgAKCRB+wDprTCI0\nzhLJAQCp0pgM6FylFZfW6cfXJqHEl6+dPq+spJhFg5PGeVE6FwEA+ifAeD2W9AL0\n6M4GgxE6tcHShvT+3HfTFo/edndvrQ8=\n=xOCO\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagdUOgAKCRB+wDprTCI0\nzprJAP0QgKdSgGpdRVHzi/auMoKxQYHO2PNCw4ujpjWAFPiieAEA15SiY+1NZGB1\nDAc9gn/kRpp6wn8qd8A8kHNPyhOKXAM=\n=aGxS\n-----END PGP SIGNATURE-----"
 }
