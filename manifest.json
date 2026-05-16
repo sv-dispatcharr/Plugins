@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T17:13:29Z",
+  "generated_at": "2026-05-16T11:31:35Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -79,6 +79,20 @@
         "latest_url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
         "latest_size": 416,
         "min_dispatcharr_version": "v0.20.0"
+      },
+      {
+        "slug": "epgeditarr",
+        "name": "EPGeditARR",
+        "description": "Transform and clean your EPG data using regex and find/replace rules. Creates virtual copies of your sources — originals are never touched. Fills placeholder schedules for channels with no EPG, and...",
+        "manifest_url": "zips/epgeditarr/manifest.json",
+        "author": "jstevenscl",
+        "license": "MIT",
+        "last_updated": "2026-05-16T11:31:34Z",
+        "latest_version": "0.1.7",
+        "latest_md5": "6a02f74a65ca090e097ab04456081f19",
+        "latest_sha256": "e196416997c340e3d238f7d5f030048c2ba3976ddd8c5e104a2b0e765053ea6a",
+        "latest_url": "zips/epgeditarr/epgeditarr-0.1.7.zip",
+        "latest_size": 20
       },
       {
         "slug": "event-channel-managarr",
@@ -187,5 +201,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagdUPAAKCRB+wDprTCI0\nzgyuAP9OkSgFIuK1eUarsejCbMS4tcYTeS0sCZPq5nmBf6ZP4wEAtbASwQNNZ+hN\nFJhierJqopn3OpVti3V7nBFUC/yesg8=\n=VplU\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaghVmQAKCRB+wDprTCI0\nziU/APwPg5SEvn+Qm5jJ/Y4phZXMbirpSuDhTk6pEvh4hbdAVQEAgdZtg+M7XLU8\nQmAXz0OdDNtjyTrY+J76dHaaUa107Aw=\n=Kt0Y\n-----END PGP SIGNATURE-----"
 }
