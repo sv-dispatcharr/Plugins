@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-02T22:55:51Z",
+  "generated_at": "2026-05-16T17:33:10Z",
   "manifest": {
     "slug": "youtubearr",
     "name": "YouTubearr",
@@ -9,21 +9,33 @@
     "repo_url": "https://github.com/jeff-gooch/youtubearr",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-05-02T18:55:36-04:00",
+    "last_updated": "2026-05-16T13:32:58-04:00",
     "latest": {
-      "version": "1.17.7",
-      "commit_sha": "de0e8ba2d627eb6227392a7dc590571ef869ca85",
-      "commit_sha_short": "de0e8ba",
-      "build_timestamp": "2026-05-02T22:55:51Z",
-      "last_updated": "2026-05-02T18:55:36-04:00",
-      "checksum_md5": "b6880b3c69679cd108eadab0189bd884",
-      "checksum_sha256": "47e205d2b88a6b4609493328eea4a7e517a55c6ab02788b31aac1c86640eaab8",
+      "version": "1.18.0",
+      "commit_sha": "debb66d9d3205e01fd4b2d808931e5f5564793a5",
+      "commit_sha_short": "debb66d",
+      "build_timestamp": "2026-05-16T17:33:09Z",
+      "last_updated": "2026-05-16T13:32:58-04:00",
+      "checksum_md5": "87b63e8220947c4cb40890d2aebdc62e",
+      "checksum_sha256": "b90df4a54d499f35a32db6b45bc1ed01040fe4da47d7763225142658ac01e81c",
       "min_dispatcharr_version": "v0.20.0",
       "latest_url": "zips/youtubearr/youtubearr-latest.zip",
-      "url": "zips/youtubearr/youtubearr-1.17.7.zip",
+      "url": "zips/youtubearr/youtubearr-1.18.0.zip",
       "size": 5001
     },
     "versions": [
+      {
+        "version": "1.18.0",
+        "commit_sha": "debb66d9d3205e01fd4b2d808931e5f5564793a5",
+        "commit_sha_short": "debb66d",
+        "build_timestamp": "2026-05-16T17:33:09Z",
+        "last_updated": "2026-05-16T13:32:58-04:00",
+        "checksum_md5": "87b63e8220947c4cb40890d2aebdc62e",
+        "checksum_sha256": "b90df4a54d499f35a32db6b45bc1ed01040fe4da47d7763225142658ac01e81c",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/youtubearr/youtubearr-1.18.0.zip",
+        "size": 5001
+      },
       {
         "version": "1.17.7",
         "commit_sha": "de0e8ba2d627eb6227392a7dc590571ef869ca85",
@@ -38,5 +50,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafaA+AAKCRB+wDprTCI0\nzihlAQDbbY1by8L1faPELil7legdrCzUk3UMA32MyM9ZU22f3wEAzJGGN8zVgaYw\n3TRr6Q15zBSoTeGq2InoVf7PHyBdnAc=\n=8fnW\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagiqVwAKCRB+wDprTCI0\nzoa0AQDevMrZlu1QFsiXoGbN3esftbF9qjW22G8Qpq34UTeFmgD/Zs5oDfS0MxkS\npHL8sf7MpR3jouxnHvZXlLKSF4Ifrgo=\n=qjRN\n-----END PGP SIGNATURE-----"
 }

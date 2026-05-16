@@ -2,7 +2,7 @@
 
 # YouTubearr
 
-**Version:** `1.17.7` | **Author:** jeff-gooch | **Last Updated:** May 02 2026, 22:55 UTC
+**Version:** `1.18.0` | **Author:** jeff-gooch | **Last Updated:** May 16 2026, 17:32 UTC
 
 Zero-dependency YouTube livestream plugin with automatic monitoring and configurable numbering
 
@@ -15,19 +15,20 @@ Zero-dependency YouTube livestream plugin with automatic monitoring and configur
 ### Latest Release
 
 - **Download:** [`youtubearr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/youtubearr/youtubearr-latest.zip)
-- **Built:** May 02 2026, 22:55 UTC
-- **Source Commit:** [`de0e8ba`](https://github.com/Dispatcharr/Plugins/commit/de0e8ba2d627eb6227392a7dc590571ef869ca85)
+- **Built:** May 16 2026, 17:33 UTC
+- **Source Commit:** [`debb66d`](https://github.com/Dispatcharr/Plugins/commit/debb66d9d3205e01fd4b2d808931e5f5564793a5)
 
 **Checksums:**
 ```
-MD5:    b6880b3c69679cd108eadab0189bd884
-SHA256: 47e205d2b88a6b4609493328eea4a7e517a55c6ab02788b31aac1c86640eaab8
+MD5:    87b63e8220947c4cb40890d2aebdc62e
+SHA256: b90df4a54d499f35a32db6b45bc1ed01040fe4da47d7763225142658ac01e81c
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.18.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/youtubearr/youtubearr-1.18.0.zip) | May 16 2026, 17:33 UTC | [`debb66d`](https://github.com/Dispatcharr/Plugins/commit/debb66d9d3205e01fd4b2d808931e5f5564793a5) | 87b63e8220947c4cb40890d2aebdc62e | b90df4a54d499f35a32db6b45bc1ed01040fe4da47d7763225142658ac01e81c |
 | `1.17.7` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/youtubearr/youtubearr-1.17.7.zip) | May 02 2026, 22:55 UTC | [`de0e8ba`](https://github.com/Dispatcharr/Plugins/commit/de0e8ba2d627eb6227392a7dc590571ef869ca85) | b6880b3c69679cd108eadab0189bd884 | 47e205d2b88a6b4609493328eea4a7e517a55c6ab02788b31aac1c86640eaab8 |
 
 ---
