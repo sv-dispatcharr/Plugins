@@ -170,7 +170,8 @@ jobs:
           chmod +x .github/scripts/validate/*.sh
           .github/scripts/validate/detect-changes.sh \
             "${{ github.event.pull_request.user.login }}" \
-            "${{ github.event.pull_request.base.ref }}"
+            "${{ github.event.pull_request.base.ref }}" \
+            "${{ github.event.pull_request.head.ref }}"
 
       - name: Check author and plugin blacklists
         id: blacklist
