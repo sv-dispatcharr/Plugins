@@ -2,7 +2,7 @@
 
 # EPGeditARR
 
-**Version:** `0.1.7` | **Author:** jstevenscl | **Last Updated:** May 16 2026, 11:31 UTC
+**Version:** `0.2.01` | **Author:** jstevenscl | **Last Updated:** May 17 2026, 16:17 UTC
 
 Transform and clean your EPG data using regex and find/replace rules. Creates virtual copies of your sources — originals are never touched. Fills placeholder schedules for channels with no EPG, and sorts SiriusXM channels into official lineup order with automatic seasonal channel handling.
 
@@ -13,18 +13,19 @@ Transform and clean your EPG data using regex and find/replace rules. Creates vi
 ### Latest Release
 
 - **Download:** [`epgeditarr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/epgeditarr/epgeditarr-latest.zip)
-- **Built:** May 16 2026, 11:31 UTC
+- **Built:** May 17 2026, 16:17 UTC
 
 **Checksums:**
 ```
-MD5:    6a02f74a65ca090e097ab04456081f19
-SHA256: e196416997c340e3d238f7d5f030048c2ba3976ddd8c5e104a2b0e765053ea6a
+MD5:    d205c4d824e620b275776ee8dda00f80
+SHA256: baa2da9ffb6b2808f3fae6e069735cb1f6342e349197c046067644180940b975
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `0.2.01` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/epgeditarr/epgeditarr-0.2.01.zip) | May 17 2026, 16:17 UTC | - | d205c4d824e620b275776ee8dda00f80 | baa2da9ffb6b2808f3fae6e069735cb1f6342e349197c046067644180940b975 |
 | `0.1.7` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/epgeditarr/epgeditarr-0.1.7.zip) | May 16 2026, 11:31 UTC | - | 6a02f74a65ca090e097ab04456081f19 | e196416997c340e3d238f7d5f030048c2ba3976ddd8c5e104a2b0e765053ea6a |
 
 ---
