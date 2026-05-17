@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-17T16:17:35Z",
+  "generated_at": "2026-05-17T19:57:37Z",
   "manifest": {
     "slug": "epgeditarr",
     "name": "EPGeditARR",
-    "description": "Transform and clean your EPG data using regex and find/replace rules. Creates virtual copies of your sources — originals are never touched. Fills placeholder schedules for channels with no EPG, and sorts SiriusXM channels into official lineup order with automatic seasonal channel handling.",
+    "description": "Transform and clean your EPG data using regex and find/replace rules. Creates virtual copies of your sources — originals are never touched. Fills placeholder schedules for channels with no EPG, and provides a full SiriusXM toolkit: fill EPG from the community XMLTV (741 channels, sports smart blocks), sort into official lineup order, assign logos, and rename channels using the official SiriusXM API channel database.",
     "author": "jstevenscl",
     "license": "MIT",
     "source_type": "external",
@@ -11,19 +11,29 @@
     "repo_url": "https://github.com/jstevenscl/epgeditarr",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-05-17T16:17:34Z",
+    "last_updated": "2026-05-17T19:57:36Z",
     "latest": {
-      "version": "0.2.01",
-      "build_timestamp": "2026-05-17T16:17:34Z",
-      "last_updated": "2026-05-17T16:17:34Z",
-      "checksum_md5": "d205c4d824e620b275776ee8dda00f80",
-      "checksum_sha256": "baa2da9ffb6b2808f3fae6e069735cb1f6342e349197c046067644180940b975",
-      "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.01/epgeditarr-v0.2.01.zip",
+      "version": "0.2.03",
+      "build_timestamp": "2026-05-17T19:57:36Z",
+      "last_updated": "2026-05-17T19:57:36Z",
+      "checksum_md5": "e946a1b194aed43631ce7a88890274a5",
+      "checksum_sha256": "cfa132a0057e2c1c5d2d543012886f4b660fb5c7ea599dfef8e7bd9892b79fbf",
+      "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.03/epgeditarr-v0.2.03.zip",
       "latest_url": "zips/epgeditarr/epgeditarr-latest.zip",
-      "url": "zips/epgeditarr/epgeditarr-0.2.01.zip",
-      "size": 99
+      "url": "zips/epgeditarr/epgeditarr-0.2.03.zip",
+      "size": 133
     },
     "versions": [
+      {
+        "version": "0.2.03",
+        "build_timestamp": "2026-05-17T19:57:36Z",
+        "last_updated": "2026-05-17T19:57:36Z",
+        "checksum_md5": "e946a1b194aed43631ce7a88890274a5",
+        "checksum_sha256": "cfa132a0057e2c1c5d2d543012886f4b660fb5c7ea599dfef8e7bd9892b79fbf",
+        "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.03/epgeditarr-v0.2.03.zip",
+        "url": "zips/epgeditarr/epgeditarr-0.2.03.zip",
+        "size": 133
+      },
       {
         "version": "0.2.01",
         "build_timestamp": "2026-05-17T16:17:34Z",
@@ -46,5 +56,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagnqIAAKCRB+wDprTCI0\nztJMAP9kQLvKnlAZcjd2hXdI0fON729DPbOzppNGtMa9mQszCQD8CHE9rayDjFKE\nNyNmuWaGHtIrgCtZEqiKBJMEX+cn2Qo=\n=ujpl\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagodsgAKCRB+wDprTCI0\nzjn2AQCsaeInciOr5WL9V7mIkrVDMOeliCPB0MQcPHXohxMldQEA/Cv0tG+icJYH\n1Lmb2I6ovBNZ37udsbqz6/KQkoY7Ywc=\n=Mz/H\n-----END PGP SIGNATURE-----"
 }
