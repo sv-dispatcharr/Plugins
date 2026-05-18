@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T02:05:45Z",
+  "generated_at": "2026-05-18T14:13:20Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -87,7 +87,7 @@
         "manifest_url": "zips/epgeditarr/manifest.json",
         "author": "jstevenscl",
         "license": "MIT",
-        "last_updated": "2026-05-18T02:05:45Z",
+        "last_updated": "2026-05-18T14:13:20Z",
         "latest_version": "0.2.05",
         "latest_md5": "6f30fe0062b83f3b9cd9f41367a503c3",
         "latest_sha256": "fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d",
@@ -201,5 +201,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagpz/AAKCRB+wDprTCI0\nzmywAP976sUaBzM4WX0AA6dpm2iIy+umXg2Jhxs9HCDF0nvY/wEAm6wdDAl3p1RJ\nqv5klHmhu+LGYaSxo9MV/m1e3XdMYgo=\n=j9JC\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagseggAKCRB+wDprTCI0\nzqKbAP4npnMMXjGNIVkFfP3N0dYomw2VaW5nu5m91U49vcsTvgEA9P5pxt0q8R6f\nmGMZxbVcPt2LY0A88MYK3oZF7RnjKAs=\n=2Tvh\n-----END PGP SIGNATURE-----"
 }

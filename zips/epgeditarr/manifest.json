@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T02:05:45Z",
+  "generated_at": "2026-05-18T14:13:20Z",
   "manifest": {
     "slug": "epgeditarr",
     "name": "EPGeditARR",
@@ -11,11 +11,11 @@
     "repo_url": "https://github.com/jstevenscl/epgeditarr",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-05-18T02:05:45Z",
+    "last_updated": "2026-05-18T14:13:20Z",
     "latest": {
       "version": "0.2.05",
-      "build_timestamp": "2026-05-18T02:05:45Z",
-      "last_updated": "2026-05-18T02:05:45Z",
+      "build_timestamp": "2026-05-18T14:13:20Z",
+      "last_updated": "2026-05-18T14:13:20Z",
       "checksum_md5": "6f30fe0062b83f3b9cd9f41367a503c3",
       "checksum_sha256": "fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d",
       "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.05/epgeditarr-v0.2.05.zip",
@@ -26,55 +26,15 @@
     "versions": [
       {
         "version": "0.2.05",
-        "build_timestamp": "2026-05-18T02:05:45Z",
-        "last_updated": "2026-05-18T02:05:45Z",
+        "build_timestamp": "2026-05-18T14:13:20Z",
+        "last_updated": "2026-05-18T14:13:20Z",
         "checksum_md5": "6f30fe0062b83f3b9cd9f41367a503c3",
         "checksum_sha256": "fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d",
         "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.05/epgeditarr-v0.2.05.zip",
         "url": "zips/epgeditarr/epgeditarr-0.2.05.zip",
         "size": 134
-      },
-      {
-        "version": "0.2.04",
-        "build_timestamp": "2026-05-17T23:23:45Z",
-        "last_updated": "2026-05-17T23:23:45Z",
-        "checksum_md5": "500ae709cb8e6cccea842e995f5f3433",
-        "checksum_sha256": "37c0cdf34bebbef401578699b2fca3d6ca62685245929ef2cf6543be62a28252",
-        "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.04/epgeditarr-v0.2.04.zip",
-        "url": "zips/epgeditarr/epgeditarr-0.2.04.zip",
-        "size": 134
-      },
-      {
-        "version": "0.2.03",
-        "build_timestamp": "2026-05-17T19:57:36Z",
-        "last_updated": "2026-05-17T19:57:36Z",
-        "checksum_md5": "e946a1b194aed43631ce7a88890274a5",
-        "checksum_sha256": "cfa132a0057e2c1c5d2d543012886f4b660fb5c7ea599dfef8e7bd9892b79fbf",
-        "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.03/epgeditarr-v0.2.03.zip",
-        "url": "zips/epgeditarr/epgeditarr-0.2.03.zip",
-        "size": 133
-      },
-      {
-        "version": "0.2.01",
-        "build_timestamp": "2026-05-17T16:17:34Z",
-        "last_updated": "2026-05-17T16:17:34Z",
-        "checksum_md5": "d205c4d824e620b275776ee8dda00f80",
-        "checksum_sha256": "baa2da9ffb6b2808f3fae6e069735cb1f6342e349197c046067644180940b975",
-        "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.01/epgeditarr-v0.2.01.zip",
-        "url": "zips/epgeditarr/epgeditarr-0.2.01.zip",
-        "size": 99
-      },
-      {
-        "version": "0.1.7",
-        "build_timestamp": "2026-05-16T11:31:34Z",
-        "last_updated": "2026-05-16T11:31:34Z",
-        "checksum_md5": "6a02f74a65ca090e097ab04456081f19",
-        "checksum_sha256": "e196416997c340e3d238f7d5f030048c2ba3976ddd8c5e104a2b0e765053ea6a",
-        "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.1.7/epgeditarr-v0.1.7.zip",
-        "url": "zips/epgeditarr/epgeditarr-0.1.7.zip",
-        "size": 20
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagpz+gAKCRB+wDprTCI0\nzi/NAQD5Kau5nucXGtC8xN35xN+GW5HDxonTNF87XITzLwPZZQD5AfmfmoEX61A3\n5YquE+BfP+LeNXWxXRyWjkTKpg2OqAc=\n=9jCc\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagsegQAKCRB+wDprTCI0\nzo8eAP97vYFcA+1bjiYhGg5nEnZgr0fYg0HWFBoG4BqrcTR/LQEA3h0nmphN7bH/\nhO2FmSOHTJMAxaKD4REGYMlXg5TFDgg=\n=b5H0\n-----END PGP SIGNATURE-----"
 }
