@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T14:13:20Z",
+  "generated_at": "2026-05-19T11:42:25Z",
   "manifest": {
     "slug": "epgeditarr",
     "name": "EPGeditARR",
@@ -11,19 +11,29 @@
     "repo_url": "https://github.com/jstevenscl/epgeditarr",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-05-18T14:13:20Z",
+    "last_updated": "2026-05-19T11:42:24Z",
     "latest": {
-      "version": "0.2.05",
-      "build_timestamp": "2026-05-18T14:13:20Z",
-      "last_updated": "2026-05-18T14:13:20Z",
-      "checksum_md5": "6f30fe0062b83f3b9cd9f41367a503c3",
-      "checksum_sha256": "fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d",
-      "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.05/epgeditarr-v0.2.05.zip",
+      "version": "0.2.06",
+      "build_timestamp": "2026-05-19T11:42:24Z",
+      "last_updated": "2026-05-19T11:42:24Z",
+      "checksum_md5": "22d079aa80e80d4f37f6a02b9e6700e8",
+      "checksum_sha256": "fba124ebf97da3598a2938eaf710b3c796903dce578ea903a974e749e7679104",
+      "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.06/epgeditarr-v0.2.06.zip",
       "latest_url": "zips/epgeditarr/epgeditarr-latest.zip",
-      "url": "zips/epgeditarr/epgeditarr-0.2.05.zip",
+      "url": "zips/epgeditarr/epgeditarr-0.2.06.zip",
       "size": 134
     },
     "versions": [
+      {
+        "version": "0.2.06",
+        "build_timestamp": "2026-05-19T11:42:24Z",
+        "last_updated": "2026-05-19T11:42:24Z",
+        "checksum_md5": "22d079aa80e80d4f37f6a02b9e6700e8",
+        "checksum_sha256": "fba124ebf97da3598a2938eaf710b3c796903dce578ea903a974e749e7679104",
+        "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.06/epgeditarr-v0.2.06.zip",
+        "url": "zips/epgeditarr/epgeditarr-0.2.06.zip",
+        "size": 134
+      },
       {
         "version": "0.2.05",
         "build_timestamp": "2026-05-18T14:13:20Z",
@@ -36,5 +46,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagsegQAKCRB+wDprTCI0\nzo8eAP97vYFcA+1bjiYhGg5nEnZgr0fYg0HWFBoG4BqrcTR/LQEA3h0nmphN7bH/\nhO2FmSOHTJMAxaKD4REGYMlXg5TFDgg=\n=b5H0\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagxMoQAKCRB+wDprTCI0\nzmZDAP9ifZ405dpdtv3GeW8p9xpDBJG07sUhTy2l6k+6vPoouwD5AaWg90Nghc1r\nx21alzNYrtkhJpVuRMgiHthVnMTSmAI=\n=eMO1\n-----END PGP SIGNATURE-----"
 }
