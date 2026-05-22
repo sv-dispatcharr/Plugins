@@ -2,7 +2,7 @@
 
 # IPTV Checker
 
-**Version:** `1.26.1362003` | **Author:** PiratesIRC | **Last Updated:** May 16 2026, 20:45 UTC
+**Version:** `1.26.1421301` | **Author:** PiratesIRC | **Last Updated:** May 22 2026, 14:18 UTC
 
 A Dispatcharr Plugin that goes through a playlist to check IPTV channels
 
@@ -15,19 +15,20 @@ A Dispatcharr Plugin that goes through a playlist to check IPTV channels
 ### Latest Release
 
 - **Download:** [`iptv-checker-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/iptv-checker/iptv-checker-latest.zip)
-- **Built:** May 16 2026, 20:45 UTC
-- **Source Commit:** [`5d5ad16`](https://github.com/Dispatcharr/Plugins/commit/5d5ad161aef730f9f95a176d8547547a25899c43)
+- **Built:** May 22 2026, 14:18 UTC
+- **Source Commit:** [`c53b209`](https://github.com/Dispatcharr/Plugins/commit/c53b209e8defac59b5c28c8e25c0fc0a04f14bff)
 
 **Checksums:**
 ```
-MD5:    a4b56a82858b7b976d87c703f80e163e
-SHA256: 820e7db19aeb50460d51e5d9069acacd413bc8f573bf9db2f83cac3dae44ce7b
+MD5:    49d562cb3128c2335d654a82abd93d7f
+SHA256: d6ece367d7f57c3149756d3841d558ccaffc3df0dcf443cb918b923d22c5f03a
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.26.1421301` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/iptv-checker/iptv-checker-1.26.1421301.zip) | May 22 2026, 14:18 UTC | [`c53b209`](https://github.com/Dispatcharr/Plugins/commit/c53b209e8defac59b5c28c8e25c0fc0a04f14bff) | 49d562cb3128c2335d654a82abd93d7f | d6ece367d7f57c3149756d3841d558ccaffc3df0dcf443cb918b923d22c5f03a |
 | `1.26.1362003` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/iptv-checker/iptv-checker-1.26.1362003.zip) | May 16 2026, 20:45 UTC | [`5d5ad16`](https://github.com/Dispatcharr/Plugins/commit/5d5ad161aef730f9f95a176d8547547a25899c43) | a4b56a82858b7b976d87c703f80e163e | 820e7db19aeb50460d51e5d9069acacd413bc8f573bf9db2f83cac3dae44ce7b |
 | `1.26.1221101` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/iptv-checker/iptv-checker-1.26.1221101.zip) | May 02 2026, 17:57 UTC | [`aa662b3`](https://github.com/Dispatcharr/Plugins/commit/aa662b3a97476953ed876651024d62f054973cb7) | e82d4b95df6c089471ca0547e8b2791c | 75b2b8379912cd82ca2026a0ab58d875e99af65308253c163adc1557464113f4 |
 | `1.26.1161403` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/iptv-checker/iptv-checker-1.26.1161403.zip) | Apr 26 2026, 14:39 UTC | [`740b4ee`](https://github.com/Dispatcharr/Plugins/commit/740b4eefc51ff4296f36be336e06979bc1eb9970) | cc0be9f97a30b0e9d88119f59e726119 | 731abcffedf0b4959982109c05649cd30d64aa119193666ba6b2465606f2b75f |
