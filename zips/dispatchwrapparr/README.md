@@ -2,32 +2,33 @@
 
 # Dispatchwrapparr
 
-**Version:** `1.6.2` | **Author:** jordandalley | **Last Updated:** Apr 28 2026, 01:30 UTC
+**Version:** `1.7.0` | **Author:** jordandalley | **Last Updated:** May 22 2026, 04:46 UTC
 
 An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1422776847703212132) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jordandalley/dispatchwrapparr)
 
-![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.21.0-brightgreen?style=flat-square)
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.25.0-brightgreen?style=flat-square)
 
 ## Downloads
 
 ### Latest Release
 
 - **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-latest.zip)
-- **Built:** Apr 28 2026, 01:30 UTC
-- **Source Commit:** [`44fbc6b`](https://github.com/Dispatcharr/Plugins/commit/44fbc6b96eebd52ea29b27fc371af3c20f997702)
+- **Built:** May 22 2026, 04:46 UTC
+- **Source Commit:** [`ef5e336`](https://github.com/Dispatcharr/Plugins/commit/ef5e336dad2396db99535c190be7e6c58d8cb2f9)
 
 **Checksums:**
 ```
-MD5:    f33c4a46e9012498858ac1770370888c
-SHA256: 49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b
+MD5:    0b2a4e714d6541133b8a8dcf6849d9e0
+SHA256: 93f3a833c585294fb396442172c399457413a1962607ac5bb01f69ffb3b70fd2
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.7.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.7.0.zip) | May 22 2026, 04:46 UTC | [`ef5e336`](https://github.com/Dispatcharr/Plugins/commit/ef5e336dad2396db99535c190be7e6c58d8cb2f9) | 0b2a4e714d6541133b8a8dcf6849d9e0 | 93f3a833c585294fb396442172c399457413a1962607ac5bb01f69ffb3b70fd2 |
 | `1.6.2` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.2.zip) | Apr 28 2026, 01:30 UTC | [`44fbc6b`](https://github.com/Dispatcharr/Plugins/commit/44fbc6b96eebd52ea29b27fc371af3c20f997702) | f33c4a46e9012498858ac1770370888c | 49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b |
 | `1.6.1` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip) | Apr 16 2026, 11:17 UTC | [`7ac9bb7`](https://github.com/Dispatcharr/Plugins/commit/7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b) | 2fe71caf70f35c68caae8760cab65034 | 0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7 |
 | `1.6.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip) | Apr 02 2026, 13:11 UTC | [`2d4aba3`](https://github.com/Dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638) | aa6727ebe8ce16bd23aa9f7f54e783f9 | 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5 |
@@ -78,6 +79,14 @@ Simply click 'Settings', complete the details in the form and then click 'Save'.
 Note: For the new stream profile to appear, you will need to refresh Dispatcharr from your browser.
 
 Dispatchwrapparr has many more features than those available in the form. The below documentation contains an exhaustive list of the capabilities of the plugin including how to achieve DRM decryption of HLS and DASH streams using clearkey(s).
+
+Loading of the Dispatchwrapparr plugin creates two directories inside your /config directory, and installs the following files automatically:
+
+- `/config/dispatchwrapparr/dispatchwrapparr.py`
+- `/config/dispatchwrapparr/drmplugins/dashdrm.py`
+- `/config/dispatchwrapparr/drmplugins/hlsdrm.py`
+
+Updates to Dispatchwrapparr, including the files above are handled via the official Dispatcharr plugin system.
 
 ---
 
@@ -139,9 +148,7 @@ Once this command is running, play the stream and look at the output of the abov
 
 Some examples of outputs are shown below:
 
-`2025-10-14 19:44:01,863 INFO ts_proxy.stream_manager FFmpeg info for channel 86952480-4c6b-4df1-a60b-306e28a43cb3: [dispatchwrapparr] 2025-10-14 19:44:01,860 [info] Available streams: 270p_alt, 270p, 360p_alt, 360p, 480p_alt, 480p, 720p_alt2, 720p_alt, 720p, 1080p_alt, 1080p, worst, best`
-
-`2025-10-14 19:58:25,926 INFO ts_proxy.stream_manager FFmpeg info for channel bda87427-1a81-43d0-8e3d-84b2cf3484b4: [dispatchwrapparr] 2025-10-14 19:58:25,926 [info] Available streams: 720p+a128k_48k, 720p+a128k_44k_alt, 720p+a128k_48k_alt2, 720p+a128k_44k_alt3, 540p+a128k_48k, 540p+a128k_44k_alt, 360p+a128k_48k, 360p+a128k_44k_alt, 270p+a128k_48k, 270p+a128k_44k_alt, best, worst`
+`[dispatchwrapparr] 2025-10-14 19:44:01,860 [info] Available streams: 270p_alt, 270p, 360p_alt, 360p, 480p_alt, 480p, 720p_alt2, 720p_alt, 720p, 1080p_alt, 1080p, worst, best`
 
 Once you have the stream you wish to use, eg. '1080p_alt', then all you need to do is append the fragment to the end of the stream URL as follows: `https://some.stream.com/playlist.m3u8#stream=1080p_alt`
 
@@ -172,7 +179,6 @@ For example, to select the '720p+a128k_48k' stream variant, then it would look l
 | -novideo                | Optional |                                                           | Disables variant checking (-novariantcheck) and manually specifies that the stream contains no video. This instructs Dispatchwrapparr to mux in blank video.                                 |
 | -nosonginfo             | Optional |                                                           | Disables the display of song information for radio streams. Only a blank video will be muxed                                                                                                 |
 | -loglevel               | Optional | `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`, `NOTSET` | Sets the python and ffmpeg log levels. By default, the loglevel is set to 'INFO'                                                                                                             |
-| -subtitles              | Optional |                                                           | Enable muxing of subtitles. Disabled by default. NOTE: Subtitle support in streamlink is limited at best - this may not work as intended                                                     |
 
 Example: `dispatchwrapparr.py -i {streamUrl} -ua {userAgent} -proxy http://your.proxy.server:3128 -proxybypass 192.168.0.55,.somesite.com -clearkeys clearkeys.json -loglevel INFO`
 
@@ -207,6 +213,12 @@ For streams where the video and audio use different clearkeys, place them in a c
 
 ---
 
+## 😊 Streamlink Plugins
+
+You do not need to use Dispatchwrapparr in order to use the DASH and HLS DRM plugins. If you wish, you can use the `dashdrm.py` and `hlsdrm.py` plugins on their own with Streamlink.
+
+Credit: A huge thanks to [titus-au](https://github.com/titus-au/streamlink-plugin-dashdrm) whose dashdrm plugin 
+
 ## ‼️ Troubleshooting
 
 ### Jellyfin IPTV streaming issues
@@ -217,7 +229,7 @@ Make sure that all options ("Allow fMP4 transcoding container", "Allow stream sh
 
 ### My stream only plays audio or won't start
 
-Sometimes broadcasters don't include timestamps in the audio stream. Since version 1.6.2, Dispatchwrapparr copies timestamps by default when muxing. There may be occasions where you may need to disable this feature.
+Sometimes broadcasters don't include timestamps in the audio stream. Since version 1.6.2, Dispatchwrapparr tells ffmpeg to copy timestamps by default when muxing. There may be occasions where you may need to disable this feature.
 
 See the `-ffmpeg_nocopyts` option or `#ffmpeg_nocopyts=true` url fragment options for more details.
 
@@ -229,7 +241,7 @@ While dispatchwrapparr has had some success in dealing with these types of strea
 
 ### Can I use a custom Streamlink plugin?
 
-Yes, maybe. Dispatchwrapparr will look for plugins that are placed into the same directory as itself and load them. However, some plugins require Chromium based browsers for session tokens, and/or require additional arguments which Dispatchwrapparr will not pass through.
+Yes, maybe. Pass the `-streamlink_plugins` option to Dispatchwrapparr, specifying a custom directory to look for plugins in. In some circumstances, plugins may require Chromium based browsers for session tokens, and/or require additional arguments which Dispatchwrapparr will not pass through. The best option here is to just use Streamlink directly.
 
 ---
 
@@ -237,12 +249,12 @@ Yes, maybe. Dispatchwrapparr will look for plugins that are placed into the same
 
 This script was made possible thanks to many wonderful python libraries and open source projects.
 
+- [titus-au](https://github.com/titus-au/streamlink-plugin-dashdrm) for their awesome streamlink dashdrm plugin!
 - [Dispatcharr](https://github.com/Dispatcharr/Dispatcharr) development community for making such an awesome stream manager!
 - [SergeantPanda](https://github.com/SergeantPanda) for support and guidance on the Dispatcharr discord
 - [OkinawaBoss](https://github.com/OkinawaBoss) for creating the Dispatcharr plugin system and providing example code
 - [sethwv](https://github.com/sethwv) for building such an awesome plugin system in Dispatcharr
 - [Streamlink](https://streamlink.github.io/) for their awesome API and stream handling capability
-- [titus-au](https://github.com/titus-au/streamlink-plugin-dashdrm) who laid a lot of the groundwork for managing DASHDRM streams in streamlink!
 - [matthuisman](https://github.com/matthuisman) this guy is a local streaming legend in New Zealand. His code and work with streams has taught me heaps!
 
 ## ⚖️ License
