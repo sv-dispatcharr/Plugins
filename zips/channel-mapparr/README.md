@@ -2,7 +2,7 @@
 
 # Channel Mapparr
 
-**Version:** `1.26.1001200` | **Author:** PiratesIRC | **Last Updated:** Apr 10 2026, 16:07 UTC
+**Version:** `1.26.1430910` | **Author:** PiratesIRC | **Last Updated:** May 23 2026, 17:06 UTC
 
 Standardizes broadcast (OTA) and premium/cable channel names using network data and channel lists. Supports M3U stream import, category organization, and fuzzy matching across 42K+ channels in 11 countries.
 
@@ -15,19 +15,20 @@ Standardizes broadcast (OTA) and premium/cable channel names using network data 
 ### Latest Release
 
 - **Download:** [`channel-mapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/channel-mapparr/channel-mapparr-latest.zip)
-- **Built:** Apr 10 2026, 16:07 UTC
-- **Source Commit:** [`11388be`](https://github.com/Dispatcharr/Plugins/commit/11388be99c171d1cf47cbbbea99cfc2b27565081)
+- **Built:** May 23 2026, 17:06 UTC
+- **Source Commit:** [`309559e`](https://github.com/Dispatcharr/Plugins/commit/309559e7795e3c0447f90067e0c011d8c1eb9d45)
 
 **Checksums:**
 ```
-MD5:    10f435ba7aeb6cd57a19ed25a2a19a2a
-SHA256: 90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca
+MD5:    aa387c179e2a81f814a1e19aa9d2f6e0
+SHA256: 0a3d23345096d4552b47ec57018322b48e35c72d34f21aa3c7a924769648bf27
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.26.1430910` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/channel-mapparr/channel-mapparr-1.26.1430910.zip) | May 23 2026, 17:06 UTC | [`309559e`](https://github.com/Dispatcharr/Plugins/commit/309559e7795e3c0447f90067e0c011d8c1eb9d45) | aa387c179e2a81f814a1e19aa9d2f6e0 | 0a3d23345096d4552b47ec57018322b48e35c72d34f21aa3c7a924769648bf27 |
 | `1.26.1001200` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/channel-mapparr/channel-mapparr-1.26.1001200.zip) | Apr 10 2026, 16:07 UTC | [`11388be`](https://github.com/Dispatcharr/Plugins/commit/11388be99c171d1cf47cbbbea99cfc2b27565081) | 10f435ba7aeb6cd57a19ed25a2a19a2a | 90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca |
 
 ---
