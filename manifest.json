@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T17:07:05Z",
+  "generated_at": "2026-05-23T17:15:53Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -169,6 +169,20 @@
         "min_dispatcharr_version": "v0.20.0"
       },
       {
+        "slug": "tickarr",
+        "name": "Tickarr",
+        "description": "Dynamic text overlays for IPTV channels — SiriusXM Now Playing, Sports Ticker, Custom Text",
+        "manifest_url": "zips/tickarr/manifest.json",
+        "author": "jstevenscl",
+        "license": "MIT",
+        "last_updated": "2026-05-23T17:15:53Z",
+        "latest_version": "0.1.0",
+        "latest_md5": "15b0c5a2fb0c9d7fefd5ef4129bc8ea1",
+        "latest_sha256": "e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858",
+        "latest_url": "zips/tickarr/tickarr-0.1.0.zip",
+        "latest_size": 21
+      },
+      {
         "slug": "waybill",
         "name": "Waybill",
         "description": "Waybill matches, renames, and organizes any streams no matter the provider. Infinitely configurable pipelines for total control.",
@@ -201,5 +215,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahHeugAKCRB+wDprTCI0\nzudQAP4lah77y+3aynbdwdO8chi4/gwp+dl1hQByhc7PmF8joAEAt0XB4ud6+oQT\nGfBse9ETzAhDJwPBpeI8U8SB5JASwQ0=\n=7pIH\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahHgywAKCRB+wDprTCI0\nzuaIAQD0bQ/vcc1wzEwn7LlgjOK0AdPJW31RjmtzbepWpf4JOQD/VFVvsRichbGj\n2ZiXPGoGT+ChLdVS3SuZg8vmmdO0dQ0=\n=NyUX\n-----END PGP SIGNATURE-----"
 }
