@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T21:57:51Z",
+  "generated_at": "2026-05-27T19:23:11Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -140,6 +140,21 @@
         "min_dispatcharr_version": "v0.20.0"
       },
       {
+        "slug": "multiview",
+        "name": "Multiview",
+        "description": "Tile multiple Dispatcharr channel streams into multi-view outputs using FFmpeg",
+        "manifest_url": "zips/multiview/manifest.json",
+        "author": "sethwv",
+        "license": "MIT",
+        "last_updated": "2026-05-27T15:22:55-04:00",
+        "latest_version": "0.1.0",
+        "latest_md5": "825c3b828fbff43f9c81917a8cfce593",
+        "latest_sha256": "91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf",
+        "latest_url": "zips/multiview/multiview-0.1.0.zip",
+        "latest_size": 47,
+        "min_dispatcharr_version": "v0.22.0"
+      },
+      {
         "slug": "stream-dripper",
         "name": "Stream Dripper",
         "description": "Automatically drops all active streams once per day at a configured time, with a manual drop-now button.",
@@ -215,5 +230,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahN0YgAKCRB+wDprTCI0\nzjV2AP9N17LKbWnzXO09E9EgUyy08gpPrF+KKOsmZlBVAsf+WQEA3o5bDqSQb2zq\nTijPmzZ073ndqphfHa9PFJNACTRxjQI=\n=Lrgk\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahdEoQAKCRB+wDprTCI0\nzpeUAQClZ6+77WkgiIB0dJetysC0Ub4EpFunTK82+e1TTkCLJQD7BGL48z6ex+A+\nUTWCzsJADiZNOif4P8G97FdIo0DuFAo=\n=ZpPp\n-----END PGP SIGNATURE-----"
 }
