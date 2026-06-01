@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T19:23:11Z",
+  "generated_at": "2026-06-01T20:07:23Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -198,6 +198,21 @@
         "latest_size": 21
       },
       {
+        "slug": "vod2mlib",
+        "name": "VOD to Media Library",
+        "description": "Generate .strm files (with optional NFO metadata) from your Dispatcharr VOD catalogue so Jellyfin / Emby / Kodi / ChannelsDVR can index your movies and series. Adds a cron-driven auto-rescan that p...",
+        "manifest_url": "zips/vod2mlib/manifest.json",
+        "author": "R3XCHRIS",
+        "license": "MIT",
+        "last_updated": "2026-06-01T20:07:22Z",
+        "latest_version": "1.14.3",
+        "latest_md5": "b52411999a36b307f40df66871101ab5",
+        "latest_sha256": "1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7",
+        "latest_url": "zips/vod2mlib/vod2mlib-1.14.3.zip",
+        "latest_size": 142,
+        "min_dispatcharr_version": "v0.24.0"
+      },
+      {
         "slug": "waybill",
         "name": "Waybill",
         "description": "Waybill matches, renames, and organizes any streams no matter the provider. Infinitely configurable pipelines for total control.",
@@ -230,5 +245,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahdEoQAKCRB+wDprTCI0\nzpeUAQClZ6+77WkgiIB0dJetysC0Ub4EpFunTK82+e1TTkCLJQD7BGL48z6ex+A+\nUTWCzsJADiZNOif4P8G97FdIo0DuFAo=\n=ZpPp\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3mfgAKCRB+wDprTCI0\nzpZMAQDix95+nBKGW1tTjDaDSUPhuEFRF6SX6D4tGgTxp3b+TAD/Y/rupa5q/LHD\nWQ+4i1his4y154FHcN/B8GcCj3oifQw=\n=Awec\n-----END PGP SIGNATURE-----"
 }

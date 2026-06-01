@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-06-01T20:07:23Z",
+  "manifest": {
+    "slug": "vod2mlib",
+    "name": "VOD to Media Library",
+    "description": "Generate .strm files (with optional NFO metadata) from your Dispatcharr VOD catalogue so Jellyfin / Emby / Kodi / ChannelsDVR can index your movies and series. Adds a cron-driven auto-rescan that picks up newly-added episodes nightly. Optional category-nested folder layout for genre-organised libraries.",
+    "author": "R3XCHRIS",
+    "license": "MIT",
+    "source_type": "external",
+    "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v{version}/plugin-vod2mlib-v{version}.zip",
+    "repo_url": "https://github.com/R3XCHRIS/VOD2MLIB",
+    "registry_url": "https://github.com/Dispatcharr/Plugins",
+    "registry_name": "Dispatcharr/Plugins",
+    "last_updated": "2026-06-01T20:07:22Z",
+    "latest": {
+      "version": "1.14.3",
+      "build_timestamp": "2026-06-01T20:07:22Z",
+      "last_updated": "2026-06-01T20:07:22Z",
+      "checksum_md5": "b52411999a36b307f40df66871101ab5",
+      "checksum_sha256": "1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7",
+      "min_dispatcharr_version": "v0.24.0",
+      "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.14.3/plugin-vod2mlib-v1.14.3.zip",
+      "latest_url": "zips/vod2mlib/vod2mlib-latest.zip",
+      "url": "zips/vod2mlib/vod2mlib-1.14.3.zip",
+      "size": 142
+    },
+    "versions": [
+      {
+        "version": "1.14.3",
+        "build_timestamp": "2026-06-01T20:07:22Z",
+        "last_updated": "2026-06-01T20:07:22Z",
+        "checksum_md5": "b52411999a36b307f40df66871101ab5",
+        "checksum_sha256": "1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7",
+        "min_dispatcharr_version": "v0.24.0",
+        "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.14.3/plugin-vod2mlib-v1.14.3.zip",
+        "url": "zips/vod2mlib/vod2mlib-1.14.3.zip",
+        "size": 142
+      }
+    ]
+  },
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3mfQAKCRB+wDprTCI0\nzl+3AQDVfsMdRZptZjcuDnGwU0hboIaGueevem6EMepNtUR/gwD/e1jSRaObd3Nd\ndHlf/nrMXDRDABgYnJXVq7tEUpaQCQI=\n=Q8zh\n-----END PGP SIGNATURE-----"
+}
