@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T20:07:46Z",
+  "generated_at": "2026-06-01T21:03:30Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -219,12 +219,12 @@
         "manifest_url": "zips/vod2mlib/manifest.json",
         "author": "R3XCHRIS",
         "license": "MIT",
-        "last_updated": "2026-06-01T20:07:22Z",
-        "latest_version": "1.14.3",
-        "latest_md5": "b52411999a36b307f40df66871101ab5",
-        "latest_sha256": "1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7",
-        "latest_url": "zips/vod2mlib/vod2mlib-1.14.3.zip",
-        "latest_size": 142,
+        "last_updated": "2026-06-01T21:03:29Z",
+        "latest_version": "1.15.0",
+        "latest_md5": "7843c83b3e8be29244cca1436e0f6e3a",
+        "latest_sha256": "c4b481de517a71dcb0a17102ab3f37eec7587e991cf1d195a973f3e55ffb6ede",
+        "latest_url": "zips/vod2mlib/vod2mlib-1.15.0.zip",
+        "latest_size": 145,
         "min_dispatcharr_version": "v0.24.0"
       },
       {
@@ -260,5 +260,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3mlQAKCRB+wDprTCI0\nzq/GAQCn5NMQYWSEJMCx2YF6I5bRt3LbLby4ZxFkmG0KLrOLDgEAnSO9+Y/gF/8J\nSLSaIU2vDh5f1hmbroDZDwfDCobErwk=\n=1DjW\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3zpAAKCRB+wDprTCI0\nzkFnAP0bT6FfT6qnOHstLwqEN6fOU1A0wwSO9BPdkCS1klHDWAD/fo9HPUSnd8zA\nrKj9DpTQ1NYzH2K1w9G3uSTTcrmpXAc=\n=40YD\n-----END PGP SIGNATURE-----"
 }

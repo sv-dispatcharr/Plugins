@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T20:07:23Z",
+  "generated_at": "2026-06-01T21:03:30Z",
   "manifest": {
     "slug": "vod2mlib",
     "name": "VOD to Media Library",
@@ -11,20 +11,31 @@
     "repo_url": "https://github.com/R3XCHRIS/VOD2MLIB",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-06-01T20:07:22Z",
+    "last_updated": "2026-06-01T21:03:29Z",
     "latest": {
-      "version": "1.14.3",
-      "build_timestamp": "2026-06-01T20:07:22Z",
-      "last_updated": "2026-06-01T20:07:22Z",
-      "checksum_md5": "b52411999a36b307f40df66871101ab5",
-      "checksum_sha256": "1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7",
+      "version": "1.15.0",
+      "build_timestamp": "2026-06-01T21:03:29Z",
+      "last_updated": "2026-06-01T21:03:29Z",
+      "checksum_md5": "7843c83b3e8be29244cca1436e0f6e3a",
+      "checksum_sha256": "c4b481de517a71dcb0a17102ab3f37eec7587e991cf1d195a973f3e55ffb6ede",
       "min_dispatcharr_version": "v0.24.0",
-      "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.14.3/plugin-vod2mlib-v1.14.3.zip",
+      "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.15.0/plugin-vod2mlib-v1.15.0.zip",
       "latest_url": "zips/vod2mlib/vod2mlib-latest.zip",
-      "url": "zips/vod2mlib/vod2mlib-1.14.3.zip",
-      "size": 142
+      "url": "zips/vod2mlib/vod2mlib-1.15.0.zip",
+      "size": 145
     },
     "versions": [
+      {
+        "version": "1.15.0",
+        "build_timestamp": "2026-06-01T21:03:29Z",
+        "last_updated": "2026-06-01T21:03:29Z",
+        "checksum_md5": "7843c83b3e8be29244cca1436e0f6e3a",
+        "checksum_sha256": "c4b481de517a71dcb0a17102ab3f37eec7587e991cf1d195a973f3e55ffb6ede",
+        "min_dispatcharr_version": "v0.24.0",
+        "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.15.0/plugin-vod2mlib-v1.15.0.zip",
+        "url": "zips/vod2mlib/vod2mlib-1.15.0.zip",
+        "size": 145
+      },
       {
         "version": "1.14.3",
         "build_timestamp": "2026-06-01T20:07:22Z",
@@ -38,5 +49,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3mfQAKCRB+wDprTCI0\nzl+3AQDVfsMdRZptZjcuDnGwU0hboIaGueevem6EMepNtUR/gwD/e1jSRaObd3Nd\ndHlf/nrMXDRDABgYnJXVq7tEUpaQCQI=\n=Q8zh\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3zowAKCRB+wDprTCI0\nzstfAQDqSekwnmgS6ZQJDtgvb1GykfsJolvmoZ4Diy5fiedixAD/U1uIk4KoWaZP\nWmLBi/lyfxk1B1r2SIMt5B0Q3Zeswgc=\n=HVHD\n-----END PGP SIGNATURE-----"
 }
