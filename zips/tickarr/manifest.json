@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-23T17:15:53Z",
+  "generated_at": "2026-06-02T21:10:36Z",
   "manifest": {
     "slug": "tickarr",
     "name": "Tickarr",
-    "description": "Dynamic text overlays for IPTV channels — SiriusXM Now Playing, Sports Ticker, Custom Text",
+    "description": "Dynamic text overlays for IPTV channels - SiriusXM Now Playing, Sports Ticker, Custom Text",
     "author": "jstevenscl",
     "license": "MIT",
     "source_type": "external",
@@ -11,19 +11,29 @@
     "repo_url": "https://github.com/jstevenscl/tickarr",
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-05-23T17:15:53Z",
+    "last_updated": "2026-06-02T21:10:35Z",
     "latest": {
-      "version": "0.1.0",
-      "build_timestamp": "2026-05-23T17:15:53Z",
-      "last_updated": "2026-05-23T17:15:53Z",
-      "checksum_md5": "15b0c5a2fb0c9d7fefd5ef4129bc8ea1",
-      "checksum_sha256": "e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858",
-      "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.0/tickarr-0.1.0.zip",
+      "version": "0.1.01",
+      "build_timestamp": "2026-06-02T21:10:35Z",
+      "last_updated": "2026-06-02T21:10:35Z",
+      "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
+      "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",
+      "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.01/tickarr-0.1.01.zip",
       "latest_url": "zips/tickarr/tickarr-latest.zip",
-      "url": "zips/tickarr/tickarr-0.1.0.zip",
-      "size": 21
+      "url": "zips/tickarr/tickarr-0.1.01.zip",
+      "size": 22
     },
     "versions": [
+      {
+        "version": "0.1.01",
+        "build_timestamp": "2026-06-02T21:10:35Z",
+        "last_updated": "2026-06-02T21:10:35Z",
+        "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
+        "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",
+        "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.01/tickarr-0.1.01.zip",
+        "url": "zips/tickarr/tickarr-0.1.01.zip",
+        "size": 22
+      },
       {
         "version": "0.1.0",
         "build_timestamp": "2026-05-23T17:15:53Z",
@@ -36,5 +46,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahHgygAKCRB+wDprTCI0\nzkRsAP9Ydd0KhGMZhfkSGMyFueJIfJ6hkB6VfmcjieEbdwl76QD+KQasIMCyGuPj\n17DTs52pkuQfdSP50s7eSAo6ZLdB0gA=\n=CxXY\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah9GzgAKCRB+wDprTCI0\nzoUvAP9RG9hQWLsy4Zo8ju1E9XH7PW6WA+MXBYGcgYA0lF6WEgEAgr+avyXbAbfd\nz6TmhbgVY5MUR+rpaQCPGYaKt1p8DgY=\n=PXba\n-----END PGP SIGNATURE-----"
 }

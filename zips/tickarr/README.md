@@ -2,9 +2,9 @@
 
 # Tickarr
 
-**Version:** `0.1.0` | **Author:** jstevenscl | **Last Updated:** May 23 2026, 17:15 UTC
+**Version:** `0.1.01` | **Author:** jstevenscl | **Last Updated:** Jun 02 2026, 21:10 UTC
 
-Dynamic text overlays for IPTV channels — SiriusXM Now Playing, Sports Ticker, Custom Text
+Dynamic text overlays for IPTV channels - SiriusXM Now Playing, Sports Ticker, Custom Text
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jstevenscl/tickarr)
 
@@ -13,18 +13,19 @@ Dynamic text overlays for IPTV channels — SiriusXM Now Playing, Sports Ticker,
 ### Latest Release
 
 - **Download:** [`tickarr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/tickarr/tickarr-latest.zip)
-- **Built:** May 23 2026, 17:15 UTC
+- **Built:** Jun 02 2026, 21:10 UTC
 
 **Checksums:**
 ```
-MD5:    15b0c5a2fb0c9d7fefd5ef4129bc8ea1
-SHA256: e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858
+MD5:    c3e3ff46d9eacd66bad4aaaa3c954103
+SHA256: c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `0.1.01` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/tickarr/tickarr-0.1.01.zip) | Jun 02 2026, 21:10 UTC | - | c3e3ff46d9eacd66bad4aaaa3c954103 | c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34 |
 | `0.1.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/tickarr/tickarr-0.1.0.zip) | May 23 2026, 17:15 UTC | - | 15b0c5a2fb0c9d7fefd5ef4129bc8ea1 | e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858 |
 
 ---
