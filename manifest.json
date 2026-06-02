@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T21:03:30Z",
+  "generated_at": "2026-06-02T17:16:51Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -213,6 +213,20 @@
         "latest_size": 21
       },
       {
+        "slug": "twitcharr",
+        "name": "Twitcharr",
+        "description": "Twitch live-TV plugin for Dispatcharr with automatic channels, streams, XMLTV guide data and Streamlink playback.",
+        "manifest_url": "zips/twitcharr/manifest.json",
+        "author": "eliasbruno124-dev",
+        "license": "MIT",
+        "last_updated": "2026-06-02T17:16:50Z",
+        "latest_version": "1.2.25",
+        "latest_md5": "34217d30accf77de447452a19e0b4e94",
+        "latest_sha256": "e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe",
+        "latest_url": "zips/twitcharr/twitcharr-1.2.25.zip",
+        "latest_size": 51
+      },
+      {
         "slug": "vod2mlib",
         "name": "VOD to Media Library",
         "description": "Generate .strm files (with optional NFO metadata) from your Dispatcharr VOD catalogue so Jellyfin / Emby / Kodi / ChannelsDVR can index your movies and series. Adds a cron-driven auto-rescan that p...",
@@ -260,5 +274,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3zpAAKCRB+wDprTCI0\nzkFnAP0bT6FfT6qnOHstLwqEN6fOU1A0wwSO9BPdkCS1klHDWAD/fo9HPUSnd8zA\nrKj9DpTQ1NYzH2K1w9G3uSTTcrmpXAc=\n=40YD\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah8QBgAKCRB+wDprTCI0\nzipKAP45Lz3CRA0TW/oP2dXzgyh/Ie7ik5whbE1ZjDB+U1wmcAEAvoHW4z/cB6MV\n041O9RFoSqOmeumrXcoDZzcmMfZaJwk=\n=9F+c\n-----END PGP SIGNATURE-----"
 }
