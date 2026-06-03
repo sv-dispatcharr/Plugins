@@ -69,17 +69,21 @@ else
 fi
 
 ZIP_DIR="zips/$YANK_PLUGIN"
-TARGET_ZIP="$ZIP_DIR/${YANK_PLUGIN}-${YANK_VERSION}.zip"
+RELEASE_TAG="${YANK_PLUGIN}-${YANK_VERSION}"
 PLUGIN_MANIFEST="$ZIP_DIR/manifest.json"
 
 # --- Validate ---
-if [[ ! -f "$TARGET_ZIP" ]]; then
-  echo "::error::$TARGET_ZIP not found on the releases branch. Nothing to yank."
+if ! gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+  echo "::error::GitHub Release $RELEASE_TAG not found. Nothing to yank."
   exit 1
 fi
 
-# Count existing versioned ZIPs (excluding -latest)
-REMAINING=$(ls -1 "$ZIP_DIR/${YANK_PLUGIN}"-*.zip 2>/dev/null | grep -v '\-latest\.zip' | grep -v "/${YANK_PLUGIN}-${YANK_VERSION}\.zip" || true)
+# Count remaining versioned releases (excluding the one being yanked and -latest)
+REMAINING=$(gh release list --repo "$GITHUB_REPOSITORY" --json tagName --limit 500 \
+  | jq -r '.[].tagName' \
+  | grep "^${YANK_PLUGIN}-" \
+  | grep -v "^${YANK_PLUGIN}-latest$" \
+  | grep -v "^${RELEASE_TAG}$" || true)
 REMAINING_COUNT=$(echo "$REMAINING" | grep -c . || true)
 
 # Determine if we are yanking the current latest
@@ -93,10 +97,10 @@ IS_LATEST=false
 IS_LAST_VERSION=false
 [[ "$REMAINING_COUNT" -eq 0 ]] && IS_LAST_VERSION=true
 
-echo "  Current latest : ${CURRENT_LATEST:-unknown}"
-echo "  Is latest      : $IS_LATEST"
-echo "  Remaining ZIPs : $REMAINING_COUNT"
-echo "  Is last version: $IS_LAST_VERSION"
+echo "  Current latest   : ${CURRENT_LATEST:-unknown}"
+echo "  Is latest        : $IS_LATEST"
+echo "  Remaining releases: $REMAINING_COUNT"
+echo "  Is last version  : $IS_LAST_VERSION"
 
 # --- Fetch source branch + plugins dir (needed by manifest + readme scripts) ---
 git fetch origin "$SOURCE_BRANCH"
@@ -107,21 +111,43 @@ SOURCE_TYPE=$(jq -r '.source_type // "local"' "plugins/$YANK_PLUGIN/plugin.json"
 
 # --- Perform the yank ---
 if $IS_LAST_VERSION; then
-  echo "Last version - removing entire zips/$YANK_PLUGIN/ directory."
+  echo "Last version - deleting all GitHub Releases for $YANK_PLUGIN."
+  gh release delete "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+  gh release delete "${YANK_PLUGIN}-latest" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
   rm -rf "$ZIP_DIR"
 else
-  echo "Removing $TARGET_ZIP"
-  rm "$TARGET_ZIP"
+  echo "Deleting GitHub Release $RELEASE_TAG"
+  gh release delete "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
 
   if $IS_LATEST; then
-    NEW_LATEST_ZIP=$(ls -1 "$ZIP_DIR/${YANK_PLUGIN}"-*.zip 2>/dev/null | grep -v '\-latest\.zip' | sort -t- -k2 -V -r | head -1 || true)
-    if [[ -z "$NEW_LATEST_ZIP" ]]; then
+    # Find the highest remaining version to promote to -latest
+    NEW_LATEST_VERSION=$(echo "$REMAINING" \
+      | sed "s/^${YANK_PLUGIN}-//" \
+      | sort -V -r \
+      | head -1)
+    if [[ -z "$NEW_LATEST_VERSION" ]]; then
       echo "::error::Could not find a replacement version to promote to latest."
       exit 1
     fi
-    NEW_LATEST_VERSION=$(basename "$NEW_LATEST_ZIP" | sed "s/${YANK_PLUGIN}-\(.*\)\.zip/\1/")
     echo "Promoting $NEW_LATEST_VERSION to latest"
-    cp "$NEW_LATEST_ZIP" "$ZIP_DIR/${YANK_PLUGIN}-latest.zip"
+    # Download the promoted version's ZIP and recreate the -latest release
+    PROMOTE_ZIP="/tmp/${YANK_PLUGIN}-${NEW_LATEST_VERSION}.zip"
+    gh release download "${YANK_PLUGIN}-${NEW_LATEST_VERSION}" \
+      --repo "$GITHUB_REPOSITORY" \
+      --pattern "${YANK_PLUGIN}-${NEW_LATEST_VERSION}.zip" \
+      --dir /tmp
+    LATEST_ZIP="/tmp/${YANK_PLUGIN}-latest.zip"
+    cp "$PROMOTE_ZIP" "$LATEST_ZIP"
+    # Reuse the promoted version's release notes for the -latest alias
+    promoted_notes=$(gh release view "${YANK_PLUGIN}-${NEW_LATEST_VERSION}" \
+      --repo "$GITHUB_REPOSITORY" --json body --jq '.body' 2>/dev/null || echo "")
+    gh release delete "${YANK_PLUGIN}-latest" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
+    gh release create "${YANK_PLUGIN}-latest" \
+      --repo "$GITHUB_REPOSITORY" \
+      --title "${YANK_PLUGIN} latest (v${NEW_LATEST_VERSION})" \
+      --notes "$promoted_notes" \
+      "$LATEST_ZIP"
+    rm -f "$PROMOTE_ZIP" "$LATEST_ZIP"
   fi
 fi
 
