@@ -141,17 +141,7 @@ for plugin_dir in plugins/*/; do
     --notes "$release_notes" \
     "$zip_path"
 
-  # Delete and recreate the -latest alias release
-  latest_tag="${plugin_name}-latest"
-  latest_zip="/tmp/${plugin_name}-latest.zip"
-  gh release delete "$latest_tag" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
-  cp "$zip_path" "$latest_zip"
-  gh release create "$latest_tag" \
-    --repo "$GITHUB_REPOSITORY" \
-    --title "${plugin_name} latest (v${version})" \
-    --notes "$release_notes" \
-    "$latest_zip"
-  rm -f "$latest_zip" "$zip_path"
+  rm -f "$zip_path"
 done
 
 changed=$(wc -l < changed_plugins.txt | tr -d ' ')

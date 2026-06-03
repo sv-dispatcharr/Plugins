@@ -113,14 +113,12 @@ SOURCE_TYPE=$(jq -r '.source_type // "local"' "plugins/$YANK_PLUGIN/plugin.json"
 if $IS_LAST_VERSION; then
   echo "Last version - deleting all GitHub Releases for $YANK_PLUGIN."
   gh release delete "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
-  gh release delete "${YANK_PLUGIN}-latest" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
   rm -rf "$ZIP_DIR"
 else
   echo "Deleting GitHub Release $RELEASE_TAG"
   gh release delete "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
 
   if $IS_LATEST; then
-    # Find the highest remaining version to promote to -latest
     NEW_LATEST_VERSION=$(echo "$REMAINING" \
       | sed "s/^${YANK_PLUGIN}-//" \
       | sort -V -r \
@@ -129,25 +127,7 @@ else
       echo "::error::Could not find a replacement version to promote to latest."
       exit 1
     fi
-    echo "Promoting $NEW_LATEST_VERSION to latest"
-    # Download the promoted version's ZIP and recreate the -latest release
-    PROMOTE_ZIP="/tmp/${YANK_PLUGIN}-${NEW_LATEST_VERSION}.zip"
-    gh release download "${YANK_PLUGIN}-${NEW_LATEST_VERSION}" \
-      --repo "$GITHUB_REPOSITORY" \
-      --pattern "${YANK_PLUGIN}-${NEW_LATEST_VERSION}.zip" \
-      --dir /tmp
-    LATEST_ZIP="/tmp/${YANK_PLUGIN}-latest.zip"
-    cp "$PROMOTE_ZIP" "$LATEST_ZIP"
-    # Reuse the promoted version's release notes for the -latest alias
-    promoted_notes=$(gh release view "${YANK_PLUGIN}-${NEW_LATEST_VERSION}" \
-      --repo "$GITHUB_REPOSITORY" --json body --jq '.body' 2>/dev/null || echo "")
-    gh release delete "${YANK_PLUGIN}-latest" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
-    gh release create "${YANK_PLUGIN}-latest" \
-      --repo "$GITHUB_REPOSITORY" \
-      --title "${YANK_PLUGIN} latest (v${NEW_LATEST_VERSION})" \
-      --notes "$promoted_notes" \
-      "$LATEST_ZIP"
-    rm -f "$PROMOTE_ZIP" "$LATEST_ZIP"
+    echo "Promoting $NEW_LATEST_VERSION to latest (manifest will be updated by generate-manifest.sh)"
   fi
 fi
 
