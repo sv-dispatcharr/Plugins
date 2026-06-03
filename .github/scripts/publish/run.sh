@@ -195,9 +195,7 @@ else
 
     git commit -m "Publish plugin updates from $SOURCE_BRANCH
 
-Source commit: $source_commit${plugin_list}
-
-[skip ci]"
+Source commit: $source_commit${plugin_list}"
 
     git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $RELEASES_BRANCH
     echo "Successfully published to ${RELEASES_BRANCH}"

@@ -305,7 +305,7 @@ jobs:
             exit 0
           fi
           git rm -f "${tracked_zips[@]}"
-          git commit -m "Strip tracked ZIPs from releases branch [skip ci]"
+          git commit -m "Strip tracked ZIPs from releases branch"
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$RELEASES_BRANCH"
           echo "Removed ${#tracked_zips[@]} tracked ZIP(s) from $RELEASES_BRANCH."
 
@@ -391,7 +391,7 @@ jobs:
             git mv "$f" "$dest"
           done
 
-          git commit -m "Rename zips/ to metadata/ on releases branch [skip ci]"
+          git commit -m "Rename zips/ to metadata/ on releases branch"
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$RELEASES_BRANCH"
           echo "Moved ${#to_move[@]} file(s) from zips/ to metadata/."
 
@@ -476,7 +476,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "REPO_VER already up to date."
           else
-            git commit -m "Set REPO_VER=${TARGET_VER} [skip ci]"
+            git commit -m "Set REPO_VER=${TARGET_VER}"
             git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$RELEASES_BRANCH"
             echo "REPO_VER=${TARGET_VER} written to $RELEASES_BRANCH."
           fi

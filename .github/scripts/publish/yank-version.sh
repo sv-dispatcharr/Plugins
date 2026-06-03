@@ -179,8 +179,7 @@ if git diff --cached --quiet; then
 else
   git commit -m "Yank ${YANK_PLUGIN} v${YANK_VERSION}
 
-Refs #${YANK_ISSUE}
-[skip ci]"
+Refs #${YANK_ISSUE}"
   RELEASES_COMMIT=$(git rev-parse --short HEAD)
   git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $RELEASES_BRANCH
   echo "Successfully yanked ${YANK_PLUGIN} v${YANK_VERSION} from ${RELEASES_BRANCH}"
