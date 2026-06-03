@@ -168,26 +168,6 @@ jobs:
             echo "No versioned ZIPs found on origin/${RELEASES_BRANCH} - nothing to move."
             echo "No ZIPs found on releases branch." >> "$GITHUB_STEP_SUMMARY"
           else
-            declare -A plugin_latest_version
-            declare -A plugin_latest_zip_path
-
-            while IFS= read -r zip_path; do
-              [[ -z "$zip_path" ]] && continue
-              zip_basename=$(basename "$zip_path")
-              matched_slug=""
-              for slug in "${plugin_slugs[@]}"; do
-                [[ "$zip_basename" == "${slug}-"*.zip ]] && { matched_slug="$slug"; break; }
-              done
-              [[ -z "$matched_slug" ]] && continue
-              zip_version="${zip_basename#${matched_slug}-}"; zip_version="${zip_version%.zip}"
-              current_latest="${plugin_latest_version[$matched_slug]:-}"
-              if [[ -z "$current_latest" ]] || \
-                 printf '%s\n%s\n' "$current_latest" "$zip_version" | sort -V | tail -1 | grep -qx "$zip_version"; then
-                plugin_latest_version["$matched_slug"]="$zip_version"
-                plugin_latest_zip_path["$matched_slug"]="$zip_path"
-              fi
-            done <<< "$zip_paths"
-
             # Step 3: Create versioned releases
             echo ""
             echo "--- Creating versioned releases ---"
@@ -208,7 +188,7 @@ jobs:
               if [[ "$DRY_RUN" != "true" ]]; then
                 tmp_zip="/tmp/${zip_basename}"
                 git show "origin/${RELEASES_BRANCH}:${zip_path}" > "$tmp_zip"
-                readme_url="https://github.com/${GITHUB_REPOSITORY}/blob/releases/zips/${matched_slug}/README.md"
+                readme_url="https://github.com/${GITHUB_REPOSITORY}/blob/releases/metadata/${matched_slug}/README.md"
                 release_notes=""
                 commit_sha=$(git show "origin/${RELEASES_BRANCH}:zips/${matched_slug}/manifest.json" \
                   | jq -r --arg v "$zip_version" \
@@ -238,28 +218,6 @@ jobs:
               fi
             done <<< "$zip_paths"
 
-            # Step 4: Create -latest releases
-            echo ""
-            echo "--- Creating -latest releases ---"
-            for slug in "${plugin_slugs[@]}"; do
-              latest_ver="${plugin_latest_version[$slug]:-}"; latest_zip_path="${plugin_latest_zip_path[$slug]:-}"
-              [[ -z "$latest_ver" || -z "$latest_zip_path" ]] && continue
-              latest_tag="${slug}-latest"
-              echo "  CREATE $latest_tag (from v${latest_ver})"
-              if [[ "$DRY_RUN" != "true" ]]; then
-                tmp_zip="/tmp/${slug}-latest.zip"
-                git show "origin/${RELEASES_BRANCH}:${latest_zip_path}" > "$tmp_zip"
-                versioned_notes=$(gh release view "${slug}-${latest_ver}" --repo "$GITHUB_REPOSITORY" \
-                  --json body --jq '.body' 2>/dev/null || echo "")
-                gh release create "$latest_tag" --repo "$GITHUB_REPOSITORY" \
-                  --title "${slug} latest (v${latest_ver})" --notes "$versioned_notes" "$tmp_zip"
-                rm -f "$tmp_zip"
-                (( created++ )) || true
-                echo "| \`${latest_tag}\` (v${latest_ver}) | created |" >> "$GITHUB_STEP_SUMMARY"
-              else
-                echo "| \`${latest_tag}\` (v${latest_ver}) | would create (dry run) |" >> "$GITHUB_STEP_SUMMARY"
-              fi
-            done
           fi
 
           echo ""

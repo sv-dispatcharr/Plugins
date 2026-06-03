@@ -124,9 +124,6 @@ for plugin_dir in plugins/*/; do
 
   echo "  $plugin_name"
 
-  # -latest alias tag; URL combined with root_url gives the CDN-backed latest asset
-  latest_url="${plugin_name}-latest/${plugin_name}-latest.zip"
-
   versioned_zips="[]"
   latest_metadata="{}"
   latest_size_kb=0
@@ -194,6 +191,11 @@ for plugin_dir in plugins/*/; do
         '. + [{version: $version, url: $url, size: $size}]' <<< "$versioned_zips")
     fi
   done <<< "$versioned_tags"
+
+  # Derive latest_url from the newest versioned release (sorted newest-first above)
+  latest_version=$(echo "$latest_metadata" | jq -r '.version // ""')
+  latest_url=""
+  [[ -n "$latest_version" ]] && latest_url="${plugin_name}-${latest_version}/${plugin_name}-${latest_version}.zip"
 
   # Overwrite min/max_dispatcharr_version for the current version's entry from plugin.json,
   # so metadata-only updates (no version bump) are reflected without a rebuild.
@@ -284,7 +286,7 @@ for plugin_dir in plugins/*/; do
     --argjson latest_size_kb "$latest_size_kb" \
     --arg min_da_version "$min_da_version" \
     --arg max_da_version "$max_da_version" \
-    --arg latest_url "${plugin_name}-latest/${plugin_name}-latest.zip" \
+    --arg latest_url "$latest_url" \
     '{
       slug: $slug,
       name: $name,
