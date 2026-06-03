@@ -18,7 +18,7 @@ all_tags=$(gh release list --repo "$GITHUB_REPOSITORY" --json tagName --limit 50
 
 # Remove releases for deleted plugins
 if [[ -d zips ]]; then
-  for release_dir in zips/*/; do
+  for release_dir in metadata/*/; do
     [[ ! -d "$release_dir" ]] && continue
     plugin_name=$(basename "$release_dir")
     if [[ ! -d "plugins/$plugin_name" ]]; then

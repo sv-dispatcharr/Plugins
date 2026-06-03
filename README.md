@@ -76,7 +76,7 @@ The root `manifest.json` uses a `root_url` plus relative paths for ZIP downloads
       {
         "slug": "my-plugin",
         "name": "My Plugin",
-        "manifest_url": "https://raw.githubusercontent.com/Dispatcharr/Plugins/releases/zips/my-plugin/manifest.json",
+        "manifest_url": "https://raw.githubusercontent.com/Dispatcharr/Plugins/releases/metadata/my-plugin/manifest.json",
         "latest_url": "my-plugin-latest/my-plugin-latest.zip",
         ...
       }
@@ -122,4 +122,4 @@ gpg: Signature made ...
 gpg: Good signature from "..." [full]
 ```
 
-The same steps apply to any per-plugin manifest - substitute the path to `zips/<plugin>/manifest.json`.
+The same steps apply to any per-plugin manifest - substitute the path to `metadata/<plugin>/manifest.json`.

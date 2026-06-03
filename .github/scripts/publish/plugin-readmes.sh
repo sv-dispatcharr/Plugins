@@ -2,7 +2,7 @@
 set -e
 
 # publish-per-plugin-readmes.sh
-# Generates zips/<plugin>/README.md for every plugin.
+# Generates metadata/<plugin>/README.md for every plugin.
 # Version/metadata discovery is driven by the per-plugin manifest.json written
 # by generate-manifest.sh (which runs before this script). No local ZIPs required.
 #
@@ -33,7 +33,7 @@ for plugin_dir in plugins/*/; do
   plugin_file="$plugin_dir/plugin.json"
   [[ ! -f "$plugin_file" ]] && continue
 
-  manifest_file="zips/$plugin_name/manifest.json"
+  manifest_file="metadata/$plugin_name/manifest.json"
   if [[ ! -f "$manifest_file" ]]; then
     echo "  $plugin_name (no manifest, skipping README)"
     continue
@@ -166,7 +166,7 @@ for plugin_dir in plugins/*/; do
       echo ""
       cat "$plugin_dir/README.md"
     fi
-  } > "zips/$plugin_name/README.md"
+  } > "metadata/$plugin_name/README.md"
 
   echo "  $plugin_name"
 done

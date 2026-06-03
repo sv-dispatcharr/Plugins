@@ -41,12 +41,18 @@ render_plugin() {
   local repo_url=${15}
   local discord_thread=${16}
 
-  local zip_url="https://github.com/${GITHUB_REPOSITORY}/raw/$RELEASES_BRANCH/zips/${plugin_name}/${plugin_name}-latest.zip"
+  local manifest_file="./metadata/${plugin_name}/manifest.json"
+  local root_url
+  root_url=$(jq -r '.manifest.root_url // ""' "manifest.json" 2>/dev/null || echo "")
+  local latest_url_path=""
+  [[ -f "$manifest_file" ]] && latest_url_path=$(jq -r '.manifest.latest.latest_url // empty' "$manifest_file")
+  local zip_url=""
+  [[ -n "$root_url" && -n "$latest_url_path" ]] && zip_url="${root_url}/${latest_url_path}"
   local source_url="https://github.com/${GITHUB_REPOSITORY}/tree/$SOURCE_BRANCH/plugins/${plugin_name}"
   local readme_url="https://github.com/${GITHUB_REPOSITORY}/blob/$SOURCE_BRANCH/plugins/${plugin_name}/README.md"
-  local releases_readme_url="https://github.com/${GITHUB_REPOSITORY}/blob/$RELEASES_BRANCH/zips/${plugin_name}/README.md"
+  local releases_readme_url="https://github.com/${GITHUB_REPOSITORY}/blob/$RELEASES_BRANCH/metadata/${plugin_name}/README.md"
   local commit_url="https://github.com/${GITHUB_REPOSITORY}/commit/${commit_sha}"
-  local releases_dir="./zips/${plugin_name}"
+  local releases_dir="./metadata/${plugin_name}"
   local has_source_readme=false
   [[ -f "plugins/$plugin_name/README.md" ]] && has_source_readme=true
 
@@ -90,7 +96,9 @@ render_plugin() {
     echo ""
   fi
   echo "**Downloads:**"
-  echo " [Latest Release (\`$version\`)]($zip_url)"
+  if [[ -n "$zip_url" ]]; then
+    echo "- [Latest Release (\`$version\`)]($zip_url)"
+  fi
   echo "- [All Versions ($version_count available)]($releases_dir)"
   echo ""
 
@@ -113,7 +121,7 @@ render_plugin() {
   echo "## Quick Access"
   echo ""
   echo "- [manifest.json](./manifest.json) - Complete plugin registry with metadata"
-  echo "- [zips/](./zips/) - Plugin ZIP files and per-plugin manifests"
+  echo "- [metadata/](./metadata/) - Per-plugin manifests and READMEs"
   echo ""
   echo "## Available Plugins"
   echo ""
@@ -169,8 +177,7 @@ render_plugin() {
       || date -u +"%Y-%m-%dT%H:%M:%SZ")
     commit_sha=$(git log -1 --format=%H origin/$SOURCE_BRANCH -- "$plugin_dir" 2>/dev/null || echo "unknown")
     commit_sha_short=$(git log -1 --format=%h origin/$SOURCE_BRANCH -- "$plugin_dir" 2>/dev/null || echo "unknown")
-    version_count=$(ls -1 "zips/$plugin_name/${plugin_name}"-*.zip 2>/dev/null \
-      | grep -v latest | wc -l | tr -d ' ')
+    version_count=$(jq -r '.manifest.versions | length' "metadata/$plugin_name/manifest.json" 2>/dev/null || echo "0")
     plugin_license=$(jq -r '.license // ""' "$plugin_file")
     min_dispatcharr=$(jq -r '.min_dispatcharr_version // empty' "$plugin_file")
     max_dispatcharr=$(jq -r '.max_dispatcharr_version // empty' "$plugin_file")

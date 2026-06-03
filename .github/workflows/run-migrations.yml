@@ -2,6 +2,7 @@ name: Run Migrations
 
 # Migration history:
 #   001 (v0 → v2): Move ZIPs from releases branch git history to GitHub Release assets
+#   002 (v2 → v3): Rename zips/ to metadata/ on the releases branch
 
 permissions:
   contents: write
@@ -34,10 +35,11 @@ jobs:
     outputs:
       any_pending: ${{ steps.detect.outputs.any_pending }}
       needs_001:   ${{ steps.detect.outputs.needs_001 }}
+      needs_002:   ${{ steps.detect.outputs.needs_002 }}
       use_app:     ${{ steps.config.outputs.use_app }}
       app_id:      ${{ steps.config.outputs.app_id }}
       # Add outputs for future migrations here:
-      # needs_002: ${{ steps.detect.outputs.needs_002 }}
+      # needs_003: ${{ steps.detect.outputs.needs_003 }}
     steps:
       - name: Validate inputs
         run: |
@@ -68,7 +70,7 @@ jobs:
         id: detect
         run: |
           RELEASES_BRANCH="releases"
-          TARGET_VER=2  # bump when adding a new migration
+          TARGET_VER=3  # bump when adding a new migration
 
           current_ver=0
           if git ls-remote --exit-code --heads origin "$RELEASES_BRANCH" >/dev/null 2>&1; then
@@ -79,9 +81,12 @@ jobs:
           (( current_ver < 2 )) && echo "needs_001=true"  >> "$GITHUB_OUTPUT" \
                                 || echo "needs_001=false" >> "$GITHUB_OUTPUT"
 
+          (( current_ver < 3 )) && echo "needs_002=true"  >> "$GITHUB_OUTPUT" \
+                                || echo "needs_002=false" >> "$GITHUB_OUTPUT"
+
           # Add future migrations here:
-          # (( current_ver < 3 )) && echo "needs_002=true"  >> "$GITHUB_OUTPUT" \
-          #                       || echo "needs_002=false" >> "$GITHUB_OUTPUT"
+          # (( current_ver < 4 )) && echo "needs_003=true"  >> "$GITHUB_OUTPUT" \
+          #                       || echo "needs_003=false" >> "$GITHUB_OUTPUT"
 
           (( current_ver < TARGET_VER )) && echo "any_pending=true"  >> "$GITHUB_OUTPUT" \
                                          || echo "any_pending=false" >> "$GITHUB_OUTPUT"
@@ -311,21 +316,93 @@ jobs:
           echo "end_version=2"        >> "$GITHUB_OUTPUT"
 
   # ---------------------------------------------------------------------------
-  # Add future migration jobs here following the same pattern:
-  #
-  # migration_002:
-  #   needs: [setup]
-  #   if: needs.setup.outputs.needs_002 == 'true'
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     needs_rebuild: ${{ steps.flags.outputs.needs_rebuild }}
-  #   steps:
-  #     - ...
-  #     - name: Set migration flags
-  #       id: flags
-  #       run: |
-  #         echo "rebuild_type=none" >> "$GITHUB_OUTPUT"  # force | regular | none
-  #         echo "end_version=3"     >> "$GITHUB_OUTPUT"
+  # Migration 002 (v2 → v3): Rename zips/ to metadata/ on the releases branch
+  # needs_rebuild=regular — manifest_url paths change from zips/ to metadata/.
+  # ---------------------------------------------------------------------------
+  migration_002:
+    needs: [setup, migration_001]
+    if: needs.setup.outputs.needs_002 == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      rebuild_type: ${{ steps.flags.outputs.rebuild_type }}
+      end_version:  ${{ steps.flags.outputs.end_version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate GitHub App token
+        if: needs.setup.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ needs.setup.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Rename zips/ to metadata/ on releases branch
+        env:
+          GITHUB_TOKEN: ${{ needs.setup.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          RELEASES_BRANCH="releases"
+
+          if [[ "$DRY_RUN" == "true" ]]; then
+            count=$(git ls-tree -r --name-only "origin/${RELEASES_BRANCH}" 2>/dev/null \
+              | grep '^zips/' | grep -cv '\.zip$' || true)
+            echo "Dry run: would rename $count file(s) from zips/ to metadata/."
+            exit 0
+          fi
+
+          if ! git ls-remote --exit-code --heads origin "$RELEASES_BRANCH" >/dev/null 2>&1; then
+            echo "No $RELEASES_BRANCH branch — nothing to rename."
+            exit 0
+          fi
+
+          if ! git ls-tree -r --name-only "origin/${RELEASES_BRANCH}" | grep -q '^zips/'; then
+            echo "No zips/ content found — already renamed or branch is clean."
+            exit 0
+          fi
+
+          if [[ -n "${APP_SLUG:-}" ]]; then
+            BOT_USER_ID=$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq '.id' 2>/dev/null || echo "")
+            git config user.name "${APP_SLUG}[bot]"
+            git config user.email "${BOT_USER_ID:+${BOT_USER_ID}+}${APP_SLUG}[bot]@users.noreply.github.com"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          fi
+
+          git fetch origin "$RELEASES_BRANCH"
+          git checkout "$RELEASES_BRANCH"
+
+          mapfile -t to_move < <(git ls-files 'zips/' | grep -v '\.zip$')
+          if [[ ${#to_move[@]} -eq 0 ]]; then
+            echo "No non-ZIP files under zips/ to move."
+            exit 0
+          fi
+
+          for f in "${to_move[@]}"; do
+            dest="${f/zips\//metadata/}"
+            mkdir -p "$(dirname "$dest")"
+            git mv "$f" "$dest"
+          done
+
+          git commit -m "Rename zips/ to metadata/ on releases branch [skip ci]"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$RELEASES_BRANCH"
+          echo "Moved ${#to_move[@]} file(s) from zips/ to metadata/."
+
+      - name: Set migration flags
+        id: flags
+        run: |
+          echo "rebuild_type=regular" >> "$GITHUB_OUTPUT"
+          echo "end_version=3"        >> "$GITHUB_OUTPUT"
+
+  # ---------------------------------------------------------------------------
+  # Add future migration jobs here following the same pattern.
   # ---------------------------------------------------------------------------
 
   # ---------------------------------------------------------------------------
@@ -333,7 +410,7 @@ jobs:
   # Skipped on dry runs or if no migrations were pending.
   # ---------------------------------------------------------------------------
   write_repo_ver:
-    needs: [setup, migration_001]
+    needs: [setup, migration_001, migration_002]
     if: |
       always() &&
       needs.setup.outputs.any_pending == 'true' &&
@@ -405,16 +482,40 @@ jobs:
           fi
 
   # ---------------------------------------------------------------------------
-  # Triggers a regular publish if any migration flagged rebuild_type=regular
-  # and no migration flagged force (force is a superset — regular is skipped).
-  # When adding migration_002: extend the 'regular' OR and add a 'force' != guard.
+  # Aggregates rebuild_type across all migrations using toJSON(needs).
+  # When adding a new migration: add it to needs: here only.
+  # The trigger jobs below never need changing.
+  # ---------------------------------------------------------------------------
+  aggregate_migrations:
+    needs: [migration_001, migration_002]
+    if: always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled')
+    runs-on: ubuntu-latest
+    outputs:
+      rebuild_type: ${{ steps.compute.outputs.rebuild_type }}
+    steps:
+      - name: Compute highest rebuild type
+        id: compute
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: |
+          rebuild=$(echo "$NEEDS_JSON" | jq -r '
+            [.. | objects | .outputs.rebuild_type? | select(. != null and . != "")] |
+            if any(. == "force") then "force"
+            elif any(. == "regular") then "regular"
+            else "none" end
+          ')
+          echo "rebuild_type=$rebuild" >> "$GITHUB_OUTPUT"
+          echo "Highest rebuild type across all migrations: $rebuild"
+
+  # ---------------------------------------------------------------------------
+  # Trigger jobs check aggregate_migrations.outputs.rebuild_type — no changes
+  # needed here when adding future migrations.
   # ---------------------------------------------------------------------------
   trigger_publish_regular:
-    needs: [setup, migration_001, write_repo_ver]
+    needs: [setup, aggregate_migrations, write_repo_ver]
     if: |
       needs.write_repo_ver.result == 'success' &&
-      needs.migration_001.outputs.rebuild_type == 'regular' &&
-      needs.migration_001.outputs.rebuild_type != 'force'
+      needs.aggregate_migrations.outputs.rebuild_type == 'regular'
     runs-on: ubuntu-latest
     steps:
       - name: Generate GitHub App token
@@ -434,15 +535,11 @@ jobs:
           echo "Regular publish triggered — manifests and READMEs will be regenerated shortly."
           echo "Regular publish triggered." >> "$GITHUB_STEP_SUMMARY"
 
-  # ---------------------------------------------------------------------------
-  # Triggers a force-rebuild publish if any migration flagged rebuild_type=force.
-  # When adding migration_002: extend the 'force' OR condition.
-  # ---------------------------------------------------------------------------
   trigger_publish_force:
-    needs: [setup, migration_001, write_repo_ver]
+    needs: [setup, aggregate_migrations, write_repo_ver]
     if: |
       needs.write_repo_ver.result == 'success' &&
-      needs.migration_001.outputs.rebuild_type == 'force'
+      needs.aggregate_migrations.outputs.rebuild_type == 'force'
     runs-on: ubuntu-latest
     steps:
       - name: Generate GitHub App token

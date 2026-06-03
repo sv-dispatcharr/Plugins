@@ -20,7 +20,7 @@ fi
 
 RELEASES_BRANCH="releases"
 MAX_VERSIONED_ZIPS=10
-RELEASES_BRANCH_VERSION=2
+RELEASES_BRANCH_VERSION=3
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
 export SOURCE_BRANCH RELEASES_BRANCH MAX_VERSIONED_ZIPS
@@ -74,7 +74,7 @@ if [[ "${FORCE_REBUILD:-false}" == "true" && -n "${FORCE_REBUILD_PLUGIN:-}" ]]; 
     | jq -r '.[].tagName' \
     | grep "^${FORCE_REBUILD_PLUGIN}-" \
     | xargs -I{} gh release delete {} --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
-  rm -f "zips/$FORCE_REBUILD_PLUGIN/manifest.json"
+  rm -f "metadata/$FORCE_REBUILD_PLUGIN/manifest.json"
 elif [[ "${FORCE_REBUILD:-false}" == "true" ]]; then
   echo "Force rebuild requested - deleting all plugin GitHub Releases and resetting $RELEASES_BRANCH."
   git fetch origin $SOURCE_BRANCH 2>/dev/null || true
@@ -155,7 +155,7 @@ rm -rf plugins
 git rm -rf --cached plugins 2>/dev/null || true
 
 echo "$RELEASES_BRANCH_VERSION" > REPO_VER
-git add zips manifest.json README.md REPO_VER
+git add metadata manifest.json README.md REPO_VER
 
 if git diff --cached --quiet; then
   echo "No changes to commit."

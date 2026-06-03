@@ -68,7 +68,7 @@ else
   exit 1
 fi
 
-ZIP_DIR="zips/$YANK_PLUGIN"
+ZIP_DIR="metadata/$YANK_PLUGIN"
 RELEASE_TAG="${YANK_PLUGIN}-${YANK_VERSION}"
 PLUGIN_MANIFEST="$ZIP_DIR/manifest.json"
 
@@ -172,7 +172,7 @@ echo "=== Committing ==="
 rm -rf plugins
 git rm -rf --cached plugins 2>/dev/null || true
 
-git add zips manifest.json README.md
+git add metadata manifest.json README.md
 
 if git diff --cached --quiet; then
   echo "No changes to commit - was this version already absent?"

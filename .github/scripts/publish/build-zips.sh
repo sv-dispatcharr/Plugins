@@ -23,10 +23,10 @@ for plugin_dir in plugins/*/; do
   plugin_key=${plugin_name//-/_}
   version=$(jq -r '.version' "$plugin_dir/plugin.json")
 
-  mkdir -p "zips/$plugin_name"
+  mkdir -p "metadata/$plugin_name"
 
   zip_path="/tmp/${plugin_name}-${version}.zip"
-  existing_manifest="zips/$plugin_name/manifest.json"
+  existing_manifest="metadata/$plugin_name/manifest.json"
   release_tag="${plugin_name}-${version}"
 
   # Skip if a GitHub Release already exists for this version.
@@ -117,7 +117,7 @@ for plugin_dir in plugins/*/; do
     > "$BUILD_META_DIR/$plugin_key/${plugin_key}-${version}.json"
 
   # Build release notes
-  readme_url="https://github.com/${GITHUB_REPOSITORY}/blob/releases/zips/${plugin_name}/README.md"
+  readme_url="https://github.com/${GITHUB_REPOSITORY}/blob/releases/metadata/${plugin_name}/README.md"
   release_notes=""
   if [[ -n "$commit_sha" ]]; then
     commit_url="https://github.com/${GITHUB_REPOSITORY}/commit/${commit_sha}"

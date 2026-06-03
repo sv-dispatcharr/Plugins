@@ -2,7 +2,7 @@
 set -e
 
 # publish-generate-manifest.sh
-# Generates zips/<plugin>/manifest.json for each plugin and the root manifest.json.
+# Generates metadata/<plugin>/manifest.json for each plugin and the root manifest.json.
 #
 # Called from the releases branch checkout directory by publish-plugins.sh.
 # Required env: SOURCE_BRANCH, RELEASES_BRANCH, GITHUB_REPOSITORY
@@ -133,8 +133,8 @@ for plugin_dir in plugins/*/; do
   latest_size_set=false
 
   # existing per-plugin manifest from previous run - used as metadata fallback
-  existing_manifest_file="zips/$plugin_name/manifest.json"
-  mkdir -p "zips/$plugin_name"
+  existing_manifest_file="metadata/$plugin_name/manifest.json"
+  mkdir -p "metadata/$plugin_name"
 
   # Discover published versions from GitHub Releases (newest first)
   versioned_tags=$(echo "$all_release_tags" \
@@ -250,10 +250,10 @@ for plugin_dir in plugins/*/; do
     } | with_entries(select(.value != null))' \
     "$plugin_file")
 
-  if write_manifest_if_changed "zips/$plugin_name/manifest.json" "$plugin_entry"; then
-    sign_manifest "zips/$plugin_name/manifest.json"
-  elif [[ -n "$gpg_key_id" && "$gpg_signing_failed" -eq 0 ]] && ! sig_is_current "zips/$plugin_name/manifest.json"; then
-    sign_manifest "zips/$plugin_name/manifest.json"
+  if write_manifest_if_changed "metadata/$plugin_name/manifest.json" "$plugin_entry"; then
+    sign_manifest "metadata/$plugin_name/manifest.json"
+  elif [[ -n "$gpg_key_id" && "$gpg_signing_failed" -eq 0 ]] && ! sig_is_current "metadata/$plugin_name/manifest.json"; then
+    sign_manifest "metadata/$plugin_name/manifest.json"
   fi
   plugin_entries+=("$plugin_entry")
 
@@ -269,7 +269,7 @@ for plugin_dir in plugins/*/; do
   fi
 
   # manifest_url is absolute: per-plugin manifest stays in the releases branch (raw.githubusercontent.com)
-  plugin_manifest_url="${raw_releases_url}/zips/${plugin_name}/manifest.json"
+  plugin_manifest_url="${raw_releases_url}/metadata/${plugin_name}/manifest.json"
 
   root_entry=$(jq -n \
     --argjson latest_metadata "$latest_metadata" \
@@ -338,7 +338,7 @@ if [[ "$gpg_signing_failed" -eq 1 ]] || [[ -z "$gpg_key_id" ]]; then
   while IFS= read -r -d '' _f; do
     _tmp=$(mktemp)
     jq 'del(.signature)' "$_f" > "$_tmp" && mv "$_tmp" "$_f" || rm -f "$_tmp"
-  done < <(find zips -name "manifest.json" -print0 2>/dev/null)
+  done < <(find metadata -name "manifest.json" -print0 2>/dev/null)
   _tmp=$(mktemp)
   jq 'del(.signature)' manifest.json > "$_tmp" && mv "$_tmp" manifest.json || rm -f "$_tmp"
   unset _f _tmp
