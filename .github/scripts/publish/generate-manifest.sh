@@ -126,6 +126,7 @@ for plugin_dir in plugins/*/; do
 
   versioned_zips="[]"
   latest_metadata="{}"
+  latest_zip_version=""
   latest_size_kb=0
   latest_size_set=false
 
@@ -145,14 +146,17 @@ for plugin_dir in plugins/*/; do
     [[ -z "$release_tag" ]] && continue
     zip_version="${release_tag#${plugin_name}-}"
     zip_url="${plugin_name}-${zip_version}/${plugin_name}-${zip_version}.zip"
+    # Strip a plain-integer migration retry suffix (e.g. 1.0.0-1 -> 1.0.0) so the
+    # canonical version is used for metadata lookup and manifest entries.
+    canonical_version=$(sed 's/-[0-9][0-9]*$//' <<< "$zip_version")
 
     # Fresh metadata from this run takes priority; fall back to existing manifest
-    fresh_meta_file="${BUILD_META_DIR:-}/$plugin_key/${plugin_key}-${zip_version}.json"
+    fresh_meta_file="${BUILD_META_DIR:-}/$plugin_key/${plugin_key}-${canonical_version}.json"
     metadata="{}"
     if [[ -n "${BUILD_META_DIR:-}" && -f "$fresh_meta_file" ]]; then
       metadata=$(cat "$fresh_meta_file")
     elif [[ -f "$existing_manifest_file" ]]; then
-      meta_from_manifest=$(jq -c --arg v "$zip_version" \
+      meta_from_manifest=$(jq -c --arg v "$canonical_version" \
         '.manifest.versions[]? | select(.version == $v)' "$existing_manifest_file" 2>/dev/null || true)
       [[ -n "$meta_from_manifest" ]] && metadata="$meta_from_manifest"
     fi
@@ -185,17 +189,19 @@ for plugin_dir in plugins/*/; do
         } | with_entries(select(.value != null))]' <<< "$versioned_zips")
       if [[ "$latest_metadata" == "{}" ]]; then
         latest_metadata="$metadata"
+        latest_zip_version="$zip_version"
       fi
     else
-      versioned_zips=$(jq --arg version "$zip_version" --arg url "$zip_url" --argjson size "$zip_size_kb" \
+      versioned_zips=$(jq --arg version "$canonical_version" --arg url "$zip_url" --argjson size "$zip_size_kb" \
         '. + [{version: $version, url: $url, size: $size}]' <<< "$versioned_zips")
     fi
   done <<< "$versioned_tags"
 
-  # Derive latest_url from the newest versioned release (sorted newest-first above)
-  latest_version=$(echo "$latest_metadata" | jq -r '.version // ""')
+  # Derive latest_url from the newest versioned release (sorted newest-first above).
+  # Use the actual tag-derived zip_version (which may include a retry suffix) for the URL,
+  # so the URL resolves to the real release asset.
   latest_url=""
-  [[ -n "$latest_version" ]] && latest_url="${plugin_name}-${latest_version}/${plugin_name}-${latest_version}.zip"
+  [[ -n "$latest_zip_version" ]] && latest_url="${plugin_name}-${latest_zip_version}/${plugin_name}-${latest_zip_version}.zip"
 
   # Overwrite min/max_dispatcharr_version for the current version's entry from plugin.json,
   # so metadata-only updates (no version bump) are reflected without a rebuild.

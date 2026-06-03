@@ -208,11 +208,24 @@ jobs:
                   release_notes+=$'\n'
                 fi
                 release_notes+="**README:** [Plugin README](${readme_url})"
-                gh release create "$release_tag" --repo "$GITHUB_REPOSITORY" \
-                  --title "${matched_slug} v${zip_version}" --notes "$release_notes" "$tmp_zip"
-                rm -f "$tmp_zip"
+                final_tag="$release_tag"
+                tag_suffix=0
+                while true; do
+                  if gh release create "$final_tag" --repo "$GITHUB_REPOSITORY" \
+                    --title "${matched_slug} v${zip_version}" --notes "$release_notes" "$tmp_zip" 2>/tmp/rel_err; then
+                    break
+                  fi
+                  if grep -q "immutable\|Cannot create ref" /tmp/rel_err; then
+                    tag_suffix=$(( tag_suffix + 1 ))
+                    final_tag="${release_tag}-${tag_suffix}"
+                    echo "  Tag conflict on $release_tag, retrying as $final_tag"
+                  else
+                    cat /tmp/rel_err >&2; rm -f "$tmp_zip" /tmp/rel_err; exit 1
+                  fi
+                done
+                rm -f "$tmp_zip" /tmp/rel_err
                 (( created++ )) || true
-                echo "| \`${release_tag}\` | created |" >> "$GITHUB_STEP_SUMMARY"
+                echo "| \`${final_tag}\` (v${zip_version}) | created |" >> "$GITHUB_STEP_SUMMARY"
               else
                 echo "| \`${release_tag}\` | would create (dry run) |" >> "$GITHUB_STEP_SUMMARY"
               fi
