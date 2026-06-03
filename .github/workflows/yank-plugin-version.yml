@@ -30,7 +30,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -50,9 +50,9 @@ jobs:
       - name: Generate GitHub App token
         if: steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Log fallback to actions token

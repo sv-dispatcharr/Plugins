@@ -35,7 +35,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout config
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 1
@@ -58,9 +58,9 @@ jobs:
       - name: Generate GitHub App token
         if: steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Log fallback to actions token
@@ -105,7 +105,7 @@ jobs:
       has_updated_plugin: ${{ steps.detect.outputs.has_updated_plugin }}
     steps:
       - name: Checkout base branch scripts (trusted)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.repository }}
           ref: ${{ github.event.pull_request.base.ref }}
@@ -120,7 +120,7 @@ jobs:
         run: cp -r .github/scripts /tmp/trusted-scripts
 
       - name: Checkout PR plugins (untrusted content only)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.sha }}
@@ -151,9 +151,9 @@ jobs:
       - name: Generate GitHub App token
         if: steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Log fallback to actions token
@@ -238,7 +238,7 @@ jobs:
     timeout-minutes: 2
     steps:
       - name: Checkout config
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 1
@@ -261,9 +261,9 @@ jobs:
       - name: Generate GitHub App token
         if: steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Log fallback to actions token
@@ -416,7 +416,7 @@ jobs:
       codeql_unscanned_langs: ${{ steps.status.outputs.codeql_unscanned_langs }}
     steps:
       - name: Checkout PR merge commit for analysis
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
           # Minimal placeholder - overridden immediately by the next step
@@ -759,7 +759,7 @@ jobs:
 
       - name: Upload findings detail for PR comment
         if: always() && steps.status.outputs.codeql_status == 'failure'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codeql-findings
           path: codeql-findings.md
@@ -767,7 +767,7 @@ jobs:
 
       - name: Upload medium findings detail for PR comment
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codeql-medium-findings
           path: codeql-medium-findings.md
@@ -775,7 +775,7 @@ jobs:
 
       - name: Upload low findings detail for PR comment
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codeql-low-findings
           path: codeql-low-findings.md
@@ -798,7 +798,7 @@ jobs:
       clamav_infected: ${{ steps.status.outputs.clamav_infected }}
     steps:
       - name: Checkout PR merge commit for scan
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
           sparse-checkout: .gitignore
@@ -819,7 +819,7 @@ jobs:
 
       - name: Cache ClamAV installation (weekly)
         id: cache-clamav-install
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /tmp/clamav-apt
           key: clamav-install-${{ runner.os }}-${{ steps.cache-keys.outputs.week }}
@@ -827,7 +827,7 @@ jobs:
 
       - name: Cache ClamAV virus definitions (daily)
         id: cache-clamav-defs
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /tmp/clamav-db
           key: clamav-defs-${{ runner.os }}-${{ steps.cache-keys.outputs.date }}
@@ -941,7 +941,7 @@ jobs:
 
       - name: Upload ClamAV findings for PR comment
         if: always() && steps.status.outputs.clamav_status == 'failure'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: clamav-findings
           path: clamav-findings.md
@@ -964,9 +964,9 @@ jobs:
       - name: Generate GitHub App token
         if: always() && steps.status.outputs.clamav_status == 'failure' && steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Apply quarantine label
@@ -1000,7 +1000,7 @@ jobs:
         plugin: ${{ fromJson(needs.detect-changes.outputs.matrix) }}
     steps:
       - name: Checkout base branch scripts (trusted)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.repository }}
           ref: ${{ github.event.pull_request.base.ref }}
@@ -1015,7 +1015,7 @@ jobs:
         run: cp -r .github/scripts /tmp/trusted-scripts
 
       - name: Checkout PR plugins (untrusted content only)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.sha }}
@@ -1046,9 +1046,9 @@ jobs:
       - name: Generate GitHub App token
         if: steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Log fallback to actions token
@@ -1073,7 +1073,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload report fragment
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: fragment-${{ matrix.plugin }}
           path: ${{ matrix.plugin }}.fragment.md
@@ -1093,7 +1093,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout scripts
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 1
@@ -1116,9 +1116,9 @@ jobs:
       - name: Generate GitHub App token
         if: steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Log fallback to actions token
@@ -1127,7 +1127,7 @@ jobs:
           printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Download all report fragments
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: fragment-*
           path: fragments
@@ -1135,28 +1135,28 @@ jobs:
         continue-on-error: true
 
       - name: Download CodeQL findings detail
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: codeql-findings
           path: codeql-findings
         continue-on-error: true
 
       - name: Download CodeQL medium findings detail
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: codeql-medium-findings
           path: codeql-medium-findings
         continue-on-error: true
 
       - name: Download CodeQL low findings detail
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: codeql-low-findings
           path: codeql-low-findings
         continue-on-error: true
 
       - name: Download ClamAV findings detail
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: clamav-findings
           path: clamav-findings
@@ -1210,7 +1210,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout scripts
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 1
@@ -1233,9 +1233,9 @@ jobs:
       - name: Generate GitHub App token
         if: steps.config.outputs.use_app == 'true'
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ steps.config.outputs.app_id }}
+          client-id: ${{ steps.config.outputs.app_id }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
 
       - name: Log fallback to actions token
