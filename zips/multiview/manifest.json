@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T19:23:11Z",
+  "generated_at": "2026-06-04T16:03:50Z",
   "manifest": {
     "slug": "multiview",
     "name": "Multiview",
@@ -20,6 +20,7 @@
       "checksum_md5": "825c3b828fbff43f9c81917a8cfce593",
       "checksum_sha256": "91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf",
       "min_dispatcharr_version": "v0.22.0",
+      "max_dispatcharr_version": "v0.25.1",
       "latest_url": "zips/multiview/multiview-latest.zip",
       "url": "zips/multiview/multiview-0.1.0.zip",
       "size": 47
@@ -35,9 +36,10 @@
         "checksum_sha256": "91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf",
         "min_dispatcharr_version": "v0.22.0",
         "url": "zips/multiview/multiview-0.1.0.zip",
-        "size": 47
+        "size": 47,
+        "max_dispatcharr_version": "v0.25.1"
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahdEoAAKCRB+wDprTCI0\nzgVYAP0bKQ7g6Tf7E2aEcYip7cM3+3kuSLxvDd/D9RCIUh6KKQEA4kwaWQGQ19do\n0EaMr5tWpSWWLdOV6c5AbWgrs/hxcQY=\n=+wtR\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiGh5wAKCRB+wDprTCI0\nzhaRAQC6ihTnohfuU6xYm+MzPH0Sb1wfRonDEQ1eU/SEOTYNXQEAol48pQZCQb2l\nPNnjKpEHVI7ORC9L5nyj13jSIj/Elwk=\n=aJb2\n-----END PGP SIGNATURE-----"
 }

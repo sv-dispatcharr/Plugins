@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T21:10:36Z",
+  "generated_at": "2026-06-04T16:03:50Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -152,7 +152,8 @@
         "latest_sha256": "91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf",
         "latest_url": "zips/multiview/multiview-0.1.0.zip",
         "latest_size": 47,
-        "min_dispatcharr_version": "v0.22.0"
+        "min_dispatcharr_version": "v0.22.0",
+        "max_dispatcharr_version": "v0.25.1"
       },
       {
         "slug": "stream-dripper",
@@ -274,5 +275,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah9GzwAKCRB+wDprTCI0\nztW6AQDWFXCStNUHD/KdZq/DxpJxur4Bes+i5NmCiVLgBSBSoAD/bp7tWGg0IwpH\nap01fGBX00J4pzu6RpPKTQ9TnMmDsgw=\n=cwcC\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiGh6QAKCRB+wDprTCI0\nzmX1AP9Z3vdyHkCv3kK6/dFJFgfeJ2c+CJdabAp14D9mBHaU1wD/RAllzDQdb99K\nuadJ4nVBPCIgyIPohX1/24/2y/Rx6gE=\n=7fMy\n-----END PGP SIGNATURE-----"
 }
