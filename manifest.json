@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T02:42:13Z",
+  "generated_at": "2026-06-06T20:09:10Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -265,15 +265,15 @@
         "manifest_url": "zips/youtubearr/manifest.json",
         "author": "jeff-gooch",
         "license": "Unlicense",
-        "last_updated": "2026-05-17T12:52:26-04:00",
-        "latest_version": "1.19.0",
-        "latest_md5": "4ba22e811ea172d005e3d6636705498e",
-        "latest_sha256": "6f39f837cab14821d131ea9990b3e7898dffa022634c727e0df86d08f085dfc0",
-        "latest_url": "zips/youtubearr/youtubearr-1.19.0.zip",
-        "latest_size": 5001,
+        "last_updated": "2026-06-06T16:08:54-04:00",
+        "latest_version": "1.20.0",
+        "latest_md5": "c4276714614be08d1e0788c242f4790e",
+        "latest_sha256": "e1426aaea4268aa5d80c29a5e0b002b323d30da4a08f28df6d8a445fc239e614",
+        "latest_url": "zips/youtubearr/youtubearr-1.20.0.zip",
+        "latest_size": 5007,
         "min_dispatcharr_version": "v0.20.0"
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiOJCAAKCRB+wDprTCI0\nzj0HAP9eTSK5k1SVNTDI2syNVmWILsWKu51weM+pBTxQM8SB3wD+I6VrOI8XcI+2\nRER9y/48NWLFKX4eUxTuh47KM9OxgAM=\n=QpLh\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiR+aQAKCRB+wDprTCI0\nzg4IAQDVF03rVJqMAEDX/skC+R9YCcU8OcdGQ3908PQfdE89pQD8CNtR/fPRYvkT\nRmTzXyjowpyiOxpGv/yu7qB0SEaedA4=\n=tpox\n-----END PGP SIGNATURE-----"
 }
