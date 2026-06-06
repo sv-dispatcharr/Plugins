@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T16:49:50Z",
+  "generated_at": "2026-06-06T02:42:13Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -42,12 +42,12 @@
         "manifest_url": "zips/dispatchwrapparr/manifest.json",
         "author": "jordandalley",
         "license": "MIT",
-        "last_updated": "2026-05-24T17:57:36-04:00",
-        "latest_version": "1.7.1",
-        "latest_md5": "39b03ca5cc4c809bc7e118e5258f2a52",
-        "latest_sha256": "5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a",
-        "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.7.1.zip",
-        "latest_size": 46,
+        "last_updated": "2026-06-05T21:42:02-05:00",
+        "latest_version": "1.7.2",
+        "latest_md5": "443e3e3a5d0868e95e66e31d2a133c8f",
+        "latest_sha256": "00f5f8dad21427cbc317cc9c04d9442a5fe19ebfa6fbb9ebfc059e786dbf61ec",
+        "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.7.2.zip",
+        "latest_size": 47,
         "min_dispatcharr_version": "v0.25.0"
       },
       {
@@ -275,5 +275,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiL+MQAKCRB+wDprTCI0\nzgFtAQCvAF41ThSW1N9CCqssQtMSIz9HCnrpYI6m45emIIc+ywD/cNXHWWtQdxIS\n3a+kLDdWmyrN/mNu/kHgckieAUxBZgY=\n=zddg\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiOJCAAKCRB+wDprTCI0\nzj0HAP9eTSK5k1SVNTDI2syNVmWILsWKu51weM+pBTxQM8SB3wD+I6VrOI8XcI+2\nRER9y/48NWLFKX4eUxTuh47KM9OxgAM=\n=QpLh\n-----END PGP SIGNATURE-----"
 }

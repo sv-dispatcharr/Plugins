@@ -2,7 +2,7 @@
 
 # Dispatchwrapparr
 
-**Version:** `1.7.1` | **Author:** jordandalley | **Last Updated:** May 24 2026, 21:57 UTC
+**Version:** `1.7.2` | **Author:** jordandalley | **Last Updated:** Jun 06 2026, 02:42 UTC
 
 An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
@@ -15,19 +15,20 @@ An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 ### Latest Release
 
 - **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-latest.zip)
-- **Built:** May 24 2026, 21:57 UTC
-- **Source Commit:** [`447eca9`](https://github.com/Dispatcharr/Plugins/commit/447eca99c56ceaa0e90d6f3b430f4027e7329025)
+- **Built:** Jun 06 2026, 02:42 UTC
+- **Source Commit:** [`0d3e0b5`](https://github.com/Dispatcharr/Plugins/commit/0d3e0b5e7f0a11840589e5bd75ae4f2608d1722d)
 
 **Checksums:**
 ```
-MD5:    39b03ca5cc4c809bc7e118e5258f2a52
-SHA256: 5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a
+MD5:    443e3e3a5d0868e95e66e31d2a133c8f
+SHA256: 00f5f8dad21427cbc317cc9c04d9442a5fe19ebfa6fbb9ebfc059e786dbf61ec
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.7.2` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.7.2.zip) | Jun 06 2026, 02:42 UTC | [`0d3e0b5`](https://github.com/Dispatcharr/Plugins/commit/0d3e0b5e7f0a11840589e5bd75ae4f2608d1722d) | 443e3e3a5d0868e95e66e31d2a133c8f | 00f5f8dad21427cbc317cc9c04d9442a5fe19ebfa6fbb9ebfc059e786dbf61ec |
 | `1.7.1` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.7.1.zip) | May 24 2026, 21:57 UTC | [`447eca9`](https://github.com/Dispatcharr/Plugins/commit/447eca99c56ceaa0e90d6f3b430f4027e7329025) | 39b03ca5cc4c809bc7e118e5258f2a52 | 5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a |
 | `1.7.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.7.0.zip) | May 22 2026, 04:46 UTC | [`ef5e336`](https://github.com/Dispatcharr/Plugins/commit/ef5e336dad2396db99535c190be7e6c58d8cb2f9) | 0b2a4e714d6541133b8a8dcf6849d9e0 | 93f3a833c585294fb396442172c399457413a1962607ac5bb01f69ffb3b70fd2 |
 | `1.6.2` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.2.zip) | Apr 28 2026, 01:30 UTC | [`44fbc6b`](https://github.com/Dispatcharr/Plugins/commit/44fbc6b96eebd52ea29b27fc371af3c20f997702) | f33c4a46e9012498858ac1770370888c | 49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b |
@@ -61,6 +62,7 @@ SHA256: 5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a
 ✅ **Extended Stream Type Detection** — Fallback option that checks MIME type of stream URL for streamlink plugin selection\
 ✅ **Streaming Radio Support with Song Information** — Play streaming radio to your TV with song information displayed on your screen for ICY and HLS stream types\
 ✅ **Automated Stream Variant Detection** — Detects streams with no video or no audio and muxes in the missing components for compatibility with most players\
+✅ **Packed audio support for HLS streams** — Automatically extracts timestamp data from Apple ID3 metadata in muxed HLS streams to ensure correct playback\
 ✅ **Support for SSAI/DAI** — Supports streams using SCTE-35 type discontinuities for Server-Side or Dynamic Ad Injection
 
 ---
@@ -218,7 +220,7 @@ For streams where the video and audio use different clearkeys, place them in a c
 
 You do not need to use Dispatchwrapparr in order to use the DASH and HLS DRM plugins. If you wish, you can use the `dashdrm.py` and `hlsdrm.py` plugins on their own with Streamlink.
 
-Credit: A huge thanks to [titus-au](https://github.com/titus-au/streamlink-plugin-dashdrm) whose dashdrm plugin 
+Credit to [titus-au](https://github.com/titus-au/streamlink-plugin-dashdrm) whose work with DASH DRM and streamlink provided the basis by which the Dispatchwrapparr plugins are created.
 
 ## ‼️ Troubleshooting
 
@@ -228,21 +230,15 @@ In Jellyfin there are a number of settings related to m3u8 manifests.
 
 Make sure that all options ("Allow fMP4 transcoding container", "Allow stream sharing", "Auto-loop live streams", "Ignore DTS (decoding timestamp)", and "Read input at native frame rate") are unticked/disabled.
 
-### My stream only plays audio or won't start
-
-Sometimes broadcasters don't include timestamps in the audio stream. Since version 1.6.2, Dispatchwrapparr tells ffmpeg to copy timestamps by default when muxing. There may be occasions where you may need to disable this feature.
-
-See the `-ffmpeg_nocopyts` option or `#ffmpeg_nocopyts=true` url fragment options for more details.
-
 ### My streams stop on ad breaks, why?
 
 This is a technology called SCTE-35 (aka. SSAI or DAI) which injects ads/commercial breaks into streams based on parameters such as geolocation and demographics etc.
 
 While dispatchwrapparr has had some success in dealing with these types of streams, due to the way that some broadcasters implement SCTE-35 it may not always be stable.
 
-### Can I use a custom Streamlink plugin?
+### Can I use a custom Streamlink plugin? (ie. one not included in Streamlink by default)
 
-Yes, maybe. Pass the `-streamlink_plugins` option to Dispatchwrapparr, specifying a custom directory to look for plugins in. In some circumstances, plugins may require Chromium based browsers for session tokens, and/or require additional arguments which Dispatchwrapparr will not pass through. The best option here is to just use Streamlink directly.
+Yes, maybe, but it depends on if you need to pass any custom arguments to it. Pass the `-streamlink_plugins` option to Dispatchwrapparr, specifying a custom directory to look for plugins in. In some circumstances, plugins may require Chromium based browsers for session tokens, and/or require additional arguments which Dispatchwrapparr will not pass through. The best option here is to just use Streamlink directly.
 
 ---
 
