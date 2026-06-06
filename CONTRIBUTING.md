@@ -12,7 +12,32 @@
 
 ## Folder Structure
 
+### External plugin (recommended)
+
+If your plugin has its own GitHub repository, submit a directory with only a `plugin.json`. The registry fetches your ZIP on each version bump from your upstream release URL.
+
+```
+plugins/
+  your-plugin-name/
+    plugin.json       # required; includes source_type and source_url
+    README.md         # optional but recommended
+    logo.png          # optional; displayed in the plugin browser
+```
+
+On merge, the registry downloads the ZIP from your `source_url`, computes its checksums independently, re-hosts it as a GitHub Release on this registry, and GPG-signs the manifest. Clients always download from the registry, never directly from your upstream URL.
+
+**Requirements for external plugins:**
+
+- `source_url` must be an HTTPS URL pointing directly to a downloadable ZIP
+- `source_url` must contain a `{version}` placeholder that is substituted at publish time
+- `repo_url` is required (points to your source repository)
+- The source repository must be public and under an OSI-approved open source license
+
+Each version bump requires a PR to this repository (updating `version` in `plugin.json`), which must be approved and merged before anything is published. How you automate or manage that is up to you.
+
 ### Standard plugin (full source)
+
+For simple scripts or plugins without their own repository or build process.
 
 ```
 plugins/
@@ -24,30 +49,7 @@ plugins/
     logo.png          # optional; displayed in the plugin browser
 ```
 
-All files inside your plugin folder - `main.py`, helper modules, assets, subdirectories - are automatically packaged into a ZIP on merge. There is no separate build step.
-
-### External plugin (source hosted elsewhere)
-
-If your plugin has complex build requirements or publishes releases from its own repository, you can submit a pointer-only directory. Only a `plugin.json` is required:
-
-```
-plugins/
-  your-plugin-name/
-    plugin.json       # required; includes source_type and source_url
-    README.md         # optional but recommended
-    logo.png          # optional; displayed in the plugin browser
-```
-
-On merge, the registry fetches the ZIP from your release, computes its checksums independently, re-hosts it on the releases branch, and GPG-signs the manifest. Clients always download from the registry, never directly from your upstream URL.
-
-**Requirements for external plugins:**
-
-- `source_url` must be an HTTPS URL pointing directly to a downloadable ZIP
-- `source_url` must contain a `{version}` placeholder that is substituted at publish time
-- `repo_url` is required (points to your source repository)
-- The source repository must be public and under an OSI-approved open source license
-
-Each version bump requires a PR to this repository (updating `version` in `plugin.json`), which must be approved and merged before anything is published. How you automate or manage that is up to you.
+Everything in your plugin folder (`main.py`, helper modules, assets, subdirectories) is automatically packaged into a ZIP on merge. No separate build step.
 
 Plugin folder names must be **lowercase-kebab-case** (e.g. `my-plugin-name`).
 
@@ -111,6 +113,22 @@ At least one of `author` or `maintainers` must include your GitHub username. `au
 | `source_type` | `string` | Set to `"external"` to declare this as an external plugin. Omit (or `"local"`) for standard plugins |
 | `source_url` | `string` | Required when `source_type` is `"external"`. Must be a GitHub Releases URL containing a `{version}` placeholder, e.g. `https://github.com/owner/repo/releases/download/v{version}/plugin.zip` |
 
+### Full Example (external plugin, recommended)
+
+```json
+{
+  "name": "My Plugin",
+  "version": "1.2.0",
+  "description": "Does something useful for Dispatcharr",
+  "author": "your-github-username",
+  "license": "MIT",
+  "source_type": "external",
+  "source_url": "https://github.com/your-github-username/my-plugin/releases/download/v{version}/my-plugin.zip",
+  "repo_url": "https://github.com/your-github-username/my-plugin",
+  "discord_thread": "https://discord.com/channels/..."
+}
+```
+
 ### Full Example (standard plugin)
 
 ```json
@@ -122,22 +140,6 @@ At least one of `author` or `maintainers` must include your GitHub username. `au
   "maintainers": ["collaborator-username"],
   "license": "MIT",
   "min_dispatcharr_version": "v0.19.0",
-  "repo_url": "https://github.com/your-github-username/my-plugin",
-  "discord_thread": "https://discord.com/channels/..."
-}
-```
-
-### Full Example (external plugin)
-
-```json
-{
-  "name": "My Plugin",
-  "version": "1.2.0",
-  "description": "Does something useful for Dispatcharr",
-  "author": "your-github-username",
-  "license": "MIT",
-  "source_type": "external",
-  "source_url": "https://github.com/your-github-username/my-plugin/releases/download/v{version}/my-plugin.zip",
   "repo_url": "https://github.com/your-github-username/my-plugin",
   "discord_thread": "https://discord.com/channels/..."
 }
@@ -172,22 +174,23 @@ PRs where the author has no permission for any of the modified plugins are **aut
 
 Once your PR merges to `main`, the publish workflow runs automatically:
 
-**Standard plugins:**
-1. Your plugin is packaged into a versioned ZIP (`your-plugin-1.0.0.zip`) and a latest ZIP (`your-plugin-latest.zip`)
-2. MD5 and SHA256 checksums are computed
-3. `manifest.json` is updated with your plugin's metadata, checksums, and download URLs
-4. A per-plugin `zips/your-plugin-name/README.md` is generated with download links and version history
-5. The releases branch README is regenerated
-6. Up to 10 versioned ZIPs are retained; older ones are pruned
-
 **External plugins:**
 1. The ZIP is downloaded from your `source_url` (with `{version}` substituted)
 2. MD5 and SHA256 checksums are computed by the registry's infrastructure (not trusted from upstream)
-3. The ZIP is re-hosted on the releases branch; clients download from the registry, not your upstream URL
-4. `manifest.json` is updated with checksums and includes `source_url` pointing to the upstream release
-5. Steps 4–6 above apply identically
+3. The ZIP is published as a **GitHub Release** on this registry (tag: `your-plugin-1.0.0`); a `-latest` alias release is also maintained
+4. `manifest.json` is updated with checksums and download URLs pointing to the GitHub Release assets; `source_url` pointing to the upstream release is also recorded
+5. A per-plugin `README.md` is generated with download links and version history
+6. Up to 10 versioned releases are retained; older ones are pruned
 
-Everything is pushed to the [`releases` branch](https://github.com/Dispatcharr/Plugins/tree/releases).
+**Standard plugins:**
+1. Your plugin is packaged into a versioned ZIP
+2. MD5 and SHA256 checksums are computed
+3. The ZIP is published as a **GitHub Release** on this registry (tag: `your-plugin-1.0.0`); a `-latest` alias release is also maintained
+4. `manifest.json` on the releases branch is updated with metadata and download URLs pointing to the GitHub Release assets
+5. A per-plugin `README.md` is generated with download links and version history
+6. Up to 10 versioned releases are retained; older ones are pruned
+
+Manifests and READMEs are committed to the [`releases` branch](https://github.com/Dispatcharr/Plugins/tree/releases). ZIP files are stored as [GitHub Release assets](https://github.com/Dispatcharr/Plugins/releases).
 
 ## Versioning
 
@@ -228,7 +231,7 @@ To request a removal, [open an issue](../../issues/new/choose) using the **Versi
 
 What happens when a version is yanked:
 
-- The versioned ZIP and its manifest entry are removed from the releases branch.
+- The GitHub Release and its asset are deleted; the manifest entry is removed from the releases branch.
 - If it was the latest version, the previous version is automatically promoted to latest and a PR is opened against the source branch to roll back `plugin.json` to match.
 - If it was the only version, the plugin is fully removed from the registry and a PR is opened to remove its source folder.
 - Users who already downloaded the version are unaffected.

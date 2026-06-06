@@ -2,17 +2,18 @@
 set -e
 
 # publish-generate-manifest.sh
-# Generates zips/<plugin>/manifest.json for each plugin and the root manifest.json.
+# Generates metadata/<plugin>/manifest.json for each plugin and the root manifest.json.
 #
 # Called from the releases branch checkout directory by publish-plugins.sh.
 # Required env: SOURCE_BRANCH, RELEASES_BRANCH, GITHUB_REPOSITORY
 
-: "${SOURCE_BRANCH:?}" "${RELEASES_BRANCH:?}" "${GITHUB_REPOSITORY:?}"
+: "${SOURCE_BRANCH:?}" "${RELEASES_BRANCH:?}" "${GITHUB_REPOSITORY:?}" "${GITHUB_TOKEN:?}"
 
 generated_at="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 registry_url="https://github.com/${GITHUB_REPOSITORY}"
 registry_name="${GITHUB_REPOSITORY}"
-root_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${RELEASES_BRANCH}"
+root_url="https://github.com/${GITHUB_REPOSITORY}/releases/download"
+raw_releases_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${RELEASES_BRANCH}"
 
 # GPG signing setup - optional; set GPG_PRIVATE_KEY (armored) and optionally GPG_PASSPHRASE
 gpg_key_id=""
@@ -105,6 +106,11 @@ sign_manifest() {
 plugin_entries=()
 root_entries=()
 
+# Fetch all release tags once to avoid per-plugin API calls
+echo "  Fetching release tags..."
+all_release_tags=$(gh release list --repo "$GITHUB_REPOSITORY" --json tagName --limit 500 \
+  | jq -r '.[].tagName')
+
 for plugin_dir in plugins/*/; do
   plugin_file="$plugin_dir/plugin.json"
   [[ ! -f "$plugin_file" ]] && continue
@@ -118,36 +124,51 @@ for plugin_dir in plugins/*/; do
 
   echo "  $plugin_name"
 
-  latest_url="zips/${plugin_name}/${plugin_name}-latest.zip"
-
   versioned_zips="[]"
   latest_metadata="{}"
+  latest_zip_version=""
   latest_size_kb=0
   latest_size_set=false
 
   # existing per-plugin manifest from previous run - used as metadata fallback
-  existing_manifest_file="zips/$plugin_name/manifest.json"
+  existing_manifest_file="metadata/$plugin_name/manifest.json"
+  mkdir -p "metadata/$plugin_name"
 
-  while IFS= read -r zipfile; do
-    zip_basename=$(basename "$zipfile")
-    zip_version=$(echo "$zip_basename" | sed "s/${plugin_name}-\(.*\)\.zip/\1/")
-    zip_url="zips/${plugin_name}/${zip_basename}"
-    zip_size_bytes=$(stat -f%z "$zipfile" 2>/dev/null || stat -c%s "$zipfile" 2>/dev/null || echo 0)
-    zip_size_kb=$(( zip_size_bytes / 1024 ))
-    if [[ "$latest_size_set" == "false" ]]; then
-      latest_size_kb=$zip_size_kb
-      latest_size_set=true
-    fi
+  # Discover published versions from GitHub Releases (newest first)
+  versioned_tags=$(echo "$all_release_tags" \
+    | grep "^${plugin_name}-" \
+    | grep -v "^${plugin_name}-latest$" \
+    | sed "s/^${plugin_name}-//" \
+    | sort -V -r \
+    | sed "s/^/${plugin_name}-/")
+
+  while IFS= read -r release_tag; do
+    [[ -z "$release_tag" ]] && continue
+    zip_version="${release_tag#${plugin_name}-}"
+    zip_url="${plugin_name}-${zip_version}/${plugin_name}-${zip_version}.zip"
+    # Strip a plain-integer migration retry suffix (e.g. 1.0.0-1 -> 1.0.0) so the
+    # canonical version is used for metadata lookup and manifest entries.
+    canonical_version=$(sed 's/-[0-9][0-9]*$//' <<< "$zip_version")
 
     # Fresh metadata from this run takes priority; fall back to existing manifest
-    fresh_meta_file="${BUILD_META_DIR:-}/$plugin_key/${plugin_key}-${zip_version}.json"
+    fresh_meta_file="${BUILD_META_DIR:-}/$plugin_key/${plugin_key}-${canonical_version}.json"
     metadata="{}"
     if [[ -n "${BUILD_META_DIR:-}" && -f "$fresh_meta_file" ]]; then
       metadata=$(cat "$fresh_meta_file")
     elif [[ -f "$existing_manifest_file" ]]; then
-      meta_from_manifest=$(jq -c --arg v "$zip_version" \
+      meta_from_manifest=$(jq -c --arg v "$canonical_version" \
         '.manifest.versions[]? | select(.version == $v)' "$existing_manifest_file" 2>/dev/null || true)
       [[ -n "$meta_from_manifest" ]] && metadata="$meta_from_manifest"
+    fi
+
+    # Size: prefer fresh metadata (stored by build-zips.sh), fall back to existing manifest
+    zip_size_kb=0
+    if [[ "$metadata" != "{}" ]]; then
+      zip_size_kb=$(echo "$metadata" | jq -r '.size_kb // .size // 0')
+    fi
+    if [[ "$latest_size_set" == "false" ]]; then
+      latest_size_kb=$zip_size_kb
+      latest_size_set=true
     fi
 
     if [[ "$metadata" != "{}" ]]; then
@@ -168,13 +189,19 @@ for plugin_dir in plugins/*/; do
         } | with_entries(select(.value != null))]' <<< "$versioned_zips")
       if [[ "$latest_metadata" == "{}" ]]; then
         latest_metadata="$metadata"
+        latest_zip_version="$zip_version"
       fi
     else
-      versioned_zips=$(jq --arg version "$zip_version" --arg url "$zip_url" --argjson size "$zip_size_kb" \
+      versioned_zips=$(jq --arg version "$canonical_version" --arg url "$zip_url" --argjson size "$zip_size_kb" \
         '. + [{version: $version, url: $url, size: $size}]' <<< "$versioned_zips")
     fi
-  done < <(ls -1 "zips/$plugin_name/${plugin_name}"-*.zip 2>/dev/null \
-      | grep -v latest | sort -t- -k2 -V -r)
+  done <<< "$versioned_tags"
+
+  # Derive latest_url from the newest versioned release (sorted newest-first above).
+  # Use the actual tag-derived zip_version (which may include a retry suffix) for the URL,
+  # so the URL resolves to the real release asset.
+  latest_url=""
+  [[ -n "$latest_zip_version" ]] && latest_url="${plugin_name}-${latest_zip_version}/${plugin_name}-${latest_zip_version}.zip"
 
   # Overwrite min/max_dispatcharr_version for the current version's entry from plugin.json,
   # so metadata-only updates (no version bump) are reflected without a rebuild.
@@ -231,10 +258,10 @@ for plugin_dir in plugins/*/; do
     } | with_entries(select(.value != null))' \
     "$plugin_file")
 
-  if write_manifest_if_changed "zips/$plugin_name/manifest.json" "$plugin_entry"; then
-    sign_manifest "zips/$plugin_name/manifest.json"
-  elif [[ -n "$gpg_key_id" && "$gpg_signing_failed" -eq 0 ]] && ! sig_is_current "zips/$plugin_name/manifest.json"; then
-    sign_manifest "zips/$plugin_name/manifest.json"
+  if write_manifest_if_changed "metadata/$plugin_name/manifest.json" "$plugin_entry"; then
+    sign_manifest "metadata/$plugin_name/manifest.json"
+  elif [[ -n "$gpg_key_id" && "$gpg_signing_failed" -eq 0 ]] && ! sig_is_current "metadata/$plugin_name/manifest.json"; then
+    sign_manifest "metadata/$plugin_name/manifest.json"
   fi
   plugin_entries+=("$plugin_entry")
 
@@ -249,7 +276,8 @@ for plugin_dir in plugins/*/; do
     desc_trimmed="$desc_raw"
   fi
 
-  plugin_manifest_url="zips/${plugin_name}/manifest.json"
+  # manifest_url is absolute: per-plugin manifest stays in the releases branch (raw.githubusercontent.com)
+  plugin_manifest_url="${raw_releases_url}/metadata/${plugin_name}/manifest.json"
 
   root_entry=$(jq -n \
     --argjson latest_metadata "$latest_metadata" \
@@ -264,6 +292,7 @@ for plugin_dir in plugins/*/; do
     --argjson latest_size_kb "$latest_size_kb" \
     --arg min_da_version "$min_da_version" \
     --arg max_da_version "$max_da_version" \
+    --arg latest_url "$latest_url" \
     '{
       slug: $slug,
       name: $name,
@@ -276,7 +305,7 @@ for plugin_dir in plugins/*/; do
       latest_version: ($latest_metadata.version // null),
       latest_md5: ($latest_metadata.checksum_md5 // null),
       latest_sha256: ($latest_metadata.checksum_sha256 // null),
-      latest_url: ($versioned_zips[0].url // null),
+      latest_url: $latest_url,
       latest_size: (if $latest_size_kb > 0 then $latest_size_kb else null end),
       min_dispatcharr_version: (if $min_da_version != "" then $min_da_version else null end),
       max_dispatcharr_version: (if $max_da_version != "" then $max_da_version else null end)
@@ -317,7 +346,7 @@ if [[ "$gpg_signing_failed" -eq 1 ]] || [[ -z "$gpg_key_id" ]]; then
   while IFS= read -r -d '' _f; do
     _tmp=$(mktemp)
     jq 'del(.signature)' "$_f" > "$_tmp" && mv "$_tmp" "$_f" || rm -f "$_tmp"
-  done < <(find zips -name "manifest.json" -print0 2>/dev/null)
+  done < <(find metadata -name "manifest.json" -print0 2>/dev/null)
   _tmp=$(mktemp)
   jq 'del(.signature)' manifest.json > "$_tmp" && mv "$_tmp" manifest.json || rm -f "$_tmp"
   unset _f _tmp

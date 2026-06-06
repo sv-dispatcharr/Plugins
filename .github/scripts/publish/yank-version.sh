@@ -68,18 +68,22 @@ else
   exit 1
 fi
 
-ZIP_DIR="zips/$YANK_PLUGIN"
-TARGET_ZIP="$ZIP_DIR/${YANK_PLUGIN}-${YANK_VERSION}.zip"
+ZIP_DIR="metadata/$YANK_PLUGIN"
+RELEASE_TAG="${YANK_PLUGIN}-${YANK_VERSION}"
 PLUGIN_MANIFEST="$ZIP_DIR/manifest.json"
 
 # --- Validate ---
-if [[ ! -f "$TARGET_ZIP" ]]; then
-  echo "::error::$TARGET_ZIP not found on the releases branch. Nothing to yank."
+if ! gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+  echo "::error::GitHub Release $RELEASE_TAG not found. Nothing to yank."
   exit 1
 fi
 
-# Count existing versioned ZIPs (excluding -latest)
-REMAINING=$(ls -1 "$ZIP_DIR/${YANK_PLUGIN}"-*.zip 2>/dev/null | grep -v '\-latest\.zip' | grep -v "/${YANK_PLUGIN}-${YANK_VERSION}\.zip" || true)
+# Count remaining versioned releases (excluding the one being yanked and -latest)
+REMAINING=$(gh release list --repo "$GITHUB_REPOSITORY" --json tagName --limit 500 \
+  | jq -r '.[].tagName' \
+  | grep "^${YANK_PLUGIN}-" \
+  | grep -v "^${YANK_PLUGIN}-latest$" \
+  | grep -v "^${RELEASE_TAG}$" || true)
 REMAINING_COUNT=$(echo "$REMAINING" | grep -c . || true)
 
 # Determine if we are yanking the current latest
@@ -93,10 +97,10 @@ IS_LATEST=false
 IS_LAST_VERSION=false
 [[ "$REMAINING_COUNT" -eq 0 ]] && IS_LAST_VERSION=true
 
-echo "  Current latest : ${CURRENT_LATEST:-unknown}"
-echo "  Is latest      : $IS_LATEST"
-echo "  Remaining ZIPs : $REMAINING_COUNT"
-echo "  Is last version: $IS_LAST_VERSION"
+echo "  Current latest   : ${CURRENT_LATEST:-unknown}"
+echo "  Is latest        : $IS_LATEST"
+echo "  Remaining releases: $REMAINING_COUNT"
+echo "  Is last version  : $IS_LAST_VERSION"
 
 # --- Fetch source branch + plugins dir (needed by manifest + readme scripts) ---
 git fetch origin "$SOURCE_BRANCH"
@@ -107,21 +111,23 @@ SOURCE_TYPE=$(jq -r '.source_type // "local"' "plugins/$YANK_PLUGIN/plugin.json"
 
 # --- Perform the yank ---
 if $IS_LAST_VERSION; then
-  echo "Last version - removing entire zips/$YANK_PLUGIN/ directory."
+  echo "Last version - deleting all GitHub Releases for $YANK_PLUGIN."
+  gh release delete "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
   rm -rf "$ZIP_DIR"
 else
-  echo "Removing $TARGET_ZIP"
-  rm "$TARGET_ZIP"
+  echo "Deleting GitHub Release $RELEASE_TAG"
+  gh release delete "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
 
   if $IS_LATEST; then
-    NEW_LATEST_ZIP=$(ls -1 "$ZIP_DIR/${YANK_PLUGIN}"-*.zip 2>/dev/null | grep -v '\-latest\.zip' | sort -t- -k2 -V -r | head -1 || true)
-    if [[ -z "$NEW_LATEST_ZIP" ]]; then
+    NEW_LATEST_VERSION=$(echo "$REMAINING" \
+      | sed "s/^${YANK_PLUGIN}-//" \
+      | sort -V -r \
+      | head -1)
+    if [[ -z "$NEW_LATEST_VERSION" ]]; then
       echo "::error::Could not find a replacement version to promote to latest."
       exit 1
     fi
-    NEW_LATEST_VERSION=$(basename "$NEW_LATEST_ZIP" | sed "s/${YANK_PLUGIN}-\(.*\)\.zip/\1/")
-    echo "Promoting $NEW_LATEST_VERSION to latest"
-    cp "$NEW_LATEST_ZIP" "$ZIP_DIR/${YANK_PLUGIN}-latest.zip"
+    echo "Promoting $NEW_LATEST_VERSION to latest (manifest will be updated by generate-manifest.sh)"
   fi
 fi
 
@@ -146,15 +152,14 @@ echo "=== Committing ==="
 rm -rf plugins
 git rm -rf --cached plugins 2>/dev/null || true
 
-git add zips manifest.json README.md
+git add metadata manifest.json README.md
 
 if git diff --cached --quiet; then
   echo "No changes to commit - was this version already absent?"
 else
   git commit -m "Yank ${YANK_PLUGIN} v${YANK_VERSION}
 
-Refs #${YANK_ISSUE}
-[skip ci]"
+Refs #${YANK_ISSUE}"
   RELEASES_COMMIT=$(git rev-parse --short HEAD)
   git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $RELEASES_BRANCH
   echo "Successfully yanked ${YANK_PLUGIN} v${YANK_VERSION} from ${RELEASES_BRANCH}"
