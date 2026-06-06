@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T17:13:29Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "embyfin-stream-cleanup",
     "name": "Embyfin Stream Cleanup",
@@ -20,8 +20,8 @@
       "checksum_md5": "b898fd7cfbf60bb0807c659f1c26be5f",
       "checksum_sha256": "f1f94d9a8cb6b311ac5e864b9e810a64017ee1bf85027e41a18144cf52292969",
       "min_dispatcharr_version": "v0.22.0",
-      "latest_url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-latest.zip",
-      "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.2.0.zip",
+      "latest_url": "embyfin-stream-cleanup-1.2.0/embyfin-stream-cleanup-1.2.0.zip",
+      "url": "embyfin-stream-cleanup-1.2.0/embyfin-stream-cleanup-1.2.0.zip",
       "size": 1567
     },
     "versions": [
@@ -34,7 +34,7 @@
         "checksum_md5": "b898fd7cfbf60bb0807c659f1c26be5f",
         "checksum_sha256": "f1f94d9a8cb6b311ac5e864b9e810a64017ee1bf85027e41a18144cf52292969",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.2.0.zip",
+        "url": "embyfin-stream-cleanup-1.2.0/embyfin-stream-cleanup-1.2.0.zip",
         "size": 1567
       },
       {
@@ -46,7 +46,7 @@
         "checksum_md5": "b5c83e690b790616134e9d954fbd81ef",
         "checksum_sha256": "1af5193583bcb037c00012b157fb2c52c0c0462c9beca9da3f26c91033eec47a",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.1.2.zip",
+        "url": "embyfin-stream-cleanup-1.1.2/embyfin-stream-cleanup-1.1.2.zip",
         "size": 1567
       },
       {
@@ -58,7 +58,7 @@
         "checksum_md5": "91600ee7bd50ee34715eee4cfab52320",
         "checksum_sha256": "362c6c061bb016caaf756790d45b8aceecbff6201e6f1fb6df30d115608c797b",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.1.1.zip",
+        "url": "embyfin-stream-cleanup-1.1.1/embyfin-stream-cleanup-1.1.1.zip",
         "size": 1566
       },
       {
@@ -70,7 +70,7 @@
         "checksum_md5": "56757faccd9078f600df8010c877248b",
         "checksum_sha256": "c348327c1a17080481d4c3307802a67b2edb918e8b00f0e52ef8baf5102c1d5c",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.1.0.zip",
+        "url": "embyfin-stream-cleanup-1.1.0/embyfin-stream-cleanup-1.1.0.zip",
         "size": 1565
       },
       {
@@ -82,7 +82,7 @@
         "checksum_md5": "000da3ce36a2d0026a1816092cb5cf0e",
         "checksum_sha256": "c36760c599599e76d510bb648e207244921ceb53fbf25b60fdfc865682c438ab",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.0.1.zip",
+        "url": "embyfin-stream-cleanup-1.0.1/embyfin-stream-cleanup-1.0.1.zip",
         "size": 1565
       },
       {
@@ -94,10 +94,10 @@
         "checksum_md5": "bf39bfed86009314dd91bc5138415dfc",
         "checksum_sha256": "6d4b1fa35595e8032ab46beb6e893e319bbd621cf73b0ac06caa96aacedeea70",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.0.0.zip",
+        "url": "embyfin-stream-cleanup-1.0.0/embyfin-stream-cleanup-1.0.0.zip",
         "size": 31
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagdUOgAKCRB+wDprTCI0\nzprJAP0QgKdSgGpdRVHzi/auMoKxQYHO2PNCw4ujpjWAFPiieAEA15SiY+1NZGB1\nDAc9gn/kRpp6wn8qd8A8kHNPyhOKXAM=\n=aGxS\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzAAKCRB+wDprTCI0\nzlltAQDK+RhxkAKn62a9rcXMv+F1QtQJgodsMKXxjN42SRHkXAEA+2N9Sjs6RC9i\n5FOKhoOYyj+/Q0Vz7eV8wzkxuHXokgI=\n=faYe\n-----END PGP SIGNATURE-----"
 }

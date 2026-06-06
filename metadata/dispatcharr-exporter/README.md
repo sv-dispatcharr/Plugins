@@ -14,7 +14,7 @@ Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitori
 
 ### Latest Release
 
-- **Download:** [`dispatcharr-exporter-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip)
+- **Download:** [`dispatcharr-exporter-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip)
 - **Built:** May 10 2026, 18:26 UTC
 - **Source Commit:** [`b70abd6`](https://github.com/Dispatcharr/Plugins/commit/b70abd6df9cd520bcc28ad7fced085be135897a9)
 
@@ -28,9 +28,9 @@ SHA256: 89c83cbf9a257ad278370920451bdb9ceee5868983c8b923bd10674c7e739730
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `3.0.1` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-3.0.1.zip) | May 10 2026, 18:26 UTC | [`b70abd6`](https://github.com/Dispatcharr/Plugins/commit/b70abd6df9cd520bcc28ad7fced085be135897a9) | 35f2f95db36ec3a75f818f102c68ec4f | 89c83cbf9a257ad278370920451bdb9ceee5868983c8b923bd10674c7e739730 |
-| `3.0.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip) | Apr 18 2026, 19:12 UTC | [`d7eefa5`](https://github.com/Dispatcharr/Plugins/commit/d7eefa54630e8de25a980c5a894c35aa9c8e8c15) | 5b01ef6c427ee5110562934ff852e95f | 9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005 |
-| `2.4.2` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip) | Mar 31 2026, 19:20 UTC | [`38c7af8`](https://github.com/Dispatcharr/Plugins/commit/38c7af86f91d7c642ceeab658d2a4689aed0fad8) | 43bd4ec43fb699d7c114da3bc53834f2 | 7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21 |
+| `3.0.1` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip) | May 10 2026, 18:26 UTC | [`b70abd6`](https://github.com/Dispatcharr/Plugins/commit/b70abd6df9cd520bcc28ad7fced085be135897a9) | 35f2f95db36ec3a75f818f102c68ec4f | 89c83cbf9a257ad278370920451bdb9ceee5868983c8b923bd10674c7e739730 |
+| `3.0.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatcharr-exporter-3.0.0/dispatcharr-exporter-3.0.0.zip) | Apr 18 2026, 19:12 UTC | [`d7eefa5`](https://github.com/Dispatcharr/Plugins/commit/d7eefa54630e8de25a980c5a894c35aa9c8e8c15) | 5b01ef6c427ee5110562934ff852e95f | 9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005 |
+| `2.4.2` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatcharr-exporter-2.4.2/dispatcharr-exporter-2.4.2.zip) | Mar 31 2026, 19:20 UTC | [`38c7af8`](https://github.com/Dispatcharr/Plugins/commit/38c7af86f91d7c642ceeab658d2a4689aed0fad8) | 43bd4ec43fb699d7c114da3bc53834f2 | 7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21 |
 
 ---
 

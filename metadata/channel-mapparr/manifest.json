@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T17:06:43Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "channel-mapparr",
     "name": "Channel Mapparr",
@@ -20,8 +20,8 @@
       "checksum_md5": "aa387c179e2a81f814a1e19aa9d2f6e0",
       "checksum_sha256": "0a3d23345096d4552b47ec57018322b48e35c72d34f21aa3c7a924769648bf27",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "zips/channel-mapparr/channel-mapparr-latest.zip",
-      "url": "zips/channel-mapparr/channel-mapparr-1.26.1430910.zip",
+      "latest_url": "channel-mapparr-1.26.1430910/channel-mapparr-1.26.1430910.zip",
+      "url": "channel-mapparr-1.26.1430910/channel-mapparr-1.26.1430910.zip",
       "size": 528
     },
     "versions": [
@@ -34,7 +34,7 @@
         "checksum_md5": "aa387c179e2a81f814a1e19aa9d2f6e0",
         "checksum_sha256": "0a3d23345096d4552b47ec57018322b48e35c72d34f21aa3c7a924769648bf27",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/channel-mapparr/channel-mapparr-1.26.1430910.zip",
+        "url": "channel-mapparr-1.26.1430910/channel-mapparr-1.26.1430910.zip",
         "size": 528
       },
       {
@@ -46,10 +46,10 @@
         "checksum_md5": "10f435ba7aeb6cd57a19ed25a2a19a2a",
         "checksum_sha256": "90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/channel-mapparr/channel-mapparr-1.26.1001200.zip",
+        "url": "channel-mapparr-1.26.1001200/channel-mapparr-1.26.1001200.zip",
         "size": 511
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahHeowAKCRB+wDprTCI0\nzjySAP4yD9314nl0XzXr3/z4frf56qZRZQiTzKZxT/gVmbMpIgD/bYI/r/GV9Wg3\nQ3uIabqu/76/7ipaN+ZXx21/2mM7dg4=\n=NeyT\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHQEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgygAKCRB+wDprTCI0\nzrnUAPdbuK/0xgl0nffLquxnIWvIN/WV6UvUCSMxgcL6sjpPAP4xcxO2RykZkFEf\nrcolkLgocoMHozxzZMB6YrzxTxThAw==\n=teRk\n-----END PGP SIGNATURE-----"
 }

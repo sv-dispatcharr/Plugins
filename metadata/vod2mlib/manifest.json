@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T16:49:50Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "vod2mlib",
     "name": "VOD to Media Library",
@@ -20,8 +20,8 @@
       "checksum_sha256": "6bd4e227461f780415e52d88f34de89b8e8c1fce5de9db32c418a74a52eac15a",
       "min_dispatcharr_version": "v0.24.0",
       "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.15.1/plugin-vod2mlib-v1.15.1.zip",
-      "latest_url": "zips/vod2mlib/vod2mlib-latest.zip",
-      "url": "zips/vod2mlib/vod2mlib-1.15.1.zip",
+      "latest_url": "vod2mlib-1.15.1/vod2mlib-1.15.1.zip",
+      "url": "vod2mlib-1.15.1/vod2mlib-1.15.1.zip",
       "size": 148
     },
     "versions": [
@@ -33,7 +33,7 @@
         "checksum_sha256": "6bd4e227461f780415e52d88f34de89b8e8c1fce5de9db32c418a74a52eac15a",
         "min_dispatcharr_version": "v0.24.0",
         "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.15.1/plugin-vod2mlib-v1.15.1.zip",
-        "url": "zips/vod2mlib/vod2mlib-1.15.1.zip",
+        "url": "vod2mlib-1.15.1/vod2mlib-1.15.1.zip",
         "size": 148
       },
       {
@@ -44,7 +44,7 @@
         "checksum_sha256": "c4b481de517a71dcb0a17102ab3f37eec7587e991cf1d195a973f3e55ffb6ede",
         "min_dispatcharr_version": "v0.24.0",
         "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.15.0/plugin-vod2mlib-v1.15.0.zip",
-        "url": "zips/vod2mlib/vod2mlib-1.15.0.zip",
+        "url": "vod2mlib-1.15.0/vod2mlib-1.15.0.zip",
         "size": 145
       },
       {
@@ -55,10 +55,10 @@
         "checksum_sha256": "1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7",
         "min_dispatcharr_version": "v0.24.0",
         "source_url": "https://github.com/R3XCHRIS/VOD2MLIB/releases/download/v1.14.3/plugin-vod2mlib-v1.14.3.zip",
-        "url": "zips/vod2mlib/vod2mlib-1.14.3.zip",
+        "url": "vod2mlib-1.14.3/vod2mlib-1.14.3.zip",
         "size": 142
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiL+MQAKCRB+wDprTCI0\nzvszAP9YGeJDZj1IH1Pz+fKGzujkRdvkO1hJokXIVI/J8uWcEQD9Fj8KU8Mq98v4\nSYDSZBA06XtbrQ1N9G5K+wHwE5k0bQc=\n=d/hX\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSg0AAKCRB+wDprTCI0\nzm2JAP4/mRW1CsGatIOVKE80Zwp+cmbOLmbbfT8ZRdH50SQQewD/cHhILzS90H1B\ngEjIByLA11uVgPSm1Ue4Yviso6anTQo=\n=bOLB\n-----END PGP SIGNATURE-----"
 }

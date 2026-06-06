@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T17:16:51Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "twitcharr",
     "name": "Twitcharr",
@@ -22,8 +22,8 @@
       "checksum_md5": "34217d30accf77de447452a19e0b4e94",
       "checksum_sha256": "e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe",
       "source_url": "https://github.com/eliasbruno124-dev/Twitcharr/releases/download/v1.2.25/twitcharr.zip",
-      "latest_url": "zips/twitcharr/twitcharr-latest.zip",
-      "url": "zips/twitcharr/twitcharr-1.2.25.zip",
+      "latest_url": "twitcharr-1.2.25/twitcharr-1.2.25.zip",
+      "url": "twitcharr-1.2.25/twitcharr-1.2.25.zip",
       "size": 51
     },
     "versions": [
@@ -34,10 +34,10 @@
         "checksum_md5": "34217d30accf77de447452a19e0b4e94",
         "checksum_sha256": "e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe",
         "source_url": "https://github.com/eliasbruno124-dev/Twitcharr/releases/download/v1.2.25/twitcharr.zip",
-        "url": "zips/twitcharr/twitcharr-1.2.25.zip",
+        "url": "twitcharr-1.2.25/twitcharr-1.2.25.zip",
         "size": 51
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah8QBQAKCRB+wDprTCI0\nzppqAQCZjlD6Qk7Z8ekySWd1QAKgslIE6NC8oEJ6utW2bsG5gwEA4NWlvxzdWJCp\n4jUll3ZRzLcBu3+SElK62wfveGB1bww=\n=j0jy\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzwAKCRB+wDprTCI0\nzsKVAQDG7ZSMYwl9ZqNC4tJzX4UmMEyBlQIFRVZkR1XmjO789AEAqs0UwRP5DmNq\nkOA1yAk//aBEcssceygYtfMz8NZENwg=\n=ulkW\n-----END PGP SIGNATURE-----"
 }

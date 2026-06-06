@@ -12,7 +12,7 @@ Dynamic text overlays for IPTV channels - SiriusXM Now Playing, Sports Ticker, C
 
 ### Latest Release
 
-- **Download:** [`tickarr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/tickarr/tickarr-latest.zip)
+- **Download:** [`tickarr-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/tickarr-0.1.01/tickarr-0.1.01.zip)
 - **Built:** Jun 02 2026, 21:10 UTC
 
 **Checksums:**
@@ -25,8 +25,8 @@ SHA256: c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `0.1.01` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/tickarr/tickarr-0.1.01.zip) | Jun 02 2026, 21:10 UTC | - | c3e3ff46d9eacd66bad4aaaa3c954103 | c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34 |
-| `0.1.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/tickarr/tickarr-0.1.0.zip) | May 23 2026, 17:15 UTC | - | 15b0c5a2fb0c9d7fefd5ef4129bc8ea1 | e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858 |
+| `0.1.01` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/tickarr-0.1.01/tickarr-0.1.01.zip) | Jun 02 2026, 21:10 UTC | - | c3e3ff46d9eacd66bad4aaaa3c954103 | c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34 |
+| `0.1.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/tickarr-0.1.0/tickarr-0.1.0.zip) | May 23 2026, 17:15 UTC | - | 15b0c5a2fb0c9d7fefd5ef4129bc8ea1 | e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858 |
 
 ---
 

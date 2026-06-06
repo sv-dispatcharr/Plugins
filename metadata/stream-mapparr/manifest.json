@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T19:55:52Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "stream-mapparr",
     "name": "Stream-Mapparr",
@@ -19,8 +19,8 @@
       "checksum_md5": "f86b589e4c80bf08a75bed8987ce9a6c",
       "checksum_sha256": "bf65e3f1051cdd25f219e4e42e5d890c805c8ea17f9787a79d7e6ef2a966738e",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip",
-      "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
+      "latest_url": "stream-mapparr-1.26.1082140/stream-mapparr-1.26.1082140.zip",
+      "url": "stream-mapparr-1.26.1082140/stream-mapparr-1.26.1082140.zip",
       "size": 391
     },
     "versions": [
@@ -33,7 +33,7 @@
         "checksum_md5": "f86b589e4c80bf08a75bed8987ce9a6c",
         "checksum_sha256": "bf65e3f1051cdd25f219e4e42e5d890c805c8ea17f9787a79d7e6ef2a966738e",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
+        "url": "stream-mapparr-1.26.1082140/stream-mapparr-1.26.1082140.zip",
         "size": 391
       },
       {
@@ -45,10 +45,10 @@
         "checksum_md5": "c3b1a7d8db02ea9416f2cc97d8c05479",
         "checksum_sha256": "be311ee92aacc4e45b680cdf08ab66bd0d0a62faf0af41465ef546dff98f63b2",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
+        "url": "stream-mapparr-0.9.0/stream-mapparr-0.9.0.zip",
         "size": 319
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSwAKCRB+wDprTCI0\nzsQGAQCL/xm96j+ItxfGL8OyKr/EaG70hv1Q1NfTyINxuqEL2QEAvXq87AwTJQPp\nH/hrNLa/ophRXBPu7RornI3PdW/7jgU=\n=w9FO\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzwAKCRB+wDprTCI0\nzqeJAQD38NEq9x23HZX99PYeOeOwqOGlspSUpZpzmqIil3I4ogEApR1K0IZ6r9Pq\nems18zfx5NaopEaL2DH0IqDT5PZiWA0=\n=dzaM\n-----END PGP SIGNATURE-----"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T20:07:46Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "telegram-alerts",
     "name": "Telegram Alerts",
@@ -20,8 +20,8 @@
       "checksum_sha256": "19728ce0426f3c98b927ea1e1737a97c8f9de2d8b092e0c1f48bec066f757d11",
       "min_dispatcharr_version": "v0.20.0",
       "source_url": "https://github.com/R3XCHRIS/telegram-alerts/releases/download/v0.4.5/plugin-telegram-alerts-v0.4.5.zip",
-      "latest_url": "zips/telegram-alerts/telegram-alerts-latest.zip",
-      "url": "zips/telegram-alerts/telegram-alerts-0.4.5.zip",
+      "latest_url": "telegram-alerts-0.4.5/telegram-alerts-0.4.5.zip",
+      "url": "telegram-alerts-0.4.5/telegram-alerts-0.4.5.zip",
       "size": 510
     },
     "versions": [
@@ -33,10 +33,10 @@
         "checksum_sha256": "19728ce0426f3c98b927ea1e1737a97c8f9de2d8b092e0c1f48bec066f757d11",
         "min_dispatcharr_version": "v0.20.0",
         "source_url": "https://github.com/R3XCHRIS/telegram-alerts/releases/download/v0.4.5/plugin-telegram-alerts-v0.4.5.zip",
-        "url": "zips/telegram-alerts/telegram-alerts-0.4.5.zip",
+        "url": "telegram-alerts-0.4.5/telegram-alerts-0.4.5.zip",
         "size": 510
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah3mlAAKCRB+wDprTCI0\nzmLCAP44StfxST/eUIS7lMpaDa15HA25dyPvuM6O+TzkFZA0gAD/YTne6U8NuwoZ\nafVJoM7S/Dq0l7d5d0nRMopkjgdtNQg=\n=SFwF\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzwAKCRB+wDprTCI0\nzmn4AP9L3I6duSg+gQZDRuLJoDQpj3IRZRFTLw1t6I08e75AuQD+P/uv9aMqVJbz\nu3Rsh7m+wu2ccJyijTNIj/hIIBDdXw8=\n=LAOW\n-----END PGP SIGNATURE-----"
 }

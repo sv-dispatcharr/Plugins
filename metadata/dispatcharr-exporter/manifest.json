@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-10T18:26:47Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "dispatcharr-exporter",
     "name": "Dispatcharr Exporter",
@@ -20,8 +20,8 @@
       "checksum_md5": "35f2f95db36ec3a75f818f102c68ec4f",
       "checksum_sha256": "89c83cbf9a257ad278370920451bdb9ceee5868983c8b923bd10674c7e739730",
       "min_dispatcharr_version": "v0.22.0",
-      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
-      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.1.zip",
+      "latest_url": "dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip",
+      "url": "dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip",
       "size": 140
     },
     "versions": [
@@ -34,7 +34,7 @@
         "checksum_md5": "35f2f95db36ec3a75f818f102c68ec4f",
         "checksum_sha256": "89c83cbf9a257ad278370920451bdb9ceee5868983c8b923bd10674c7e739730",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.1.zip",
+        "url": "dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip",
         "size": 140
       },
       {
@@ -46,7 +46,7 @@
         "checksum_md5": "5b01ef6c427ee5110562934ff852e95f",
         "checksum_sha256": "9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+        "url": "dispatcharr-exporter-3.0.0/dispatcharr-exporter-3.0.0.zip",
         "size": 139
       },
       {
@@ -58,10 +58,10 @@
         "checksum_md5": "43bd4ec43fb699d7c114da3bc53834f2",
         "checksum_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
         "min_dispatcharr_version": "v0.19.0",
-        "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
+        "url": "dispatcharr-exporter-2.4.2/dispatcharr-exporter-2.4.2.zip",
         "size": 142
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagDN6AAKCRB+wDprTCI0\nziEsAP9taB9nNzeZsS+rpEHihZRHjZ5Y/aAFZ/UVYo3Hx1z7WAEA8zPUcUhLMy8A\nqwokd9WI3wxQ58e+gQPDgahyItLQQAc=\n=BqkO\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgywAKCRB+wDprTCI0\nzjwvAQDnI3xHnS8GYqEfu/UQAAFBylZPLwbF3cot3NCsy/N1uwD9FyVL/AmEqJ/Z\n4XztD8sPQDOzOMGTHKYAIUIoUIGw5As=\n=iRVX\n-----END PGP SIGNATURE-----"
 }

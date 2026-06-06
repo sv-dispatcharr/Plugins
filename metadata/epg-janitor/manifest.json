@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T14:19:19Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "epg-janitor",
     "name": "EPG Janitor",
@@ -23,8 +23,8 @@
       "checksum_md5": "d50bf65d2cd18488c6be7f652a36e90a",
       "checksum_sha256": "55cc84fa57d509b3eefea3511ffbb9705ee5dd2f1994f6c247e6ee6372484ba0",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "zips/epg-janitor/epg-janitor-latest.zip",
-      "url": "zips/epg-janitor/epg-janitor-1.26.1420824.zip",
+      "latest_url": "epg-janitor-1.26.1420824/epg-janitor-1.26.1420824.zip",
+      "url": "epg-janitor-1.26.1420824/epg-janitor-1.26.1420824.zip",
       "size": 428
     },
     "versions": [
@@ -37,7 +37,7 @@
         "checksum_md5": "d50bf65d2cd18488c6be7f652a36e90a",
         "checksum_sha256": "55cc84fa57d509b3eefea3511ffbb9705ee5dd2f1994f6c247e6ee6372484ba0",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/epg-janitor/epg-janitor-1.26.1420824.zip",
+        "url": "epg-janitor-1.26.1420824/epg-janitor-1.26.1420824.zip",
         "size": 428
       },
       {
@@ -49,10 +49,10 @@
         "checksum_md5": "25cf566d3e3c0fec1f99d78d7b09dd85",
         "checksum_sha256": "9109e92484c73b24fad2c92b455f9a3bd8e2280b51b6eac7120c14de42314499",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
+        "url": "epg-janitor-1.26.1021352/epg-janitor-1.26.1021352.zip",
         "size": 416
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCahBl5wAKCRB+wDprTCI0\nztE3AP9zZ+vWe/Mol8bwq76BxudpyhHh8XjmjuvRyCh1FoFxNAD/WcGJX4ov9yWb\ndYFtwCXFEUeApoz/9glGTxO2vRzJGwc=\n=0JTm\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzAAKCRB+wDprTCI0\nzveuAPkByY5udquFqiatDPip7FDA0BGcJuaGu+u2ehS72yL1JAEA6je0i5WTEXOx\nlas+a1BurO39dCV6MQyUUOYTIui4ZQo=\n=0k2c\n-----END PGP SIGNATURE-----"
 }

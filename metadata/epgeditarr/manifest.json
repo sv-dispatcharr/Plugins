@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T16:17:32Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "epgeditarr",
     "name": "EPGeditARR",
@@ -19,8 +19,8 @@
       "checksum_md5": "6f76fe364fd974cdbb4a27edff645a1c",
       "checksum_sha256": "65a4ea198ec514d430db85b56629dc8a58fd7f4d4f8eeece63aa92b1918e694e",
       "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.07/epgeditarr-v0.2.07.zip",
-      "latest_url": "zips/epgeditarr/epgeditarr-latest.zip",
-      "url": "zips/epgeditarr/epgeditarr-0.2.07.zip",
+      "latest_url": "epgeditarr-0.2.07/epgeditarr-0.2.07.zip",
+      "url": "epgeditarr-0.2.07/epgeditarr-0.2.07.zip",
       "size": 134
     },
     "versions": [
@@ -31,7 +31,7 @@
         "checksum_md5": "6f76fe364fd974cdbb4a27edff645a1c",
         "checksum_sha256": "65a4ea198ec514d430db85b56629dc8a58fd7f4d4f8eeece63aa92b1918e694e",
         "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.07/epgeditarr-v0.2.07.zip",
-        "url": "zips/epgeditarr/epgeditarr-0.2.07.zip",
+        "url": "epgeditarr-0.2.07/epgeditarr-0.2.07.zip",
         "size": 134
       },
       {
@@ -41,7 +41,7 @@
         "checksum_md5": "22d079aa80e80d4f37f6a02b9e6700e8",
         "checksum_sha256": "fba124ebf97da3598a2938eaf710b3c796903dce578ea903a974e749e7679104",
         "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.06/epgeditarr-v0.2.06.zip",
-        "url": "zips/epgeditarr/epgeditarr-0.2.06.zip",
+        "url": "epgeditarr-0.2.06/epgeditarr-0.2.06.zip",
         "size": 134
       },
       {
@@ -51,10 +51,10 @@
         "checksum_md5": "6f30fe0062b83f3b9cd9f41367a503c3",
         "checksum_sha256": "fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d",
         "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.05/epgeditarr-v0.2.05.zip",
-        "url": "zips/epgeditarr/epgeditarr-0.2.05.zip",
+        "url": "epgeditarr-0.2.05/epgeditarr-0.2.05.zip",
         "size": 134
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCagyNHQAKCRB+wDprTCI0\nzhenAQD2jANbY1FBxNU3mRVjJ+nE6019yt8FYv7CEI7IofehRQD+IexqYoWxGbfT\noLBqJshXAptRAGMgTkGZjgFgnRJ8wwY=\n=Iwyw\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzQAKCRB+wDprTCI0\nzpe1AP0S+bC8W3gWD7OoN+y/efZdFpX0/hx4bfMfhX2oYjFa9wEAhWtRMU3932/o\nojAjsmKznpCss6wN6It4WsdFW2BvTAg=\n=ZVsh\n-----END PGP SIGNATURE-----"
 }

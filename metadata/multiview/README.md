@@ -14,7 +14,7 @@ Tile multiple Dispatcharr channel streams into multi-view outputs using FFmpeg
 
 ### Latest Release
 
-- **Download:** [`multiview-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/multiview/multiview-latest.zip)
+- **Download:** [`multiview-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/multiview-0.1.0/multiview-0.1.0.zip)
 - **Built:** May 27 2026, 19:23 UTC
 - **Source Commit:** [`2555219`](https://github.com/Dispatcharr/Plugins/commit/255521931c4b5b211d7504431a24a3acc380f7da)
 
@@ -28,7 +28,7 @@ SHA256: 91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `0.1.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/multiview/multiview-0.1.0.zip) | May 27 2026, 19:23 UTC | [`2555219`](https://github.com/Dispatcharr/Plugins/commit/255521931c4b5b211d7504431a24a3acc380f7da) | 825c3b828fbff43f9c81917a8cfce593 | 91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf |
+| `0.1.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/multiview-0.1.0/multiview-0.1.0.zip) | May 27 2026, 19:23 UTC | [`2555219`](https://github.com/Dispatcharr/Plugins/commit/255521931c4b5b211d7504431a24a3acc380f7da) | 825c3b828fbff43f9c81917a8cfce593 | 91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf |
 
 ---
 

@@ -14,7 +14,7 @@ Generate .strm files (with optional NFO metadata) from your Dispatcharr VOD cata
 
 ### Latest Release
 
-- **Download:** [`vod2mlib-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/vod2mlib/vod2mlib-latest.zip)
+- **Download:** [`vod2mlib-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/vod2mlib-1.15.1/vod2mlib-1.15.1.zip)
 - **Built:** Jun 05 2026, 16:49 UTC
 
 **Checksums:**
@@ -27,9 +27,9 @@ SHA256: 6bd4e227461f780415e52d88f34de89b8e8c1fce5de9db32c418a74a52eac15a
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `1.15.1` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/vod2mlib/vod2mlib-1.15.1.zip) | Jun 05 2026, 16:49 UTC | - | 1fe4b6fe374e5a01e2da7aba39b09187 | 6bd4e227461f780415e52d88f34de89b8e8c1fce5de9db32c418a74a52eac15a |
-| `1.15.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/vod2mlib/vod2mlib-1.15.0.zip) | Jun 01 2026, 21:03 UTC | - | 7843c83b3e8be29244cca1436e0f6e3a | c4b481de517a71dcb0a17102ab3f37eec7587e991cf1d195a973f3e55ffb6ede |
-| `1.14.3` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/vod2mlib/vod2mlib-1.14.3.zip) | Jun 01 2026, 20:07 UTC | - | b52411999a36b307f40df66871101ab5 | 1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7 |
+| `1.15.1` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/vod2mlib-1.15.1/vod2mlib-1.15.1.zip) | Jun 05 2026, 16:49 UTC | - | 1fe4b6fe374e5a01e2da7aba39b09187 | 6bd4e227461f780415e52d88f34de89b8e8c1fce5de9db32c418a74a52eac15a |
+| `1.15.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/vod2mlib-1.15.0/vod2mlib-1.15.0.zip) | Jun 01 2026, 21:03 UTC | - | 7843c83b3e8be29244cca1436e0f6e3a | c4b481de517a71dcb0a17102ab3f37eec7587e991cf1d195a973f3e55ffb6ede |
+| `1.14.3` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/vod2mlib-1.14.3/vod2mlib-1.14.3.zip) | Jun 01 2026, 20:07 UTC | - | b52411999a36b307f40df66871101ab5 | 1d0a6927ddbdd03cce73bb68ef04b769c71827ae9960271103943d9b9eb720a7 |
 
 ---
 

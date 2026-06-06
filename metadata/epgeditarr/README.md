@@ -12,7 +12,7 @@ Transform and clean your EPG data using regex and find/replace rules. Creates vi
 
 ### Latest Release
 
-- **Download:** [`epgeditarr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/epgeditarr/epgeditarr-latest.zip)
+- **Download:** [`epgeditarr-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/epgeditarr-0.2.07/epgeditarr-0.2.07.zip)
 - **Built:** May 19 2026, 16:17 UTC
 
 **Checksums:**
@@ -25,9 +25,9 @@ SHA256: 65a4ea198ec514d430db85b56629dc8a58fd7f4d4f8eeece63aa92b1918e694e
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `0.2.07` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/epgeditarr/epgeditarr-0.2.07.zip) | May 19 2026, 16:17 UTC | - | 6f76fe364fd974cdbb4a27edff645a1c | 65a4ea198ec514d430db85b56629dc8a58fd7f4d4f8eeece63aa92b1918e694e |
-| `0.2.06` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/epgeditarr/epgeditarr-0.2.06.zip) | May 19 2026, 11:42 UTC | - | 22d079aa80e80d4f37f6a02b9e6700e8 | fba124ebf97da3598a2938eaf710b3c796903dce578ea903a974e749e7679104 |
-| `0.2.05` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/epgeditarr/epgeditarr-0.2.05.zip) | May 18 2026, 14:13 UTC | - | 6f30fe0062b83f3b9cd9f41367a503c3 | fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d |
+| `0.2.07` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/epgeditarr-0.2.07/epgeditarr-0.2.07.zip) | May 19 2026, 16:17 UTC | - | 6f76fe364fd974cdbb4a27edff645a1c | 65a4ea198ec514d430db85b56629dc8a58fd7f4d4f8eeece63aa92b1918e694e |
+| `0.2.06` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/epgeditarr-0.2.06/epgeditarr-0.2.06.zip) | May 19 2026, 11:42 UTC | - | 22d079aa80e80d4f37f6a02b9e6700e8 | fba124ebf97da3598a2938eaf710b3c796903dce578ea903a974e749e7679104 |
+| `0.2.05` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/epgeditarr-0.2.05/epgeditarr-0.2.05.zip) | May 18 2026, 14:13 UTC | - | 6f30fe0062b83f3b9cd9f41367a503c3 | fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d |
 
 ---
 

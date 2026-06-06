@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T19:55:52Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "stream-dripper",
     "name": "Stream Dripper",
@@ -17,8 +17,8 @@
       "last_updated": "2026-03-29T11:51:09-04:00",
       "checksum_md5": "a83c3907d2221782c64feed3937d750c",
       "checksum_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
-      "latest_url": "zips/stream-dripper/stream-dripper-latest.zip",
-      "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
+      "latest_url": "stream-dripper-1.0.0/stream-dripper-1.0.0.zip",
+      "url": "stream-dripper-1.0.0/stream-dripper-1.0.0.zip",
       "size": 30
     },
     "versions": [
@@ -30,10 +30,10 @@
         "last_updated": "2026-03-29T11:51:09-04:00",
         "checksum_md5": "a83c3907d2221782c64feed3937d750c",
         "checksum_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
-        "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
+        "url": "stream-dripper-1.0.0/stream-dripper-1.0.0.zip",
         "size": 30
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCafJiSwAKCRB+wDprTCI0\nzsuhAQDlJpNXEhWznlOMjIYTOrxbe6fr+T4MlMgcllqkFREs7QD/frqXkJrbHbUp\n3FE0t4hXvKFOqeylyfFL8uy5sHK8XAM=\n=EFfR\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzgAKCRB+wDprTCI0\nzgOyAQDS3O/iwUDX7Uu+YRjNHI3CmWH3Apj8wu5YteugKm0Y0gEA8lIc8EKTJ8xU\nYPD1XU6agi02EOVJ39WGSRCm+tKOFAg=\n=ckxD\n-----END PGP SIGNATURE-----"
 }

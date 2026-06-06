@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T21:10:36Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "tickarr",
     "name": "Tickarr",
@@ -19,8 +19,8 @@
       "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
       "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",
       "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.01/tickarr-0.1.01.zip",
-      "latest_url": "zips/tickarr/tickarr-latest.zip",
-      "url": "zips/tickarr/tickarr-0.1.01.zip",
+      "latest_url": "tickarr-0.1.01/tickarr-0.1.01.zip",
+      "url": "tickarr-0.1.01/tickarr-0.1.01.zip",
       "size": 22
     },
     "versions": [
@@ -31,7 +31,7 @@
         "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
         "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",
         "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.01/tickarr-0.1.01.zip",
-        "url": "zips/tickarr/tickarr-0.1.01.zip",
+        "url": "tickarr-0.1.01/tickarr-0.1.01.zip",
         "size": 22
       },
       {
@@ -41,10 +41,10 @@
         "checksum_md5": "15b0c5a2fb0c9d7fefd5ef4129bc8ea1",
         "checksum_sha256": "e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858",
         "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.0/tickarr-0.1.0.zip",
-        "url": "zips/tickarr/tickarr-0.1.0.zip",
+        "url": "tickarr-0.1.0/tickarr-0.1.0.zip",
         "size": 21
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCah9GzgAKCRB+wDprTCI0\nzoUvAP9RG9hQWLsy4Zo8ju1E9XH7PW6WA+MXBYGcgYA0lF6WEgEAgr+avyXbAbfd\nz6TmhbgVY5MUR+rpaQCPGYaKt1p8DgY=\n=PXba\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzwAKCRB+wDprTCI0\nzqeEAP9zAERhamp5fRRMOv7kp7tJm7spnd5SHw/hjQ+Z0BoKewEA6ta19ORec+QU\nGS1UQoJDI/khQfVAH8Y6qlQc7srJ9w0=\n=Md9E\n-----END PGP SIGNATURE-----"
 }

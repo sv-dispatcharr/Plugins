@@ -14,7 +14,7 @@ Waybill matches, renames, and organizes any streams no matter the provider. Infi
 
 ### Latest Release
 
-- **Download:** [`waybill-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/waybill/waybill-latest.zip)
+- **Download:** [`waybill-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/waybill-1.3.0/waybill-1.3.0.zip)
 - **Built:** May 12 2026, 18:47 UTC
 
 **Checksums:**
@@ -27,7 +27,7 @@ SHA256: 50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `1.3.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/waybill/waybill-1.3.0.zip) | May 12 2026, 18:47 UTC | - | 87beb9950ded642b504fc24a88c506da | 50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547 |
+| `1.3.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/waybill-1.3.0/waybill-1.3.0.zip) | May 12 2026, 18:47 UTC | - | 87beb9950ded642b504fc24a88c506da | 50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547 |
 
 ---
 

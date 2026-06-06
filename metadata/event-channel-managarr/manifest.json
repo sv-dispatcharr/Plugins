@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T11:53:13Z",
+  "generated_at": "2026-06-06T22:35:54Z",
   "manifest": {
     "slug": "event-channel-managarr",
     "name": "Event Channel Managarr",
@@ -19,8 +19,8 @@
       "checksum_md5": "7d0da04de40bf8f971bd4997a504c488",
       "checksum_sha256": "10408f221d17eed66fca8465b96debe7b49ac6ffc0b7576bce130c16aa45c1e2",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "zips/event-channel-managarr/event-channel-managarr-latest.zip",
-      "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1401103.zip",
+      "latest_url": "event-channel-managarr-1.26.1401103/event-channel-managarr-1.26.1401103.zip",
+      "url": "event-channel-managarr-1.26.1401103/event-channel-managarr-1.26.1401103.zip",
       "size": 184
     },
     "versions": [
@@ -33,7 +33,7 @@
         "checksum_md5": "7d0da04de40bf8f971bd4997a504c488",
         "checksum_sha256": "10408f221d17eed66fca8465b96debe7b49ac6ffc0b7576bce130c16aa45c1e2",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1401103.zip",
+        "url": "event-channel-managarr-1.26.1401103/event-channel-managarr-1.26.1401103.zip",
         "size": 184
       },
       {
@@ -45,7 +45,7 @@
         "checksum_md5": "17a914694e0232f82f9b9bbb69e84175",
         "checksum_sha256": "d877772b2f6122abfd98ee9b987ee8f3d923d5cd39152c89d1d41fec3d4cf7db",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1362004.zip",
+        "url": "event-channel-managarr-1.26.1362004/event-channel-managarr-1.26.1362004.zip",
         "size": 184
       },
       {
@@ -57,7 +57,7 @@
         "checksum_md5": "ad735788912de3d5866690ec73a2f446",
         "checksum_sha256": "8029e366e7fc221822fad9de88a44975076d913ae40e96c7f500fff07bd7ee70",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1291442.zip",
+        "url": "event-channel-managarr-1.26.1291442/event-channel-managarr-1.26.1291442.zip",
         "size": 184
       },
       {
@@ -69,7 +69,7 @@
         "checksum_md5": "aff666243dfcede7a9068ba5ac1caa08",
         "checksum_sha256": "9db1498c318a9d1b8d4088736ac79ef6edd60d5684a4ea74dcf3c4ddc9b5bdbe",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1172336.zip",
+        "url": "event-channel-managarr-1.26.1172336/event-channel-managarr-1.26.1172336.zip",
         "size": 183
       },
       {
@@ -81,7 +81,7 @@
         "checksum_md5": "97e891556015b6a1e9367be6a965d552",
         "checksum_sha256": "4524aa77837d4058676ec1a51cdba59db7a4b9d8d3da30e11edab154df5f62e2",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1152350.zip",
+        "url": "event-channel-managarr-1.26.1152350/event-channel-managarr-1.26.1152350.zip",
         "size": 183
       },
       {
@@ -93,7 +93,7 @@
         "checksum_md5": "c668ec0c368ed32e811f157d7e758a6e",
         "checksum_sha256": "7a82f15ec58038223586dca5ae00c99a88cfee6e17f186ed0d005e982df130ac",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-1.26.1081615.zip",
+        "url": "event-channel-managarr-1.26.1081615/event-channel-managarr-1.26.1081615.zip",
         "size": 182
       },
       {
@@ -105,10 +105,10 @@
         "checksum_md5": "b1b90ed696cd03a3a6abaed74aaaf8ce",
         "checksum_sha256": "884766208172f9f1d6b042f8b10be8224c154365c6c1febaa692102bc5360708",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
+        "url": "event-channel-managarr-0.7.0/event-channel-managarr-0.7.0.zip",
         "size": 28
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCag2gqgAKCRB+wDprTCI0\nzqKgAQDCfbN72jXIM05VEtPBARKpZLU3a3am+4OCpHtil8QW1wEAzLLfjVZolDsz\nBmlQ2plGgwsWtSt4MPDCN6cblOL9hgk=\n=Z/q0\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzQAKCRB+wDprTCI0\nzsJzAPwL1bkSbQLCLiNYqvhJOKQQ+9WHKlmqcPml2DG2j6ozxAD/ZCh0ZRUilohI\n2T/C431LRmuPmWnNkVwG1jkgFngKCwo=\n=pP5B\n-----END PGP SIGNATURE-----"
 }
