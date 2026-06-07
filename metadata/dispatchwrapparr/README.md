@@ -2,7 +2,7 @@
 
 # Dispatchwrapparr
 
-**Version:** `1.7.2` | **Author:** jordandalley | **Last Updated:** Jun 06 2026, 02:42 UTC
+**Version:** `1.7.3` | **Author:** jordandalley | **Last Updated:** Jun 07 2026, 12:42 UTC
 
 An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
@@ -14,20 +14,21 @@ An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
 ### Latest Release
 
-- **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.2/dispatchwrapparr-1.7.2.zip)
-- **Built:** Jun 06 2026, 02:42 UTC
-- **Source Commit:** [`0d3e0b5`](https://github.com/Dispatcharr/Plugins/commit/0d3e0b5e7f0a11840589e5bd75ae4f2608d1722d)
+- **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip)
+- **Built:** Jun 07 2026, 12:43 UTC
+- **Source Commit:** [`bc522f1`](https://github.com/Dispatcharr/Plugins/commit/bc522f1f01c094273bded4b7b66350dc62d039fa)
 
 **Checksums:**
 ```
-MD5:    443e3e3a5d0868e95e66e31d2a133c8f
-SHA256: 00f5f8dad21427cbc317cc9c04d9442a5fe19ebfa6fbb9ebfc059e786dbf61ec
+MD5:    1457925b992adaa9a88e0859f14cac7c
+SHA256: 2cdc92af862db8fc12e58defd96b38de46c7213f2a9d47c8b29fd3da109d464b
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.7.3` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip) | Jun 07 2026, 12:43 UTC | [`bc522f1`](https://github.com/Dispatcharr/Plugins/commit/bc522f1f01c094273bded4b7b66350dc62d039fa) | 1457925b992adaa9a88e0859f14cac7c | 2cdc92af862db8fc12e58defd96b38de46c7213f2a9d47c8b29fd3da109d464b |
 | `1.7.2` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.2/dispatchwrapparr-1.7.2.zip) | Jun 06 2026, 02:42 UTC | [`0d3e0b5`](https://github.com/Dispatcharr/Plugins/commit/0d3e0b5e7f0a11840589e5bd75ae4f2608d1722d) | 443e3e3a5d0868e95e66e31d2a133c8f | 00f5f8dad21427cbc317cc9c04d9442a5fe19ebfa6fbb9ebfc059e786dbf61ec |
 | `1.7.1` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.1/dispatchwrapparr-1.7.1.zip) | May 24 2026, 21:57 UTC | [`447eca9`](https://github.com/Dispatcharr/Plugins/commit/447eca99c56ceaa0e90d6f3b430f4027e7329025) | 39b03ca5cc4c809bc7e118e5258f2a52 | 5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a |
 | `1.7.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.0/dispatchwrapparr-1.7.0.zip) | May 22 2026, 04:46 UTC | [`ef5e336`](https://github.com/Dispatcharr/Plugins/commit/ef5e336dad2396db99535c190be7e6c58d8cb2f9) | 0b2a4e714d6541133b8a8dcf6849d9e0 | 93f3a833c585294fb396442172c399457413a1962607ac5bb01f69ffb3b70fd2 |
