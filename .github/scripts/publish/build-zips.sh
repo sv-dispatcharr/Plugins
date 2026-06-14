@@ -138,6 +138,7 @@ for plugin_dir in plugins/*/; do
   echo "  $plugin_name v$version - uploading to GitHub Releases"
   final_tag="$release_tag"
   tag_suffix=0
+  upload_skipped=false
   while true; do
     if gh release create "$final_tag" \
         --repo "$GITHUB_REPOSITORY" \
@@ -148,6 +149,7 @@ for plugin_dir in plugins/*/; do
     fi
     if grep -q "already exists" /tmp/rel_err; then
       echo "  $plugin_name v$version - release already exists, skipping upload"
+      upload_skipped=true
       break
     elif grep -q "immutable\|Cannot create ref" /tmp/rel_err; then
       tag_suffix=$(( tag_suffix + 1 ))
@@ -158,6 +160,13 @@ for plugin_dir in plugins/*/; do
     fi
   done
   rm -f /tmp/rel_err
+
+  # If the upload was skipped (release already existed), discard the fresh metadata
+  # so generate-manifest.sh falls back to the existing manifest's checksums, which
+  # reflect the zip that is actually in the release rather than the one we just built.
+  if [[ "$upload_skipped" == "true" ]]; then
+    rm -f "$BUILD_META_DIR/$plugin_key/${plugin_key}-${version}.json"
+  fi
 
   rm -f "$zip_path"
 done
