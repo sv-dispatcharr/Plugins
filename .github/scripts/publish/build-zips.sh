@@ -146,7 +146,10 @@ for plugin_dir in plugins/*/; do
         "$zip_path" 2>/tmp/rel_err; then
       break
     fi
-    if grep -q "immutable\|Cannot create ref" /tmp/rel_err; then
+    if grep -q "already exists" /tmp/rel_err; then
+      echo "  $plugin_name v$version - release already exists, skipping upload"
+      break
+    elif grep -q "immutable\|Cannot create ref" /tmp/rel_err; then
       tag_suffix=$(( tag_suffix + 1 ))
       final_tag="${release_tag}-${tag_suffix}"
       echo "  Tag conflict on $release_tag, retrying as $final_tag"
