@@ -3,6 +3,7 @@ name: Run Migrations
 # Migration history:
 #   001 (v0 → v2): Move ZIPs from releases branch git history to GitHub Release assets
 #   002 (v2 → v3): Rename zips/ to metadata/ on the releases branch
+#   003 (v3 → v4): Publish plugin icons to metadata/ and add icon fields to manifests
 
 permissions:
   contents: write
@@ -36,10 +37,11 @@ jobs:
       any_pending: ${{ steps.detect.outputs.any_pending }}
       needs_001:   ${{ steps.detect.outputs.needs_001 }}
       needs_002:   ${{ steps.detect.outputs.needs_002 }}
+      needs_003:   ${{ steps.detect.outputs.needs_003 }}
       use_app:     ${{ steps.config.outputs.use_app }}
       app_id:      ${{ steps.config.outputs.app_id }}
       # Add outputs for future migrations here:
-      # needs_003: ${{ steps.detect.outputs.needs_003 }}
+      # needs_004: ${{ steps.detect.outputs.needs_004 }}
     steps:
       - name: Validate inputs
         run: |
@@ -70,7 +72,7 @@ jobs:
         id: detect
         run: |
           RELEASES_BRANCH="releases"
-          TARGET_VER=3  # bump when adding a new migration
+          TARGET_VER=4  # bump when adding a new migration
 
           current_ver=0
           if git ls-remote --exit-code --heads origin "$RELEASES_BRANCH" >/dev/null 2>&1; then
@@ -84,9 +86,12 @@ jobs:
           (( current_ver < 3 )) && echo "needs_002=true"  >> "$GITHUB_OUTPUT" \
                                 || echo "needs_002=false" >> "$GITHUB_OUTPUT"
 
+          (( current_ver < 4 )) && echo "needs_003=true"  >> "$GITHUB_OUTPUT" \
+                                || echo "needs_003=false" >> "$GITHUB_OUTPUT"
+
           # Add future migrations here:
-          # (( current_ver < 4 )) && echo "needs_003=true"  >> "$GITHUB_OUTPUT" \
-          #                       || echo "needs_003=false" >> "$GITHUB_OUTPUT"
+          # (( current_ver < 5 )) && echo "needs_004=true"  >> "$GITHUB_OUTPUT" \
+          #                       || echo "needs_004=false" >> "$GITHUB_OUTPUT"
 
           (( current_ver < TARGET_VER )) && echo "any_pending=true"  >> "$GITHUB_OUTPUT" \
                                          || echo "any_pending=false" >> "$GITHUB_OUTPUT"
@@ -373,6 +378,24 @@ jobs:
           echo "end_version=3"        >> "$GITHUB_OUTPUT"
 
   # ---------------------------------------------------------------------------
+  # Migration 003 (v3 → v4): Publish plugin icons to metadata/ on the releases branch.
+  # needs_rebuild=regular — next publish run copies logo.* and adds icon fields to manifests.
+  # ---------------------------------------------------------------------------
+  migration_003:
+    needs: [setup, migration_002]
+    if: needs.setup.outputs.needs_003 == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      rebuild_type: ${{ steps.flags.outputs.rebuild_type }}
+      end_version:  ${{ steps.flags.outputs.end_version }}
+    steps:
+      - name: Set migration flags
+        id: flags
+        run: |
+          echo "rebuild_type=regular" >> "$GITHUB_OUTPUT"
+          echo "end_version=4"        >> "$GITHUB_OUTPUT"
+
+  # ---------------------------------------------------------------------------
   # Add future migration jobs here following the same pattern.
   # ---------------------------------------------------------------------------
 
@@ -381,7 +404,7 @@ jobs:
   # Skipped on dry runs or if no migrations were pending.
   # ---------------------------------------------------------------------------
   write_repo_ver:
-    needs: [setup, migration_001, migration_002]
+    needs: [setup, migration_001, migration_002, migration_003]
     if: |
       always() &&
       needs.setup.outputs.any_pending == 'true' &&
@@ -458,7 +481,7 @@ jobs:
   # The trigger jobs below never need changing.
   # ---------------------------------------------------------------------------
   aggregate_migrations:
-    needs: [migration_001, migration_002]
+    needs: [migration_001, migration_002, migration_003]
     if: always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled')
     runs-on: ubuntu-latest
     outputs:
