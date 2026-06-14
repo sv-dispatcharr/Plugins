@@ -142,6 +142,16 @@ for plugin_dir in plugins/*/; do
   existing_manifest_file="metadata/$plugin_name/manifest.json"
   mkdir -p "metadata/$plugin_name"
 
+  # Sync icon from source branch; prefer png > svg > jpg > webp
+  icon_rel=""
+  for ext in png svg jpg webp; do
+    if [[ -f "$plugin_dir/logo.$ext" ]]; then
+      cp "$plugin_dir/logo.$ext" "metadata/$plugin_name/logo.$ext"
+      icon_rel="metadata/${plugin_name}/logo.$ext"
+      break
+    fi
+  done
+
   # Discover published versions from GitHub Releases (newest first)
   versioned_tags=$(echo "$all_release_tags" \
     | grep "^${plugin_name}-" \
@@ -229,6 +239,7 @@ for plugin_dir in plugins/*/; do
     --arg latest_url "$latest_url" \
     --arg registry_url "$registry_url" \
     --arg registry_name "$registry_name" \
+    --arg icon_rel "$icon_rel" \
     --argjson versioned_zips "$versioned_zips" \
     --argjson latest_metadata "$latest_metadata" \
     --argjson latest_size_kb "$latest_size_kb" \
@@ -246,6 +257,7 @@ for plugin_dir in plugins/*/; do
       discord_thread: (.discord_thread // null),
       registry_url: $registry_url,
       registry_name: $registry_name,
+      icon: (if $icon_rel != "" then $icon_rel else null end),
       last_updated: ($latest_metadata.last_updated // null),
       latest: (if ($latest_metadata | length > 0) then {
         version: $latest_metadata.version,
@@ -301,11 +313,13 @@ for plugin_dir in plugins/*/; do
     --arg min_da_version "$min_da_version" \
     --arg max_da_version "$max_da_version" \
     --arg latest_url "$latest_url" \
+    --arg icon_rel "$icon_rel" \
     '{
       slug: $slug,
       name: $name,
       description: $description,
       manifest_url: $manifest_url,
+      icon: (if $icon_rel != "" then $icon_rel else null end),
       author: $author,
       license: (if $license != "" then $license else null end),
       deprecated: $deprecated,
