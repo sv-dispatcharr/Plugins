@@ -60,9 +60,10 @@ for plugin_dir in plugins/*/; do
       echo "::error::Failed to download external ZIP from $source_url_resolved after 3 attempts"
       exit 1
     fi
-    commit_sha=""
-    commit_sha_short=""
-    last_updated="$build_timestamp"
+    commit_sha=$(git log -1 --format=%H origin/$SOURCE_BRANCH -- "$plugin_dir")
+    commit_sha_short=$(git log -1 --format=%h origin/$SOURCE_BRANCH -- "$plugin_dir")
+    last_updated=$(git log -1 --format=%cI origin/$SOURCE_BRANCH -- "$plugin_dir" 2>/dev/null \
+      || date -u +"%Y-%m-%dT%H:%M:%SZ")
   else
     echo "  $plugin_name v$version - building"
     echo "$plugin_key@$version" >> changed_plugins.txt
