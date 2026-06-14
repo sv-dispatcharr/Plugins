@@ -239,7 +239,6 @@ for plugin_dir in plugins/*/; do
     --arg latest_url "$latest_url" \
     --arg registry_url "$registry_url" \
     --arg registry_name "$registry_name" \
-    --arg icon_rel "$icon_rel" \
     --argjson versioned_zips "$versioned_zips" \
     --argjson latest_metadata "$latest_metadata" \
     --argjson latest_size_kb "$latest_size_kb" \
@@ -257,7 +256,6 @@ for plugin_dir in plugins/*/; do
       discord_thread: (.discord_thread // null),
       registry_url: $registry_url,
       registry_name: $registry_name,
-      icon: (if $icon_rel != "" then $icon_rel else null end),
       last_updated: ($latest_metadata.last_updated // null),
       latest: (if ($latest_metadata | length > 0) then {
         version: $latest_metadata.version,
@@ -313,13 +311,11 @@ for plugin_dir in plugins/*/; do
     --arg min_da_version "$min_da_version" \
     --arg max_da_version "$max_da_version" \
     --arg latest_url "$latest_url" \
-    --arg icon_rel "$icon_rel" \
     '{
       slug: $slug,
       name: $name,
       description: $description,
       manifest_url: $manifest_url,
-      icon: (if $icon_rel != "" then $icon_rel else null end),
       author: $author,
       license: (if $license != "" then $license else null end),
       deprecated: $deprecated,
