@@ -12,8 +12,9 @@ Dynamic text overlays for IPTV channels - SiriusXM Now Playing, Sports Ticker, C
 
 ### Latest Release
 
-- **Download:** [`tickarr-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/tickarr-0.1.01/tickarr-0.1.01.zip)
-- **Built:** Jun 02 2026, 21:10 UTC
+- **Download:** [`tickarr-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/tickarr-0.1.01-1/tickarr-0.1.01-1.zip)
+- **Built:** Jun 14 2026, 13:05 UTC
+- **Source Commit:** [`489bbb5`](https://github.com/sv-dispatcharr/Plugins/commit/489bbb5253740ef509a4dd8d8545f03971b289e8)
 
 **Checksums:**
 ```
@@ -25,12 +26,12 @@ SHA256: c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `0.1.01` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/tickarr-0.1.01/tickarr-0.1.01.zip) | Jun 02 2026, 21:10 UTC | - | c3e3ff46d9eacd66bad4aaaa3c954103 | c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34 |
-| `0.1.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/tickarr-0.1.0/tickarr-0.1.0.zip) | May 23 2026, 17:15 UTC | - | 15b0c5a2fb0c9d7fefd5ef4129bc8ea1 | e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858 |
+| `0.1.01` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/tickarr-0.1.01-1/tickarr-0.1.01-1.zip) | Jun 14 2026, 13:05 UTC | [`489bbb5`](https://github.com/sv-dispatcharr/Plugins/commit/489bbb5253740ef509a4dd8d8545f03971b289e8) | c3e3ff46d9eacd66bad4aaaa3c954103 | c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34 |
+| `0.1.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/tickarr-0.1.0-1/tickarr-0.1.0-1.zip) | May 23 2026, 17:15 UTC | - | 15b0c5a2fb0c9d7fefd5ef4129bc8ea1 | e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858 |
 
 ---
 
-**Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/tickarr)
+**Source:** [Browse Plugin](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/tickarr)
 
 **Metadata:** [View full manifest](./manifest.json)
 

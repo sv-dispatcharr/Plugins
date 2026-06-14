@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T22:35:54Z",
+  "generated_at": "2026-06-14T13:05:33Z",
   "manifest": {
     "slug": "iptv-checker",
     "name": "IPTV Checker",
@@ -7,23 +7,36 @@
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin",
-    "registry_url": "https://github.com/Dispatcharr/Plugins",
-    "registry_name": "Dispatcharr/Plugins",
-    "last_updated": "2026-05-22T10:18:18-04:00",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "icon": "metadata/iptv-checker/logo.png",
+    "last_updated": "2026-06-07T20:12:58-04:00",
     "latest": {
-      "version": "1.26.1421301",
-      "commit_sha": "c53b209e8defac59b5c28c8e25c0fc0a04f14bff",
-      "commit_sha_short": "c53b209",
-      "build_timestamp": "2026-05-22T14:18:32Z",
-      "last_updated": "2026-05-22T10:18:18-04:00",
-      "checksum_md5": "49d562cb3128c2335d654a82abd93d7f",
-      "checksum_sha256": "d6ece367d7f57c3149756d3841d558ccaffc3df0dcf443cb918b923d22c5f03a",
+      "version": "1.26.1582047",
+      "commit_sha": "78654d4e375d24bd55d49a800bf417c63e155c17",
+      "commit_sha_short": "78654d4",
+      "build_timestamp": "2026-06-14T13:04:55Z",
+      "last_updated": "2026-06-07T20:12:58-04:00",
+      "checksum_md5": "85d916d4c3a1b2208504ca64cceff5bd",
+      "checksum_sha256": "d9ff1b70c266c14ac17f8c587d9b6fa1b43ceaa929f6fad72a484c2ea0411d0b",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "iptv-checker-1.26.1421301/iptv-checker-1.26.1421301.zip",
-      "url": "iptv-checker-1.26.1421301/iptv-checker-1.26.1421301.zip",
+      "latest_url": "iptv-checker-1.26.1582047/iptv-checker-1.26.1582047.zip",
+      "url": "iptv-checker-1.26.1582047/iptv-checker-1.26.1582047.zip",
       "size": 360
     },
     "versions": [
+      {
+        "version": "1.26.1582047",
+        "commit_sha": "78654d4e375d24bd55d49a800bf417c63e155c17",
+        "commit_sha_short": "78654d4",
+        "build_timestamp": "2026-06-14T13:04:55Z",
+        "last_updated": "2026-06-07T20:12:58-04:00",
+        "checksum_md5": "85d916d4c3a1b2208504ca64cceff5bd",
+        "checksum_sha256": "d9ff1b70c266c14ac17f8c587d9b6fa1b43ceaa929f6fad72a484c2ea0411d0b",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "iptv-checker-1.26.1582047/iptv-checker-1.26.1582047.zip",
+        "size": 360
+      },
       {
         "version": "1.26.1421301",
         "commit_sha": "c53b209e8defac59b5c28c8e25c0fc0a04f14bff",
@@ -33,7 +46,7 @@
         "checksum_md5": "49d562cb3128c2335d654a82abd93d7f",
         "checksum_sha256": "d6ece367d7f57c3149756d3841d558ccaffc3df0dcf443cb918b923d22c5f03a",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1421301/iptv-checker-1.26.1421301.zip",
+        "url": "iptv-checker-1.26.1421301-1/iptv-checker-1.26.1421301-1.zip",
         "size": 360
       },
       {
@@ -45,7 +58,7 @@
         "checksum_md5": "a4b56a82858b7b976d87c703f80e163e",
         "checksum_sha256": "820e7db19aeb50460d51e5d9069acacd413bc8f573bf9db2f83cac3dae44ce7b",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1362003/iptv-checker-1.26.1362003.zip",
+        "url": "iptv-checker-1.26.1362003-1/iptv-checker-1.26.1362003-1.zip",
         "size": 360
       },
       {
@@ -57,7 +70,7 @@
         "checksum_md5": "e82d4b95df6c089471ca0547e8b2791c",
         "checksum_sha256": "75b2b8379912cd82ca2026a0ab58d875e99af65308253c163adc1557464113f4",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1221101/iptv-checker-1.26.1221101.zip",
+        "url": "iptv-checker-1.26.1221101-1/iptv-checker-1.26.1221101-1.zip",
         "size": 354
       },
       {
@@ -69,7 +82,7 @@
         "checksum_md5": "cc0be9f97a30b0e9d88119f59e726119",
         "checksum_sha256": "731abcffedf0b4959982109c05649cd30d64aa119193666ba6b2465606f2b75f",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1161403/iptv-checker-1.26.1161403.zip",
+        "url": "iptv-checker-1.26.1161403-1/iptv-checker-1.26.1161403-1.zip",
         "size": 344
       },
       {
@@ -81,7 +94,7 @@
         "checksum_md5": "004cdba61f06fb24e7cb201e3ddd5568",
         "checksum_sha256": "31027fb0ca94093489d169e853a363f90f6f4cd1fddc50c9a48b45159d558df4",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1081815/iptv-checker-1.26.1081815.zip",
+        "url": "iptv-checker-1.26.1081815-1/iptv-checker-1.26.1081815-1.zip",
         "size": 343
       },
       {
@@ -93,10 +106,9 @@
         "checksum_md5": "1a6cc492b8003baeac68ab16d21958d9",
         "checksum_sha256": "094436b6389e35bfa80a29ae12e7917d21e816e21aef02a672a819963ea3f17a",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-0.8.0/iptv-checker-0.8.0.zip",
+        "url": "iptv-checker-0.8.0-1/iptv-checker-0.8.0-1.zip",
         "size": 38
       }
     ]
-  },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgzQAKCRB+wDprTCI0\nzm7CAQD7/54w5aa7IbUNcnFt0aMBhP38/YyXIOI0lkC/eCDXfgEA4bJ7jMv+q9w2\nN2pDd0xhJJUMpUW24DE9OqjxxMIj2ww=\n=/ULV\n-----END PGP SIGNATURE-----"
+  }
 }

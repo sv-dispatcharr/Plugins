@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-07T12:43:20Z",
+  "generated_at": "2026-06-14T13:05:33Z",
   "manifest": {
     "slug": "dispatchwrapparr",
     "name": "Dispatchwrapparr",
@@ -11,17 +11,18 @@
     "license": "MIT",
     "repo_url": "https://github.com/jordandalley/dispatchwrapparr",
     "discord_thread": "https://discord.com/channels/1340492560220684331/1422776847703212132",
-    "registry_url": "https://github.com/Dispatcharr/Plugins",
-    "registry_name": "Dispatcharr/Plugins",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "icon": "metadata/dispatchwrapparr/logo.png",
     "last_updated": "2026-06-07T08:42:54-04:00",
     "latest": {
       "version": "1.7.3",
       "commit_sha": "bc522f1f01c094273bded4b7b66350dc62d039fa",
       "commit_sha_short": "bc522f1",
-      "build_timestamp": "2026-06-07T12:43:11Z",
+      "build_timestamp": "2026-06-14T13:04:38Z",
       "last_updated": "2026-06-07T08:42:54-04:00",
-      "checksum_md5": "1457925b992adaa9a88e0859f14cac7c",
-      "checksum_sha256": "2cdc92af862db8fc12e58defd96b38de46c7213f2a9d47c8b29fd3da109d464b",
+      "checksum_md5": "e9be7fcb5b22f05bb3113c351bd92b0d",
+      "checksum_sha256": "d95c0d5f6b8cb20cb49a8b8bc2ce33533727dc5125f9516555a29bf6380be8a0",
       "min_dispatcharr_version": "v0.25.0",
       "latest_url": "dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip",
       "url": "dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip",
@@ -32,24 +33,12 @@
         "version": "1.7.3",
         "commit_sha": "bc522f1f01c094273bded4b7b66350dc62d039fa",
         "commit_sha_short": "bc522f1",
-        "build_timestamp": "2026-06-07T12:43:11Z",
+        "build_timestamp": "2026-06-14T13:04:38Z",
         "last_updated": "2026-06-07T08:42:54-04:00",
-        "checksum_md5": "1457925b992adaa9a88e0859f14cac7c",
-        "checksum_sha256": "2cdc92af862db8fc12e58defd96b38de46c7213f2a9d47c8b29fd3da109d464b",
+        "checksum_md5": "e9be7fcb5b22f05bb3113c351bd92b0d",
+        "checksum_sha256": "d95c0d5f6b8cb20cb49a8b8bc2ce33533727dc5125f9516555a29bf6380be8a0",
         "min_dispatcharr_version": "v0.25.0",
         "url": "dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip",
-        "size": 47
-      },
-      {
-        "version": "1.7.2",
-        "commit_sha": "0d3e0b5e7f0a11840589e5bd75ae4f2608d1722d",
-        "commit_sha_short": "0d3e0b5",
-        "build_timestamp": "2026-06-06T02:42:12Z",
-        "last_updated": "2026-06-05T21:42:02-05:00",
-        "checksum_md5": "443e3e3a5d0868e95e66e31d2a133c8f",
-        "checksum_sha256": "00f5f8dad21427cbc317cc9c04d9442a5fe19ebfa6fbb9ebfc059e786dbf61ec",
-        "min_dispatcharr_version": "v0.25.0",
-        "url": "dispatchwrapparr-1.7.2/dispatchwrapparr-1.7.2.zip",
         "size": 47
       },
       {
@@ -61,7 +50,7 @@
         "checksum_md5": "39b03ca5cc4c809bc7e118e5258f2a52",
         "checksum_sha256": "5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a",
         "min_dispatcharr_version": "v0.25.0",
-        "url": "dispatchwrapparr-1.7.1/dispatchwrapparr-1.7.1.zip",
+        "url": "dispatchwrapparr-1.7.1-1/dispatchwrapparr-1.7.1-1.zip",
         "size": 46
       },
       {
@@ -73,7 +62,7 @@
         "checksum_md5": "0b2a4e714d6541133b8a8dcf6849d9e0",
         "checksum_sha256": "93f3a833c585294fb396442172c399457413a1962607ac5bb01f69ffb3b70fd2",
         "min_dispatcharr_version": "v0.25.0",
-        "url": "dispatchwrapparr-1.7.0/dispatchwrapparr-1.7.0.zip",
+        "url": "dispatchwrapparr-1.7.0-1/dispatchwrapparr-1.7.0-1.zip",
         "size": 46
       },
       {
@@ -85,7 +74,7 @@
         "checksum_md5": "f33c4a46e9012498858ac1770370888c",
         "checksum_sha256": "49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b",
         "min_dispatcharr_version": "v0.21.0",
-        "url": "dispatchwrapparr-1.6.2/dispatchwrapparr-1.6.2.zip",
+        "url": "dispatchwrapparr-1.6.2-1/dispatchwrapparr-1.6.2-1.zip",
         "size": 42
       },
       {
@@ -97,7 +86,7 @@
         "checksum_md5": "2fe71caf70f35c68caae8760cab65034",
         "checksum_sha256": "0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7",
         "min_dispatcharr_version": "v0.21.0",
-        "url": "dispatchwrapparr-1.6.1/dispatchwrapparr-1.6.1.zip",
+        "url": "dispatchwrapparr-1.6.1-1/dispatchwrapparr-1.6.1-1.zip",
         "size": 42
       },
       {
@@ -109,10 +98,9 @@
         "checksum_md5": "aa6727ebe8ce16bd23aa9f7f54e783f9",
         "checksum_sha256": "3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5",
         "min_dispatcharr_version": "v0.21.0",
-        "url": "dispatchwrapparr-1.6.0/dispatchwrapparr-1.6.0.zip",
+        "url": "dispatchwrapparr-1.6.0-1/dispatchwrapparr-1.6.0-1.zip",
         "size": 42
       }
     ]
-  },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiVnaQAKCRB+wDprTCI0\nzlaCAP9V9o9k1XizXj47VJ1U3wOVk6Pk0zPcufmSDi19mCKFOwEAm7ZJCY2GfsxC\nOUcQDaUxI/8XSFUj7F3S7kEFYAFSzAg=\n=6U5Y\n-----END PGP SIGNATURE-----"
+  }
 }

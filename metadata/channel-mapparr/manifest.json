@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T22:35:54Z",
+  "generated_at": "2026-06-14T13:05:33Z",
   "manifest": {
     "slug": "channel-mapparr",
     "name": "Channel Mapparr",
@@ -8,20 +8,21 @@
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-Channel-Maparr-Plugin",
     "discord_thread": "https://discord.com/channels/1340492560220684331/1422963882548265110",
-    "registry_url": "https://github.com/Dispatcharr/Plugins",
-    "registry_name": "Dispatcharr/Plugins",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "icon": "metadata/channel-mapparr/logo.png",
     "last_updated": "2026-05-23T13:06:41-04:00",
     "latest": {
       "version": "1.26.1430910",
       "commit_sha": "309559e7795e3c0447f90067e0c011d8c1eb9d45",
       "commit_sha_short": "309559e",
-      "build_timestamp": "2026-05-23T17:06:42Z",
+      "build_timestamp": "2026-06-14T13:04:28Z",
       "last_updated": "2026-05-23T13:06:41-04:00",
-      "checksum_md5": "aa387c179e2a81f814a1e19aa9d2f6e0",
-      "checksum_sha256": "0a3d23345096d4552b47ec57018322b48e35c72d34f21aa3c7a924769648bf27",
+      "checksum_md5": "2672783287e67ca16bc31c9fe210719b",
+      "checksum_sha256": "f33d950a7e14e70db30215aef9e37ad224f5bf73b6e08f7c0047cd498282244b",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "channel-mapparr-1.26.1430910/channel-mapparr-1.26.1430910.zip",
-      "url": "channel-mapparr-1.26.1430910/channel-mapparr-1.26.1430910.zip",
+      "latest_url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip",
+      "url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip",
       "size": 528
     },
     "versions": [
@@ -29,12 +30,12 @@
         "version": "1.26.1430910",
         "commit_sha": "309559e7795e3c0447f90067e0c011d8c1eb9d45",
         "commit_sha_short": "309559e",
-        "build_timestamp": "2026-05-23T17:06:42Z",
+        "build_timestamp": "2026-06-14T13:04:28Z",
         "last_updated": "2026-05-23T13:06:41-04:00",
-        "checksum_md5": "aa387c179e2a81f814a1e19aa9d2f6e0",
-        "checksum_sha256": "0a3d23345096d4552b47ec57018322b48e35c72d34f21aa3c7a924769648bf27",
+        "checksum_md5": "2672783287e67ca16bc31c9fe210719b",
+        "checksum_sha256": "f33d950a7e14e70db30215aef9e37ad224f5bf73b6e08f7c0047cd498282244b",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "channel-mapparr-1.26.1430910/channel-mapparr-1.26.1430910.zip",
+        "url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip",
         "size": 528
       },
       {
@@ -46,10 +47,9 @@
         "checksum_md5": "10f435ba7aeb6cd57a19ed25a2a19a2a",
         "checksum_sha256": "90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "channel-mapparr-1.26.1001200/channel-mapparr-1.26.1001200.zip",
+        "url": "channel-mapparr-1.26.1001200-1/channel-mapparr-1.26.1001200-1.zip",
         "size": 511
       }
     ]
-  },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHQEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgygAKCRB+wDprTCI0\nzrnUAPdbuK/0xgl0nffLquxnIWvIN/WV6UvUCSMxgcL6sjpPAP4xcxO2RykZkFEf\nrcolkLgocoMHozxzZMB6YrzxTxThAw==\n=teRk\n-----END PGP SIGNATURE-----"
+  }
 }

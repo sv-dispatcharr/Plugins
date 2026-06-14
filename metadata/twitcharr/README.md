@@ -12,8 +12,9 @@ Twitch live-TV plugin for Dispatcharr with automatic channels, streams, XMLTV gu
 
 ### Latest Release
 
-- **Download:** [`twitcharr-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/twitcharr-1.2.25/twitcharr-1.2.25.zip)
-- **Built:** Jun 02 2026, 17:16 UTC
+- **Download:** [`twitcharr-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/twitcharr-1.2.25-1/twitcharr-1.2.25-1.zip)
+- **Built:** Jun 14 2026, 13:05 UTC
+- **Source Commit:** [`ff09842`](https://github.com/sv-dispatcharr/Plugins/commit/ff09842b40864d9a56364f45b9c86618895b6206)
 
 **Checksums:**
 ```
@@ -25,11 +26,11 @@ SHA256: e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `1.2.25` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/twitcharr-1.2.25/twitcharr-1.2.25.zip) | Jun 02 2026, 17:16 UTC | - | 34217d30accf77de447452a19e0b4e94 | e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe |
+| `1.2.25` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/twitcharr-1.2.25-1/twitcharr-1.2.25-1.zip) | Jun 14 2026, 13:05 UTC | [`ff09842`](https://github.com/sv-dispatcharr/Plugins/commit/ff09842b40864d9a56364f45b9c86618895b6206) | 34217d30accf77de447452a19e0b4e94 | e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe |
 
 ---
 
-**Maintainers:** eliasbruno124-dev | **Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/twitcharr)
+**Maintainers:** eliasbruno124-dev | **Source:** [Browse Plugin](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/twitcharr)
 
 **Metadata:** [View full manifest](./manifest.json)
 

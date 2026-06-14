@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T22:35:54Z",
+  "generated_at": "2026-06-14T13:05:33Z",
   "manifest": {
     "slug": "dispatcharr-exporter",
     "name": "Dispatcharr Exporter",
@@ -8,20 +8,21 @@
     "license": "MIT",
     "repo_url": "https://github.com/swvn-dispatch/dispatcharr-exporter",
     "discord_thread": "https://discord.com/channels/1340492560220684331/1451260201775923421",
-    "registry_url": "https://github.com/Dispatcharr/Plugins",
-    "registry_name": "Dispatcharr/Plugins",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "icon": "metadata/dispatcharr-exporter/logo.png",
     "last_updated": "2026-05-10T14:26:32-04:00",
     "latest": {
       "version": "3.0.1",
       "commit_sha": "b70abd6df9cd520bcc28ad7fced085be135897a9",
       "commit_sha_short": "b70abd6",
-      "build_timestamp": "2026-05-10T18:26:47Z",
+      "build_timestamp": "2026-06-14T13:04:32Z",
       "last_updated": "2026-05-10T14:26:32-04:00",
-      "checksum_md5": "35f2f95db36ec3a75f818f102c68ec4f",
-      "checksum_sha256": "89c83cbf9a257ad278370920451bdb9ceee5868983c8b923bd10674c7e739730",
+      "checksum_md5": "e38f53e37d0112e8cdbf2bca553d823b",
+      "checksum_sha256": "4dee47bf5646c050e41971ba73c601a2d58fca642af31ac28ed1493778d02260",
       "min_dispatcharr_version": "v0.22.0",
-      "latest_url": "dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip",
-      "url": "dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip",
+      "latest_url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1-1.zip",
+      "url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1-1.zip",
       "size": 140
     },
     "versions": [
@@ -29,12 +30,12 @@
         "version": "3.0.1",
         "commit_sha": "b70abd6df9cd520bcc28ad7fced085be135897a9",
         "commit_sha_short": "b70abd6",
-        "build_timestamp": "2026-05-10T18:26:47Z",
+        "build_timestamp": "2026-06-14T13:04:32Z",
         "last_updated": "2026-05-10T14:26:32-04:00",
-        "checksum_md5": "35f2f95db36ec3a75f818f102c68ec4f",
-        "checksum_sha256": "89c83cbf9a257ad278370920451bdb9ceee5868983c8b923bd10674c7e739730",
+        "checksum_md5": "e38f53e37d0112e8cdbf2bca553d823b",
+        "checksum_sha256": "4dee47bf5646c050e41971ba73c601a2d58fca642af31ac28ed1493778d02260",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "dispatcharr-exporter-3.0.1/dispatcharr-exporter-3.0.1.zip",
+        "url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1-1.zip",
         "size": 140
       },
       {
@@ -46,7 +47,7 @@
         "checksum_md5": "5b01ef6c427ee5110562934ff852e95f",
         "checksum_sha256": "9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "dispatcharr-exporter-3.0.0/dispatcharr-exporter-3.0.0.zip",
+        "url": "dispatcharr-exporter-3.0.0-1/dispatcharr-exporter-3.0.0-1.zip",
         "size": 139
       },
       {
@@ -58,10 +59,9 @@
         "checksum_md5": "43bd4ec43fb699d7c114da3bc53834f2",
         "checksum_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
         "min_dispatcharr_version": "v0.19.0",
-        "url": "dispatcharr-exporter-2.4.2/dispatcharr-exporter-2.4.2.zip",
+        "url": "dispatcharr-exporter-2.4.2-1/dispatcharr-exporter-2.4.2-1.zip",
         "size": 142
       }
     ]
-  },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCaiSgywAKCRB+wDprTCI0\nzjwvAQDnI3xHnS8GYqEfu/UQAAFBylZPLwbF3cot3NCsy/N1uwD9FyVL/AmEqJ/Z\n4XztD8sPQDOzOMGTHKYAIUIoUIGw5As=\n=iRVX\n-----END PGP SIGNATURE-----"
+  }
 }

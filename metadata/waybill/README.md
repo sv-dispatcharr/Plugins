@@ -14,8 +14,9 @@ Waybill matches, renames, and organizes any streams no matter the provider. Infi
 
 ### Latest Release
 
-- **Download:** [`waybill-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/waybill-1.3.0/waybill-1.3.0.zip)
-- **Built:** May 12 2026, 18:47 UTC
+- **Download:** [`waybill-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/waybill-1.3.0-1/waybill-1.3.0-1.zip)
+- **Built:** Jun 14 2026, 13:05 UTC
+- **Source Commit:** [`cdd18dd`](https://github.com/sv-dispatcharr/Plugins/commit/cdd18dd7f396035b9cd486d3e45375eed3bcc744)
 
 **Checksums:**
 ```
@@ -27,10 +28,10 @@ SHA256: 50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `1.3.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/waybill-1.3.0/waybill-1.3.0.zip) | May 12 2026, 18:47 UTC | - | 87beb9950ded642b504fc24a88c506da | 50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547 |
+| `1.3.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/waybill-1.3.0-1/waybill-1.3.0-1.zip) | Jun 14 2026, 13:05 UTC | [`cdd18dd`](https://github.com/sv-dispatcharr/Plugins/commit/cdd18dd7f396035b9cd486d3e45375eed3bcc744) | 87beb9950ded642b504fc24a88c506da | 50d03442d3e0fcdb984fb17a90b8e785dbbf2b5eab68fda1f367953071727547 |
 
 ---
 
-**Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/waybill)
+**Source:** [Browse Plugin](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/waybill)
 
 **Metadata:** [View full manifest](./manifest.json)

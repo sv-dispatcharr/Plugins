@@ -14,24 +14,24 @@ Tile multiple Dispatcharr channel streams into multi-view outputs using FFmpeg
 
 ### Latest Release
 
-- **Download:** [`multiview-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/multiview-0.1.0/multiview-0.1.0.zip)
-- **Built:** May 27 2026, 19:23 UTC
-- **Source Commit:** [`2555219`](https://github.com/Dispatcharr/Plugins/commit/255521931c4b5b211d7504431a24a3acc380f7da)
+- **Download:** [`multiview-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0-1.zip)
+- **Built:** Jun 14 2026, 13:05 UTC
+- **Source Commit:** [`5bddf4e`](https://github.com/sv-dispatcharr/Plugins/commit/5bddf4e19c75244ea27e321d8a178b1a3107dece)
 
 **Checksums:**
 ```
-MD5:    825c3b828fbff43f9c81917a8cfce593
-SHA256: 91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf
+MD5:    aba232050f7bc5a28e260919a5635092
+SHA256: 4e9201152c356c7d0b4a3a8a2164e5e75d0daa1159fd0216241049c37fe01565
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `0.1.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/multiview-0.1.0/multiview-0.1.0.zip) | May 27 2026, 19:23 UTC | [`2555219`](https://github.com/Dispatcharr/Plugins/commit/255521931c4b5b211d7504431a24a3acc380f7da) | 825c3b828fbff43f9c81917a8cfce593 | 91ffa33f731c3fc4c3780933b3214b39f04f5e0c3de5663efeac26d2f043c7cf |
+| `0.1.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0-1.zip) | Jun 14 2026, 13:05 UTC | [`5bddf4e`](https://github.com/sv-dispatcharr/Plugins/commit/5bddf4e19c75244ea27e321d8a178b1a3107dece) | aba232050f7bc5a28e260919a5635092 | 4e9201152c356c7d0b4a3a8a2164e5e75d0daa1159fd0216241049c37fe01565 |
 
 ---
 
-**Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/multiview)
+**Source:** [Browse Plugin](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/multiview)
 
 **Metadata:** [View full manifest](./manifest.json)

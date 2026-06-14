@@ -14,31 +14,30 @@ An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
 ### Latest Release
 
-- **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip)
-- **Built:** Jun 07 2026, 12:43 UTC
-- **Source Commit:** [`bc522f1`](https://github.com/Dispatcharr/Plugins/commit/bc522f1f01c094273bded4b7b66350dc62d039fa)
+- **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip)
+- **Built:** Jun 14 2026, 13:04 UTC
+- **Source Commit:** [`bc522f1`](https://github.com/sv-dispatcharr/Plugins/commit/bc522f1f01c094273bded4b7b66350dc62d039fa)
 
 **Checksums:**
 ```
-MD5:    1457925b992adaa9a88e0859f14cac7c
-SHA256: 2cdc92af862db8fc12e58defd96b38de46c7213f2a9d47c8b29fd3da109d464b
+MD5:    e9be7fcb5b22f05bb3113c351bd92b0d
+SHA256: d95c0d5f6b8cb20cb49a8b8bc2ce33533727dc5125f9516555a29bf6380be8a0
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `1.7.3` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip) | Jun 07 2026, 12:43 UTC | [`bc522f1`](https://github.com/Dispatcharr/Plugins/commit/bc522f1f01c094273bded4b7b66350dc62d039fa) | 1457925b992adaa9a88e0859f14cac7c | 2cdc92af862db8fc12e58defd96b38de46c7213f2a9d47c8b29fd3da109d464b |
-| `1.7.2` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.2/dispatchwrapparr-1.7.2.zip) | Jun 06 2026, 02:42 UTC | [`0d3e0b5`](https://github.com/Dispatcharr/Plugins/commit/0d3e0b5e7f0a11840589e5bd75ae4f2608d1722d) | 443e3e3a5d0868e95e66e31d2a133c8f | 00f5f8dad21427cbc317cc9c04d9442a5fe19ebfa6fbb9ebfc059e786dbf61ec |
-| `1.7.1` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.1/dispatchwrapparr-1.7.1.zip) | May 24 2026, 21:57 UTC | [`447eca9`](https://github.com/Dispatcharr/Plugins/commit/447eca99c56ceaa0e90d6f3b430f4027e7329025) | 39b03ca5cc4c809bc7e118e5258f2a52 | 5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a |
-| `1.7.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.0/dispatchwrapparr-1.7.0.zip) | May 22 2026, 04:46 UTC | [`ef5e336`](https://github.com/Dispatcharr/Plugins/commit/ef5e336dad2396db99535c190be7e6c58d8cb2f9) | 0b2a4e714d6541133b8a8dcf6849d9e0 | 93f3a833c585294fb396442172c399457413a1962607ac5bb01f69ffb3b70fd2 |
-| `1.6.2` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.6.2/dispatchwrapparr-1.6.2.zip) | Apr 28 2026, 01:30 UTC | [`44fbc6b`](https://github.com/Dispatcharr/Plugins/commit/44fbc6b96eebd52ea29b27fc371af3c20f997702) | f33c4a46e9012498858ac1770370888c | 49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b |
-| `1.6.1` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.6.1/dispatchwrapparr-1.6.1.zip) | Apr 16 2026, 11:17 UTC | [`7ac9bb7`](https://github.com/Dispatcharr/Plugins/commit/7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b) | 2fe71caf70f35c68caae8760cab65034 | 0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7 |
-| `1.6.0` | [Download](https://github.com/Dispatcharr/Plugins/releases/download/dispatchwrapparr-1.6.0/dispatchwrapparr-1.6.0.zip) | Apr 02 2026, 13:11 UTC | [`2d4aba3`](https://github.com/Dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638) | aa6727ebe8ce16bd23aa9f7f54e783f9 | 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5 |
+| `1.7.3` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.3/dispatchwrapparr-1.7.3.zip) | Jun 14 2026, 13:04 UTC | [`bc522f1`](https://github.com/sv-dispatcharr/Plugins/commit/bc522f1f01c094273bded4b7b66350dc62d039fa) | e9be7fcb5b22f05bb3113c351bd92b0d | d95c0d5f6b8cb20cb49a8b8bc2ce33533727dc5125f9516555a29bf6380be8a0 |
+| `1.7.1` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.1-1/dispatchwrapparr-1.7.1-1.zip) | May 24 2026, 21:57 UTC | [`447eca9`](https://github.com/sv-dispatcharr/Plugins/commit/447eca99c56ceaa0e90d6f3b430f4027e7329025) | 39b03ca5cc4c809bc7e118e5258f2a52 | 5d56a759f1fb479dfb0c5f8ce525408510ad19598238c8f56dbca899e8e74f4a |
+| `1.7.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatchwrapparr-1.7.0-1/dispatchwrapparr-1.7.0-1.zip) | May 22 2026, 04:46 UTC | [`ef5e336`](https://github.com/sv-dispatcharr/Plugins/commit/ef5e336dad2396db99535c190be7e6c58d8cb2f9) | 0b2a4e714d6541133b8a8dcf6849d9e0 | 93f3a833c585294fb396442172c399457413a1962607ac5bb01f69ffb3b70fd2 |
+| `1.6.2` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatchwrapparr-1.6.2-1/dispatchwrapparr-1.6.2-1.zip) | Apr 28 2026, 01:30 UTC | [`44fbc6b`](https://github.com/sv-dispatcharr/Plugins/commit/44fbc6b96eebd52ea29b27fc371af3c20f997702) | f33c4a46e9012498858ac1770370888c | 49137d25684dfab53fd571aed6b94a2432fa2dcdfb6aa9629755b05bd0bcc02b |
+| `1.6.1` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatchwrapparr-1.6.1-1/dispatchwrapparr-1.6.1-1.zip) | Apr 16 2026, 11:17 UTC | [`7ac9bb7`](https://github.com/sv-dispatcharr/Plugins/commit/7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b) | 2fe71caf70f35c68caae8760cab65034 | 0ee0ff2e49b363ce83eef7db68420581e52514191762a1f490ad10cd33481fe7 |
+| `1.6.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatchwrapparr-1.6.0-1/dispatchwrapparr-1.6.0-1.zip) | Apr 02 2026, 13:11 UTC | [`2d4aba3`](https://github.com/sv-dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638) | aa6727ebe8ce16bd23aa9f7f54e783f9 | 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5 |
 
 ---
 
-**Maintainers:** michaelmurfy | **Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/dispatchwrapparr)
+**Maintainers:** michaelmurfy | **Source:** [Browse Plugin](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/dispatchwrapparr)
 
 **Metadata:** [View full manifest](./manifest.json)
 

@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-06-14T13:05:33Z",
+  "manifest": {
+    "slug": "dispatcharr-ranked-matchups",
+    "name": "Ranked Matchups (Top Games)",
+    "description": "Cross-sport interestingness curator. Pulls upcoming games per enabled sport, scores them on interestingness, matches to Dispatcharr channels via EPG, and renames+groups them into a Top Matchups channel profile so your guide shows only the games worth watching. Channels are numbered by kickoff time, so the list sorts soonest-first and the guide binds correctly in both the default M3U/EPG output and the Xtream Codes API with no special settings.",
+    "author": "Jacob-Lasky",
+    "license": "MIT",
+    "source_type": "external",
+    "source_url": "https://github.com/Jacob-Lasky/dispatcharr_ranked_matchups/releases/download/v{version}/plugin.zip",
+    "repo_url": "https://github.com/Jacob-Lasky/dispatcharr_ranked_matchups",
+    "registry_url": "https://github.com/sv-dispatcharr/Plugins",
+    "registry_name": "sv-dispatcharr/Plugins",
+    "last_updated": "2026-06-14T08:28:45-04:00",
+    "latest": {
+      "version": "1.7.0",
+      "commit_sha": "012236b8bc6ad941a14f174201edb4a258de2177",
+      "commit_sha_short": "012236b",
+      "build_timestamp": "2026-06-14T13:04:35Z",
+      "last_updated": "2026-06-14T08:28:45-04:00",
+      "checksum_md5": "71cea724607fa61ed0ad6c4ea9df0e42",
+      "checksum_sha256": "82b0c5735c28d3cd217747cd973fc6c36d6b9f2dc0cd493d5c434348b8be5eee",
+      "source_url": "https://github.com/Jacob-Lasky/dispatcharr_ranked_matchups/releases/download/v1.7.0/plugin.zip",
+      "latest_url": "dispatcharr-ranked-matchups-1.7.0/dispatcharr-ranked-matchups-1.7.0.zip",
+      "url": "dispatcharr-ranked-matchups-1.7.0/dispatcharr-ranked-matchups-1.7.0.zip",
+      "size": 320
+    },
+    "versions": [
+      {
+        "version": "1.7.0",
+        "commit_sha": "012236b8bc6ad941a14f174201edb4a258de2177",
+        "commit_sha_short": "012236b",
+        "build_timestamp": "2026-06-14T13:04:35Z",
+        "last_updated": "2026-06-14T08:28:45-04:00",
+        "checksum_md5": "71cea724607fa61ed0ad6c4ea9df0e42",
+        "checksum_sha256": "82b0c5735c28d3cd217747cd973fc6c36d6b9f2dc0cd493d5c434348b8be5eee",
+        "source_url": "https://github.com/Jacob-Lasky/dispatcharr_ranked_matchups/releases/download/v1.7.0/plugin.zip",
+        "url": "dispatcharr-ranked-matchups-1.7.0/dispatcharr-ranked-matchups-1.7.0.zip",
+        "size": 320
+      }
+    ]
+  }
+}
