@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:05:33Z",
+  "generated_at": "2026-06-14T13:11:12Z",
   "manifest": {
     "slug": "tickarr",
     "name": "Tickarr",
@@ -11,13 +11,12 @@
     "repo_url": "https://github.com/jstevenscl/tickarr",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
-    "icon": "metadata/tickarr/logo.png",
     "last_updated": "2026-06-02T17:10:14-04:00",
     "latest": {
       "version": "0.1.01",
       "commit_sha": "489bbb5253740ef509a4dd8d8545f03971b289e8",
       "commit_sha_short": "489bbb5",
-      "build_timestamp": "2026-06-14T13:05:14Z",
+      "build_timestamp": "2026-06-14T13:11:00Z",
       "last_updated": "2026-06-02T17:10:14-04:00",
       "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
       "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",
@@ -31,7 +30,7 @@
         "version": "0.1.01",
         "commit_sha": "489bbb5253740ef509a4dd8d8545f03971b289e8",
         "commit_sha_short": "489bbb5",
-        "build_timestamp": "2026-06-14T13:05:14Z",
+        "build_timestamp": "2026-06-14T13:11:00Z",
         "last_updated": "2026-06-02T17:10:14-04:00",
         "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
         "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",

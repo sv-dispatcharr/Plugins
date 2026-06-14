@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:05:33Z",
+  "generated_at": "2026-06-14T13:11:12Z",
   "manifest": {
     "slug": "stream-dripper",
     "name": "Stream Dripper",
@@ -8,16 +8,15 @@
     "license": "Artistic-2.0",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
-    "icon": "metadata/stream-dripper/logo.png",
     "last_updated": "2026-03-29T11:51:09-04:00",
     "latest": {
       "version": "1.0.0",
       "commit_sha": "4e8f1b108c1e84f60520710d13e54eb2fb519648",
       "commit_sha_short": "4e8f1b1",
-      "build_timestamp": "2026-06-14T13:05:04Z",
+      "build_timestamp": "2026-06-14T13:10:53Z",
       "last_updated": "2026-03-29T11:51:09-04:00",
-      "checksum_md5": "318c3c6f16c5f1fa2569851c87cb8e81",
-      "checksum_sha256": "5a59f3cf57a8cefc24741e909435cce553deb44fa3c2d60a8d111c6105b91265",
+      "checksum_md5": "481e7e1a0342d96ef883d512f8ced0ee",
+      "checksum_sha256": "3d693ee9ff09799f223ef1c7e1453cde249f75861061f2028852530c4ca6e4cd",
       "latest_url": "stream-dripper-1.0.0-1/stream-dripper-1.0.0-1.zip",
       "url": "stream-dripper-1.0.0-1/stream-dripper-1.0.0-1.zip",
       "size": 30
@@ -27,10 +26,10 @@
         "version": "1.0.0",
         "commit_sha": "4e8f1b108c1e84f60520710d13e54eb2fb519648",
         "commit_sha_short": "4e8f1b1",
-        "build_timestamp": "2026-06-14T13:05:04Z",
+        "build_timestamp": "2026-06-14T13:10:53Z",
         "last_updated": "2026-03-29T11:51:09-04:00",
-        "checksum_md5": "318c3c6f16c5f1fa2569851c87cb8e81",
-        "checksum_sha256": "5a59f3cf57a8cefc24741e909435cce553deb44fa3c2d60a8d111c6105b91265",
+        "checksum_md5": "481e7e1a0342d96ef883d512f8ced0ee",
+        "checksum_sha256": "3d693ee9ff09799f223ef1c7e1453cde249f75861061f2028852530c4ca6e4cd",
         "url": "stream-dripper-1.0.0-1/stream-dripper-1.0.0-1.zip",
         "size": 30
       }

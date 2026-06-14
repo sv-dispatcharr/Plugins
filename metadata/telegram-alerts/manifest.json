@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:05:33Z",
+  "generated_at": "2026-06-14T13:11:12Z",
   "manifest": {
     "slug": "telegram-alerts",
     "name": "Telegram Alerts",
@@ -11,13 +11,12 @@
     "repo_url": "https://github.com/R3XCHRIS/telegram-alerts",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
-    "icon": "metadata/telegram-alerts/logo.png",
     "last_updated": "2026-06-01T16:07:29-04:00",
     "latest": {
       "version": "0.4.5",
       "commit_sha": "04aa4f43926c2ca7cefc5c802166a02fe43b3500",
       "commit_sha_short": "04aa4f4",
-      "build_timestamp": "2026-06-14T13:05:10Z",
+      "build_timestamp": "2026-06-14T13:10:56Z",
       "last_updated": "2026-06-01T16:07:29-04:00",
       "checksum_md5": "f736e0293e45efc22246727f4faf9e98",
       "checksum_sha256": "19728ce0426f3c98b927ea1e1737a97c8f9de2d8b092e0c1f48bec066f757d11",
@@ -32,7 +31,7 @@
         "version": "0.4.5",
         "commit_sha": "04aa4f43926c2ca7cefc5c802166a02fe43b3500",
         "commit_sha_short": "04aa4f4",
-        "build_timestamp": "2026-06-14T13:05:10Z",
+        "build_timestamp": "2026-06-14T13:10:56Z",
         "last_updated": "2026-06-01T16:07:29-04:00",
         "checksum_md5": "f736e0293e45efc22246727f4faf9e98",
         "checksum_sha256": "19728ce0426f3c98b927ea1e1737a97c8f9de2d8b092e0c1f48bec066f757d11",

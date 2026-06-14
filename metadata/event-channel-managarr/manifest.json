@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:05:33Z",
+  "generated_at": "2026-06-14T13:11:12Z",
   "manifest": {
     "slug": "event-channel-managarr",
     "name": "Event Channel Managarr",
@@ -9,7 +9,6 @@
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-Event-Channel-Managarr-Plugin",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
-    "icon": "metadata/event-channel-managarr/logo.png",
     "last_updated": "2026-06-13T15:03:08-04:00",
     "latest": {
       "version": "1.26.1641827",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:05:33Z",
+  "generated_at": "2026-06-14T13:11:12Z",
   "manifest": {
     "slug": "dispatchwrapparr",
     "name": "Dispatchwrapparr",
@@ -13,7 +13,6 @@
     "discord_thread": "https://discord.com/channels/1340492560220684331/1422776847703212132",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
-    "icon": "metadata/dispatchwrapparr/logo.png",
     "last_updated": "2026-06-07T08:42:54-04:00",
     "latest": {
       "version": "1.7.3",

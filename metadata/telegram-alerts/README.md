@@ -15,7 +15,7 @@ Push Dispatcharr channel/stream/VOD events to a Telegram chat via a bot. Include
 ### Latest Release
 
 - **Download:** [`telegram-alerts-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/telegram-alerts-0.4.5-1/telegram-alerts-0.4.5-1.zip)
-- **Built:** Jun 14 2026, 13:05 UTC
+- **Built:** Jun 14 2026, 13:10 UTC
 - **Source Commit:** [`04aa4f4`](https://github.com/sv-dispatcharr/Plugins/commit/04aa4f43926c2ca7cefc5c802166a02fe43b3500)
 
 **Checksums:**
@@ -28,7 +28,7 @@ SHA256: 19728ce0426f3c98b927ea1e1737a97c8f9de2d8b092e0c1f48bec066f757d11
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `0.4.5` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/telegram-alerts-0.4.5-1/telegram-alerts-0.4.5-1.zip) | Jun 14 2026, 13:05 UTC | [`04aa4f4`](https://github.com/sv-dispatcharr/Plugins/commit/04aa4f43926c2ca7cefc5c802166a02fe43b3500) | f736e0293e45efc22246727f4faf9e98 | 19728ce0426f3c98b927ea1e1737a97c8f9de2d8b092e0c1f48bec066f757d11 |
+| `0.4.5` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/telegram-alerts-0.4.5-1/telegram-alerts-0.4.5-1.zip) | Jun 14 2026, 13:10 UTC | [`04aa4f4`](https://github.com/sv-dispatcharr/Plugins/commit/04aa4f43926c2ca7cefc5c802166a02fe43b3500) | f736e0293e45efc22246727f4faf9e98 | 19728ce0426f3c98b927ea1e1737a97c8f9de2d8b092e0c1f48bec066f757d11 |
 
 ---
 

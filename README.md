@@ -375,4 +375,4 @@ curl https://raw.githubusercontent.com/sv-dispatcharr/Plugins/releases/manifest.
 
 ---
 
-*Last updated: Jun 14 2026, 13:05 UTC*
+*Last updated: Jun 14 2026, 13:11 UTC*

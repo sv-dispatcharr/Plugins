@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:05:33Z",
+  "generated_at": "2026-06-14T13:11:12Z",
   "manifest": {
     "slug": "vod2mlib",
     "name": "VOD to Media Library",
@@ -11,7 +11,6 @@
     "repo_url": "https://github.com/R3XCHRIS/VOD2MLIB",
     "registry_url": "https://github.com/sv-dispatcharr/Plugins",
     "registry_name": "sv-dispatcharr/Plugins",
-    "icon": "metadata/vod2mlib/logo.png",
     "last_updated": "2026-06-11T10:01:37-04:00",
     "latest": {
       "version": "1.15.2",
