@@ -133,13 +133,27 @@ for plugin_dir in plugins/*/; do
   fi
   release_notes+="**README:** [Plugin README](${readme_url})"
 
-  # Upload versioned GitHub Release
+  # Upload versioned GitHub Release (retry with numeric suffix on immutable tag conflict)
   echo "  $plugin_name v$version - uploading to GitHub Releases"
-  gh release create "$release_tag" \
-    --repo "$GITHUB_REPOSITORY" \
-    --title "${plugin_name} v${version}" \
-    --notes "$release_notes" \
-    "$zip_path"
+  final_tag="$release_tag"
+  tag_suffix=0
+  while true; do
+    if gh release create "$final_tag" \
+        --repo "$GITHUB_REPOSITORY" \
+        --title "${plugin_name} v${version}" \
+        --notes "$release_notes" \
+        "$zip_path" 2>/tmp/rel_err; then
+      break
+    fi
+    if grep -q "immutable\|Cannot create ref" /tmp/rel_err; then
+      tag_suffix=$(( tag_suffix + 1 ))
+      final_tag="${release_tag}-${tag_suffix}"
+      echo "  Tag conflict on $release_tag, retrying as $final_tag"
+    else
+      cat /tmp/rel_err >&2; rm -f "$zip_path" /tmp/rel_err; exit 1
+    fi
+  done
+  rm -f /tmp/rel_err
 
   rm -f "$zip_path"
 done
