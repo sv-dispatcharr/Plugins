@@ -163,10 +163,11 @@ for plugin_dir in plugins/*/; do
   while IFS= read -r release_tag; do
     [[ -z "$release_tag" ]] && continue
     zip_version="${release_tag#${plugin_name}-}"
-    zip_url="${plugin_name}-${zip_version}/${plugin_name}-${zip_version}.zip"
-    # Strip a plain-integer migration retry suffix (e.g. 1.0.0-1 -> 1.0.0) so the
-    # canonical version is used for metadata lookup and manifest entries.
+    # Strip a plain-integer retry suffix (e.g. 1.0.0-1 -> 1.0.0) for metadata lookup and the ZIP filename.
     canonical_version=$(sed 's/-[0-9][0-9]*$//' <<< "$zip_version")
+    # Release directory uses the full tag version (may include retry suffix);
+    # the ZIP asset filename uses the canonical version (how build-zips.sh named it).
+    zip_url="${plugin_name}-${zip_version}/${plugin_name}-${canonical_version}.zip"
 
     # Fresh metadata from this run takes priority; fall back to existing manifest
     fresh_meta_file="${BUILD_META_DIR:-}/$plugin_key/${plugin_key}-${canonical_version}.json"
@@ -219,7 +220,10 @@ for plugin_dir in plugins/*/; do
   # Use the actual tag-derived zip_version (which may include a retry suffix) for the URL,
   # so the URL resolves to the real release asset.
   latest_url=""
-  [[ -n "$latest_zip_version" ]] && latest_url="${plugin_name}-${latest_zip_version}/${plugin_name}-${latest_zip_version}.zip"
+  if [[ -n "$latest_zip_version" ]]; then
+    latest_canonical=$(sed 's/-[0-9][0-9]*$//' <<< "$latest_zip_version")
+    latest_url="${plugin_name}-${latest_zip_version}/${plugin_name}-${latest_canonical}.zip"
+  fi
 
   # Overwrite min/max_dispatcharr_version for the current version's entry from plugin.json,
   # so metadata-only updates (no version bump) are reflected without a rebuild.
