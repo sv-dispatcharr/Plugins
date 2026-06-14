@@ -43,7 +43,7 @@ render_plugin() {
 
   local manifest_file="./metadata/${plugin_name}/manifest.json"
   local root_url
-  root_url=$(jq -r '.manifest.root_url // ""' "manifest.json" 2>/dev/null || echo "")
+  root_url=$(jq -r '.manifest.download_base_url // ""' "manifest.json" 2>/dev/null || echo "")
   local latest_url_path=""
   [[ -f "$manifest_file" ]] && latest_url_path=$(jq -r '.manifest.latest.latest_url // empty' "$manifest_file")
   local zip_url=""
