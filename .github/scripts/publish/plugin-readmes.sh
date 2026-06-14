@@ -24,8 +24,8 @@ shields_encode() {
   printf '%s' "$s"
 }
 
-# Read root_url from the root manifest (set by generate-manifest.sh)
-root_url=$(jq -r '.manifest.root_url // ""' "manifest.json" 2>/dev/null || echo "")
+# Read download_base_url from the root manifest (set by generate-manifest.sh)
+root_url=$(jq -r '.manifest.download_base_url // ""' "manifest.json" 2>/dev/null || echo "")
 
 for plugin_dir in plugins/*/; do
   [[ ! -d "$plugin_dir" ]] && continue

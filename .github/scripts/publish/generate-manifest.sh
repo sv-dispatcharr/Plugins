@@ -12,8 +12,16 @@ set -e
 generated_at="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 registry_url="https://github.com/${GITHUB_REPOSITORY}"
 registry_name="${GITHUB_REPOSITORY}"
-root_url="https://github.com/${GITHUB_REPOSITORY}/releases/download"
+download_base_url="https://github.com/${GITHUB_REPOSITORY}/releases/download"
 raw_releases_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${RELEASES_BRANCH}"
+
+# Use GitHub Pages URL for metadata if configured; fall back to raw.githubusercontent.com
+pages_url=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.html_url // empty' 2>/dev/null || true)
+if [[ -n "$pages_url" ]]; then
+  metadata_base_url="${pages_url%/}"
+else
+  metadata_base_url="$raw_releases_url"
+fi
 
 # GPG signing setup - optional; set GPG_PRIVATE_KEY (armored) and optionally GPG_PASSPHRASE
 gpg_key_id=""
@@ -276,8 +284,8 @@ for plugin_dir in plugins/*/; do
     desc_trimmed="$desc_raw"
   fi
 
-  # manifest_url is absolute: per-plugin manifest stays in the releases branch (raw.githubusercontent.com)
-  plugin_manifest_url="${raw_releases_url}/metadata/${plugin_name}/manifest.json"
+  # manifest_url is relative: clients compose with metadata_base_url from the root manifest
+  plugin_manifest_url="metadata/${plugin_name}/manifest.json"
 
   root_entry=$(jq -n \
     --argjson latest_metadata "$latest_metadata" \
@@ -318,7 +326,8 @@ inner_root=$(
     echo '{'
     echo '  "registry_url": '"$(jq -n --arg u "$registry_url" '$u')"','
     echo '  "registry_name": '"$(jq -n --arg u "$registry_name" '$u')"','
-    echo '  "root_url": '"$(jq -n --arg u "$root_url" '$u')"','
+    echo '  "download_base_url": '"$(jq -n --arg u "$download_base_url" '$u')"','
+    echo '  "metadata_base_url": '"$(jq -n --arg u "$metadata_base_url" '$u')"','
     echo '  "plugins": ['
     first=true
     for entry in "${root_entries[@]}"; do
