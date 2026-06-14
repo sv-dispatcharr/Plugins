@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "multiview",
     "name": "Multiview",
@@ -15,14 +15,14 @@
       "version": "0.1.0",
       "commit_sha": "5bddf4e19c75244ea27e321d8a178b1a3107dece",
       "commit_sha_short": "5bddf4e",
-      "build_timestamp": "2026-06-14T13:10:50Z",
+      "build_timestamp": "2026-06-14T13:19:32Z",
       "last_updated": "2026-06-04T12:03:28-04:00",
-      "checksum_md5": "9a4a031845987bf20fcb32c0ca37d0e2",
-      "checksum_sha256": "d12df917ccf0b5139b6b68c0054f2edce42a97e7c949d871b20578eebf6e2c09",
+      "checksum_md5": "b2477410e0f8e6ce41d3cab12b9040c1",
+      "checksum_sha256": "effc24c259be0052f082554e18b763e46faf07abf9d4ec837f1e97040c906ae3",
       "min_dispatcharr_version": "v0.22.0",
       "max_dispatcharr_version": "v0.25.1",
-      "latest_url": "multiview-0.1.0-1/multiview-0.1.0-1.zip",
-      "url": "multiview-0.1.0-1/multiview-0.1.0-1.zip",
+      "latest_url": "multiview-0.1.0-1/multiview-0.1.0.zip",
+      "url": "multiview-0.1.0-1/multiview-0.1.0.zip",
       "size": 47
     },
     "versions": [
@@ -30,13 +30,13 @@
         "version": "0.1.0",
         "commit_sha": "5bddf4e19c75244ea27e321d8a178b1a3107dece",
         "commit_sha_short": "5bddf4e",
-        "build_timestamp": "2026-06-14T13:10:50Z",
+        "build_timestamp": "2026-06-14T13:19:32Z",
         "last_updated": "2026-06-04T12:03:28-04:00",
-        "checksum_md5": "9a4a031845987bf20fcb32c0ca37d0e2",
-        "checksum_sha256": "d12df917ccf0b5139b6b68c0054f2edce42a97e7c949d871b20578eebf6e2c09",
+        "checksum_md5": "b2477410e0f8e6ce41d3cab12b9040c1",
+        "checksum_sha256": "effc24c259be0052f082554e18b763e46faf07abf9d4ec837f1e97040c906ae3",
         "min_dispatcharr_version": "v0.22.0",
         "max_dispatcharr_version": "v0.25.1",
-        "url": "multiview-0.1.0-1/multiview-0.1.0-1.zip",
+        "url": "multiview-0.1.0-1/multiview-0.1.0.zip",
         "size": 47
       }
     ]

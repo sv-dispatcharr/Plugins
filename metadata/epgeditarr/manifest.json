@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "epgeditarr",
     "name": "EPGeditARR",
@@ -16,13 +16,13 @@
       "version": "0.2.07",
       "commit_sha": "fc6f5f6fff939c45828f221f47c3355b33cf4b66",
       "commit_sha_short": "fc6f5f6",
-      "build_timestamp": "2026-06-14T13:10:45Z",
+      "build_timestamp": "2026-06-14T13:19:28Z",
       "last_updated": "2026-05-19T12:17:09-04:00",
       "checksum_md5": "6f76fe364fd974cdbb4a27edff645a1c",
       "checksum_sha256": "65a4ea198ec514d430db85b56629dc8a58fd7f4d4f8eeece63aa92b1918e694e",
       "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.07/epgeditarr-v0.2.07.zip",
-      "latest_url": "epgeditarr-0.2.07-1/epgeditarr-0.2.07-1.zip",
-      "url": "epgeditarr-0.2.07-1/epgeditarr-0.2.07-1.zip",
+      "latest_url": "epgeditarr-0.2.07-1/epgeditarr-0.2.07.zip",
+      "url": "epgeditarr-0.2.07-1/epgeditarr-0.2.07.zip",
       "size": 134
     },
     "versions": [
@@ -30,12 +30,12 @@
         "version": "0.2.07",
         "commit_sha": "fc6f5f6fff939c45828f221f47c3355b33cf4b66",
         "commit_sha_short": "fc6f5f6",
-        "build_timestamp": "2026-06-14T13:10:45Z",
+        "build_timestamp": "2026-06-14T13:19:28Z",
         "last_updated": "2026-05-19T12:17:09-04:00",
         "checksum_md5": "6f76fe364fd974cdbb4a27edff645a1c",
         "checksum_sha256": "65a4ea198ec514d430db85b56629dc8a58fd7f4d4f8eeece63aa92b1918e694e",
         "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.07/epgeditarr-v0.2.07.zip",
-        "url": "epgeditarr-0.2.07-1/epgeditarr-0.2.07-1.zip",
+        "url": "epgeditarr-0.2.07-1/epgeditarr-0.2.07.zip",
         "size": 134
       },
       {
@@ -45,7 +45,7 @@
         "checksum_md5": "22d079aa80e80d4f37f6a02b9e6700e8",
         "checksum_sha256": "fba124ebf97da3598a2938eaf710b3c796903dce578ea903a974e749e7679104",
         "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.06/epgeditarr-v0.2.06.zip",
-        "url": "epgeditarr-0.2.06-1/epgeditarr-0.2.06-1.zip",
+        "url": "epgeditarr-0.2.06-1/epgeditarr-0.2.06.zip",
         "size": 134
       },
       {
@@ -55,7 +55,7 @@
         "checksum_md5": "6f30fe0062b83f3b9cd9f41367a503c3",
         "checksum_sha256": "fc53a529b900ac18c0d4ad1605f15aed604c11c52eccea3c5e7bf50424efd28d",
         "source_url": "https://github.com/jstevenscl/epgeditarr/releases/download/v0.2.05/epgeditarr-v0.2.05.zip",
-        "url": "epgeditarr-0.2.05-1/epgeditarr-0.2.05-1.zip",
+        "url": "epgeditarr-0.2.05-1/epgeditarr-0.2.05.zip",
         "size": 134
       }
     ]

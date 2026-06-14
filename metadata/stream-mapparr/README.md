@@ -29,8 +29,8 @@ SHA256: d5755d016062b096af1b360c2afd8788bd5bd063ce97c8744c11c1dd926a1f79
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
 | `1.26.1650116` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/stream-mapparr-1.26.1650116/stream-mapparr-1.26.1650116.zip) | Jun 14 2026, 13:05 UTC | [`6b5cd91`](https://github.com/sv-dispatcharr/Plugins/commit/6b5cd911df84ce09734de70f2b33e03afe82f998) | 71f46ae16b03380b8023aca98dc1fc23 | d5755d016062b096af1b360c2afd8788bd5bd063ce97c8744c11c1dd926a1f79 |
-| `1.26.1082140` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/stream-mapparr-1.26.1082140-1/stream-mapparr-1.26.1082140-1.zip) | Apr 18 2026, 22:09 UTC | [`4812211`](https://github.com/sv-dispatcharr/Plugins/commit/4812211adaa1d7d67b5a2ae8154e857eab5d5b13) | f86b589e4c80bf08a75bed8987ce9a6c | bf65e3f1051cdd25f219e4e42e5d890c805c8ea17f9787a79d7e6ef2a966738e |
-| `0.9.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/stream-mapparr-0.9.0-1/stream-mapparr-0.9.0-1.zip) | Apr 05 2026, 21:34 UTC | [`f42e889`](https://github.com/sv-dispatcharr/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81) | c3b1a7d8db02ea9416f2cc97d8c05479 | be311ee92aacc4e45b680cdf08ab66bd0d0a62faf0af41465ef546dff98f63b2 |
+| `1.26.1082140` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/stream-mapparr-1.26.1082140-1/stream-mapparr-1.26.1082140.zip) | Apr 18 2026, 22:09 UTC | [`4812211`](https://github.com/sv-dispatcharr/Plugins/commit/4812211adaa1d7d67b5a2ae8154e857eab5d5b13) | f86b589e4c80bf08a75bed8987ce9a6c | bf65e3f1051cdd25f219e4e42e5d890c805c8ea17f9787a79d7e6ef2a966738e |
+| `0.9.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/stream-mapparr-0.9.0-1/stream-mapparr-0.9.0.zip) | Apr 05 2026, 21:34 UTC | [`f42e889`](https://github.com/sv-dispatcharr/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81) | c3b1a7d8db02ea9416f2cc97d8c05479 | be311ee92aacc4e45b680cdf08ab66bd0d0a62faf0af41465ef546dff98f63b2 |
 
 ---
 

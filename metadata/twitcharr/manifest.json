@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "twitcharr",
     "name": "Twitcharr",
@@ -19,13 +19,13 @@
       "version": "1.2.25",
       "commit_sha": "ff09842b40864d9a56364f45b9c86618895b6206",
       "commit_sha_short": "ff09842",
-      "build_timestamp": "2026-06-14T13:11:04Z",
+      "build_timestamp": "2026-06-14T13:19:44Z",
       "last_updated": "2026-06-02T13:16:30-04:00",
       "checksum_md5": "34217d30accf77de447452a19e0b4e94",
       "checksum_sha256": "e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe",
       "source_url": "https://github.com/eliasbruno124-dev/Twitcharr/releases/download/v1.2.25/twitcharr.zip",
-      "latest_url": "twitcharr-1.2.25-1/twitcharr-1.2.25-1.zip",
-      "url": "twitcharr-1.2.25-1/twitcharr-1.2.25-1.zip",
+      "latest_url": "twitcharr-1.2.25-1/twitcharr-1.2.25.zip",
+      "url": "twitcharr-1.2.25-1/twitcharr-1.2.25.zip",
       "size": 51
     },
     "versions": [
@@ -33,12 +33,12 @@
         "version": "1.2.25",
         "commit_sha": "ff09842b40864d9a56364f45b9c86618895b6206",
         "commit_sha_short": "ff09842",
-        "build_timestamp": "2026-06-14T13:11:04Z",
+        "build_timestamp": "2026-06-14T13:19:44Z",
         "last_updated": "2026-06-02T13:16:30-04:00",
         "checksum_md5": "34217d30accf77de447452a19e0b4e94",
         "checksum_sha256": "e81327c022583e58114d0bf81159f8c41c42e298c8d950eb389362bafa18bbfe",
         "source_url": "https://github.com/eliasbruno124-dev/Twitcharr/releases/download/v1.2.25/twitcharr.zip",
-        "url": "twitcharr-1.2.25-1/twitcharr-1.2.25-1.zip",
+        "url": "twitcharr-1.2.25-1/twitcharr-1.2.25.zip",
         "size": 51
       }
     ]

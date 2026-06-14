@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "channel-mapparr",
     "name": "Channel Mapparr",
@@ -15,13 +15,13 @@
       "version": "1.26.1430910",
       "commit_sha": "309559e7795e3c0447f90067e0c011d8c1eb9d45",
       "commit_sha_short": "309559e",
-      "build_timestamp": "2026-06-14T13:10:31Z",
+      "build_timestamp": "2026-06-14T13:19:16Z",
       "last_updated": "2026-05-23T13:06:41-04:00",
-      "checksum_md5": "d8a3bd0889fdca16b20dca48a6245a2f",
-      "checksum_sha256": "08c61bcfd40cbd5ddece9f6c08f6279a6978d77e7748bbd31326e482a7015a11",
+      "checksum_md5": "4ea6bac5b3cec43997201ee0681752c4",
+      "checksum_sha256": "c7fddf82a4c32e15bb50febf717b1d78f76e45b2b32d49d75f5024a7561a2cce",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip",
-      "url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip",
+      "latest_url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910.zip",
+      "url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910.zip",
       "size": 528
     },
     "versions": [
@@ -29,12 +29,12 @@
         "version": "1.26.1430910",
         "commit_sha": "309559e7795e3c0447f90067e0c011d8c1eb9d45",
         "commit_sha_short": "309559e",
-        "build_timestamp": "2026-06-14T13:10:31Z",
+        "build_timestamp": "2026-06-14T13:19:16Z",
         "last_updated": "2026-05-23T13:06:41-04:00",
-        "checksum_md5": "d8a3bd0889fdca16b20dca48a6245a2f",
-        "checksum_sha256": "08c61bcfd40cbd5ddece9f6c08f6279a6978d77e7748bbd31326e482a7015a11",
+        "checksum_md5": "4ea6bac5b3cec43997201ee0681752c4",
+        "checksum_sha256": "c7fddf82a4c32e15bb50febf717b1d78f76e45b2b32d49d75f5024a7561a2cce",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip",
+        "url": "channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910.zip",
         "size": 528
       },
       {
@@ -46,7 +46,7 @@
         "checksum_md5": "10f435ba7aeb6cd57a19ed25a2a19a2a",
         "checksum_sha256": "90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "channel-mapparr-1.26.1001200-1/channel-mapparr-1.26.1001200-1.zip",
+        "url": "channel-mapparr-1.26.1001200-1/channel-mapparr-1.26.1001200.zip",
         "size": 511
       }
     ]

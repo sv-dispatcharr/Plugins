@@ -14,21 +14,21 @@ Tile multiple Dispatcharr channel streams into multi-view outputs using FFmpeg
 
 ### Latest Release
 
-- **Download:** [`multiview-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0-1.zip)
-- **Built:** Jun 14 2026, 13:10 UTC
+- **Download:** [`multiview-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0.zip)
+- **Built:** Jun 14 2026, 13:19 UTC
 - **Source Commit:** [`5bddf4e`](https://github.com/sv-dispatcharr/Plugins/commit/5bddf4e19c75244ea27e321d8a178b1a3107dece)
 
 **Checksums:**
 ```
-MD5:    9a4a031845987bf20fcb32c0ca37d0e2
-SHA256: d12df917ccf0b5139b6b68c0054f2edce42a97e7c949d871b20578eebf6e2c09
+MD5:    b2477410e0f8e6ce41d3cab12b9040c1
+SHA256: effc24c259be0052f082554e18b763e46faf07abf9d4ec837f1e97040c906ae3
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `0.1.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0-1.zip) | Jun 14 2026, 13:10 UTC | [`5bddf4e`](https://github.com/sv-dispatcharr/Plugins/commit/5bddf4e19c75244ea27e321d8a178b1a3107dece) | 9a4a031845987bf20fcb32c0ca37d0e2 | d12df917ccf0b5139b6b68c0054f2edce42a97e7c949d871b20578eebf6e2c09 |
+| `0.1.0` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0.zip) | Jun 14 2026, 13:19 UTC | [`5bddf4e`](https://github.com/sv-dispatcharr/Plugins/commit/5bddf4e19c75244ea27e321d8a178b1a3107dece) | b2477410e0f8e6ce41d3cab12b9040c1 | effc24c259be0052f082554e18b763e46faf07abf9d4ec837f1e97040c906ae3 |
 
 ---
 

@@ -14,22 +14,22 @@ Standardizes broadcast (OTA) and premium/cable channel names using network data 
 
 ### Latest Release
 
-- **Download:** [`channel-mapparr-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip)
-- **Built:** Jun 14 2026, 13:10 UTC
+- **Download:** [`channel-mapparr-latest.zip`](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910.zip)
+- **Built:** Jun 14 2026, 13:19 UTC
 - **Source Commit:** [`309559e`](https://github.com/sv-dispatcharr/Plugins/commit/309559e7795e3c0447f90067e0c011d8c1eb9d45)
 
 **Checksums:**
 ```
-MD5:    d8a3bd0889fdca16b20dca48a6245a2f
-SHA256: 08c61bcfd40cbd5ddece9f6c08f6279a6978d77e7748bbd31326e482a7015a11
+MD5:    4ea6bac5b3cec43997201ee0681752c4
+SHA256: c7fddf82a4c32e15bb50febf717b1d78f76e45b2b32d49d75f5024a7561a2cce
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `1.26.1430910` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip) | Jun 14 2026, 13:10 UTC | [`309559e`](https://github.com/sv-dispatcharr/Plugins/commit/309559e7795e3c0447f90067e0c011d8c1eb9d45) | d8a3bd0889fdca16b20dca48a6245a2f | 08c61bcfd40cbd5ddece9f6c08f6279a6978d77e7748bbd31326e482a7015a11 |
-| `1.26.1001200` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1001200-1/channel-mapparr-1.26.1001200-1.zip) | Apr 10 2026, 16:07 UTC | [`11388be`](https://github.com/sv-dispatcharr/Plugins/commit/11388be99c171d1cf47cbbbea99cfc2b27565081) | 10f435ba7aeb6cd57a19ed25a2a19a2a | 90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca |
+| `1.26.1430910` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910.zip) | Jun 14 2026, 13:19 UTC | [`309559e`](https://github.com/sv-dispatcharr/Plugins/commit/309559e7795e3c0447f90067e0c011d8c1eb9d45) | 4ea6bac5b3cec43997201ee0681752c4 | c7fddf82a4c32e15bb50febf717b1d78f76e45b2b32d49d75f5024a7561a2cce |
+| `1.26.1001200` | [Download](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1001200-1/channel-mapparr-1.26.1001200.zip) | Apr 10 2026, 16:07 UTC | [`11388be`](https://github.com/sv-dispatcharr/Plugins/commit/11388be99c171d1cf47cbbbea99cfc2b27565081) | 10f435ba7aeb6cd57a19ed25a2a19a2a | 90beb0b199f9f98b253b3024b7de683c1ba8ceee820072b63fd16b63bbb7bbca |
 
 ---
 

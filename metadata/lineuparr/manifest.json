@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "lineuparr",
     "name": "Lineuparr",
@@ -45,7 +45,7 @@
         "checksum_md5": "af2833e8cfe169abdb2ff90bd2abde63",
         "checksum_sha256": "7bd89d15e308243c501321718e2dacc1613a43951ef1ce9d99f0956b372db429",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "lineuparr-1.26.1431300-1/lineuparr-1.26.1431300-1.zip",
+        "url": "lineuparr-1.26.1431300-1/lineuparr-1.26.1431300.zip",
         "size": 270
       },
       {
@@ -57,7 +57,7 @@
         "checksum_md5": "87ca41c30b050ae1b5f590e0423b52c8",
         "checksum_sha256": "64737b93e8e47432ae32078fb4a315946011a400d4da751ab84da09d394968f5",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "lineuparr-1.26.1421711-1/lineuparr-1.26.1421711-1.zip",
+        "url": "lineuparr-1.26.1421711-1/lineuparr-1.26.1421711.zip",
         "size": 268
       },
       {
@@ -69,7 +69,7 @@
         "checksum_md5": "e9c4140f2c648ac67ec2e6e21fbae4f9",
         "checksum_sha256": "4bc7b7fec990d345398d0f378a6e65883c4cc37b8c2def47d60b0880c31c7a69",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "lineuparr-1.26.1370103-1/lineuparr-1.26.1370103-1.zip",
+        "url": "lineuparr-1.26.1370103-1/lineuparr-1.26.1370103.zip",
         "size": 241
       },
       {
@@ -81,7 +81,7 @@
         "checksum_md5": "64fdacf8b6332e4f4bfdf50a6d13a4c3",
         "checksum_sha256": "2ffd67a7ae593482dc893e7a5e3c66a125ad493c860965e54c9ddbb53ca4ee2e",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "lineuparr-1.26.1091027-1/lineuparr-1.26.1091027-1.zip",
+        "url": "lineuparr-1.26.1091027-1/lineuparr-1.26.1091027.zip",
         "size": 238
       },
       {
@@ -93,7 +93,7 @@
         "checksum_md5": "30d777605948a1fa6d1bad0c1064f7b5",
         "checksum_sha256": "8217ce0ace8fc62202de9d74f4c1ac50d2d13ade9adff91879539ec9e6c1adbf",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "lineuparr-1.26.9520-1/lineuparr-1.26.9520-1.zip",
+        "url": "lineuparr-1.26.9520-1/lineuparr-1.26.9520.zip",
         "size": 232
       }
     ]

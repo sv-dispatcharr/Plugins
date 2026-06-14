@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "epg-janitor",
     "name": "EPG Janitor",
@@ -18,13 +18,13 @@
       "version": "1.26.1420824",
       "commit_sha": "a5ccaa94fb0ddb806eb2ef36abef0c8a665afb8d",
       "commit_sha_short": "a5ccaa9",
-      "build_timestamp": "2026-06-14T13:10:42Z",
+      "build_timestamp": "2026-06-14T13:19:26Z",
       "last_updated": "2026-05-22T10:19:01-04:00",
-      "checksum_md5": "3bf0b8bc2d4ea3987234e942cea44573",
-      "checksum_sha256": "288da24baf853bf16406fb84d038179a07bf38137b56df4787c4545f15228c93",
+      "checksum_md5": "28c19e75f44bb01e6b05b0e970fb072c",
+      "checksum_sha256": "e2a251b8d60e03227dd46655152eb1031b2923694976ad5bd59c0f2438e327dc",
       "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824-1.zip",
-      "url": "epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824-1.zip",
+      "latest_url": "epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824.zip",
+      "url": "epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824.zip",
       "size": 428
     },
     "versions": [
@@ -32,12 +32,12 @@
         "version": "1.26.1420824",
         "commit_sha": "a5ccaa94fb0ddb806eb2ef36abef0c8a665afb8d",
         "commit_sha_short": "a5ccaa9",
-        "build_timestamp": "2026-06-14T13:10:42Z",
+        "build_timestamp": "2026-06-14T13:19:26Z",
         "last_updated": "2026-05-22T10:19:01-04:00",
-        "checksum_md5": "3bf0b8bc2d4ea3987234e942cea44573",
-        "checksum_sha256": "288da24baf853bf16406fb84d038179a07bf38137b56df4787c4545f15228c93",
+        "checksum_md5": "28c19e75f44bb01e6b05b0e970fb072c",
+        "checksum_sha256": "e2a251b8d60e03227dd46655152eb1031b2923694976ad5bd59c0f2438e327dc",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824-1.zip",
+        "url": "epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824.zip",
         "size": 428
       },
       {
@@ -49,7 +49,7 @@
         "checksum_md5": "25cf566d3e3c0fec1f99d78d7b09dd85",
         "checksum_sha256": "9109e92484c73b24fad2c92b455f9a3bd8e2280b51b6eac7120c14de42314499",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "epg-janitor-1.26.1021352-1/epg-janitor-1.26.1021352-1.zip",
+        "url": "epg-janitor-1.26.1021352-1/epg-janitor-1.26.1021352.zip",
         "size": 416
       }
     ]

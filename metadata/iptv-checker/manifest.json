@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "iptv-checker",
     "name": "IPTV Checker",
@@ -45,7 +45,7 @@
         "checksum_md5": "49d562cb3128c2335d654a82abd93d7f",
         "checksum_sha256": "d6ece367d7f57c3149756d3841d558ccaffc3df0dcf443cb918b923d22c5f03a",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1421301-1/iptv-checker-1.26.1421301-1.zip",
+        "url": "iptv-checker-1.26.1421301-1/iptv-checker-1.26.1421301.zip",
         "size": 360
       },
       {
@@ -57,7 +57,7 @@
         "checksum_md5": "a4b56a82858b7b976d87c703f80e163e",
         "checksum_sha256": "820e7db19aeb50460d51e5d9069acacd413bc8f573bf9db2f83cac3dae44ce7b",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1362003-1/iptv-checker-1.26.1362003-1.zip",
+        "url": "iptv-checker-1.26.1362003-1/iptv-checker-1.26.1362003.zip",
         "size": 360
       },
       {
@@ -69,7 +69,7 @@
         "checksum_md5": "e82d4b95df6c089471ca0547e8b2791c",
         "checksum_sha256": "75b2b8379912cd82ca2026a0ab58d875e99af65308253c163adc1557464113f4",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1221101-1/iptv-checker-1.26.1221101-1.zip",
+        "url": "iptv-checker-1.26.1221101-1/iptv-checker-1.26.1221101.zip",
         "size": 354
       },
       {
@@ -81,7 +81,7 @@
         "checksum_md5": "cc0be9f97a30b0e9d88119f59e726119",
         "checksum_sha256": "731abcffedf0b4959982109c05649cd30d64aa119193666ba6b2465606f2b75f",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1161403-1/iptv-checker-1.26.1161403-1.zip",
+        "url": "iptv-checker-1.26.1161403-1/iptv-checker-1.26.1161403.zip",
         "size": 344
       },
       {
@@ -93,7 +93,7 @@
         "checksum_md5": "004cdba61f06fb24e7cb201e3ddd5568",
         "checksum_sha256": "31027fb0ca94093489d169e853a363f90f6f4cd1fddc50c9a48b45159d558df4",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-1.26.1081815-1/iptv-checker-1.26.1081815-1.zip",
+        "url": "iptv-checker-1.26.1081815-1/iptv-checker-1.26.1081815.zip",
         "size": 343
       },
       {
@@ -105,7 +105,7 @@
         "checksum_md5": "1a6cc492b8003baeac68ab16d21958d9",
         "checksum_sha256": "094436b6389e35bfa80a29ae12e7917d21e816e21aef02a672a819963ea3f17a",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "iptv-checker-0.8.0-1/iptv-checker-0.8.0-1.zip",
+        "url": "iptv-checker-0.8.0-1/iptv-checker-0.8.0.zip",
         "size": 38
       }
     ]

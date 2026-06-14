@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "dispatcharr-exporter",
     "name": "Dispatcharr Exporter",
@@ -15,13 +15,13 @@
       "version": "3.0.1",
       "commit_sha": "b70abd6df9cd520bcc28ad7fced085be135897a9",
       "commit_sha_short": "b70abd6",
-      "build_timestamp": "2026-06-14T13:10:35Z",
+      "build_timestamp": "2026-06-14T13:19:19Z",
       "last_updated": "2026-05-10T14:26:32-04:00",
-      "checksum_md5": "9b1a3a84ef85ba9464774445aed4fd2e",
-      "checksum_sha256": "9778c82e14a5f5fea64d9c1dabe49bac01b202b5e89397add95279ab4044db5d",
+      "checksum_md5": "56ef71958df650dbf5017ed8ef2c6317",
+      "checksum_sha256": "1eaf95570e1ea4af431690e290787f909ddb1215842c014cdac3734b218c2130",
       "min_dispatcharr_version": "v0.22.0",
-      "latest_url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1-1.zip",
-      "url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1-1.zip",
+      "latest_url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1.zip",
+      "url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1.zip",
       "size": 140
     },
     "versions": [
@@ -29,12 +29,12 @@
         "version": "3.0.1",
         "commit_sha": "b70abd6df9cd520bcc28ad7fced085be135897a9",
         "commit_sha_short": "b70abd6",
-        "build_timestamp": "2026-06-14T13:10:35Z",
+        "build_timestamp": "2026-06-14T13:19:19Z",
         "last_updated": "2026-05-10T14:26:32-04:00",
-        "checksum_md5": "9b1a3a84ef85ba9464774445aed4fd2e",
-        "checksum_sha256": "9778c82e14a5f5fea64d9c1dabe49bac01b202b5e89397add95279ab4044db5d",
+        "checksum_md5": "56ef71958df650dbf5017ed8ef2c6317",
+        "checksum_sha256": "1eaf95570e1ea4af431690e290787f909ddb1215842c014cdac3734b218c2130",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1-1.zip",
+        "url": "dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1.zip",
         "size": 140
       },
       {
@@ -46,7 +46,7 @@
         "checksum_md5": "5b01ef6c427ee5110562934ff852e95f",
         "checksum_sha256": "9dd77824492e890f29a491203e3fc9130e4e65da7ff95265d684c27ac9114005",
         "min_dispatcharr_version": "v0.22.0",
-        "url": "dispatcharr-exporter-3.0.0-1/dispatcharr-exporter-3.0.0-1.zip",
+        "url": "dispatcharr-exporter-3.0.0-1/dispatcharr-exporter-3.0.0.zip",
         "size": 139
       },
       {
@@ -58,7 +58,7 @@
         "checksum_md5": "43bd4ec43fb699d7c114da3bc53834f2",
         "checksum_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
         "min_dispatcharr_version": "v0.19.0",
-        "url": "dispatcharr-exporter-2.4.2-1/dispatcharr-exporter-2.4.2-1.zip",
+        "url": "dispatcharr-exporter-2.4.2-1/dispatcharr-exporter-2.4.2.zip",
         "size": 142
       }
     ]

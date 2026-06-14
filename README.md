@@ -44,7 +44,7 @@ Standardizes broadcast (OTA) and premium/cable channel names using network data 
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
-- [Latest Release (`1.26.1430910`)](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910-1.zip)
+- [Latest Release (`1.26.1430910`)](https://github.com/sv-dispatcharr/Plugins/releases/download/channel-mapparr-1.26.1430910-1/channel-mapparr-1.26.1430910.zip)
 - [All Versions (2 available)](./metadata/channel-mapparr)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/channel-mapparr) | **Last Change:** [`309559e`](https://github.com/sv-dispatcharr/Plugins/commit/309559e7795e3c0447f90067e0c011d8c1eb9d45)
@@ -62,7 +62,7 @@ Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitori
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.22.0-brightgreen?style=flat-square)
 
 **Downloads:**
-- [Latest Release (`3.0.1`)](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1-1.zip)
+- [Latest Release (`3.0.1`)](https://github.com/sv-dispatcharr/Plugins/releases/download/dispatcharr-exporter-3.0.1-1/dispatcharr-exporter-3.0.1.zip)
 - [All Versions (3 available)](./metadata/dispatcharr-exporter)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/dispatcharr-exporter) | **Last Change:** [`b70abd6`](https://github.com/sv-dispatcharr/Plugins/commit/b70abd6df9cd520bcc28ad7fced085be135897a9)
@@ -114,7 +114,7 @@ Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connectio
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.22.0-brightgreen?style=flat-square)
 
 **Downloads:**
-- [Latest Release (`1.2.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/embyfin-stream-cleanup-1.2.0-1/embyfin-stream-cleanup-1.2.0-1.zip)
+- [Latest Release (`1.2.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/embyfin-stream-cleanup-1.2.0-1/embyfin-stream-cleanup-1.2.0.zip)
 - [All Versions (6 available)](./metadata/embyfin-stream-cleanup)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/embyfin-stream-cleanup) | **Last Change:** [`315a967`](https://github.com/sv-dispatcharr/Plugins/commit/315a967448ff4db469a66491ebc404bfb8e0bb42)
@@ -132,7 +132,7 @@ Scans for channels with EPG assignments but no program data. Auto-matches EPG to
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
-- [Latest Release (`1.26.1420824`)](https://github.com/sv-dispatcharr/Plugins/releases/download/epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824-1.zip)
+- [Latest Release (`1.26.1420824`)](https://github.com/sv-dispatcharr/Plugins/releases/download/epg-janitor-1.26.1420824-1/epg-janitor-1.26.1420824.zip)
 - [All Versions (2 available)](./metadata/epg-janitor)
 
 **Maintainers:** PiratesIRC | **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/epg-janitor) | [README](https://github.com/sv-dispatcharr/Plugins/blob/main/plugins/epg-janitor/README.md) | **Last Change:** [`a5ccaa9`](https://github.com/sv-dispatcharr/Plugins/commit/a5ccaa94fb0ddb806eb2ef36abef0c8a665afb8d)
@@ -148,7 +148,7 @@ Transform and clean your EPG data using regex and find/replace rules. Creates vi
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jstevenscl/epgeditarr)
 
 **Downloads:**
-- [Latest Release (`0.2.07`)](https://github.com/sv-dispatcharr/Plugins/releases/download/epgeditarr-0.2.07-1/epgeditarr-0.2.07-1.zip)
+- [Latest Release (`0.2.07`)](https://github.com/sv-dispatcharr/Plugins/releases/download/epgeditarr-0.2.07-1/epgeditarr-0.2.07.zip)
 - [All Versions (3 available)](./metadata/epgeditarr)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/epgeditarr) | **Last Change:** [`fc6f5f6`](https://github.com/sv-dispatcharr/Plugins/commit/fc6f5f6fff939c45828f221f47c3355b33cf4b66)
@@ -220,7 +220,7 @@ Tile multiple Dispatcharr channel streams into multi-view outputs using FFmpeg
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.22.0-brightgreen?style=flat-square) ![Dispatcharr max](https://img.shields.io/badge/Dispatcharr_max-v0.25.1-orange?style=flat-square)
 
 **Downloads:**
-- [Latest Release (`0.1.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0-1.zip)
+- [Latest Release (`0.1.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/multiview-0.1.0-1/multiview-0.1.0.zip)
 - [All Versions (1 available)](./metadata/multiview)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/multiview) | **Last Change:** [`5bddf4e`](https://github.com/sv-dispatcharr/Plugins/commit/5bddf4e19c75244ea27e321d8a178b1a3107dece)
@@ -236,7 +236,7 @@ Automatically drops all active streams once per day at a configured time, with a
 [![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic--2.0-blue?style=flat-square)](https://spdx.org/licenses/Artistic-2.0.html)
 
 **Downloads:**
-- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/stream-dripper-1.0.0-1/stream-dripper-1.0.0-1.zip)
+- [Latest Release (`1.0.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/stream-dripper-1.0.0-1/stream-dripper-1.0.0.zip)
 - [All Versions (1 available)](./metadata/stream-dripper)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/stream-dripper) | **Last Change:** [`4e8f1b1`](https://github.com/sv-dispatcharr/Plugins/commit/4e8f1b108c1e84f60520710d13e54eb2fb519648)
@@ -272,7 +272,7 @@ Push Dispatcharr channel/stream/VOD events to a Telegram chat via a bot. Include
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
-- [Latest Release (`0.4.5`)](https://github.com/sv-dispatcharr/Plugins/releases/download/telegram-alerts-0.4.5-1/telegram-alerts-0.4.5-1.zip)
+- [Latest Release (`0.4.5`)](https://github.com/sv-dispatcharr/Plugins/releases/download/telegram-alerts-0.4.5-1/telegram-alerts-0.4.5.zip)
 - [All Versions (1 available)](./metadata/telegram-alerts)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/telegram-alerts) | **Last Change:** [`04aa4f4`](https://github.com/sv-dispatcharr/Plugins/commit/04aa4f43926c2ca7cefc5c802166a02fe43b3500)
@@ -288,7 +288,7 @@ Dynamic text overlays for IPTV channels - SiriusXM Now Playing, Sports Ticker, C
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jstevenscl/tickarr)
 
 **Downloads:**
-- [Latest Release (`0.1.01`)](https://github.com/sv-dispatcharr/Plugins/releases/download/tickarr-0.1.01-1/tickarr-0.1.01-1.zip)
+- [Latest Release (`0.1.01`)](https://github.com/sv-dispatcharr/Plugins/releases/download/tickarr-0.1.01-1/tickarr-0.1.01.zip)
 - [All Versions (2 available)](./metadata/tickarr)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/tickarr) | [README](https://github.com/sv-dispatcharr/Plugins/blob/main/plugins/tickarr/README.md) | **Last Change:** [`489bbb5`](https://github.com/sv-dispatcharr/Plugins/commit/489bbb5253740ef509a4dd8d8545f03971b289e8)
@@ -304,7 +304,7 @@ Twitch live-TV plugin for Dispatcharr with automatic channels, streams, XMLTV gu
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/eliasbruno124-dev/Twitcharr)
 
 **Downloads:**
-- [Latest Release (`1.2.25`)](https://github.com/sv-dispatcharr/Plugins/releases/download/twitcharr-1.2.25-1/twitcharr-1.2.25-1.zip)
+- [Latest Release (`1.2.25`)](https://github.com/sv-dispatcharr/Plugins/releases/download/twitcharr-1.2.25-1/twitcharr-1.2.25.zip)
 - [All Versions (1 available)](./metadata/twitcharr)
 
 **Maintainers:** eliasbruno124-dev | **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/twitcharr) | [README](https://github.com/sv-dispatcharr/Plugins/blob/main/plugins/twitcharr/README.md) | **Last Change:** [`ff09842`](https://github.com/sv-dispatcharr/Plugins/commit/ff09842b40864d9a56364f45b9c86618895b6206)
@@ -340,7 +340,7 @@ Waybill matches, renames, and organizes any streams no matter the provider. Infi
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-0.23.0-brightgreen?style=flat-square) ![Dispatcharr max](https://img.shields.io/badge/Dispatcharr_max-0.24.0-orange?style=flat-square)
 
 **Downloads:**
-- [Latest Release (`1.3.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/waybill-1.3.0-1/waybill-1.3.0-1.zip)
+- [Latest Release (`1.3.0`)](https://github.com/sv-dispatcharr/Plugins/releases/download/waybill-1.3.0-1/waybill-1.3.0.zip)
 - [All Versions (1 available)](./metadata/waybill)
 
 **Source:** [Browse](https://github.com/sv-dispatcharr/Plugins/tree/main/plugins/waybill) | **Last Change:** [`cdd18dd`](https://github.com/sv-dispatcharr/Plugins/commit/cdd18dd7f396035b9cd486d3e45375eed3bcc744)
@@ -375,4 +375,4 @@ curl https://raw.githubusercontent.com/sv-dispatcharr/Plugins/releases/manifest.
 
 ---
 
-*Last updated: Jun 14 2026, 13:11 UTC*
+*Last updated: Jun 14 2026, 13:19 UTC*

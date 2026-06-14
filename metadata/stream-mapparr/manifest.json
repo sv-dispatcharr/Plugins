@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "stream-mapparr",
     "name": "Stream-Mapparr",
@@ -45,7 +45,7 @@
         "checksum_md5": "f86b589e4c80bf08a75bed8987ce9a6c",
         "checksum_sha256": "bf65e3f1051cdd25f219e4e42e5d890c805c8ea17f9787a79d7e6ef2a966738e",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "stream-mapparr-1.26.1082140-1/stream-mapparr-1.26.1082140-1.zip",
+        "url": "stream-mapparr-1.26.1082140-1/stream-mapparr-1.26.1082140.zip",
         "size": 391
       },
       {
@@ -57,7 +57,7 @@
         "checksum_md5": "c3b1a7d8db02ea9416f2cc97d8c05479",
         "checksum_sha256": "be311ee92aacc4e45b680cdf08ab66bd0d0a62faf0af41465ef546dff98f63b2",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "stream-mapparr-0.9.0-1/stream-mapparr-0.9.0-1.zip",
+        "url": "stream-mapparr-0.9.0-1/stream-mapparr-0.9.0.zip",
         "size": 319
       }
     ]

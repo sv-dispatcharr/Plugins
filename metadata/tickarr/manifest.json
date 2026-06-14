@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T13:11:12Z",
+  "generated_at": "2026-06-14T13:19:51Z",
   "manifest": {
     "slug": "tickarr",
     "name": "Tickarr",
@@ -16,13 +16,13 @@
       "version": "0.1.01",
       "commit_sha": "489bbb5253740ef509a4dd8d8545f03971b289e8",
       "commit_sha_short": "489bbb5",
-      "build_timestamp": "2026-06-14T13:11:00Z",
+      "build_timestamp": "2026-06-14T13:19:41Z",
       "last_updated": "2026-06-02T17:10:14-04:00",
       "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
       "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",
       "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.01/tickarr-0.1.01.zip",
-      "latest_url": "tickarr-0.1.01-1/tickarr-0.1.01-1.zip",
-      "url": "tickarr-0.1.01-1/tickarr-0.1.01-1.zip",
+      "latest_url": "tickarr-0.1.01-1/tickarr-0.1.01.zip",
+      "url": "tickarr-0.1.01-1/tickarr-0.1.01.zip",
       "size": 22
     },
     "versions": [
@@ -30,12 +30,12 @@
         "version": "0.1.01",
         "commit_sha": "489bbb5253740ef509a4dd8d8545f03971b289e8",
         "commit_sha_short": "489bbb5",
-        "build_timestamp": "2026-06-14T13:11:00Z",
+        "build_timestamp": "2026-06-14T13:19:41Z",
         "last_updated": "2026-06-02T17:10:14-04:00",
         "checksum_md5": "c3e3ff46d9eacd66bad4aaaa3c954103",
         "checksum_sha256": "c2d0fa4f26560b571fd8014d06b230ca6fff5321e79207bcce07b19c22793e34",
         "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.01/tickarr-0.1.01.zip",
-        "url": "tickarr-0.1.01-1/tickarr-0.1.01-1.zip",
+        "url": "tickarr-0.1.01-1/tickarr-0.1.01.zip",
         "size": 22
       },
       {
@@ -45,7 +45,7 @@
         "checksum_md5": "15b0c5a2fb0c9d7fefd5ef4129bc8ea1",
         "checksum_sha256": "e8c3258cf310c5b5cb3d313d474e7b8b18f9e792707ba9d29c6f78639149c858",
         "source_url": "https://github.com/jstevenscl/tickarr/releases/download/v0.1.0/tickarr-0.1.0.zip",
-        "url": "tickarr-0.1.0-1/tickarr-0.1.0-1.zip",
+        "url": "tickarr-0.1.0-1/tickarr-0.1.0.zip",
         "size": 21
       }
     ]
