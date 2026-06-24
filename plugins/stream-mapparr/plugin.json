@@ -2,7 +2,7 @@
   "name": "Stream-Mapparr",
   "version": "1.26.1720023",
   "description": "Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.",
-  "author": "PiratesIRC",
+  "author": "sethwv",
   "license": "MIT",
   "repo_url": "https://github.com/PiratesIRC/Stream-Mapparr",
   "min_dispatcharr_version": "v0.20.0",
