@@ -448,7 +448,7 @@ jobs:
             curl -fsSL "$source_url" -o "/tmp/${plugin_name}-release.zip"
 
             mkdir -p "/tmp/${plugin_name}-src"
-            unzip -q "/tmp/${plugin_name}-release.zip" -d "/tmp/${plugin_name}-src"
+            python3 -c "import zipfile,os; z=zipfile.ZipFile('/tmp/${plugin_name}-release.zip'); d='/tmp/${plugin_name}-src'; [z.extract((setattr(m,'filename',m.filename.replace(chr(92),'/')) or m),d) for m in z.infolist()]"
             # Copy extracted files into plugins dir without overwriting the registry plugin.json
             cp -rn "/tmp/${plugin_name}-src/." "plugins/$plugin_name/"
             rm -rf "/tmp/${plugin_name}-release.zip" "/tmp/${plugin_name}-src"
